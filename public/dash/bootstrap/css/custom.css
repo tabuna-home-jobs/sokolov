@@ -1,0 +1,40 @@
+a {
+    outline: none !important;
+}
+
+
+body.modal-open {
+    overflow: inherit;
+    padding-right: inherit !important;
+}
+
+
+.direct-chat-messages{
+    height: 500px!important;
+}
+.direct-chat-contacts{
+    height: 500px!important;
+}
+
+.btn-add , .btn-remove{
+    cursor: pointer;
+}
+
+.fileinput-preview {
+    width: 200px;
+    height: 150px;
+    max-width: 300px;
+    max-height: 200px;
+}
+
+.fileinput {
+    width: 100%;
+}
+
+.bootstrap-tagsinput, .chosen-container{
+    width: 100% !important;
+}
+
+#encyPost .tab-pane  iframe{
+    min-height: 850px!important;
+}
