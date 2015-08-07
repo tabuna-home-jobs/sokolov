@@ -29,7 +29,7 @@
 
 
         <p class="login-box-msg">Забыли пароль? Востановим!</p>
-        <form action="{{ url( '/'. App::getLocale() .'/password/email')}}" method="post">
+        <form action="{{ url('/password/email')}}" method="post">
 
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 

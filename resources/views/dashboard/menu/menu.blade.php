@@ -47,7 +47,7 @@
 
                                             <div class="wrap">
                                                 <div class="manage-menus">
-                                                    <form method="get" action="{{route('wmenuindex', App::getLocale())}}">
+                                                    <form method="get" action="{{route('wmenuindex')}}">
                                                         <label for="menu" class="selected-menu">Выберите меню для редактирования:</label>
 
                                                         {!! Form::select('menu', $menulist,0) !!}
@@ -55,7 +55,7 @@
                                             <span class="submit-btn">
                                                 <input type="submit" class="btn btn-primary" value="Изменить">
                                             </span>
-                                                        <span class="add-new-menu-action"> или <a href="{{route('wmenuindex', App::getLocale())}}?action=edit&menu=0">Создать новое меню</a>. </span>
+                                                        <span class="add-new-menu-action"> или <a href="{{route('wmenuindex')}}?action=edit&menu=0">Создать новое меню</a>. </span>
                                                     </form>
                                                 </div>
                                                 <div id="nav-menus-frame">
@@ -179,13 +179,13 @@
                                                                                                 </p>
 
                                                                                                 <p class="field-move hide-if-no-js description description-wide">
-                                                                                                    <label> <span>Переместить</span> <a href="{{route('wmenuindex', App::getLocale())}}?action=edit&menu=26#" class="menus-move-up" style="display: none;">Вверх</a> <a href="{{route('wmenuindex')}}?action=edit&menu=26#" class="menus-move-down" title="Mover uno abajo" style="display: inline;">В низ</a> <a href="{{route('wmenuindex')}}?action=edit&menu=26#" class="menus-move-left" style="display: none;"></a> <a href="{{route('wmenuindex')}}?action=edit&menu=26#" class="menus-move-right" style="display: none;"></a> <a href="{{route('wmenuindex')}}?action=edit&menu=26#" class="menus-move-top" style="display: none;">Верх</a> </label>
+                                                                                                    <label> <span>Переместить</span> <a href="{{route('wmenuindex')}}?action=edit&menu=26#" class="menus-move-up" style="display: none;">Вверх</a> <a href="{{route('wmenuindex')}}?action=edit&menu=26#" class="menus-move-down" title="Mover uno abajo" style="display: inline;">В низ</a> <a href="{{route('wmenuindex')}}?action=edit&menu=26#" class="menus-move-left" style="display: none;"></a> <a href="{{route('wmenuindex')}}?action=edit&menu=26#" class="menus-move-right" style="display: none;"></a> <a href="{{route('wmenuindex')}}?action=edit&menu=26#" class="menus-move-top" style="display: none;">Верх</a> </label>
                                                                                                 </p>
 
                                                                                                 <div class="menu-item-actions description-wide submitbox">
 
-                                                                                                    <a class="item-delete btn btn-danger" id="delete-{{$m->id}}" href="{{route('wmenuindex', App::getLocale())}}?action=delete-menu-item&menu-item={{$m->id}}&_wpnonce=2844002501">Удалить</a>
-                                                                                                    <a class="item-cancel hide-if-no-js btn btn-link" id="cancel-{{$m->id}}" href="{{route('wmenuindex', App::getLocale())}}?edit-menu-item={{$m->id}}&cancel=1424297719#menu-item-settings-{{$m->id}}">Отмена</a>
+                                                                                                    <a class="item-delete btn btn-danger" id="delete-{{$m->id}}" href="{{route('wmenuindex')}}?action=delete-menu-item&menu-item={{$m->id}}&_wpnonce=2844002501">Удалить</a>
+                                                                                                    <a class="item-cancel hide-if-no-js btn btn-link" id="cancel-{{$m->id}}" href="{{route('wmenuindex')}}?edit-menu-item={{$m->id}}&cancel=1424297719#menu-item-settings-{{$m->id}}">Отмена</a>
                                                                                                     <a onclick="updateitem({{$m->id}})" class="btn btn-primary updatemenu" id="update-{{$m->id}}" href="javascript:void(0)">Обновить элемент</a>
 
                                                                                                 </div>
@@ -243,13 +243,13 @@
                                 <script>
                                     var arraydata = [];
 
-                                    var addcustommenur= "{{route('addcustommenu', App::getLocale())}}";
+                                    var addcustommenur= "{{route('addcustommenu')}}";
                                     var updateitemr= "{{route('updateitem')}}";
-                                    var generatemenucontrolr="{{route('generatemenucontrol', App::getLocale())}}";
-                                    var deleteitemmenur="{{route('deleteitemmenu', App::getLocale())}}";
-                                    var deletemenugr="{{route('deletemenug', App::getLocale())}}";
-                                    var createnewmenur="{{route('createnewmenu', App::getLocale())}}";
-                                    var menuwr="{{route('wmenuindex', App::getLocale())}}";
+                                    var generatemenucontrolr="{{route('generatemenucontrol')}}";
+                                    var deleteitemmenur="{{route('deleteitemmenu')}}";
+                                    var deletemenugr="{{route('deletemenug')}}";
+                                    var createnewmenur="{{route('createnewmenu')}}";
+                                    var menuwr="{{route('wmenuindex')}}";
                                 </script>
                                 <div class="clear"></div>
                             </div>

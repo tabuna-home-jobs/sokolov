@@ -24,7 +24,7 @@
 
         <p class="login-box-msg">Сменить пароль</p>
 
-            <form action="{{ url( '/'. App::getLocale() .'/auth/reset') }}" method="post">
+            <form action="{{ url('/auth/reset') }}" method="post">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <div class="form-group has-feedback">

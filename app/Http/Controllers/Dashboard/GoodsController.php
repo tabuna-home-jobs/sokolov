@@ -40,7 +40,7 @@ class GoodsController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store($local,GoodsRequest $request)
+    public function store(GoodsRequest $request)
     {
         $Goods = new Goods($request->all());
         $Goods->category_id = $request->category;
@@ -55,7 +55,7 @@ class GoodsController extends Controller
         $Goods->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
-        return redirect()->route('{local}.dashboard.goods.index',$local);
+        return redirect()->route('dashboard.goods.index');
     }
 
     /**
@@ -75,7 +75,7 @@ class GoodsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit($local, Goods $Goods)
+    public function edit(Goods $Goods)
     {
         $Category = Category::all();
         return view("dashboard/goods/edit",['Goods' => $Goods , 'Category' => $Category]);
@@ -89,7 +89,7 @@ class GoodsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($local,GoodsRequest $request, Goods $Goods)
+    public function update(GoodsRequest $request, Goods $Goods)
     {
         $Goods->fill($request->all());
         $Goods->category_id = $request->category;
@@ -104,7 +104,7 @@ class GoodsController extends Controller
         $Goods->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
-        return redirect()->route('{local}.dashboard.goods.index',$local);
+        return redirect()->route('dashboard.goods.index');
     }
 
     /**
@@ -113,10 +113,10 @@ class GoodsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($local, Goods $Goods)
+    public function destroy(Goods $Goods)
     {
         $Goods->delete('cascade');
         Session::flash('good', 'Вы успешно удалили значения');
-        return redirect()->route('{local}.dashboard.goods.index',$local);
+        return redirect()->route('dashboard.goods.index');
     }
 }

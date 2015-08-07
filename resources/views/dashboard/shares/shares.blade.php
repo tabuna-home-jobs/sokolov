@@ -9,7 +9,7 @@
     <div class="wrapper-md">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <a href="{{URL::route('{local}.dashboard.shares.create',App::getLocale())}}"
+                <a href="{{URL::route('dashboard.shares.create')}}"
                    class="btn btn-link btn-sm"><i class="fa fa-plus"></i>  Добавить новую запись </a>
 
             </div>
@@ -41,10 +41,10 @@
                                         <td>{{ $Share->end }}</td>
                                         <td>{{ $Share->updated_at }}</td>
                                         <td class="pull-right">
-                                            <a href="{{URL::route('{local}.dashboard.shares.edit', [App::getLocale(),$Share->slug])}}"
+                                            <a href="{{URL::route('dashboard.shares.edit', $Share->slug)}}"
                                                class="btn btn-primary"><span class="fa fa-edit"></span> </a>
 
-                                            <form action="{{URL::route('{local}.dashboard.shares.destroy',[App::getLocale(),$Share->slug])}}"
+                                            <form action="{{URL::route('dashboard.shares.destroy',$Share->slug)}}"
                                                   method="post" class="pull-right">
                                                 <input type="hidden" name="_method" value="delete">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

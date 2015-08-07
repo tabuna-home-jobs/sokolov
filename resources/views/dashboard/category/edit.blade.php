@@ -7,7 +7,7 @@
         <h1 class="m-n font-thin h3"> {{ $Category->name or 'Новая Категория' }}</h1>
     </div>
     <div class="wrapper-md">
-        <form class="row" role="form" action="{{URL::route('{local}.dashboard.category.update', [App::getLocale(), $Category->slug])}}"
+        <form class="row" role="form" action="{{URL::route('dashboard.category.update',  $Category->slug)}}"
               method="post" class="row"
               enctype="multipart/form-data">
             <div class="col-sm-8">

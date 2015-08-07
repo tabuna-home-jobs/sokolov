@@ -17,8 +17,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $Order = Order::orderBy('id', 'desc')->paginate(15);
-        return view("dashboard/order/order", ['Order' => $Order]);
+        $Orders = Order::select('id','name')->orderBy('id', 'desc')->simplePaginate(15);
+        return view("dashboard/order/order", ['Orders' => $Orders]);
     }
 
     /**

@@ -36,7 +36,7 @@
                 <i class="glyphicon glyphicon-align-justify"></i>
             </button>
             <!-- brand -->
-            <a href="{{URL::route('{local}.dashboard..index', App::getLocale())}}" class="navbar-brand text-lt">
+            <a href="{{URL::route('dashboard..index')}}" class="navbar-brand text-lt">
                 <i class="fa fa-language"></i>
             </a>
             <!-- / brand -->
@@ -196,7 +196,7 @@
 
 
                         <li class="{{Active::route('dashboard..*')}}">
-                            <a href="{{URL::route('{local}.dashboard..index', App::getLocale())}}">
+                            <a href="{{URL::route('dashboard..index')}}">
                                 <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
                                 <span>Панель</span>
                             </a>
@@ -204,27 +204,27 @@
 
 
                         <li class="{{Active::route('dashboard.page.*')}}">
-                            <a href="{{URL::route('{local}.dashboard.page.index', App::getLocale())}}">
+                            <a href="{{URL::route('dashboard.page.index')}}">
                                 <i class="glyphicon glyphicon-file icon"></i>
                                 <span>Страницы</span>
                             </a>
                         </li>
                         <li class="{{Active::route('dashboard.news.*')}}">
-                            <a href="{{URL::route('{local}.dashboard.news.index', App::getLocale())}}">
+                            <a href="{{URL::route('dashboard.news.index')}}">
                                 <i class="fa fa-newspaper-o icon"></i>
                                 <span>Новости</span>
                             </a>
                         </li>
                         <li class="{{Active::route('dashboard.shares.*')}}">
-                            <a href="{{URL::route('{local}.dashboard.shares.index', App::getLocale())}}">
+                            <a href="{{URL::route('dashboard.shares.index')}}">
                                 <i class="fa fa-star"></i>
                                 <span>Акции</span>
                             </a>
                         </li>
 
 
-                        <li class="{{Active::route('wmenuindex', App::getLocale())}}">
-                            <a href="{{URL::route('wmenuindex', App::getLocale())}}">
+                        <li class="{{Active::route('wmenuindex')}}">
+                            <a href="{{URL::route('wmenuindex')}}">
                                 <i class="glyphicon glyphicon-align-justify"></i>
                                 <span>Меню</span>
                             </a>
@@ -239,7 +239,7 @@
 
 
                         <li class="{{Active::route('dashboard.feedback.*')}}">
-                            <a href="{{URL::route('{local}.dashboard.feedback.index', App::getLocale())}}">
+                            <a href="{{URL::route('dashboard.feedback.index')}}">
                                 <i class="glyphicon glyphicon-envelope icon"></i>
                                 <span class="font-bold">Почта</span>
                             </a>
@@ -247,13 +247,13 @@
 
 
                         <li class="{{Active::route('dashboard.category.*')}}">
-                            <a href="{{URL::route('{local}.dashboard.category.index', App::getLocale())}}">
+                            <a href="{{URL::route('dashboard.category.index')}}">
                                 <i class="fa fa-medkit icon"></i>
                                 <span>Категории</span>
                             </a>
                         </li>
                         <li class="{{Active::route('dashboard.news.*')}}">
-                            <a href="{{URL::route('{local}.dashboard.goods.index', App::getLocale())}}">
+                            <a href="{{URL::route('dashboard.goods.index')}}">
                                 <i class="fa fa-stethoscope"></i>
                                 <span>Услуги</span>
                             </a>

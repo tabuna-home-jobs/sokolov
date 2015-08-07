@@ -7,7 +7,7 @@
         <h1 class="m-n font-thin h3">Новая страница</h1>
     </div>
     <div class="wrapper-md">
-        <form class="row" role="form" action="{{URL::route('{local}.dashboard.news.index',App::getLocale())}}" method="post" enctype="multipart/form-data">
+        <form class="row" role="form" action="{{URL::route('dashboard.news.index')}}" method="post" enctype="multipart/form-data">
             <div class="col-sm-8">
                 <div class="panel panel-default">
                     <div class="panel-heading font-bold">Содержание</div>

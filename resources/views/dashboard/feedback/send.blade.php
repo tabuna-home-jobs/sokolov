@@ -8,7 +8,7 @@
         <div class="col w-md bg-light dk b-r bg-auto">
             <div class="wrapper b-b bg">
                 <button class="btn btn-sm btn-default pull-right visible-sm visible-xs" ui-toggle="show" target="#email-menu"><i class="fa fa-bars"></i></button>
-                <a href="{{URL::route('{local}.dashboard.feedback.create', App::getLocale())}}" class="btn btn-sm btn-danger w-xs font-bold">Написать</a>
+                <a href="{{URL::route('dashboard.feedback.create')}}" class="btn btn-sm btn-danger w-xs font-bold">Написать</a>
             </div>
             <div class="wrapper hidden-sm hidden-xs" id="email-menu">
                 <ul class="nav nav-pills nav-stacked nav-sm">
@@ -31,7 +31,7 @@
 
 
 
-            <form method="post" action="{{URL::route('{local}.dashboard.feedback.store', App::getLocale())}}" >
+            <form method="post" action="{{URL::route('dashboard.feedback.store')}}" >
 
                 <div class="box-body">
                     <div class="form-group">

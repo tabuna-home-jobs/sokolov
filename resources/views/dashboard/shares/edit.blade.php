@@ -7,7 +7,7 @@
         <h1 class="m-n font-thin h3">Новая страница</h1>
     </div>
     <div class="wrapper-md">
-        <form class="row" role="form" action="{{URL::route('{local}.dashboard.shares.update',[App::getLocale(),$Shares->slug])}}" method="post">
+        <form class="row" role="form" action="{{URL::route('dashboard.shares.update',$Shares->slug)}}" method="post">
             <div class="col-sm-8">
                 <div class="panel panel-default">
                     <div class="panel-heading font-bold">Содержание</div>

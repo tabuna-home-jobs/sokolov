@@ -43,7 +43,7 @@ class SharesController extends Controller
      *
      * @return Response
      */
-    public function store($local ,SharesRequest $request)
+    public function store(SharesRequest $request)
     {
         $shares = new Shares(
             $request->all()
@@ -57,7 +57,7 @@ class SharesController extends Controller
 
         //Флеш сообщение
         Session::flash('good', 'Вы успешно добавили значения');
-        return redirect()->route('{local}.dashboard.shares.index',$local);
+        return redirect()->route('dashboard.shares.index');
     }
 
     /**
@@ -77,7 +77,7 @@ class SharesController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit($local,Shares $shares)
+    public function edit(Shares $shares)
     {
         return view("dashboard/shares/edit", ['Shares' => $shares ]);
     }
@@ -88,7 +88,7 @@ class SharesController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($local, Shares $shares, SharesRequest $request )
+    public function update(Shares $shares, SharesRequest $request )
     {
 
         $shares->fill(
@@ -104,7 +104,7 @@ class SharesController extends Controller
         $shares->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
-        return redirect()->route('{local}.dashboard.shares.index',$local);
+        return redirect()->route('{local}.dashboard.shares.index');
     }
 
     /**

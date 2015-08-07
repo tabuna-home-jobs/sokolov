@@ -10,7 +10,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
 
-                <a href="{{URL::route('{local}.dashboard.news.create',App::getLocale())}}"
+                <a href="{{URL::route('dashboard.news.create')}}"
                    class="btn btn-link btn-sm"><i class="fa fa-plus"></i>  Добавить новую запись </a>
 
             </div>
@@ -40,10 +40,10 @@
                                         <td>{{ $News->title }}</td>
                                         <td>{{ $News->updated_at }}</td>
                                         <td class="pull-right">
-                                            <a href="{{URL::route('{local}.dashboard.news.edit',[App::getLocale(),$News->slug])}}"
+                                            <a href="{{URL::route('dashboard.news.edit',$News->slug)}}"
                                                class="btn btn-primary"><span class="fa fa-edit"></span> </a>
 
-                                            <form action="{{URL::route('{local}.dashboard.news.destroy',[App::getLocale(),$News->slug])}}"
+                                            <form action="{{URL::route('dashboard.news.destroy',$News->slug)}}"
                                                   method="post" class="pull-right">
                                                 <input type="hidden" name="_method" value="delete">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

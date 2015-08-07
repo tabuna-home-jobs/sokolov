@@ -44,7 +44,7 @@ class NewsController extends Controller
      *
      * @return Response
      */
-    public function store($local ,NewsRequest $request)
+    public function store(NewsRequest $request)
     {
 
         $news = new News(
@@ -59,7 +59,7 @@ class NewsController extends Controller
         $news->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
-        return redirect()->route('{local}.dashboard.news.index', $local);
+        return redirect()->route('dashboard.news.index');
     }
 
     /**
@@ -79,7 +79,7 @@ class NewsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit($local, News $news)
+    public function edit(News $news)
     {
         return view("dashboard/news/edit", ['news' => $news ]);
     }
@@ -90,7 +90,7 @@ class NewsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($local, News $news, NewsRequest $request)
+    public function update(News $news, NewsRequest $request)
     {
         $news->fill(
             $request->all()
@@ -105,7 +105,7 @@ class NewsController extends Controller
         $news->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
-        return redirect()->route('{local}.dashboard.news.index',$local);
+        return redirect()->route('dashboard.news.index');
     }
 
     /**
@@ -114,10 +114,10 @@ class NewsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($local, News $news)
+    public function destroy(News $news)
     {
         $news->delete();
         Session::flash('good', 'Вы успешно удалили значения');
-        return redirect()->route('{local}.dashboard.news.index', $local);
+        return redirect()->route('dashboard.news.index');
     }
 }

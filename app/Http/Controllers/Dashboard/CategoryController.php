@@ -41,7 +41,7 @@ class CategoryController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store($local, CategoryRequest $request)
+    public function store(CategoryRequest $request)
     {
 
         $Category = new Category($request->all());
@@ -55,7 +55,7 @@ class CategoryController extends Controller
 
         //Флеш сообщение
         Session::flash('good', 'Вы успешно изменили значения');
-        return redirect()->route('{local}.dashboard.category.index', $local);
+        return redirect()->route('dashboard.category.index');
     }
 
     /**
@@ -75,7 +75,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit($local, Category $category)
+    public function edit(Category $category)
     {
         return view("dashboard/category/edit",[
                 'Category' => $category
@@ -89,7 +89,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($local, Category $Category,  CategoryRequest $request)
+    public function update(Category $Category,  CategoryRequest $request)
     {
 
         $Category->fill($request->all());
@@ -103,7 +103,7 @@ class CategoryController extends Controller
 
         //Флеш сообщение
         Session::flash('good', 'Вы успешно изменили значения');
-        return redirect()->route('{local}.dashboard.category.index', $local);
+        return redirect()->route('dashboard.category.index');
     }
 
     /**
@@ -112,10 +112,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($local, Category $category)
+    public function destroy( Category $category)
     {
         $category->delete('cascade');
         Session::flash('good', 'Вы успешно удалили значения');
-        return redirect()->route('{local}.dashboard.category.index',$local);
+        return redirect()->route('dashboard.category.index');
     }
 }

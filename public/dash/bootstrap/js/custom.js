@@ -29,6 +29,29 @@ $(document).ready(function(){
     });
 
 
+    //Тайм пикер для акций
+    $(function () {
+        if(document.getElementById('datetimepickerorder') )
+        {
+
+            $('#datetimepickerorder').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm:ss',
+                locale: 'ru',
+                defaultDate:  $('#datetimepickerorder input').attr('value')
+            });
+
+            $("#datetimepickerorder").on("dp.change", function (e) {
+                $('#datetimepickerorder').data("DateTimePicker").minDate(e.date);
+            });
+
+
+        };
+    });
+
+
+
+
+
 
     //Визуальный редактор
     $(function () {

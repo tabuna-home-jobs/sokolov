@@ -44,7 +44,7 @@ class FeedbackController extends Controller
      *
      * @return Response
      */
-    public function store($local, FeedBackSend $request)
+    public function store(FeedBackSend $request)
     {
 
         Mail::raw($request->contentmess, function($message) use ( $request)
@@ -52,7 +52,7 @@ class FeedbackController extends Controller
             $message->to($request->email );
         });
         Session::flash('good', 'Вы успешно отправили письмо');
-        return redirect()->route('{local}.dashboard.feedback.index',$local);
+        return redirect()->route('dashboard.feedback.index');
     }
 
     /**
@@ -97,11 +97,11 @@ class FeedbackController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($local,$Feedback = null)
+    public function destroy($Feedback = null)
     {
         $Feedback = Feedback::find($Feedback);
         $Feedback->delete();
         Session::flash('good', 'Вы успешно удалили значения');
-        return redirect()->route('{local}.dashboard.feedback.index',$local);
+        return redirect()->route('dashboard.feedback.index');
     }
 }

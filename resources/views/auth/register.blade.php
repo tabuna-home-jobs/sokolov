@@ -21,7 +21,7 @@
         @endif
 
 
-        <form action="{{ url( '/'. App::getLocale(). '/auth/register') }}" method="post">
+        <form action="{{ url('/auth/register') }}" method="post">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <div class="form-group has-feedback">

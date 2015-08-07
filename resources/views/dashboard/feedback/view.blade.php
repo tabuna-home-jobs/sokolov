@@ -9,7 +9,7 @@
             <div class="wrapper b-b bg">
                 <button class="btn btn-sm btn-default pull-right visible-sm visible-xs" ui-toggle="show"
                         target="#email-menu"><i class="fa fa-bars"></i></button>
-                <a href="{{URL::route('{local}.dashboard.feedback.create', App::getLocale())}}" class="btn btn-sm btn-danger w-xs font-bold">Написать</a>
+                <a href="{{URL::route('dashboard.feedback.create')}}" class="btn btn-sm btn-danger w-xs font-bold">Написать</a>
             </div>
             <div class="wrapper hidden-sm hidden-xs" id="email-menu">
                 <ul class="nav nav-pills nav-stacked nav-sm">
@@ -36,7 +36,7 @@
                                         class="fa fa-reply"></i></button>
 
 
-                            <form action="{{URL::route('{local}.dashboard.feedback.destroy',[App::getLocale(),$Feedback->id])}}" method="post" class="pull-right">
+                            <form action="{{URL::route('dashboard.feedback.destroy',$Feedback->id)}}" method="post" class="pull-right">
                                 <input type="hidden" name="_method" value="delete">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <button type="submit" class="btn btn-sm btn-default w-xxs w-auto-xs"><i

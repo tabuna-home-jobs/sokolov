@@ -9,7 +9,7 @@
                     <div class="col w-md bg-light dk b-r bg-auto">
                         <div class="wrapper b-b bg">
                             <button class="btn btn-sm btn-default pull-right visible-sm visible-xs" ui-toggle="show" target="#email-menu"><i class="fa fa-bars"></i></button>
-                            <a href="{{URL::route('{local}.dashboard.feedback.create', App::getLocale())}}" class="btn btn-sm btn-danger w-xs font-bold">Написать</a>
+                            <a href="{{URL::route('dashboard.feedback.create')}}" class="btn btn-sm btn-danger w-xs font-bold">Написать</a>
                         </div>
                         <div class="wrapper hidden-sm hidden-xs" id="email-menu">
                             <ul class="nav nav-pills nav-stacked nav-sm">
@@ -41,7 +41,7 @@
                                         <i class="fa fa-clock-o"></i>
                                     </div>
                                     <div class="clear">
-                                        <div><a  class="text-md " href="{{URL::route('{local}.dashboard.feedback.show',[ App::getLocale(),$mail->id]) }}">{{ $mail->fio  }}</a><span class="label bg-light m-l-sm ">{{ $mail->email  }}</span></div>
+                                        <div><a  class="text-md " href="{{URL::route('dashboard.feedback.show',$mail->id) }}">{{ $mail->fio  }}</a><span class="label bg-light m-l-sm ">{{ $mail->email  }}</span></div>
                                         <div class="text-ellipsis m-t-xs">{{str_limit($mail->content,100,'...')}}</div>
                                     </div>
                                 </li>

@@ -40,7 +40,7 @@ class PageController extends Controller
      *
      * @return Response
      */
-    public function store($local,PageRequest $request)
+    public function store(PageRequest $request)
     {
         $page = new Page(
             $request->all()
@@ -48,7 +48,7 @@ class PageController extends Controller
         $page->save();
 
         Session::flash('good', 'Вы успешно добавили значения');
-        return redirect()->route('{local}.dashboard.page.index', $local);
+        return redirect()->route('dashboard.page.index');
     }
 
     /**
@@ -68,7 +68,7 @@ class PageController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit($local,Page $page)
+    public function edit(Page $page)
     {
         return view("dashboard/page/edit", ['Page' => $page ]);
     }
@@ -79,14 +79,14 @@ class PageController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($local, Page $page, PageRequest $request)
+    public function update(Page $page, PageRequest $request)
     {
         $page->fill(
             $request->all()
         )->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
-        return redirect()->route('{local}.dashboard.page.index', $local);
+        return redirect()->route('dashboard.page.index');
     }
 
     /**
@@ -95,10 +95,10 @@ class PageController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($local, Page $page)
+    public function destroy(Page $page)
     {
         $page->delete();
         Session::flash('good', 'Вы успешно удалили значения');
-        return redirect()->route('{local}.dashboard.page.index', $local);
+        return redirect()->route('dashboard.page.index');
     }
 }

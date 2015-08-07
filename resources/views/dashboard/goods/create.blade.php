@@ -7,7 +7,7 @@
         <h1 class="m-n font-thin h3">{{ $Goods->name or 'Новая Услуга' }}</h1>
     </div>
     <div class="wrapper-md">
-        <form class="row" role="form" action="{{URL::route('{local}.dashboard.goods.store', App::getLocale())}}" method="post" class="row" enctype="multipart/form-data">
+        <form class="row" role="form" action="{{URL::route('dashboard.goods.store')}}" method="post" class="row" enctype="multipart/form-data">
             <div class="col-sm-8">
                 <div class="panel panel-default">
                     <div class="panel-heading font-bold">Содержание</div>

@@ -10,7 +10,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
 
-                <a href="{{URL::route('{local}.dashboard.goods.create',App::getLocale())}}" class="btn btn-link btn-sm"><span class="fa fa-plus"></span> Добавить новую запись </a>
+                <a href="{{URL::route('dashboard.goods.create')}}" class="btn btn-link btn-sm"><span class="fa fa-plus"></span> Добавить новую запись </a>
 
 
             </div>
@@ -36,10 +36,10 @@
                                         <td>{{ $good->name }}</td>
                                         <td>{{ $good->category()->first()->name }}</td>
                                         <td class="pull-right">
-                                            <a href="{{URL::route('{local}.dashboard.goods.edit', [App::getLocale(), $good->slug])}}"
+                                            <a href="{{URL::route('dashboard.goods.edit',  $good->slug)}}"
                                                class="btn btn-primary"><span class="fa fa-edit"></span> </a>
 
-                                            <form action="{{URL::route('{local}.dashboard.goods.destroy',[App::getLocale(),$good->slug])}}"
+                                            <form action="{{URL::route('dashboard.goods.destroy',$good->slug)}}"
                                                   method="post" class="pull-right">
                                                 <input type="hidden" name="_method" value="delete">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

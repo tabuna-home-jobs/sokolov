@@ -7,7 +7,7 @@
     </div>
     <div class="wrapper-md">
         <form class="row" role="form"
-              action="{{URL::route('{local}.dashboard.page.update',[App::getLocale(),$Page->slug])}}" method="post">
+              action="{{URL::route('dashboard.page.update',$Page->slug)}}" method="post">
             <div class="col-sm-8">
                 <div class="panel panel-default">
                     <div class="panel-heading font-bold">Содержание</div>

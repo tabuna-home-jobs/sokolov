@@ -7,7 +7,7 @@
         <h1 class="m-n font-thin h3">Новая страница</h1>
     </div>
     <div class="wrapper-md">
-        <form class="row" role="form" action="{{URL::route('{local}.dashboard.page.store',App::getLocale())}}"
+        <form class="row" role="form" action="{{URL::route('dashboard.page.store')}}"
               method="post">
             <div class="col-sm-8">
                 <div class="panel panel-default">
