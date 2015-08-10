@@ -2,20 +2,28 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Feedback extends Model {
+class Files extends Model
+{
 
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'feedbacks';
+    protected $table = 'Files';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['fio', 'phone', 'email', 'content'];
+    protected $fillable = ['user_id', 'name', 'type', 'beglouto'];
+
+
+    public function getMeta()
+    {
+        return $this->hasMany('App\Models\FilesMeta');
+    }
+
 
 }

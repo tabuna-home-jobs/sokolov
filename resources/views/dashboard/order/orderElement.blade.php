@@ -184,13 +184,34 @@
                                             <div id="TabUploadContent" class="tab-content">
                                                 <div role="tabpanel" class="tab-pane fade active in" id="files"
                                                      aria-labelledby="files-tab">
-                                                    <p>Файлы пользователя</p>
+
+
+                                                    <ul class="list-group">
+                                                        <ul class="list-group">
+                                                            @foreach($SelectRequestFile as $file)
+                                                                <a href="{{URL::route('dashboard.filemanager.show', $file->id)}}"
+                                                                   class="list-group-item">{{$file->name}}</a>
+                                                            @endforeach
+                                                        </ul>
+                                                    </ul>
+
+
                                                 </div>
 
 
                                                 <div role="tabpanel" class="tab-pane" id="goodfiles"
                                                      aria-labelledby="goodfiles-tab">
-                                                    <p>Готовые файлы</p>
+
+                                                    <ul class="list-group">
+                                                        <ul class="list-group">
+                                                            @foreach($SelectGoodFile as $file)
+                                                                <a href="{{URL::route('dashboard.filemanager.show', $file->id)}}"
+                                                                   class="list-group-item">{{$file->name}}</a>
+                                                            @endforeach
+                                                        </ul>
+                                                    </ul>
+
+
                                                 </div>
 
 
@@ -213,6 +234,7 @@
                                                     <div id="progress" class="progress">
                                                         <div class="progress-bar progress-bar-success"></div>
                                                     </div>
+
                                                     <!-- The container for the uploaded files -->
                                                     <div id="files" class="files"></div>
                                                     <br>
@@ -332,6 +354,8 @@
                             'width',
                             progress + '%'
                     );
+                    $('#progress .progress-bar').html('Загрузка');
+
                 },
                 complete: function(e, data)
                 {

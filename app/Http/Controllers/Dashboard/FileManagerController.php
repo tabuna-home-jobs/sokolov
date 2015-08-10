@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Storage;
+use App\Http\Requests;
+use App\Models\Files;
+use Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Storage;
 
 class FileManagerController extends Controller
 {
@@ -42,7 +43,14 @@ class FileManagerController extends Controller
 
         foreach($request->file('files') as $file)
         {
-            $file->move(storage_path() . '/app/order/', Str::ascii($file->getClientOriginalName()));
+            $file->move(storage_path() . '/app/order/', Str::ascii($file->getClientOriginalName() . '-' . time()));
+            $DBfile = new Files([
+                'user_id' => Auth::user()->id,
+                'name' => $file->getClientOriginalName() . '-' . time(),
+                'type' => 'order',
+                'finish' => true,
+            ]);
+            $DBfile->save();
         }
 
         return abort(200);

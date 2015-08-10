@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Order;
+use App\Http\Requests;
 use App\Models\Comments;
+use App\Models\Files;
+use App\Models\Order;
+use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
@@ -57,6 +57,8 @@ class OrderController extends Controller
         $SelectUser = $SelectOrder->getUser()->get()->first();
         $SelectComments = Comments::whereRaw('type = ? and beglouto = ?', ['order', $id])->get();
         $SelectGoods = $SelectOrder->getGoods()->get();
+        $SelectGoodFile = Files::whereRaw('type = ? and beglouto = ? and finish = ?', ['order', $id, true])->get();
+        $SelectRequestFile = Files::whereRaw('type = ? and beglouto = ? and finish = ?', ['order', $id, false])->get();
 
         return view("dashboard/order/orderElement", [
             'Orders' => $Orders,
@@ -64,6 +66,8 @@ class OrderController extends Controller
             'SelectUser' => $SelectUser,
             'SelectComments' => $SelectComments,
             'SelectGoods' => $SelectGoods,
+            'SelectGoodFile' => $SelectGoodFile,
+            'SelectRequestFile' => $SelectRequestFile
         ]);
     }
 
