@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Order;
 use App\Models\Comments;
+use App\Http\Requests\CommentsRequest;
+use Session;
+use Auth;
 
-class OrderController extends Controller
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +20,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $Orders = Order::select('id','name','created_at')->orderBy('id', 'desc')->simplePaginate(15);
-        return view("dashboard/order/order", ['Orders' => $Orders]);
+        //
     }
 
     /**
@@ -38,9 +39,14 @@ class OrderController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CommentsRequest $request)
     {
-        //
+        $comments = new Comments($request->all());
+        $comments->user_id = Auth::user()->id;
+        $comments->save();
+
+        Session::flash('good', 'Вы успешно добавили комментарий');
+        return redirect()->back();
     }
 
     /**
@@ -51,20 +57,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $Orders = Order::select('id','name','created_at')->orderBy('id', 'desc')->simplePaginate(15);
-
-        $SelectOrder = Order::findorfail($id);
-        $SelectUser = $SelectOrder->getUser()->get()->first();
-        $SelectComments = Comments::whereRaw('type = ? and beglouto = ?', ['order', $id])->get();
-        $SelectGoods = $SelectOrder->getGoods()->get();
-
-        return view("dashboard/order/orderElement", [
-            'Orders' => $Orders,
-            'SelectOrder' => $SelectOrder,
-            'SelectUser' => $SelectUser,
-            'SelectComments' => $SelectComments,
-            'SelectGoods' => $SelectGoods,
-        ]);
+        //
     }
 
     /**

@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Order;
-use App\Models\Comments;
+use Storage;
+use Illuminate\Support\Str;
 
-class OrderController extends Controller
+class FileManagerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +18,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $Orders = Order::select('id','name','created_at')->orderBy('id', 'desc')->simplePaginate(15);
-        return view("dashboard/order/order", ['Orders' => $Orders]);
+        //
     }
 
     /**
@@ -40,7 +39,13 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        foreach($request->file('files') as $file)
+        {
+            $file->move(storage_path() . '/app/order/', Str::ascii($file->getClientOriginalName()));
+        }
+
+        return abort(200);
     }
 
     /**
@@ -51,20 +56,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $Orders = Order::select('id','name','created_at')->orderBy('id', 'desc')->simplePaginate(15);
-
-        $SelectOrder = Order::findorfail($id);
-        $SelectUser = $SelectOrder->getUser()->get()->first();
-        $SelectComments = Comments::whereRaw('type = ? and beglouto = ?', ['order', $id])->get();
-        $SelectGoods = $SelectOrder->getGoods()->get();
-
-        return view("dashboard/order/orderElement", [
-            'Orders' => $Orders,
-            'SelectOrder' => $SelectOrder,
-            'SelectUser' => $SelectUser,
-            'SelectComments' => $SelectComments,
-            'SelectGoods' => $SelectGoods,
-        ]);
+        //
     }
 
     /**

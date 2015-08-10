@@ -29,21 +29,21 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot($router);
 
         $router->bind('page', function($value) {
-                return \App\Models\Page::where('slug', $value)->first();
+                return \App\Models\Page::where('slug', $value)->firstOrFail();
         });
         $router->bind('news', function($value) {
-                return \App\Models\News::where('slug', $value)->first();
+                return \App\Models\News::where('slug', $value)->firstOrFail();
         });
         $router->bind('shares', function($value) {
-            return \App\Models\Shares::where('slug', $value)->first();
+            return \App\Models\Shares::where('slug', $value)->firstOrFail();
         });
 
         $router->bind('category', function($value) {
-            return \App\Models\Category::where('slug', $value)->first();
+            return \App\Models\Category::where('slug', $value)->firstOrFail();
         });
 
         $router->bind('goods', function($value) {
-            return \App\Models\Goods::where('slug', $value)->first();
+            return \App\Models\Goods::where('slug', $value)->firstOrFail();
         });
 
     }

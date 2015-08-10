@@ -41,6 +41,9 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth'], 'prefix' => 
     Route::resource('category', 'CategoryController');
     Route::resource('goods', 'GoodsController');
     Route::resource('order', 'OrderController');
+    Route::resource('comments', 'CommentsController');
+    Route::resource('filemanager', 'FileManagerController');
+
 
     Route::get('/wmenuindex', array('as' => 'wmenuindex', 'uses' => 'WmenuController@wmenuindex'));
     Route::post('/addcustommenu', array('as' => 'addcustommenu', 'uses' => 'WmenuController@addcustommenu'));

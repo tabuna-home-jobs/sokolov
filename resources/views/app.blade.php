@@ -252,12 +252,25 @@
                                 <span>Категории</span>
                             </a>
                         </li>
+
+
                         <li class="{{Active::route('dashboard.news.*')}}">
                             <a href="{{URL::route('dashboard.goods.index')}}">
                                 <i class="fa fa-stethoscope"></i>
                                 <span>Услуги</span>
                             </a>
                         </li>
+
+
+                        <li class="{{Active::route('dashboard.order.*')}}">
+                            <a href="{{URL::route('dashboard.order.index')}}">
+                                <i class="fa fa-cart-arrow-down"></i>
+                                <span>Заказы</span>
+                            </a>
+                        </li>
+
+
+
 
 
                     </ul>

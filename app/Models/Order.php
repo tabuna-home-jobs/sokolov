@@ -25,4 +25,17 @@ class Order extends Model {
         'workfinish'
     ];
 
+
+    public function getUser()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
+
+
+    public function getGoods()
+    {
+        return $this->hasMany('App\Models\MetaOrder', 'order_id');
+    }
+
+
 }
