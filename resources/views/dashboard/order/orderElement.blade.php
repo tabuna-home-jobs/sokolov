@@ -9,7 +9,7 @@
         <!-- hbox layout -->
         <div class="hbox hbox-auto-xs bg-light">
             <!-- column -->
-            <div class="col w lter b-r" ng-controller="CustomTabController">
+            <div class="col w lter b-r">
                 <div class="vbox">
                     <div class="wrapper b-b">
                         <div class="font-thin h4">Заявки</div>
@@ -58,6 +58,7 @@
                             <div class="cell-inner">
                                 <div class="wrapper-md">
 
+                                 <form action="{{URL::route('dashboard.order.update', $SelectOrder->id) }}" method="post">
 
                                     <div class="bg-light lter b-b wrapper-md">
                                         <h1 class="m-n font-thin h3"> {{$SelectOrder->name}}</h1>
@@ -109,7 +110,7 @@
                                                        value="">
 
                                                 <div class="input-group-addon">
-                                                    <i class="fa fa-rub"></i>
+                                                    <i class="fa fa-usd"></i>
                                                 </div>
                                             </div>
                                             <!-- /.input group -->
@@ -131,15 +132,22 @@
                                         <div class="form-group col-xs-6">
                                             <label>Статус</label>
                                             <select class="form-control w-md" ui-jq="chosen" required name="status">
-                                                <option @if($SelectOrder->status == 'Обрабатываеться')@endif value="Обрабатываеться">
-                                                    Обрабатываеться
+                                                <option @if($SelectOrder->status == 'На оценке')@endif value="На оценке">
+                                                    На оценке
                                                 </option>
-                                                <option @if($SelectOrder->status == 'Оплачен')@endif value="Оплачен">
-                                                    Оплачен
+                                                <option @if($SelectOrder->status == 'Отменён')@endif value="Отменён">
+                                                    Отменён
                                                 </option>
-                                                <option @if($SelectOrder->status == 'Завершён')@endif value="Завершён">
-                                                    Завершён
+                                                <option @if($SelectOrder->status == 'Не оплачен')@endif value="Не оплачен">
+                                                    Не оплачен
                                                 </option>
+                                                <option @if($SelectOrder->status == 'В работе')@endif value="В работе">
+                                                    В работе
+                                                </option>
+                                                <option @if($SelectOrder->status == 'Готова')@endif value="Готова">
+                                                    Готова
+                                                </option>
+
                                             </select>
                                         </div>
 
@@ -148,13 +156,24 @@
                                             <label>Дата окончания</label>
 
                                             <div class='input-group date' id='datetimepickerorder'>
-                                                <input type='text' class="form-control" required name="end"
+                                                <input type='text' class="form-control" required name="workfinish"
                                                        value="{{$SelectOrder->workfinish}}"/>
                                     <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                                             </div>
                                         </div>
+
+
+
+
+                                        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+
+                                        <input type="hidden" name="_method" value="PUT">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <button type="submit" class="btn btn-success btn-block">Сохранить</button>
+
 
 
                                         <div class="line line-dashed b-b line-lg pull-in"></div>
@@ -190,7 +209,7 @@
                                                         <ul class="list-group">
                                                             @foreach($SelectRequestFile as $file)
                                                                 <a href="{{URL::route('dashboard.filemanager.show', $file->id)}}"
-                                                                   class="list-group-item">{{$file->name}}</a>
+                                                                   class="list-group-item"><i class="fa fa-file-o"></i> {{$file->original}} <small class="pull-right">{{$file->created_at}}</small></a>
                                                             @endforeach
                                                         </ul>
                                                     </ul>
@@ -206,7 +225,7 @@
                                                         <ul class="list-group">
                                                             @foreach($SelectGoodFile as $file)
                                                                 <a href="{{URL::route('dashboard.filemanager.show', $file->id)}}"
-                                                                   class="list-group-item">{{$file->name}}</a>
+                                                                   class="list-group-item"><i class="fa fa-file-o"></i> {{$file->original}} <small class="pull-right">{{$file->created_at}}</small></a>
                                                             @endforeach
                                                         </ul>
                                                     </ul>
@@ -220,19 +239,19 @@
 
 
                                                     <br>
-                                                    <!-- The fileinput-button span is used to style the file input field as button -->
-    <span class="btn btn-default btn-block fileinput-button">
-        <span class="fileinput-new fa fa-cloud-upload text btn-block"> Выбрать файл</span>
-        <!-- The file input field used as target for the file upload widget -->
-        <input id="fileupload" type="file" name="files[]" multiple>
-    </span>
+                        <!-- The fileinput-button span is used to style the file input field as button -->
+                        <span class="btn btn-default btn-block fileinput-button">
+                            <span class="fileinput-new fa fa-cloud-upload text btn-block"> Выбрать файл</span>
+                            <!-- The file input field used as target for the file upload widget -->
+                            <input id="fileupload" type="file" name="files[]" multiple>
+                        </span>
 
 
                                                     <br>
                                                     <br>
                                                     <!-- The global progress bar -->
                                                     <div id="progress" class="progress">
-                                                        <div class="progress-bar progress-bar-success"></div>
+                                                        <div class="progress-bar progress-bar-info"></div>
                                                     </div>
 
                                                     <!-- The container for the uploaded files -->
@@ -245,10 +264,10 @@
                                         </div>
 
 
-                                        <button type="submit" class="btn btn-success btn-block">Сохранить</button>
-
                                     </div>
 
+
+                                    </form>
 
                                 </div>
                             </div>
@@ -336,7 +355,7 @@
 
             var csrf = $('meta[name="token"]').attr('content');
             var url = window.location.hostname === 'blueimp.github.io' ?
-                    '//jquery-file-upload.appspot.com/' : '/dashboard/filemanager';
+                    '//jquery-file-upload.appspot.com/' : '/dashboard/filemanager?beglouto={{$SelectOrder->id}}&type=order';
             $('#fileupload').fileupload({
                 url: url,
                 dataType: 'json',
@@ -356,13 +375,10 @@
                     );
                     $('#progress .progress-bar').html('Загрузка');
 
-                },
-                complete: function(e, data)
-                {
-                    $('#progress .progress-bar').css(
-                            'width',
-                             '0'
-                    );
+                    if(progress == 100)
+                    {
+                        location.reload();
+                    }
                 }
 
             }).prop('disabled', !$.support.fileInput)

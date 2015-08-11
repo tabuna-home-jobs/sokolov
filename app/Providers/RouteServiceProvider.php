@@ -46,6 +46,8 @@ class RouteServiceProvider extends ServiceProvider
             return \App\Models\Goods::where('slug', $value)->firstOrFail();
         });
 
+
+
     }
 
     /**

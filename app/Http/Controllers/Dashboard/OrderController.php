@@ -7,7 +7,9 @@ use App\Http\Requests;
 use App\Models\Comments;
 use App\Models\Files;
 use App\Models\Order;
+use App\Http\Requests\Site\OrderElementRequest;
 use Illuminate\Http\Request;
+use Session;
 
 class OrderController extends Controller
 {
@@ -57,8 +59,15 @@ class OrderController extends Controller
         $SelectUser = $SelectOrder->getUser()->get()->first();
         $SelectComments = Comments::whereRaw('type = ? and beglouto = ?', ['order', $id])->get();
         $SelectGoods = $SelectOrder->getGoods()->get();
-        $SelectGoodFile = Files::whereRaw('type = ? and beglouto = ? and finish = ?', ['order', $id, true])->get();
-        $SelectRequestFile = Files::whereRaw('type = ? and beglouto = ? and finish = ?', ['order', $id, false])->get();
+
+        $SelectGoodFile = Files::select('id','original','created_at')
+            ->whereRaw('type = ? and beglouto = ? and finish = ?', ['order', $id, true])->get();
+
+        $SelectRequestFile = Files::select('id','original','created_at')
+            ->whereRaw('type = ? and beglouto = ? and finish = ?', ['order', $id, false])->get();
+
+       // dd($SelectGoodFile, $SelectRequestFile);
+
 
         return view("dashboard/order/orderElement", [
             'Orders' => $Orders,
@@ -89,9 +98,13 @@ class OrderController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(OrderElementRequest $request, $id)
     {
-        //
+        $order = Order::findorFail($id);
+        $order->fill($request->all());
+        $order->save();
+        Session::flash('good', 'Вы успешно изменили значения');
+        return redirect()->back();
     }
 
     /**
