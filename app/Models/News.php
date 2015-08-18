@@ -17,7 +17,7 @@ class News extends Model {
      *
      * @var array
      */
-    protected $fillable = ['title', 'name', 'content', 'avatar', 'datetime', 'tag', 'descript'];
+    protected $fillable = ['title', 'name', 'content', 'avatar', 'datetime', 'tag', 'descript','lang'];
 
 
 

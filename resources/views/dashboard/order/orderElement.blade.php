@@ -58,13 +58,15 @@
                             <div class="cell-inner">
                                 <div class="wrapper-md">
 
-                                 <form action="{{URL::route('dashboard.order.update', $SelectOrder->id) }}" method="post">
+
 
                                     <div class="bg-light lter b-b wrapper-md">
                                         <h1 class="m-n font-thin h3"> {{$SelectOrder->name}}</h1>
                                     </div>
                                     <div class="wrapper-md panel">
 
+
+                                        <form action="{{URL::route('dashboard.order.update', $SelectOrder->id) }}" method="post">
 
                                         <div class="well m-t bg-light lt">
                                             <div class="row">
@@ -98,14 +100,14 @@
                                         </div>
 
 
-                                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                                        <div class="line line-dashed b-b line-lg"></div>
 
                                         <div class="form-group col-xs-6">
                                             <label>Цена</label>
 
                                             <div class="input-group">
                                                 <input class="form-control" type="number"
-                                                       value="{{$SelectOrder->price}}" maxlength="255" required
+                                                       value="{{$SelectOrder->price}}" maxlength="255" min="0" required
                                                        name="price"
                                                        value="">
 
@@ -126,25 +128,25 @@
                                         </div>
 
 
-                                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                                        <div class="line line-dashed b-b line-lg"></div>
 
 
                                         <div class="form-group col-xs-6">
                                             <label>Статус</label>
                                             <select class="form-control w-md" ui-jq="chosen" required name="status">
-                                                <option @if($SelectOrder->status == 'На оценке')@endif value="На оценке">
+                                                <option @if($SelectOrder->status == 'На оценке') selected @endif value="На оценке">
                                                     На оценке
                                                 </option>
-                                                <option @if($SelectOrder->status == 'Отменён')@endif value="Отменён">
+                                                <option @if($SelectOrder->status == 'Отменён') selected @endif value="Отменён">
                                                     Отменён
                                                 </option>
-                                                <option @if($SelectOrder->status == 'Не оплачен')@endif value="Не оплачен">
+                                                <option @if($SelectOrder->status == 'Не оплачен') selected @endif value="Не оплачен">
                                                     Не оплачен
                                                 </option>
-                                                <option @if($SelectOrder->status == 'В работе')@endif value="В работе">
+                                                <option @if($SelectOrder->status == 'В работе') selected @endif value="В работе">
                                                     В работе
                                                 </option>
-                                                <option @if($SelectOrder->status == 'Готова')@endif value="Готова">
+                                                <option @if($SelectOrder->status == 'Готова') selected @endif value="Готова">
                                                     Готова
                                                 </option>
 
@@ -167,41 +169,225 @@
 
 
 
-                                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                                        <div class="line line-dashed b-b line-lg"></div>
 
 
                                         <input type="hidden" name="_method" value="PUT">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <button type="submit" class="btn btn-success btn-block">Сохранить</button>
 
+                                 </form>
 
 
-                                        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                                        <div class="line line-dashed b-b line-lg"></div>
 
 
                                         <div>
                                             <ul id="TabUpload" class="nav nav-tabs" role="tablist">
-                                                <li role="presentation" class="active"><a href="#files" id="files-tab"
+                                                <li role="presentation" class="active"><a href="#taskTab" role="tab"
+                                                                                          id="taskTab-tab" data-toggle="tab"
+                                                                                          aria-controls="taskTab"
+                                                                                          aria-expanded="true">Задачи</a>
+                                                </li>
+                                                <li role="presentation" class=""><a href="#files" id="files-tab"
                                                                                           role="tab" data-toggle="tab"
-                                                                                          aria-controls="home"
+                                                                                          aria-controls="files"
                                                                                           aria-expanded="false">Файлы
                                                         Пользователя</a>
                                                 </li>
                                                 <li role="presentation" class=""><a href="#goodfiles" id="goodfiles-tab"
                                                                                     role="tab" data-toggle="tab"
-                                                                                    aria-controls="home"
+                                                                                    aria-controls="goodfiles"
                                                                                     aria-expanded="false">Готовые
                                                         файлы</a>
                                                 </li>
-                                                <li role="presentation" class=""><a href="#uploadFileTab" role="tab"
-                                                                                    id="profile-tab" data-toggle="tab"
-                                                                                    aria-controls="profile"
-                                                                                    aria-expanded="true">Загрузить</a>
-                                                </li>
 
                                             </ul>
+
+
+
+
                                             <div id="TabUploadContent" class="tab-content">
-                                                <div role="tabpanel" class="tab-pane fade active in" id="files"
+
+
+                                                <div role="tabpanel" class="tab-pane fade active in" id="taskTab"
+                                                     aria-labelledby="taskTab-tab">
+
+                                                    <p class="m-t-md">
+                                                        <button class="btn m-b-xs btn-sm btn-info btn-block" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                                            Создать новую задачу
+                                                        </button>
+                                                    </p>
+
+                                                    <div class="collapse" id="collapseExample">
+                                                        <div class="container-fluid">
+
+                                                            <form action="{{URL::route('dashboard.order.update', $SelectOrder->id) }}" method="post">
+
+                                                            <div class="form-group col-xs-6">
+                                                                <label>Название</label>
+                                                                <input type="text" class="form-control" maxlength="255" required name="name" placeholder="Название задачи">
+                                                            </div>
+
+                                                            <div class="form-group col-xs-6">
+                                                                <label>Цена</label>
+
+                                                                <div class="input-group">
+                                                                    <input class="form-control" type="number"
+                                                                           value="{{$SelectOrder->price}}" maxlength="255" required
+                                                                           name="price"
+                                                                           value="">
+
+                                                                    <div class="input-group-addon">
+                                                                        <i class="fa fa-usd"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /.input group -->
+                                                            </div>
+
+
+
+                                                            <div class="form-group col-xs-6">
+                                                                <label>Дата окончания</label>
+
+                                                                <div class='input-group date' id='datetimepickerorder2'>
+                                                                    <input type='text' class="form-control" required name="workfinish"
+                                                                           value="{{$SelectOrder->workfinish}}"/>
+                                    <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group col-xs-6">
+                                                                <label>Исполнитель</label>
+                                                                <select class="form-control w-md" ui-jq="chosen" required name="status">
+
+                                                                    @foreach($AllUser as $user)
+
+                                                                        <option value="{{$user->id}}">
+                                                                            {{$user->first_name}} {{$user->last_name}}
+                                                                        </option>
+
+                                                                    @endforeach
+
+                                                                </select>
+                                                            </div>
+
+
+
+
+
+
+                                                            <div class="form-group col-xs-6">
+                                                                <label>Услуга</label>
+                                                                <select class="form-control w-md" ui-jq="chosen" required name="goods">
+
+                                                                    @foreach($SelectGoods as $Goods)
+
+                                                                        <option value="{{$Goods->getGood()->select('id')->get()->first()->id}}">
+                                                                            {{$Goods->getGood()->select('name')->get()->first()->name}}
+                                                                        </option>
+
+                                                                    @endforeach
+
+                                                                </select>
+                                                            </div>
+
+
+                                                            <div class="form-group col-xs-6">
+                                                                <label>Объем работы</label>
+                                                                <input type="number" class="form-control" min="0" required name="name" placeholder="Объем работы">
+                                                            </div>
+
+
+                                                            <div class="form-group col-xs-12">
+                                                                <h4 class="text-center">Прикрепить файлы</h4>
+                                                                <hr>
+                                                                <label>Загруженные файлы:</label>
+                                                            @foreach($SelectGoodFile as $file)
+                                                                    <div class="checkbox">
+                                                                        <label class="i-checks">
+                                                                            <input type="checkbox" name="files[]" value="{{$file->id}}">
+                                                                            <i class="fa fa-file-o"></i> {{$file->original}}
+                                                                        </label>
+                                                                    </div>
+                                                                @endforeach
+                                                                <hr>
+                                                                <label>Пользовательские файлы:</label>
+                                                            @foreach($SelectRequestFile as $file)
+
+                                                                    <div class="checkbox">
+                                                                        <label class="i-checks">
+                                                                            <input type="checkbox" name="files[]" value="{{$file->id}}">
+                                                                            <i class="fa fa-file-o"></i> {{$file->original}}
+                                                                        </label>
+                                                                    </div>
+
+                                                            @endforeach
+                                                        </div>
+
+
+                                                                <input type="hidden" name="_method" value="PUT">
+                                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                                <button type="submit" class="btn btn-success btn-block">Создать</button>
+
+                                                        </form>
+
+                                                        </div>
+
+
+
+
+                                                        <div class="line line-dashed b-b line-lg"></div>
+
+
+                                                    </div>
+
+
+
+
+
+                                                    <div class="table-responsive">
+                                                        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <table class="table table-striped m-b-none dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                                                        <thead>
+                                                                        <tr role="row">
+                                                                            <th>#</th>
+                                                                            <th>Задача</th>
+                                                                            <th>Исполнитель</th>
+                                                                            <th>Статус</th>
+                                                                            <th>Время</th>
+
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <td>20</td>
+                                                                            <td>Проснувшись однажды</td>
+                                                                            <td>Проснувшись однажды</td>
+                                                                            <td>en</td>
+                                                                            <td>2015-08-05 06:56:51</td>
+                                                                        </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                                </div>
+
+
+
+                                                <div role="tabpanel" class="tab-pane" id="files"
                                                      aria-labelledby="files-tab">
 
 
@@ -221,6 +407,25 @@
                                                 <div role="tabpanel" class="tab-pane" id="goodfiles"
                                                      aria-labelledby="goodfiles-tab">
 
+
+                                                   <p class="m-t-md"> <!-- The fileinput-button span is used to style the file input field as button -->
+                        <span class="btn btn-default btn-block fileinput-button">
+                            <span class="fileinput-new fa fa-cloud-upload text btn-block"> Выбрать файл</span>
+                            <!-- The file input field used as target for the file upload widget -->
+                            <input id="fileupload" type="file" name="files[]" multiple>
+                        </span>
+                                                       </p>
+
+
+
+                                                    <!-- The global progress bar -->
+                                                    <div id="progress" class="progress">
+                                                        <div class="progress-bar progress-bar-info"></div>
+                                                    </div>
+
+                                                    <!-- The container for the uploaded files -->
+                                                    <div id="files" class="files"></div>
+
                                                     <ul class="list-group">
                                                         <ul class="list-group">
                                                             @foreach($SelectGoodFile as $file)
@@ -234,31 +439,7 @@
                                                 </div>
 
 
-                                                <div role="tabpanel" class="tab-pane" id="uploadFileTab"
-                                                     aria-labelledby="uploadFileTab-tab">
 
-
-                                                    <br>
-                        <!-- The fileinput-button span is used to style the file input field as button -->
-                        <span class="btn btn-default btn-block fileinput-button">
-                            <span class="fileinput-new fa fa-cloud-upload text btn-block"> Выбрать файл</span>
-                            <!-- The file input field used as target for the file upload widget -->
-                            <input id="fileupload" type="file" name="files[]" multiple>
-                        </span>
-
-
-                                                    <br>
-                                                    <br>
-                                                    <!-- The global progress bar -->
-                                                    <div id="progress" class="progress">
-                                                        <div class="progress-bar progress-bar-info"></div>
-                                                    </div>
-
-                                                    <!-- The container for the uploaded files -->
-                                                    <div id="files" class="files"></div>
-                                                    <br>
-
-                                                </div>
 
                                             </div>
                                         </div>
@@ -266,8 +447,6 @@
 
                                     </div>
 
-
-                                    </form>
 
                                 </div>
                             </div>

@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Page;
 use App\Models\News;
 use App;
 
-class PageController extends Controller
+class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,11 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        $newsList = News::where('lang',App::getLocale())->orderBy('id','desc')->paginate(12);
+
+        return view('site.newsList',[
+            'NewsList' => $newsList
+        ]);
     }
 
     /**
@@ -39,7 +43,7 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
@@ -48,13 +52,13 @@ class PageController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show(Page $page)
+    public function show(News $news)
     {
-        $news = News::where('lang',App::getLocale())->orderBy('id','desc')->limit(5)->get();
+        $newsList = News::whereRaw('lang = ? and id != ?',[App::getLocale(), $news->id])->orderBy('id','desc')->limit(5)->get();
 
-        return view('site.page',[
-            'Page' => $page,
-            'NewsList' => $news
+        return view('site.news',[
+            'News' => $news,
+            'NewsList' => $newsList
         ]);
 
     }

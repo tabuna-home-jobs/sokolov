@@ -6,13 +6,11 @@ use Illuminate\Support\Facades\Facade;
 
 class Menu  extends Facade {
 
-    static function getLI($site,$NameMenu,$pref)
+    static function getLI($NameMenu,$pref = "")
     {
-        $menu = SiteMenu::whereRaw('ids = ? and name = ?', [$site, $NameMenu])->first();
+        $menu = SiteMenu::where('name', $NameMenu)->first();
         $element = $menu->getElement()->get();
-
         $html = '';
-
         foreach($element as $li)
         {
             $html .= "<li class='$li->class'><a href='$li->link'> $pref $li->label</a></li>";

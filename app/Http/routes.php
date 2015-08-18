@@ -11,11 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-
-    return view('welcome');
-});
-
 
 /**
  * Авторизация, регистрация, востановление пароля
@@ -24,7 +19,7 @@ Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
-
+Route::resource('language', 'Language\LanguageController');
 
 /**
  * Администратор
@@ -54,3 +49,10 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth'], 'prefix' => 
     Route::post('/updateitem', array('as' => 'updateitem', 'uses' => 'WmenuController@updateitem'));
 });
 
+
+
+Route::group(['namespace' => 'Site'], function () {
+    Route::resource('', 'IndexController');
+    Route::resource('page', 'PageController');
+    Route::resource('news', 'NewsController');
+});

@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Http\Requests\Site\OrderElementRequest;
 use Illuminate\Http\Request;
 use Session;
+use App\Models\User;
 
 class OrderController extends Controller
 {
@@ -66,8 +67,7 @@ class OrderController extends Controller
         $SelectRequestFile = Files::select('id','original','created_at')
             ->whereRaw('type = ? and beglouto = ? and finish = ?', ['order', $id, false])->get();
 
-       // dd($SelectGoodFile, $SelectRequestFile);
-
+        $AllUser = User::select('id','first_name','last_name')->where('role', 'NOT LIKE', '%user%')->get();
 
         return view("dashboard/order/orderElement", [
             'Orders' => $Orders,
@@ -76,7 +76,8 @@ class OrderController extends Controller
             'SelectComments' => $SelectComments,
             'SelectGoods' => $SelectGoods,
             'SelectGoodFile' => $SelectGoodFile,
-            'SelectRequestFile' => $SelectRequestFile
+            'SelectRequestFile' => $SelectRequestFile,
+            'AllUser' => $AllUser
         ]);
     }
 

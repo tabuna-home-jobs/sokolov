@@ -39,7 +39,7 @@
 
 </head>
 <body>
-<div class="app app-header-fixed  ">
+<div class="app app-header-fixed">
 
 
     <div class="container w-xxl w-auto-xs">
@@ -48,8 +48,6 @@
             <div class="wrapper text-center">
                 <strong>Для входи введите необходимые данные</strong>
             </div>
-
-
 
 
             @if(Session::has('good'))
