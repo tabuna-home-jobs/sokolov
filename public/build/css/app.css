@@ -1,95 +1,85 @@
 body {
     color: #1c1c1c;
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto, sans-serif
 }
-
 
 body.modal-open {
     overflow: inherit;
-    padding-right: inherit !important;
+    padding-right: inherit !important
 }
 
-a {
-    outline: none !important;
+a, a:active, a:hover {
+    outline: 0 !important
 }
 
-a:active, a:hover {
-    outline: 0 none !important;
-}
-
-.service-edit h3{
+.service-edit h3 {
     font-family: RobotoSlab;
     font-size: 20px;
     font-weight: 700;
-    line-height: 20px;
+    line-height: 20px
 }
-
 
 .carousel-indicators {
     width: 100%;
     left: inherit;
-    background: url("/img/lineslider.png") repeat;
+    background: url(/img/lineslider.png);
     height: 71px;
     margin: 0;
-    padding: 0;
-    bottom: 0;
-    padding-top: 25px;
+    padding: 25px 0 0;
+    bottom: 0
 }
 
 .item.active img {
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto
 }
 
-.carousel-inner > .item > img, .carousel-inner > .item > a > img {
-    margin: auto;
+.carousel-inner > .item > a > img, .carousel-inner > .item > img {
+    margin: auto
 }
 
-.carousel-inner .item,
-.carousel-inner .item.active,
-.carousel-inner .item img {
+.carousel-inner .item, .carousel-inner .item img, .carousel-inner .item.active {
     margin: auto;
-    padding: 0px;
-    height: 520px;
+    padding: 0;
+    height: 520px
 }
 
 .carousel-control.left, .carousel-control.right {
-    background: inherit;
+    background: inherit
 }
 
 .topline {
-    background: url("/img/topline.png") 100% 100%;
+    background: url(/img/topline.png) 100% 100%;
     height: 12px;
-    width: 100%;
+    width: 100%
 }
 
 .carousel-indicators li {
     width: 20px;
-    height: 20px;
+    height: 20px
 }
 
 .carousel-indicators .active {
     width: 22px;
-    height: 22px;
+    height: 22px
 }
 
 @media screen and (min-width: 768px) {
     .carousel-control .glyphicon-menu-right, .carousel-control .icon-next {
-        margin-right: -15px;
+        margin-right: -15px
     }
 
     .carousel-control .glyphicon-menu-left, .carousel-control .glyphicon-menu-right, .carousel-control .icon-next, .carousel-control .icon-prev {
         width: 30px;
         height: 30px;
         margin-top: -15px;
-        font-size: 30px;
+        font-size: 30px
     }
-
 }
 
 .carousel-control .glyphicon-menu-right, .carousel-control .icon-next {
     right: 50%;
-    margin-right: -10px;
+    margin-right: -10px
 }
 
 .carousel-control .glyphicon-menu-left, .carousel-control .glyphicon-menu-right, .carousel-control .icon-next, .carousel-control .icon-prev {
@@ -99,63 +89,59 @@ a:active, a:hover {
     display: inline-block;
     margin-top: -10px;
     color: #f68d44;
-    text-shadow: 0;
+    text-shadow: 0
 }
 
 #footer {
     margin-top: 40px;
     background-color: #2f8398;
-    color: #ffffff;
+    color: #fff
 }
 
 #footer a {
-    color: #ffffff;
-    text-decoration: underline;
+    color: #fff;
+    text-decoration: underline
 }
 
 .icon-info-top {
-    font-size: 16px;
+    font-size: 16px
 }
 
 .icon-info-top a {
     padding-right: 10px;
     color: #1c1c1c;
-    font-weight: 300;
+    font-weight: 300
 }
 
 .icon-info-top a:hover {
-    text-decoration: none;
+    text-decoration: none
 }
-
 
 .icon-info-top span {
     border: 1px solid #38889c;
     border-radius: 50%;
     padding: 5px;
-    color: #38889c;
+    color: #38889c
 }
-
 
 @media screen and (min-width: 768px) {
     .carousel-caption {
         right: 30%;
-        left: 1px;
         padding-bottom: 30px;
         top: 20px;
         text-align: inherit;
         text-shadow: none;
-        left: 20%;
+        left: 20%
     }
 }
 
 .carousel-caption h2 {
-
     padding: 25px 0;
     color: #2f8398;
     font-family: RobotoSlab;
     font-size: 36px;
     font-weight: 700;
-    line-height: 36px;
+    line-height: 36px
 }
 
 .carousel-caption p {
@@ -163,19 +149,19 @@ a:active, a:hover {
     font-size: 16px;
     font-weight: 300;
     line-height: 24px;
-    padding-bottom: 20px;
+    padding-bottom: 20px
 }
 
 .navbar-default {
     background: inherit;
-    border: 0;
+    border: 0
 }
 
 #loader-logo {
     display: block;
     position: relative;
     margin: 0 auto;
-    top: 25%;
+    top: 25%
 }
 
 #loader-wrapper {
@@ -185,7 +171,7 @@ a:active, a:hover {
     width: 100%;
     height: 100%;
     z-index: 1000;
-    background: #ffffff;
+    background: #fff
 }
 
 #loader {
@@ -199,9 +185,8 @@ a:active, a:hover {
     border-radius: 50%;
     border: 3px solid transparent;
     border-top-color: #2f8398;
-
-    -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
-    animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite
 }
 
 #loader:before {
@@ -214,9 +199,8 @@ a:active, a:hover {
     border-radius: 50%;
     border: 3px solid transparent;
     border-top-color: #f28130;
-
-    -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
-    animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite
 }
 
 #loader:after {
@@ -229,56 +213,49 @@ a:active, a:hover {
     border-radius: 50%;
     border: 3px solid transparent;
     border-top-color: #ffc93c;
-
-    -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
-    animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite
 }
 
 @-webkit-keyframes spin {
     0% {
-        -webkit-transform: rotate(0deg); /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(0deg); /* IE 9 */
-        transform: rotate(0deg); /* Firefox 16+, IE 10+, Opera */
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg)
     }
     100% {
-        -webkit-transform: rotate(360deg); /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(360deg); /* IE 9 */
-        transform: rotate(360deg); /* Firefox 16+, IE 10+, Opera */
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg)
     }
 }
 
 @keyframes spin {
     0% {
-        -webkit-transform: rotate(0deg); /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(0deg); /* IE 9 */
-        transform: rotate(0deg); /* Firefox 16+, IE 10+, Opera */
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg)
     }
     100% {
-        -webkit-transform: rotate(360deg); /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(360deg); /* IE 9 */
-        transform: rotate(360deg); /* Firefox 16+, IE 10+, Opera */
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg)
     }
 }
 
 .padding-footer > div {
     padding: 30px 10px;
-    margin: auto 0;
+    margin: auto 0
 }
 
 .padding-footer h4 {
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 18px;
-
-    /* Text style for "Навигация по с" */
     width: 192px;
     height: 18px;
-    color: white;
+    color: #fff;
     font-family: RobotoSlab;
     font-size: 18px;
     font-weight: 700;
-    line-height: 18px;
-
+    line-height: 18px
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
@@ -286,60 +263,58 @@ a:active, a:hover {
     font-weight: 300;
     line-height: 16px;
     color: #fff;
-    background-color: #f68d44;
+    background-color: #f68d44
 }
 
 .navbar-default .navbar-nav > li > a {
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 10px 20px
 }
 
 .thumbnail {
-    padding: 0px;
+    padding: 0
 }
 
 .thumbnail > img {
-    padding: 0px;
-    margin: 0px;
-    width: 100%;
+    padding: 0;
+    margin: 0;
+    width: 100%
 }
 
 .news-list {
-    margin: 40px 0px;
+    margin: 40px 0
 }
 
-.news-list h4{
+.news-list h4 {
     color: #2f8398;
     font-size: 16px;
     font-weight: 600;
     line-height: 16px;
-    text-decoration: underline;
+    text-decoration: underline
 }
 
-
-.blog-content{
-    padding: 15px 10px;
+.blog-content {
+    padding: 15px 10px
 }
 
-.blog-container{
-    padding: 40px 15px;
+.blog-container {
+    padding: 40px 15px
 }
 
-.blog h4{
+.blog h4 {
     color: #2f8398;
     font-size: 16pt;
     font-weight: 600;
     line-height: 16px;
-    text-decoration: underline;
+    text-decoration: underline
 }
 
-
 .news-list .caption {
-    padding: 10px 30px;
+    padding: 10px 30px
 }
 
 .news-list .caption > p {
-    padding-bottom: 20px;
+    padding-bottom: 20px
 }
 
 .news-list .label-default {
@@ -348,47 +323,45 @@ a:active, a:hover {
     font-weight: 400;
     line-height: 14px;
     padding: 10px 20px;
-    background: #0aa2b1;
+    background: #0aa2b1
 }
 
 .service {
-    text-align: center;
+    text-align: center
 }
 
 .service a {
     color: #1c1c1c;
-    text-decoration: none;
+    text-decoration: none
 }
 
 .service a:hover {
-    color: #2f8398!important;
-    text-decoration: underline;
+    color: #2f8398 !important;
+    text-decoration: underline
 }
 
-
-.container-service{
-    padding-bottom: 60px;
+.container-service {
+    padding-bottom: 60px
 }
-
 
 .container-service h1 {
-    padding: 60px 0px;
+    padding: 60px 0
 }
 
 .container-reviews .img-circle {
     padding: 10px;
-    border: #e8e8e8 solid 1px;
+    border: 1px solid #e8e8e8
 }
 
 .fa-quote-left, .fa-quote-right {
-    color: #ccc;
+    color: #ccc
 }
 
 .reviews-text {
     color: #1c1c1c;
     font-size: 16px;
     font-weight: 300;
-    line-height: 21px;
+    line-height: 21px
 }
 
 .container-reviews .date {
@@ -396,7 +369,7 @@ a:active, a:hover {
     font-size: 16px;
     font-weight: 300;
     line-height: 16px;
-    padding-top: 10px;
+    padding-top: 10px
 }
 
 .text-about {
@@ -405,22 +378,22 @@ a:active, a:hover {
     font-size: 16px;
     font-weight: 300;
     line-height: 21px;
-    padding: 40px 0;
+    padding: 40px 0
 }
 
 .h1-about {
-    color: white;
+    color: #fff;
     font-family: RobotoSlab;
     font-size: 36px;
     font-weight: 700;
     line-height: 36px;
     margin: auto 0;
-    padding: 80px 0 20px;
+    padding: 80px 0 20px
 }
 
 .h1-about span {
     background: #1a94a6;
-    padding: 10px;
+    padding: 10px
 }
 
 .btn-warning {
@@ -428,7 +401,7 @@ a:active, a:hover {
     padding: 10px 20px;
     font-size: 16px;
     font-weight: 400;
-    line-height: 16px;
+    line-height: 16px
 }
 
 .btn-primary {
@@ -436,24 +409,23 @@ a:active, a:hover {
     padding: 10px 20px;
     font-size: 16px;
     font-weight: 400;
-    line-height: 16px;
+    line-height: 16px
 }
 
 .btn-primary:hover {
-    background: #0aa2b1;
+    background: #0aa2b1
 }
 
-
 .thumbnail {
-    border: 1px solid #f9f9f9;
+    border: 1px solid #f9f9f9
 }
 
 .reviews-div {
-    padding: 10px 20px;
+    padding: 10px 20px
 }
 
 .reviews-list > .row {
-    padding: 60px 0;
+    padding: 60px 0
 }
 
 .array-top .glyphicon {
@@ -461,7 +433,7 @@ a:active, a:hover {
     padding: 5px;
     color: #026882;
     border: 2px solid #026882;
-    border-radius: 50%;
+    border-radius: 50%
 }
 
 .text-about li {
@@ -469,10 +441,10 @@ a:active, a:hover {
     list-style-position: outside;
     list-style-type: none;
     min-height: 60px;
-    padding: 0px 0px 10px 64px;
+    padding: 0 0 10px 64px
 }
 
-.text-about li span, .text-about li i {
+.text-about li i, .text-about li span {
     list-style-position: outside;
     color: #0aa2b1;
     font-size: 30pt;
@@ -480,383 +452,363 @@ a:active, a:hover {
     vertical-align: middle;
     padding: 20px;
     display: block;
-    float: left;
+    float: left
 }
 
 .li-icons-1 {
-    background-image: url('/img/icons-1.png');
+    background-image: url(/img/icons-1.png)
 }
 
 .li-icons-2 {
-    background-image: url('/img/icons-2.png');
+    background-image: url(/img/icons-2.png)
 }
 
 .li-icons-3 {
-    background-image: url('/img/icons-3.png');
+    background-image: url(/img/icons-3.png)
 }
 
 .li-icons-4 {
-    background-image: url('/img/icons-4.png');
+    background-image: url(/img/icons-4.png)
 }
 
 .li-icons-5 {
-    background-image: url('/img/icons-5.png');
+    background-image: url(/img/icons-5.png)
 }
 
 .li-icons-6 {
-    background-image: url('/img/icons-6.png');
+    background-image: url(/img/icons-6.png)
 }
 
 .scroll-top {
-    cursor: pointer;
+    cursor: pointer
 }
 
 .menu-footer, .menu-footer-contact {
-    padding: 0;
+    padding: 0
 }
 
-.menu-footer-contact li, .menu-footer li {
-    list-style: none;
+.menu-footer li, .menu-footer-contact li {
+    list-style: none
 }
 
 .menu-footer-contact span {
     border: 2px solid #fff;
     border-radius: 50%;
-    padding: 5px;
+    padding: 5px
 }
 
 .menu-footer-contact a {
-    text-decoration: none !important;
+    text-decoration: none !important
 }
 
 .menu-footer-contact li {
-    padding: 5px 0;
+    padding: 5px 0
 }
 
-.login-a > a{
-    color: white!important;
+.login-a > a {
+    color: #fff !important;
     font-family: Roboto;
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
-    background: url("/img/login-a.png") no-repeat 100%;
+    background: url(/img/login-a.png) 100% no-repeat
 }
 
-.why-work h1 span{
-    background: url("/img/whywork.png");
-    color: white;
+.why-work h1 span {
+    background: url(/img/whywork.png);
+    color: #fff;
     font-family: RobotoSlab;
     font-size: 36px;
     font-weight: 700;
     line-height: 36px;
     padding: 10px 20px;
-    margin: 20px 0;
+    margin: 20px 0
 }
 
-
-.why-work p{
+.why-work p {
     color: #1c1c1c;
     font-family: Roboto;
     font-size: 20px;
     font-weight: 400;
-    line-height: 20px;
+    line-height: 20px
 }
 
-.why-work img{
+.why-work img {
     width: 262px;
-    height: 262px;
+    height: 262px
 }
 
-
-.why-work h2{
+.why-work h2 {
     background: #f68d44;
     width: 262px;
     height: 262px;
     border-radius: 50%;
-    padding: 85px 0;
+    padding: 85px 0
 }
 
-
 .why-work h2 span {
-    color: white;
+    color: #fff;
     font-family: RobotoSlab;
     font-size: 75px;
     font-weight: 700;
-    line-height: 75px;
+    line-height: 75px
 }
 
-.why-work h1{
-    padding-bottom: 40px;
+.why-work h1 {
+    padding-bottom: 40px
 }
 
-.why-work .glyphicon{
+.why-work .glyphicon {
     color: #ccc;
-    font-size: 26pt;
+    font-size: 26pt
 }
 
-
-.right-top-menu a{
+.right-top-menu a {
     font-family: Roboto;
     font-weight: 400;
     line-height: 16px;
     color: #2f8398;
-    margin: 5px 5px;
-    padding: 5px 5px;
+    margin: 5px;
+    padding: 5px
 }
 
-.right-top-menu .glyphicon{
-    color: #b6b6b6;
+.right-top-menu .glyphicon {
+    color: #b6b6b6
 }
 
-
-.right-top-menu a.active{
-    color: #ffffff;
-    background: #f68d44;
+.right-top-menu a.active {
+    color: #fff;
+    background: #f68d44
 }
 
-
-
-.carousel{
-    height:100%;
+.carousel, .carousel-inner, .carousel-inner > .active {
+    height: 100%
 }
 
-.carousel-inner{
-    height: 100%;
-}
-
-.carousel-inner>.active{
-    height:100%;
-}
-
-
-.share-post a:hover{
-    text-decoration: none;
+.share-post a:hover {
+    text-decoration: none
 }
 
 .share-post {
-    border:1px solid #e5e5e5;
-    border-radius:5px;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    padding:14px 22px;
-    margin-bottom:30px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 14px 22px;
+    margin-bottom: 30px
 }
+
 .share-post label {
     color: #373737;
     font-size: 22px;
     line-height: 20px;
     margin: 0;
-    padding: 10px 0 0;
+    padding: 10px 0 0
 }
+
 .share-post ul.social-rounded {
-    float:right;
+    float: right
 }
+
 .share-post ul li {
-    margin-bottom:0;
+    margin-bottom: 0
 }
 
 .social-rounded {
-    list-style:none;
-    padding:0;
-    margin:0;
-}
-.social-rounded li {
-    float:left;
-    margin:0 8px 7px 0;
-}
-.social-rounded li a i {
-    display:block;
-    width:36px;
-    height:36px;
-    border:2px solid #e7e7e7;
-    text-align:center;
-    border-radius:100%;
-    -moz-border-radius:100%;
-    -webkit-border-radius:100%;
-    color:#929292;
-    line-height:33px;
-    font-size:18px;
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-}
-.social-rounded li a i:hover {
-    color:#fff;
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    text-decoration: none!important;
-}
-.social-rounded li a i.fa-facebook:hover {
-    background:#2f4787;
-    border:2px solid #223874;
-}
-.social-rounded li a i.fa-twitter:hover {
-    background:#2ba8e0;
-    border:2px solid #1c90c4;
-}
-.social-rounded li a i.fa-google-plus:hover {
-    background:#d3482d;
-    border:2px solid #b42f15;
-}
-.social-rounded li a i.fa-dribbble:hover {
-    background:#da2984;
-    border:2px solid #b71568;
-}
-.social-rounded li a i.fa-youtube:hover {
-    background:#e92526;
-    border:2px solid #cf1314;
-}
-.social-rounded li a i.fa-vimeo-square:hover {
-    background:#03a9ee;
-    border:2px solid #0c79a6;
-}
-.social-rounded li a i.fa-linkedin:hover {
-    background:#016793;
-    border:2px solid #00475c;
-}
-.social-rounded li a i.fa-rss:hover {
-    background:#f47c23;
-    border:2px solid #d26514;
+    list-style: none;
+    padding: 0;
+    margin: 0
 }
 
-.social-rounded li a i.fa-odnoklassniki:hover {
+.social-rounded li {
+    float: left;
+    margin: 0 8px 7px 0
+}
+
+.social-rounded li a i {
+    display: block;
+    width: 36px;
+    height: 36px;
+    border: 2px solid #e7e7e7;
+    text-align: center;
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    color: #929292;
+    line-height: 33px;
+    font-size: 18px;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out
+}
+
+.social-rounded li a i:hover {
+    color: #fff;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    text-decoration: none !important
+}
+
+.social-rounded li a i.fa-facebook:hover {
+    background: #2f4787;
+    border: 2px solid #223874
+}
+
+.social-rounded li a i.fa-twitter:hover {
+    background: #2ba8e0;
+    border: 2px solid #1c90c4
+}
+
+.social-rounded li a i.fa-google-plus:hover {
+    background: #d3482d;
+    border: 2px solid #b42f15
+}
+
+.social-rounded li a i.fa-dribbble:hover {
+    background: #da2984;
+    border: 2px solid #b71568
+}
+
+.social-rounded li a i.fa-youtube:hover {
+    background: #e92526;
+    border: 2px solid #cf1314
+}
+
+.social-rounded li a i.fa-vimeo-square:hover {
+    background: #03a9ee;
+    border: 2px solid #0c79a6
+}
+
+.social-rounded li a i.fa-linkedin:hover {
+    background: #016793;
+    border: 2px solid #00475c
+}
+
+.social-rounded li a i.fa-odnoklassniki:hover, .social-rounded li a i.fa-rss:hover {
     background: #f47c23;
-    border: 2px solid #d26514;
+    border: 2px solid #d26514
 }
 
 .social-rounded li a i.fa-vk:hover {
     background: #4b68b4;
-    border: 2px solid #223874;
+    border: 2px solid #223874
 }
 
-
 .odnoklassniki:hover {
-    background: #f47c23;
+    background: #f47c23
 }
 
 .social-rounded li a i.fa-pinterest:hover {
-    background:#ca1f28;
-    border:2px solid #b71c23;
+    background: #ca1f28;
+    border: 2px solid #b71c23
 }
+
 .social-rounded li a i.fa-android:hover {
-    background:#a4ca39;
-    border:2px solid #89ac28;
+    background: #a4ca39;
+    border: 2px solid #89ac28
 }
+
 .social-rounded li a i.fa-flickr:hover {
-    background:#fe0082;
-    border:2px solid #d90472;
+    background: #fe0082;
+    border: 2px solid #d90472
 }
 
-.blog-thumbnail img{
+.blog-thumbnail img {
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 0
 }
 
-.blog-meta{
-    padding: 20px 0;
+.blog-meta {
+    padding: 20px 0
 }
 
-.blog a{
-    color: #2f8398;
+.blog a {
+    color: #2f8398
 }
 
-.map {
-    width: 100%;
-}
-
-.map iframe {
-    width: 100%;
+.map, .map iframe {
+    width: 100%
 }
 
 .container-alert {
     width: 50%;
-    margin: 0 auto;
+    margin: 0 auto
 }
-
-/**
- load
-**/
 
 .main-container {
     min-height: calc(100% - 220px);
-    padding: 30px 0;
+    padding: 30px 0
 }
 
 .inner-box {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border-radius: 3px 3px;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 1px rgba(180, 180, 180, 0.5);
+    background: #FFF;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 1px rgba(180, 180, 180, .5);
     margin-bottom: 30px;
-    padding: 20px 15px;
+    padding: 20px 15px
 }
 
 .collapse-box {
-    margin-bottom: 15px;
+    margin-bottom: 15px
 }
 
 .collapse-title {
     border-top: 1px solid #e6e6e6;
     color: #2a3744;
     font-size: 14px;
-    font-weight: normal;
+    font-weight: 400;
     letter-spacing: 1px;
     margin-bottom: 0;
     margin-top: 0;
     padding-bottom: 10px;
     padding-top: 15px;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
 .user-panel-sidebar ul {
-    padding: 0;
+    padding: 0
 }
 
 .user-panel-sidebar ul li {
-    list-style: none;
+    list-style: none
 }
 
 .user-panel-sidebar ul li a.active {
     background-color: #2f8398;
-    color: #FFFFFF;
+    color: #FFF
 }
 
 .welcome-msg {
-    margin-bottom: 30px;
+    margin-bottom: 30px
 }
 
 .user-panel-sidebar ul li a {
-    background: none repeat scroll 0 0 #ffffff;
+    background: #fff;
     display: block;
     color: #2a3744;
     font-size: 12px;
     height: auto;
-    letter-spacing: 0.5px;
+    letter-spacing: .5px;
     line-height: 26px;
     padding: 5px 10px;
     margin-bottom: 1px;
     text-align: left;
     text-decoration: none;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
 .collapse-box .badge {
     background-color: #e3e3e3;
     color: #666;
-    font-weight: normal;
+    font-weight: 400
 }
 
 .panel {
     border-radius: inherit;
-    box-shadow: 0px;
+    box-shadow: 0
 }
 
-.panel-group .panel {
+.alert, .panel-group .panel {
     margin-bottom: inherit;
-    border-radius: inherit;
-}
-
-.alert {
-    margin-bottom: inherit;
-    border-radius: inherit;
+    border-radius: inherit
 }

@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class CreateTastTable extends Migration {
+class CreateTaskTable extends Migration
+{
 
 	/**
 	 * Run the migrations.

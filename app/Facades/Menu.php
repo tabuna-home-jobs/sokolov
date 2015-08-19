@@ -9,6 +9,10 @@ class Menu  extends Facade {
     static function getLI($NameMenu,$pref = "")
     {
         $menu = SiteMenu::where('name', $NameMenu)->first();
+        if (is_null($menu))
+            return false;
+
+
         $element = $menu->getElement()->get();
         $html = '';
         foreach($element as $li)

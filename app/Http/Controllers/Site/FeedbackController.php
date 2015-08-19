@@ -1,16 +1,14 @@
-<?php
+<?php namespace App\Http\Controllers\Site;
 
-namespace App\Http\Controllers\Site;
-
-use App;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-use App\Models\News;
-use App\Models\Review;
-use Illuminate\Http\Request;
+use App\Http\Requests\Site\FeedbackRequest;
+use App\Models\Feedback;
+use Session;
 
-class IndexController extends Controller
+class FeedbackController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -18,13 +16,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $reviews = Review::where('lang', App::getLocale())->orderBy('id', 'desc')->limit(4)->get();
-        $news = News::where('lang',App::getLocale())->orderBy('id','desc')->limit(4)->get();
-        return view('site.index',[
-            'NewsList' => $news,
-            'ReviewsList' => $reviews,
-        ]);
-
+        return view('site.feedback');
     }
 
     /**
@@ -34,24 +26,32 @@ class IndexController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(FeedbackRequest $request)
     {
-        //
+
+        $new = new Feedback([
+            'fio' => $request->fio,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'content' => $request->message,
+        ]);
+        $new->save();
+
+        Session::flash('good', 'Спасибо, что написали, мы обязательно ответим вам.');
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show($id)
@@ -62,7 +62,7 @@ class IndexController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit($id)
@@ -73,11 +73,10 @@ class IndexController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         //
     }
@@ -85,11 +84,12 @@ class IndexController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function destroy($id)
     {
         //
     }
+
 }

@@ -23,7 +23,8 @@ class FeedbackController extends Controller
         if(!Request::input('noread'))
             $Feedback = Feedback::orderBy('id', 'desc')->simplePaginate(15);
         else
-             $Feedback = Feedback::whereRaw('read = ?', [false])->orderBy('id', 'desc')->simplePaginate(15);
+            $Feedback = Feedback::whereRead(false)->orderBy('id', 'desc')->simplePaginate(15);
+        //$Feedback = Feedback::whereRaw('read = ?', [false])->orderBy('id', 'desc')->simplePaginate(15);
 
         return view("dashboard/feedback/feedback",['Feedback' => $Feedback ]);
     }

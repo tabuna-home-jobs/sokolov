@@ -7,7 +7,6 @@
     <title>@yield('title')</title>
 
 
-
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
     <meta property="og:title" content="@yield('title')">
@@ -20,14 +19,11 @@
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic,500italic,300italic&subset=latin,cyrillic'
           rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-
-
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300&subset=latin,cyrillic' rel='stylesheet'
+          type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="/build/css/app.css">
-
-
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -54,7 +50,6 @@
 </div>
 
 
-
 <div class="container">
 
 
@@ -63,7 +58,8 @@
 
             <div class="icon-info-top navbar-form navbar-left">
 
-                <a href="skype:+79802665074?call"><span class="glyphicon glyphicon-earphone"></span>  <b>8(980)266-5074</b></a>
+                <a href="skype:+79802665074?call"><span class="glyphicon glyphicon-earphone"></span>
+                    <b>8(980)266-5074</b></a>
                 <a href="mailto:contact@falconediting.com"><span
                             class="fa fa-envelope-o"></span> contact@falconediting.com</a>
                 <a href="skype:falconediting?call"><span class="fa fa-skype"></span> falconediting</a>
@@ -74,16 +70,16 @@
 
         <div class="col-md-5 hidden-sm hidden-xs">
 
-            <form class="navbar-form navbar-right right-top-menu" role="search">
+            <form class="navbar-form navbar-right right-top-menu" role="search" action="{{URL::route('search.index')}}">
 
                 <div class="input-group">
 
               <span class="input-group-btn">
-              <button class="btn btn-default" type="button">
+              <button class="btn btn-default" type="submit">
                   <span class="glyphicon glyphicon-search"></span>
               </button>
              </span>
-                    <input type="text" class="form-control">
+                    <input type="text" name="search" placeholder="Search ..." class="form-control">
                 </div>
 
                 <a href="{{url('/language/en')}}" class="@if(App::getLocale() == 'en') active @endif">English</a>
@@ -105,19 +101,20 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand hidden-sm hidden-xs" href="/"><img src="/img/logo.png" class="img-responsive"></a>
-            <a class="navbar-brand hidden-md hidden-lg" href="/"><img src="/img/logo-min.png" class="img-responsive"></a>
+            <a class="navbar-brand hidden-md hidden-lg" href="/"><img src="/img/logo-min.png"
+                                                                      class="img-responsive"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav  navbar-right">
                 <li class="active"><a href="#">Главная</a></li>
-                 @if(App::getLocale() == 'en')
+                @if(App::getLocale() == 'en')
                     {!! Menu::getLI('english-top-menu') !!}
-                    @else
+                @else
                     {!! Menu::getLI('russian-top-menu') !!}
                 @endif
 
-                <li class="login-a  hidden-sm hidden-xs"><a href="#">Вход</a></li>
+                <li class="login-a  hidden-sm hidden-xs"><a href="/auth/login">Вход</a></li>
             </ul>
 
         </div>
@@ -125,14 +122,44 @@
     </nav>
 
 
+    @if(Session::has('good'))
+        <div class="container-alert">
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-check"></i> Успех!</h4>
+                {{Session::get('good')}}
+            </div>
+        </div>
+    @elseif(Session::has('bad'))
+        <div class="container-alert">
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-ban"></i> Что то пошло не так!</h4>
+                {{Session::get('bad')}}
+            </div>
+        </div>
+    @endif
+
+
+    @if (count($errors) > 0)
+        <div class="container-alert">
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Ошибка!</strong> Пожалуйста проверте вводимые данные.<br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    @endif
+
+
 </div>
 
 
-
 @yield('content')
-
-
-
 
 
 <footer id="footer">
@@ -165,7 +192,7 @@
                         <li><a href="skype:+79802665074?call"><span
                                         class="glyphicon glyphicon-earphone"></span> 8(980)266-5074</a></li>
                         <li><a href="mailto:contact@falconediting.com"><span
-                                        class="fa fa-envelope-o"></span>  contact@falconediting.com</a></li>
+                                        class="fa fa-envelope-o"></span> contact@falconediting.com</a></li>
                         <li><a href="skype:falconediting?call"><span class="fa fa-skype"></span> falconediting</a></li>
                     </ul>
 
@@ -173,15 +200,13 @@
                 <div class="col-sm-3 hidden-sm hidden-xs">
                     <h4>Навигация по сайту</h4>
 
-
                     <ul class="menu-footer ">
-                        <li><a href="#">Главная</a></li>
-                        <li><a href="#">О компании</a></li>
-                        <li><a href="#">Наши услуги</a></li>
-                        <li><a href="#">Новости и акции</a></li>
-                        <li><a href="#"> Отзывы</a></li>
+                        @if(App::getLocale() == 'en')
+                            {!! Menu::getLI('english-footer-menu') !!}
+                        @else
+                            {!! Menu::getLI('russian-footer-menu') !!}
+                        @endif
                     </ul>
-
 
                 </div>
                 <div class="col-sm-3  hidden-sm hidden-xs">
@@ -198,7 +223,8 @@
                     © 2015, Falcon Scientific Editing, Соколов Денис Александрович
                 </div>
                 <div class="col-xs-6 text-right">
-                    <p>Разработка, поддержка и продвижение сайтов <span class="text-right"><a href="http://octavian48.ru" target="_blank"><img src="/img/octavian.png"></a></span>
+                    <p>Разработка, поддержка и продвижение сайтов <span class="text-right"><a
+                                    href="http://octavian48.ru" target="_blank"><img src="/img/octavian.png"></a></span>
                     </p>
 
                     <p><a href="#">Сообщить об ошибке</a></p>

@@ -9,7 +9,9 @@
     <div class="wrapper-md">
         <div class="panel panel-default">
             <div class="panel-heading">
-                     Отзывы
+
+                <a href="{{URL::route('dashboard.review.create')}}"
+                   class="btn btn-link btn-sm"><i class="fa fa-plus"></i> Добавить новую запись </a>
             </div>
             <div class="table-responsive">
                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
@@ -19,8 +21,9 @@
                                 <thead>
                                 <tr role="row">
                                     <th>#</th>
+                                    <th>Изображение</th>
                                     <th>ФИО</th>
-                                    <th>Кратко</th>
+                                    <th>Язык</th>
                                     <th>Дата</th>
                                     <th>Управление</th>
                                 </tr>
@@ -31,22 +34,28 @@
 
                                 @foreach ($ReviewsList as $Review)
                                     <tr>
-                                        @if( $Review->publish )
-                                            <td class="success">{{ $Review->id }}</td>
-                                        @else
-                                            <td>{{ $Review->id }}</td>
-                                        @endif
-
-                                        <td>{{ $Review->fio }}</td>
-
-
-
-                                        <td>{{  mb_substr($Review->content,0,50,'utf-8') }}...</td>
+                                        <td>{{$Review->id}}</td>
+                                        <td><img src="{{$Review->avatar}}" class="img-responsive" width="100px"
+                                                 height="50px"></td>
+                                        <td>{{ $Review->name }}</td>
+                                        <td>{{  $Review->lang }}</td>
                                         <td>{{ $Review->created_at }}</td>
-                                        <td>
-                                            <a href="/dashboard/reviews/add/{{ $Review->id }}" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> </a>
-                                            <a href="/dashboard/reviews/destroy/{{ $Review->id }}" class="btn btn-danger"><span class="fa fa-trash-o"></span></a>
+
+
+                                        <td class="pull-right">
+                                            <a href="{{URL::route('dashboard.review.edit', $Review->id)}}"
+                                               class="btn btn-primary"><span class="fa fa-edit"></span> </a>
+
+                                            <form action="{{URL::route('dashboard.review.destroy',$Review->id)}}"
+                                                  method="post" class="pull-right">
+                                                <input type="hidden" name="_method" value="delete">
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <button type="submit" class="btn btn-danger"><span
+                                                            class="fa fa-trash-o"></span></button>
+                                            </form>
                                         </td>
+
+
                                     </tr>
                                 @endforeach
 

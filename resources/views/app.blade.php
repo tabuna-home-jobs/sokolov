@@ -270,7 +270,12 @@
                         </li>
 
 
-
+                        <li class="{{Active::route('dashboard.review.*')}}">
+                            <a href="{{URL::route('dashboard.review.index')}}">
+                                <i class="fa fa-star-half-o"></i>
+                                <span>Отзывы</span>
+                            </a>
+                        </li>
 
 
                     </ul>

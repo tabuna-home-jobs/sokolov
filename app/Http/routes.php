@@ -38,6 +38,7 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth'], 'prefix' => 
     Route::resource('order', 'OrderController');
     Route::resource('comments', 'CommentsController');
     Route::resource('filemanager', 'FileManagerController');
+    Route::resource('review', 'ReviewController');
 
 
     Route::get('/wmenuindex', array('as' => 'wmenuindex', 'uses' => 'WmenuController@wmenuindex'));
@@ -55,4 +56,17 @@ Route::group(['namespace' => 'Site'], function () {
     Route::resource('', 'IndexController');
     Route::resource('page', 'PageController');
     Route::resource('news', 'NewsController');
+    Route::resource('feedback', 'FeedbackController');
+    Route::resource('review', 'ReviewController');
+    Route::resource('search', 'SearchController');
+
+
+    Route::group(['middleware' => ['auth']], function () {
+        Route::resource('home', 'HomeController');
+        Route::resource('setting', 'SettingController');
+    });
+
+
 });
+
+

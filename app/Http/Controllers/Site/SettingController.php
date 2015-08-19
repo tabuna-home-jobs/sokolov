@@ -2,15 +2,24 @@
 
 namespace App\Http\Controllers\Site;
 
-use App;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-use App\Models\News;
-use App\Models\Review;
+use Auth;
 use Illuminate\Http\Request;
+use Session;
 
-class IndexController extends Controller
+class SettingController extends Controller
 {
+
+
+    private $user;
+
+    public function __construct()
+    {
+        $this->user = Auth::user();
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -18,13 +27,9 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $reviews = Review::where('lang', App::getLocale())->orderBy('id', 'desc')->limit(4)->get();
-        $news = News::where('lang',App::getLocale())->orderBy('id','desc')->limit(4)->get();
-        return view('site.index',[
-            'NewsList' => $news,
-            'ReviewsList' => $reviews,
+        return view('site.setting', [
+            'User' => $this->user
         ]);
-
     }
 
     /**
@@ -40,7 +45,7 @@ class IndexController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -51,7 +56,7 @@ class IndexController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show($id)
@@ -62,7 +67,7 @@ class IndexController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit($id)
@@ -73,19 +78,30 @@ class IndexController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  int  $id
+     * @param  Request $request
+     * @param  int $id
      * @return Response
      */
     public function update(Request $request, $id)
     {
-        //
+
+        if ($request->type == 'personal') {
+            $this->user->fill($request->all())->save();
+        } elseif ($request->type == 'password') {
+            $this->user->password = bcrypt($request->password);
+            $this->user->save();
+        }
+
+
+        Session::flash('good', 'Вы успешно изменили значения');
+        return redirect()->back();
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function destroy($id)

@@ -429,41 +429,36 @@
     <div class="text-center">
 
         <h1>Отзывы наших клиентов</h1>
-        <a href="#">Все отзывы <span class="glyphicon glyphicon-arrow-right"></span></a>
+        <a href="{{URL::route('review.index')}}">Все отзывы <span class="glyphicon glyphicon-arrow-right"></span></a>
 
     </div>
 
 
     <div class="reviews-list">
         <div class="row">
+
+
+            @foreach($ReviewsList as $reviews)
+
             <div class="reviews-div col-sm-6 col-md-3">
                 <div class="text-center">
-                    <img src="/img/answer.png" class="img-circle">
+                    <img src="{{$reviews->avatar}}" class="img-circle">
 
                     <div class="caption">
-                        <h4>Заголовок новости</h4>
+                        <h4>{{$reviews->name}}</h4>
 
-                            <span>Кандидат технических наук
-                            НИИ «РОСЛЕСГАЗНЕФТЬ»
-                            Российская Федерация
+                            <span>{{$reviews->dolshnost}}
                             </span>
 
 
                         <p class="date">
-                            Август 11, 2015
+                            {{$reviews->created_at}}
                         </p>
 
 
                         <p class="text-justify reviews-text">
                             <i class="fa fa-quote-left fa-2x fa-pull-left"></i>
-                            Множество рукописей не
-                            принимаются к публикации
-                            из-за плохого качества языка.
-                            Наши редакторы – эксперты
-                            английского языка. Наши
-                            редакторы научные эксперты
-                            многими годами деятельности
-                            и публикациями журналах
+                            {{$reviews->comment}}
                             <i class="fa fa-quote-right fa-2x fa-pull-right"></i>
                         </p>
 
@@ -471,113 +466,7 @@
                     </div>
                 </div>
             </div>
-            <div class="reviews-div col-sm-6 col-md-3">
-                <div class="text-center">
-                    <img src="/img/answer.png" class="img-circle">
-
-                    <div class="caption">
-                        <h4>Заголовок новости</h4>
-
-                            <span>Кандидат технических наук
-                            НИИ «РОСЛЕСГАЗНЕФТЬ»
-                            Российская Федерация
-                            </span>
-
-
-                        <p class="date">
-                            Август 11, 2015
-                        </p>
-
-
-                        <p class="text-justify reviews-text">
-                            <i class="fa fa-quote-left fa-2x fa-pull-left"></i>
-                            Множество рукописей не
-                            принимаются к публикации
-                            из-за плохого качества языка.
-                            Наши редакторы – эксперты
-                            английского языка. Наши
-                            редакторы научные эксперты
-                            многими годами деятельности
-                            и публикациями журналах
-                            <i class="fa fa-quote-right fa-2x fa-pull-right"></i>
-                        </p>
-
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="reviews-div col-sm-6 col-md-3">
-                <div class="text-center">
-                    <img src="/img/answer.png" class="img-circle">
-
-                    <div class="caption">
-                        <h4>Заголовок новости</h4>
-
-                            <span>Кандидат технических наук
-                            НИИ «РОСЛЕСГАЗНЕФТЬ»
-                            Российская Федерация
-                            </span>
-
-
-                        <p class="date">
-                            Август 11, 2015
-                        </p>
-
-
-                        <p class="text-justify reviews-text">
-                            <i class="fa fa-quote-left fa-2x fa-pull-left"></i>
-                            Множество рукописей не
-                            принимаются к публикации
-                            из-за плохого качества языка.
-                            Наши редакторы – эксперты
-                            английского языка. Наши
-                            редакторы научные эксперты
-                            многими годами деятельности
-                            и публикациями журналах
-                            <i class="fa fa-quote-right fa-2x fa-pull-right"></i>
-                        </p>
-
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="reviews-div col-sm-6 col-md-3">
-                <div class="text-center">
-                    <img src="/img/answer.png" class="img-circle">
-
-                    <div class="caption">
-                        <h4>Заголовок новости</h4>
-
-                            <span>Кандидат технических наук
-                            НИИ «РОСЛЕСГАЗНЕФТЬ»
-                            Российская Федерация
-                            </span>
-
-
-                        <p class="date">
-                            Август 11, 2015
-                        </p>
-
-
-                        <p class="text-justify reviews-text">
-                            <i class="fa fa-quote-left fa-2x fa-pull-left"></i>
-                            Множество рукописей не
-                            принимаются к публикации
-                            из-за плохого качества языка.
-                            Наши редакторы – эксперты
-                            английского языка. Наши
-                            редакторы научные эксперты
-                            многими годами деятельности
-                            и публикациями журналах
-                            <i class="fa fa-quote-right fa-2x fa-pull-right"></i>
-                        </p>
-
-
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
 
         </div>
