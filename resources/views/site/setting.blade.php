@@ -53,7 +53,8 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4 class="panel-title"><a href="#collapseB2" data-toggle="collapse" class="collapsed"> Настройки </a>
+                <h4 class="panel-title"><a href="#collapseB2" data-toggle="collapse" class="collapsed">
+                        Безопасность </a>
                 </h4>
             </div>
             <div class="panel-collapse collapse" id="collapseB2" style="height: 0px;">
@@ -75,34 +76,6 @@
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" class="form-control" name="type" value="password">
                     </form>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title"><a href="#collapseB3" data-toggle="collapse" class="collapsed"> Опции </a></h4>
-            </div>
-            <div class="panel-collapse collapse" id="collapseB3" style="height: 0px;">
-                <div class="panel-body">
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">
-                                    Я хочу принимать CMS сообщения </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">
-                                    Я хочу принимать Email сообщения </label>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-9">
-                                    <button type="submit" class="btn btn-default">Изменить</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

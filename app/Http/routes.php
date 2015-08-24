@@ -59,7 +59,7 @@ Route::group(['namespace' => 'Site'], function () {
     Route::resource('feedback', 'FeedbackController');
     Route::resource('review', 'ReviewController');
     Route::resource('search', 'SearchController');
-
+    Route::resource('catalog', 'CatalogController');
 
     Route::group(['middleware' => ['auth']], function () {
         Route::resource('home', 'HomeController');

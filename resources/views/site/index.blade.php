@@ -371,7 +371,7 @@
         </div>
 
         <p class="text-center">
-            <button type="button" class="btn btn-warning">Заказать услугу</button>
+            <a href="/auth/login" type="button" class="btn btn-warning">Заказать услугу</a>
         </p>
 
     </ol>
@@ -486,7 +486,7 @@
     <span class="scroll-top pull-right glyphicon glyphicon-menu-up hidden-sm hidden-xs"></span>
 
     <p class="text-center">
-        <button type="button" class="btn btn-warning">Заказать услугу</button>
+        <a href="/auth/login" type="button" class="btn btn-warning">Заказать услугу</a>
     </p>
 
 

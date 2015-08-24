@@ -19,8 +19,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     protected $table = 'users';
 
-    protected $guarded = ['id', 'password', 'role'];
-
     /**
      * The attributes that are mass assignable.
      *
@@ -38,11 +36,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = ['password', 'remember_token', 'id', 'role'];
 
 
-
-    public function addddRole($role)
+    public function addRole($role)
     {
         $thisRole = unserialize($this->role);
         if (is_array($thisRole)) {

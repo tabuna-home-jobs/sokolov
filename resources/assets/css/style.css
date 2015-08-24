@@ -860,3 +860,140 @@ a:active, a:hover {
     margin-bottom: inherit;
     border-radius: inherit;
 }
+
+figure > .img-icon {
+    position: absolute;
+    padding: 20px;
+    z-index: 10;
+}
+
+figcaption {
+    color: #1c1c1c;
+    font-family: RobotoSlab;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+    position: absolute;
+    bottom: 0px;
+    padding: 24px 56px 23px 34px;
+    width: 90%;
+}
+
+figcaption > a {
+    color: #1c1c1c;
+    font-family: RobotoSlab;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+}
+
+figcaption > a:hover {
+    color: #1c1c1c;
+    font-family: RobotoSlab;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+    text-decoration: underline;
+}
+
+figure:hover > figcaption {
+    background: url("/img/catalog/background-icon.png") no-repeat 100% 100%;
+    color: #1c1c1c;
+    font-family: RobotoSlab;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+}
+
+.img-wrapper {
+    display: inline-block;
+    background: black;
+    padding: 0;
+}
+
+.img-wrapper img {
+    display: block;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+
+figure:hover .img-wrapper img {
+    opacity: 0.7;
+}
+
+.img-responsive-sliderback {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-indicators-catalog {
+    background: url("/img/catalog/backbottom.png") !important;
+}
+
+.item-catalog > img {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.item-catalog {
+    height: auto !important;
+}
+
+.item-catalog h2 {
+    color: #1c1c1c;
+    font-family: RobotoSlab;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 48px;
+    padding-bottom: 0;
+}
+
+.item-catalog > .carousel-caption {
+    right: 10%;
+    left: 10%;
+}
+
+.text-slider-bg {
+    background: url("/img/catalog/textsliderbg.png") no-repeat 100%;
+    color: #1c1c1c;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 21px;
+    padding: 30px;
+}
+
+.carousel-caption-element {
+    right: 25% !important;
+    left: 25% !important;
+    text-align: center;
+}
+
+.carousel-caption-element-bg {
+    background: url("/img/catalog/element-slider-bg.png") no-repeat 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.carousel-caption-element img {
+    width: auto !important;
+    height: auto !important;
+}
+
+.carousel-caption-element h2 {
+    color: #2f8398;
+    font-family: RobotoSlab;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 36px;
+}
+
+.carousel-caption-element p {
+    color: #1c1c1c;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 26px;
+}
