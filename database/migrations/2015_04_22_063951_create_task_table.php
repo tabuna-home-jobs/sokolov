@@ -17,7 +17,7 @@ class CreateTaskTable extends Migration
         {
             $table->increments('id');
             $table->integer('order_id');
-            $table->integer('goods_id');
+            $table->integer('category_id');
             $table->timestamps();
         });
 	}

@@ -18,11 +18,14 @@ class Order extends Model {
      * @var array
      */
     protected $fillable = [
+        'name',
         'user_id',
         'OrderFile',
         'status',
         'price',
-        'workfinish'
+        'workfinish',
+        'text',
+        'izdanie'
     ];
 
 

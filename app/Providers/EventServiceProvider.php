@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Category;
 use App\Models\Goods;
 use App\Models\News;
 use App\Models\Page;
@@ -37,7 +36,6 @@ class EventServiceProvider extends ServiceProvider
         Page::observe(new SlugGenerateObserver);
         News::observe(new SlugGenerateObserver);
         Shares::observe(new SlugGenerateObserver);
-        Category::observe(new SlugGenerateObserver);
         Goods::observe(new SlugGenerateObserver);
     }
 }

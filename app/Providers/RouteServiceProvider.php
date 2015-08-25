@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Routing\Router;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -39,7 +39,7 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         $router->bind('category', function($value) {
-            return \App\Models\Category::where('slug', $value)->firstOrFail();
+            return \App\Models\Category::find($value)->firstOrFail();
         });
 
         $router->bind('goods', function($value) {

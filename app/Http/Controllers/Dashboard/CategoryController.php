@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Image;
@@ -45,12 +45,6 @@ class CategoryController extends Controller
     {
 
         $Category = new Category($request->all());
-
-        if ($request->hasFile('avatar')) {
-            Image::make($request->file('avatar'))->resize(300, 200)->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
-            $Category->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
-        }
-
         $Category->save();
 
         //Флеш сообщение
@@ -93,12 +87,6 @@ class CategoryController extends Controller
     {
 
         $Category->fill($request->all());
-
-        if ($request->hasFile('avatar')) {
-            Image::make($request->file('avatar'))->resize(300, 200)->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
-            $Category->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
-        }
-
         $Category->save();
 
         //Флеш сообщение

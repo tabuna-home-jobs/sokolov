@@ -39,6 +39,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $hidden = ['password', 'remember_token', 'id', 'role'];
 
 
+    public function getOrders()
+    {
+        return $this->hasMany('App\Models\Order', 'user_id');
+    }
+
+
+
     public function addRole($role)
     {
         $thisRole = unserialize($this->role);

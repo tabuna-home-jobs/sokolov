@@ -64,6 +64,7 @@ Route::group(['namespace' => 'Site'], function () {
     Route::group(['middleware' => ['auth']], function () {
         Route::resource('home', 'HomeController');
         Route::resource('setting', 'SettingController');
+        Route::resource('order', 'OrderController');
     });
 
 

@@ -19,7 +19,7 @@ class MetaOrder extends Model {
      */
     protected $fillable = [
         'order_id',
-        'goods_id',
+        'category_id',
     ];
 
 
@@ -30,7 +30,7 @@ class MetaOrder extends Model {
 
     public function getGood()
     {
-        return $this->belongsTo('App\Models\Goods', 'goods_id');
+        return $this->belongsTo('App\Models\Goods', 'category_id');
     }
 
 }

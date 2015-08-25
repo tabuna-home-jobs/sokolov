@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
     <div class="container">
         <div class="row">
             <div class="col-sm-3 page-sidebar">
@@ -33,11 +35,14 @@
 
                                 <div class="panel-collapse collapse in" id="MyAds">
                                     <ul class="acc-list">
-                                        <li><a href="#"><i class="fa fa-plus"></i> Создать заказ </a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i> Заказы в работе <span
-                                                        class="badge pull-right">42</span> </a></li>
-                                        <li><a href="#"><i class="fa fa-cart-arrow-down"></i> Завершённые <span
-                                                        class="badge pull-right">42</span> </a></li>
+                                        <li><a class="{{Active::route('order.create')}}"
+                                               href="{{route('order.create')}}"><i class="fa fa-plus"></i> Создать заказ
+                                            </a></li>
+                                        <li><a class="{{Active::route('oreder.index')}}"
+                                               href="{{route('order.index')}}"><i class="fa fa-cart-arrow-down"></i>
+                                                Заказы <span
+                                                        class="badge pull-right">{{Auth::user()->getOrders()->count()}}</span>
+                                            </a></li>
                                         <li><a href="#"><i class="fa fa-usd"></i> Счета </a></li>
                                     </ul>
                                 </div>

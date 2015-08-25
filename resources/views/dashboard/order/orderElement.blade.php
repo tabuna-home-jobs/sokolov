@@ -59,125 +59,135 @@
                                 <div class="wrapper-md">
 
 
-
                                     <div class="bg-light lter b-b wrapper-md">
                                         <h1 class="m-n font-thin h3"> {{$SelectOrder->name}}</h1>
                                     </div>
                                     <div class="wrapper-md panel">
 
 
-                                        <form action="{{URL::route('dashboard.order.update', $SelectOrder->id) }}" method="post">
+                                        <form action="{{URL::route('dashboard.order.update', $SelectOrder->id) }}"
+                                              method="post">
 
-                                        <div class="well m-t bg-light lt">
-                                            <div class="row">
-                                                <div class="col-xs-6">
-                                                    <strong>Заказ номер: #{{$SelectOrder->id}}</strong>
-                                                    <h4>{{$SelectUser->first_name}} {{$SelectUser->last_name}}</h4>
+                                            <div class="well m-t bg-light lt">
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <strong>Заказ номер: #{{$SelectOrder->id}}</strong>
+                                                        <h4>{{$SelectUser->first_name}} {{$SelectUser->last_name}}</h4>
 
-                                                    <p>
-                                                        <span class="glyphicon glyphicon-earphone"> Телефон: 031-432-678 </span>
-                                                    </p>
+                                                        <p>
+                                                            <span class="glyphicon glyphicon-earphone"> Телефон: 031-432-678 </span>
+                                                        </p>
 
-                                                    <p>
-                                                        <span class="glyphicon glyphicon-envelope"> Email:{{$SelectUser->email}}</span>
-                                                    </p>
+                                                        <p>
+                                                            <span class="glyphicon glyphicon-envelope"> Email:{{$SelectUser->email}}</span>
+                                                        </p>
 
-                                                </div>
-                                                <div class="col-xs-6">
-                                                    <strong>Услуги:</strong>
-
-
-                                                    @foreach($SelectGoods as $Goods)
-
-                                                        <li>
-                                                            {{$Goods->getGood()->select('name')->get()->first()->name}}
-                                                        </li>
-
-                                                    @endforeach
-
-                                                </div>
-                                            </div>
-                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <strong>Услуги:</strong>
 
 
-                                        <div class="line line-dashed b-b line-lg"></div>
+                                                        @foreach($SelectGoods as $Goods)
 
-                                        <div class="form-group col-xs-6">
-                                            <label>Цена</label>
+                                                            <li>
+                                                                {{--      {{$Goods->getGood()->select('name')->get()->first()->name}}--}}
+                                                            </li>
 
-                                            <div class="input-group">
-                                                <input class="form-control" type="number"
-                                                       value="{{$SelectOrder->price}}" maxlength="255" min="0" required
-                                                       name="price"
-                                                       value="">
+                                                        @endforeach
 
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-usd"></i>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <!-- /.input group -->
-                                        </div>
-
-                                        <div class="form-group col-xs-6">
-                                            <label>Дата получения заявки</label>
 
 
-                                            <p>{{$SelectOrder->created_at}}</p>
+                                            <div class="line line-dashed b-b line-lg"></div>
+
+                                            <p class="text-justify">
+                                                {{$SelectOrder->text}}
+                                            </p>
 
 
-                                        </div>
+                                            <div class="line line-dashed b-b line-lg"></div>
 
+                                            <div class="form-group col-xs-6">
+                                                <label>Цена</label>
 
-                                        <div class="line line-dashed b-b line-lg"></div>
+                                                <div class="input-group">
+                                                    <input class="form-control" type="number"
+                                                           value="{{$SelectOrder->price}}" maxlength="255" min="0"
+                                                           required
+                                                           name="price"
+                                                           value="">
 
-
-                                        <div class="form-group col-xs-6">
-                                            <label>Статус</label>
-                                            <select class="form-control w-md" ui-jq="chosen" required name="status">
-                                                <option @if($SelectOrder->status == 'На оценке') selected @endif value="На оценке">
-                                                    На оценке
-                                                </option>
-                                                <option @if($SelectOrder->status == 'Отменён') selected @endif value="Отменён">
-                                                    Отменён
-                                                </option>
-                                                <option @if($SelectOrder->status == 'Не оплачен') selected @endif value="Не оплачен">
-                                                    Не оплачен
-                                                </option>
-                                                <option @if($SelectOrder->status == 'В работе') selected @endif value="В работе">
-                                                    В работе
-                                                </option>
-                                                <option @if($SelectOrder->status == 'Готова') selected @endif value="Готова">
-                                                    Готова
-                                                </option>
-
-                                            </select>
-                                        </div>
-
-
-                                        <div class="form-group col-xs-6">
-                                            <label>Дата окончания</label>
-
-                                            <div class='input-group date' id='datetimepickerorder'>
-                                                <input type='text' class="form-control" required name="workfinish"
-                                                       value="{{$SelectOrder->workfinish}}"/>
-                                    <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-usd"></i>
+                                                    </div>
+                                                </div>
+                                                <!-- /.input group -->
                                             </div>
-                                        </div>
+
+                                            <div class="form-group col-xs-6">
+                                                <label>Дата получения заявки</label>
 
 
+                                                <p>{{$SelectOrder->created_at}}</p>
 
 
-                                        <div class="line line-dashed b-b line-lg"></div>
+                                            </div>
 
 
-                                        <input type="hidden" name="_method" value="PUT">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <button type="submit" class="btn btn-success btn-block">Сохранить</button>
+                                            <div class="line line-dashed b-b line-lg"></div>
 
-                                 </form>
 
+                                            <div class="form-group col-xs-6">
+                                                <label>Статус</label>
+                                                <select class="form-control w-md" ui-jq="chosen" required name="status">
+                                                    <option @if($SelectOrder->status == 'На оценке') selected
+                                                            @endif value="На оценке">
+                                                        На оценке
+                                                    </option>
+                                                    <option @if($SelectOrder->status == 'Отменён') selected
+                                                            @endif value="Отменён">
+                                                        Отменён
+                                                    </option>
+                                                    <option @if($SelectOrder->status == 'Не оплачен') selected
+                                                            @endif value="Не оплачен">
+                                                        Не оплачен
+                                                    </option>
+                                                    <option @if($SelectOrder->status == 'В работе') selected
+                                                            @endif value="В работе">
+                                                        В работе
+                                                    </option>
+                                                    <option @if($SelectOrder->status == 'Готова') selected
+                                                            @endif value="Готова">
+                                                        Готова
+                                                    </option>
+
+                                                </select>
+                                            </div>
+
+
+                                            <div class="form-group col-xs-6">
+                                                <label>Дата окончания</label>
+
+                                                <div class='input-group date' id='datetimepickerorder'>
+                                                    <input type='text' class="form-control" required name="workfinish"
+                                                           value="{{$SelectOrder->workfinish}}"/>
+<span class="input-group-addon">
+<span class="glyphicon glyphicon-calendar"></span>
+</span>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="line line-dashed b-b line-lg"></div>
+
+
+                                            <input type="hidden" name="_method" value="PUT">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <button type="submit" class="btn btn-success btn-block">Сохранить</button>
+
+                                        </form>
 
 
                                         <div class="line line-dashed b-b line-lg"></div>
@@ -186,14 +196,15 @@
                                         <div>
                                             <ul id="TabUpload" class="nav nav-tabs" role="tablist">
                                                 <li role="presentation" class="active"><a href="#taskTab" role="tab"
-                                                                                          id="taskTab-tab" data-toggle="tab"
+                                                                                          id="taskTab-tab"
+                                                                                          data-toggle="tab"
                                                                                           aria-controls="taskTab"
                                                                                           aria-expanded="true">Задачи</a>
                                                 </li>
                                                 <li role="presentation" class=""><a href="#files" id="files-tab"
-                                                                                          role="tab" data-toggle="tab"
-                                                                                          aria-controls="files"
-                                                                                          aria-expanded="false">Файлы
+                                                                                    role="tab" data-toggle="tab"
+                                                                                    aria-controls="files"
+                                                                                    aria-expanded="false">Файлы
                                                         Пользователя</a>
                                                 </li>
                                                 <li role="presentation" class=""><a href="#goodfiles" id="goodfiles-tab"
@@ -206,8 +217,6 @@
                                             </ul>
 
 
-
-
                                             <div id="TabUploadContent" class="tab-content">
 
 
@@ -215,7 +224,10 @@
                                                      aria-labelledby="taskTab-tab">
 
                                                     <p class="m-t-md">
-                                                        <button class="btn m-b-xs btn-sm btn-info btn-block" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                                        <button class="btn m-b-xs btn-sm btn-info btn-block"
+                                                                type="button" data-toggle="collapse"
+                                                                data-target="#collapseExample" aria-expanded="false"
+                                                                aria-controls="collapseExample">
                                                             Создать новую задачу
                                                         </button>
                                                     </p>
@@ -223,138 +235,146 @@
                                                     <div class="collapse" id="collapseExample">
                                                         <div class="container-fluid">
 
-                                                            <form action="{{URL::route('dashboard.order.update', $SelectOrder->id) }}" method="post">
+                                                            <form action="{{URL::route('dashboard.order.update', $SelectOrder->id) }}"
+                                                                  method="post">
 
-                                                            <div class="form-group col-xs-6">
-                                                                <label>Название</label>
-                                                                <input type="text" class="form-control" maxlength="255" required name="name" placeholder="Название задачи">
-                                                            </div>
+                                                                <div class="form-group col-xs-6">
+                                                                    <label>Название</label>
+                                                                    <input type="text" class="form-control"
+                                                                           maxlength="255" required name="name"
+                                                                           placeholder="Название задачи">
+                                                                </div>
 
-                                                            <div class="form-group col-xs-6">
-                                                                <label>Цена</label>
+                                                                <div class="form-group col-xs-6">
+                                                                    <label>Цена</label>
 
-                                                                <div class="input-group">
-                                                                    <input class="form-control" type="number"
-                                                                           value="{{$SelectOrder->price}}" maxlength="255" required
-                                                                           name="price"
-                                                                           value="">
+                                                                    <div class="input-group">
+                                                                        <input class="form-control" type="number"
+                                                                               value="{{$SelectOrder->price}}"
+                                                                               maxlength="255" required
+                                                                               name="price"
+                                                                               value="">
 
-                                                                    <div class="input-group-addon">
-                                                                        <i class="fa fa-usd"></i>
+                                                                        <div class="input-group-addon">
+                                                                            <i class="fa fa-usd"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- /.input group -->
+                                                                </div>
+
+
+                                                                <div class="form-group col-xs-6">
+                                                                    <label>Дата окончания</label>
+
+                                                                    <div class='input-group date'
+                                                                         id='datetimepickerorder2'>
+                                                                        <input type='text' class="form-control" required
+                                                                               name="workfinish"
+                                                                               value="{{$SelectOrder->workfinish}}"/>
+<span class="input-group-addon">
+<span class="glyphicon glyphicon-calendar"></span>
+</span>
                                                                     </div>
                                                                 </div>
-                                                                <!-- /.input group -->
-                                                            </div>
 
 
+                                                                <div class="form-group col-xs-6">
+                                                                    <label>Исполнитель</label>
+                                                                    <select class="form-control w-md" ui-jq="chosen"
+                                                                            required name="status">
 
-                                                            <div class="form-group col-xs-6">
-                                                                <label>Дата окончания</label>
+                                                                        @foreach($AllUser as $user)
 
-                                                                <div class='input-group date' id='datetimepickerorder2'>
-                                                                    <input type='text' class="form-control" required name="workfinish"
-                                                                           value="{{$SelectOrder->workfinish}}"/>
-                                    <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
+                                                                            <option value="{{$user->id}}">
+                                                                                {{$user->first_name}} {{$user->last_name}}
+                                                                            </option>
+
+                                                                        @endforeach
+
+                                                                    </select>
                                                                 </div>
-                                                            </div>
 
 
-                                                            <div class="form-group col-xs-6">
-                                                                <label>Исполнитель</label>
-                                                                <select class="form-control w-md" ui-jq="chosen" required name="status">
+                                                                <div class="form-group col-xs-6">
+                                                                    <label>Услуга</label>
+                                                                    <select class="form-control w-md" ui-jq="chosen"
+                                                                            required name="goods">
+                                                                        {{--
+                                                                                                                                                @foreach($SelectGoods as $Goods)
 
-                                                                    @foreach($AllUser as $user)
+                                                                                                                                                    <option value="{{$Goods->getGood()->select('id')->get()->first()->id}}">
+                                                                                                                                                        {{$Goods->getGood()->select('name')->get()->first()->name}}
+                                                                                                                                                    </option>
 
-                                                                        <option value="{{$user->id}}">
-                                                                            {{$user->first_name}} {{$user->last_name}}
-                                                                        </option>
+                                                                                                                                                @endforeach
+                                                                        --}}
+                                                                    </select>
+                                                                </div>
+
+
+                                                                <div class="form-group col-xs-6">
+                                                                    <label>Объем работы</label>
+                                                                    <input type="number" class="form-control" min="0"
+                                                                           required name="name"
+                                                                           placeholder="Объем работы">
+                                                                </div>
+
+
+                                                                <div class="form-group col-xs-12">
+                                                                    <h4 class="text-center">Прикрепить файлы</h4>
+                                                                    <hr>
+                                                                    <label>Загруженные файлы:</label>
+                                                                    @foreach($SelectGoodFile as $file)
+                                                                        <div class="checkbox">
+                                                                            <label class="i-checks">
+                                                                                <input type="checkbox" name="files[]"
+                                                                                       value="{{$file->id}}">
+                                                                                <i class="fa fa-file-o"></i> {{$file->original}}
+                                                                            </label>
+                                                                        </div>
+                                                                    @endforeach
+                                                                    <hr>
+                                                                    <label>Пользовательские файлы:</label>
+                                                                    @foreach($SelectRequestFile as $file)
+
+                                                                        <div class="checkbox">
+                                                                            <label class="i-checks">
+                                                                                <input type="checkbox" name="files[]"
+                                                                                       value="{{$file->id}}">
+                                                                                <i class="fa fa-file-o"></i> {{$file->original}}
+                                                                            </label>
+                                                                        </div>
 
                                                                     @endforeach
-
-                                                                </select>
-                                                            </div>
-
-
-
-
-
-
-                                                            <div class="form-group col-xs-6">
-                                                                <label>Услуга</label>
-                                                                <select class="form-control w-md" ui-jq="chosen" required name="goods">
-
-                                                                    @foreach($SelectGoods as $Goods)
-
-                                                                        <option value="{{$Goods->getGood()->select('id')->get()->first()->id}}">
-                                                                            {{$Goods->getGood()->select('name')->get()->first()->name}}
-                                                                        </option>
-
-                                                                    @endforeach
-
-                                                                </select>
-                                                            </div>
-
-
-                                                            <div class="form-group col-xs-6">
-                                                                <label>Объем работы</label>
-                                                                <input type="number" class="form-control" min="0" required name="name" placeholder="Объем работы">
-                                                            </div>
-
-
-                                                            <div class="form-group col-xs-12">
-                                                                <h4 class="text-center">Прикрепить файлы</h4>
-                                                                <hr>
-                                                                <label>Загруженные файлы:</label>
-                                                            @foreach($SelectGoodFile as $file)
-                                                                    <div class="checkbox">
-                                                                        <label class="i-checks">
-                                                                            <input type="checkbox" name="files[]" value="{{$file->id}}">
-                                                                            <i class="fa fa-file-o"></i> {{$file->original}}
-                                                                        </label>
-                                                                    </div>
-                                                                @endforeach
-                                                                <hr>
-                                                                <label>Пользовательские файлы:</label>
-                                                            @foreach($SelectRequestFile as $file)
-
-                                                                    <div class="checkbox">
-                                                                        <label class="i-checks">
-                                                                            <input type="checkbox" name="files[]" value="{{$file->id}}">
-                                                                            <i class="fa fa-file-o"></i> {{$file->original}}
-                                                                        </label>
-                                                                    </div>
-
-                                                            @endforeach
-                                                        </div>
+                                                                </div>
 
 
                                                                 <input type="hidden" name="_method" value="PUT">
-                                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                                <button type="submit" class="btn btn-success btn-block">Создать</button>
+                                                                <input type="hidden" name="_token"
+                                                                       value="{{ csrf_token() }}">
+                                                                <button type="submit" class="btn btn-success btn-block">
+                                                                    Создать
+                                                                </button>
 
-                                                        </form>
+                                                            </form>
 
                                                         </div>
-
-
 
 
                                                         <div class="line line-dashed b-b line-lg"></div>
 
 
-                                                    </div>
-
-
-
+                                                        </div>
 
 
                                                     <div class="table-responsive">
-                                                        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                                        <div id="DataTables_Table_0_wrapper"
+                                                             class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                                                             <div class="row">
                                                                 <div class="col-sm-12">
-                                                                    <table class="table table-striped m-b-none dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                                                    <table class="table table-striped m-b-none dataTable no-footer"
+                                                                           id="DataTables_Table_0" role="grid"
+                                                                           aria-describedby="DataTables_Table_0_info">
                                                                         <thead>
                                                                         <tr role="row">
                                                                             <th>#</th>
@@ -376,29 +396,29 @@
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-
-
 
 
                                                 </div>
-
 
 
                                                 <div role="tabpanel" class="tab-pane" id="files"
                                                      aria-labelledby="files-tab">
 
 
-                                                    <ul class="list-group">
                                                         <ul class="list-group">
-                                                            @foreach($SelectRequestFile as $file)
-                                                                <a href="{{URL::route('dashboard.filemanager.show', $file->id)}}"
-                                                                   class="list-group-item"><i class="fa fa-file-o"></i> {{$file->original}} <small class="pull-right">{{$file->created_at}}</small></a>
-                                                            @endforeach
+                                                            <ul class="list-group">
+                                                                @foreach($SelectRequestFile as $file)
+                                                                    <a href="{{URL::route('dashboard.filemanager.show', $file->id)}}"
+                                                                       class="list-group-item"><i
+                                                                                class="fa fa-file-o"></i> {{$file->original}}
+                                                                        <small class="pull-right">{{$file->created_at}}</small>
+                                                                    </a>
+                                                                @endforeach
+                                                            </ul>
                                                         </ul>
-                                                    </ul>
 
 
                                                 </div>
@@ -408,14 +428,14 @@
                                                      aria-labelledby="goodfiles-tab">
 
 
-                                                   <p class="m-t-md"> <!-- The fileinput-button span is used to style the file input field as button -->
-                        <span class="btn btn-default btn-block fileinput-button">
-                            <span class="fileinput-new fa fa-cloud-upload text btn-block"> Выбрать файл</span>
-                            <!-- The file input field used as target for the file upload widget -->
-                            <input id="fileupload" type="file" name="files[]" multiple>
-                        </span>
-                                                       </p>
-
+                                                    <p class="m-t-md">
+                                                        <!-- The fileinput-button span is used to style the file input field as button -->
+    <span class="btn btn-default btn-block fileinput-button">
+    <span class="fileinput-new fa fa-cloud-upload text btn-block"> Выбрать файл</span>
+    <!-- The file input field used as target for the file upload widget -->
+    <input id="fileupload" type="file" name="files[]" multiple>
+    </span>
+                                                    </p>
 
 
                                                     <!-- The global progress bar -->
@@ -426,34 +446,35 @@
                                                     <!-- The container for the uploaded files -->
                                                     <div id="files" class="files"></div>
 
-                                                    <ul class="list-group">
                                                         <ul class="list-group">
-                                                            @foreach($SelectGoodFile as $file)
-                                                                <a href="{{URL::route('dashboard.filemanager.show', $file->id)}}"
-                                                                   class="list-group-item"><i class="fa fa-file-o"></i> {{$file->original}} <small class="pull-right">{{$file->created_at}}</small></a>
-                                                            @endforeach
+                                                            <ul class="list-group">
+                                                                @foreach($SelectGoodFile as $file)
+                                                                    <a href="{{URL::route('dashboard.filemanager.show', $file->id)}}"
+                                                                       class="list-group-item"><i
+                                                                                class="fa fa-file-o"></i> {{$file->original}}
+                                                                        <small class="pull-right">{{$file->created_at}}</small>
+                                                                    </a>
+                                                                @endforeach
+                                                            </ul>
                                                         </ul>
-                                                    </ul>
 
 
                                                 </div>
-
-
 
 
                                             </div>
                                         </div>
 
 
+                                        </div>
+
+
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             <!-- /column -->
 
             <!-- column -->
@@ -479,7 +500,7 @@
                                                     <div class="text-muted">{{$comment->created_at}}</div>
                                                     <p>{{$comment->text}}</p>
                                                 </div>
-                                            </div>
+                                                </div>
                                         @endforeach
 
 
@@ -488,16 +509,16 @@
 
 
                                 </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     <div class="padder b-t b-light text-center">
                         <div class="m-xs">
                             <form action="{{URL::route('dashboard.comments.store')}}" method="post">
                                 <div class="form-group">
                                     <label>Написать комментарий</label>
-                                    <textarea class="form-control" rows="3" required name="text"
-                                              style="resize: none;"></textarea>
+    <textarea class="form-control" rows="3" required name="text"
+              style="resize: none;"></textarea>
                                 </div>
                                 <input type="hidden" name="type" value="order">
                                 <input type="hidden" name="beglouto" value="{{$SelectOrder->id}}">
@@ -507,11 +528,11 @@
                             </form>
 
                         </div>
+                        </div>
                     </div>
                 </div>
-            </div>
             <!-- /column -->
-        </div>
+            </div>
         <!-- /hbox layout -->
 
 
@@ -554,11 +575,10 @@
                     );
                     $('#progress .progress-bar').html('Загрузка');
 
-                    if(progress == 100)
-                    {
+                    if (progress == 100) {
                         location.reload();
                     }
-                }
+                    }
 
             }).prop('disabled', !$.support.fileInput)
                     .parent().addClass($.support.fileInput ? undefined : 'disabled');

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateOrderMetaTable extends Migration {
 
@@ -16,7 +16,7 @@ class CreateOrderMetaTable extends Migration {
         {
             $table->increments('id');
             $table->integer('order_id');
-            $table->integer('goods_id');
+            $table->integer('category_id');
             $table->timestamps();
         });
 	}
