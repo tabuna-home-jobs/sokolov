@@ -1086,3 +1086,7 @@ pre {
     color: #222;
     border-color: #222;
 }
+
+.user-comment {
+    padding: 10px 20px;
+}

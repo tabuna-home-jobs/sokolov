@@ -27,7 +27,7 @@ Route::resource('language', 'Language\LanguageController');
 Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
 
     Route::resource('user', 'UserController');
-    Route::resource('groups', 'GroupsController');
+    //Route::resource('groups', 'GroupsController');
     Route::resource('page', 'PageController');
     Route::resource('news', 'NewsController');
     Route::resource('shares', 'SharesController');
@@ -61,13 +61,29 @@ Route::group(['namespace' => 'Site'], function () {
     Route::resource('search', 'SearchController');
     Route::resource('catalog', 'CatalogController');
 
+
     Route::group(['middleware' => ['auth']], function () {
         Route::resource('home', 'HomeController');
         Route::resource('setting', 'SettingController');
         Route::resource('order', 'OrderController');
+        Route::resource('comments', 'CommentsController');
+        Route::resource('payments', 'PaymentsController');
+        Route::resource('filemanager', 'FileManagerController');
     });
 
 
 });
+
+
+Route::group(['namespace' => 'Editor', 'middleware' => ['auth'], 'prefix' => 'editor'], function () {
+    Route::resource('', 'IndexController');
+    Route::resource('order', 'OrderController');
+
+
+});
+
+
+
+
 
 

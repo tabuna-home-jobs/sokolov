@@ -29,7 +29,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($Goods as $good)
+                                @forelse ($Goods as $good)
                                     <tr>
                                         <td>{{ $good->id }}</td>
                                         <td><img src="{{ $good->avatar }}" class="img-responsive" width="100px" height="50px"></td>
@@ -51,7 +51,9 @@
                                         </td>
 
                                     </tr>
-                                @endforeach
+                                @empty
+
+                                @endforelse
                                 </tbody>
                             </table>
                         </div>

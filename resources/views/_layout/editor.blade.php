@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
     <div class="container">
         <div class="row">
             <div class="col-sm-3 page-sidebar">
@@ -36,11 +34,11 @@
                                 <div class="panel-collapse collapse in" id="MyAds">
                                     <ul class="acc-list">
                                         <li><a class="{{Active::route('order.create')}}"
-                                               href="{{route('order.create')}}"><i class="fa fa-plus"></i> Создать заказ
+                                               href="{{route('order.create')}}"><i class="fa fa-magic"></i> ЧАН
                                             </a></li>
-                                        <li><a class="{{Active::route(['order.index', 'order.show'])}}"
-                                               href="{{route('order.index')}}"><i class="fa fa-cart-arrow-down"></i>
-                                                Заказы <span
+                                        <li><a class="{{Active::route('oreder.index')}}"
+                                               href="{{route('order.index')}}"><i class="fa fa-tasks"></i>
+                                                Принятые заказы <span
                                                         class="badge pull-right">{{Auth::user()->getOrders()->count()}}</span>
                                             </a></li>
                                         <li><a href="#"><i class="fa fa-usd"></i> Счета </a></li>
@@ -70,7 +68,7 @@
                 <div class="inner-box">
 
 
-                    @yield('content-account')
+                    @yield('content-editor')
 
                 </div>
             </div>

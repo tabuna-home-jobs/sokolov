@@ -28,6 +28,13 @@ class MetaOrder extends Model {
         return $this->belongsTo('App\Models\Order', 'order_id');
     }
 
+
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category', 'category_id');
+    }
+
+
     public function getGood()
     {
         return $this->belongsTo('App\Models\Goods', 'category_id');

@@ -3,16 +3,21 @@
 namespace App\Http\Controllers\Site;
 
 use App;
+use App\Events\NewOrder;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Category;
+use App\Models\Comments;
 use App\Models\Files;
 use App\Models\MetaOrder;
 use App\Models\Order;
 use Auth;
+use Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Mail;
 use Session;
+use SMS;
 use Storage;
 
 class OrderController extends Controller
@@ -72,7 +77,7 @@ class OrderController extends Controller
         foreach ($request->type as $type) {
             MetaOrder::create([
                 'order_id' => $newOrder->id,
-                'category' => $type
+                'category_id' => $type
             ]);
         }
 
@@ -94,6 +99,7 @@ class OrderController extends Controller
             $DBfile->save();
         }
 
+        Event::fire(new NewOrder());
         Session::flash('good', 'Спасибо, что написали, мы обязательно ответим вам.');
         return redirect()->back();
 
@@ -107,7 +113,34 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $Order = Auth::User()->getOrders()->findOrFail($id);
+        $SelectComments = Comments::whereRaw('type = ? and beglouto = ?', ['order', $id])->get();
+
+
+        $OrderMeta = $Order->getGoods()->get();
+
+        //dd($OrderMeta);
+        $collectionGoods = [];
+
+
+        foreach ($OrderMeta as $value) {
+            array_push($collectionGoods, $value->category);
+        }
+
+        $SelectGoodFile = Files::select('id', 'original', 'created_at')
+            ->whereRaw('type = ? and beglouto = ? and finish = ?', ['order', $id, true])->get();
+
+        $SelectRequestFile = Files::select('id', 'original', 'created_at')
+            ->whereRaw('type = ? and beglouto = ? and finish = ?', ['order', $id, false])->get();
+
+        return view('site.showOrder', [
+            'Order' => $Order,
+            'SelectComments' => $SelectComments,
+            'SelectGoodFile' => $SelectGoodFile,
+            'SelectRequestFile' => $SelectRequestFile,
+            'collectionGoods' => $collectionGoods,
+        ]);
+
     }
 
     /**

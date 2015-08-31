@@ -5,26 +5,26 @@
 
 
     <div class="panel panel-default">
-        <div class="panel-heading">Заказы</div>
+        <div class="panel-heading">Платежи</div>
         <table class="table">
 
             <thead>
             <tr>
                 <th>#</th>
+                <th>Сумма</th>
                 <th>Название работы</th>
                 <th>Статус</th>
-                <th>Управление</th>
             </tr>
             </thead>
 
 
             <tbody>
-            @foreach($Orders as $order)
+            @foreach($payments as $order)
                 <tr>
                     <th scope="row">{{$order->id}}</th>
-                    <td>{{$order->name}}</td>
+                    <td>{{$order->sum}}</td>
+                    <td>{{$order->sum}}</td>
                     <td>{{$order->status}}</td>
-                    <td><a href="{{route('order.show',$order->id)}}">Открыть</a></td>
                 </tr>
             @endforeach
 
@@ -35,7 +35,7 @@
     </div>
 
 
-    {!! $Orders->render()!!}
+    {!! $payments->render()!!}
 
 
 @endsection

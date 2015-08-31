@@ -45,6 +45,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
 
+    public function getPayments()
+    {
+        return $this->hasMany('App\Models\Payments', 'users_id');
+    }
+
 
     public function addRole($role)
     {
