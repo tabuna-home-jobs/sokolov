@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App;
+use App\Http\Controllers\Controller;
+use App\Http\Requests;
+use App\Http\Requests\PageRequest;
 use App\Models\Page;
 use Redirect;
 use Request;
 use Session;
 use Validator;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\PageRequest;
-use App;
 
 class PageController extends Controller
 {

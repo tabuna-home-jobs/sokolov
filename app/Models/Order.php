@@ -26,7 +26,8 @@ class Order extends Model {
         'price',
         'workfinish',
         'text',
-        'izdanie'
+        'izdanie',
+        'sold'
     ];
 
 

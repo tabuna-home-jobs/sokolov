@@ -43,7 +43,9 @@
                                                 Заказы <span
                                                         class="badge pull-right">{{Auth::user()->getOrders()->count()}}</span>
                                             </a></li>
-                                        <li><a href="#"><i class="fa fa-usd"></i> Счета </a></li>
+                                        <li><a class="{{Active::route(['payments.*'])}}"
+                                               href="{{route('payments.index')}}"><i class="fa fa-usd"></i> Счета </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

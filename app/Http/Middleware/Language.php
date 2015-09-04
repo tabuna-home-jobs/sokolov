@@ -2,12 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
-use Route;
-use URL;
-use Session;
 use App;
+use Closure;
 use Request;
+use Route;
+use Session;
+use URL;
 
 class Language
 {

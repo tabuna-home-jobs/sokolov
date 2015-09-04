@@ -29,7 +29,15 @@ class PaymentsController extends Controller
      */
     public function create()
     {
-        //
+        $order = Auth::user()
+            ->getOrders()
+            ->Select('id', 'price', 'name')
+            ->whereRaw('price > ? and sold = ?', ['0.01', 'false'])
+            ->get();
+
+        return view('site.paymentsCreate', [
+            'order' => $order
+        ]);
     }
 
     /**

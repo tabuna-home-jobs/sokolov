@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Language;
 
-use Illuminate\Http\Request;
-use Session;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use App;
+use App\Http\Controllers\Controller;
+use App\Http\Requests;
+use Session;
 
 class LanguageController extends Controller
 {

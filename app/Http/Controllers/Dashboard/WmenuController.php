@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-use Input;
-use Session;
 use App\Models\Menu;
 use App\Models\MenuItem;
+use Input;
+use Session;
 use View;
 
 class WmenuController extends Controller

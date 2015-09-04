@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests;
+use App\Http\Requests\NewsRequest;
 use App\Models\News;
 use Image;
 use Redirect;
 use Request;
 use Session;
 use Validator;
-use App\Http\Requests\NewsRequest;
-
-
-
 
 
 class NewsController extends Controller

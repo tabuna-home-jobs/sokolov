@@ -12,8 +12,6 @@ use Session;
 use Validator;
 
 
-
-
 class SharesController extends Controller
 {
 

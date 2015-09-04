@@ -78,12 +78,11 @@ Route::group(['namespace' => 'Site'], function () {
 Route::group(['namespace' => 'Editor', 'middleware' => ['auth'], 'prefix' => 'editor'], function () {
     Route::resource('', 'IndexController');
     Route::resource('order', 'OrderController');
-
-
 });
 
 
-
-
-
+Route::group(['namespace' => 'Payments', 'prefix' => 'payments/status'], function () {
+    Route::resource('aviso', 'AvisoController');
+    Route::resource('status', 'StatusController');
+});
 
