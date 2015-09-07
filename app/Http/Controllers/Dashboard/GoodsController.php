@@ -45,7 +45,7 @@ class GoodsController extends Controller
         $Goods = new Goods($request->all());
         $Goods->category_id = $request->category;
         if ($request->hasFile('avatar')) {
-            Image::make($request->file('avatar'))->resize(300, 200)->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
+            Image::make($request->file('avatar'))/*->resize(300, 200)*/->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
             $Goods->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
         }
 
@@ -94,7 +94,7 @@ class GoodsController extends Controller
         $Goods->fill($request->all());
         $Goods->category_id = $request->category;
         if ($request->hasFile('avatar')) {
-            Image::make($request->file('avatar'))->resize(300, 200)->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
+            Image::make($request->file('avatar'))/*->resize(300, 200)*/->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
             $Goods->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
         }
 

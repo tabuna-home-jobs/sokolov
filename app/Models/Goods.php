@@ -22,7 +22,7 @@ class Goods extends Model {
      *
      * @var array
      */
-    protected $fillable = ['title', 'name', 'content', 'avatar', 'text', 'price', 'category_id', 'tag', 'descript', 'price', 'attribute'];
+    protected $fillable = ['title', 'name', 'content', 'avatar', 'text', 'price', 'category_id', 'tag', 'descript', 'price', 'attribute', 'lang','slug'];
 
     public function category()
     {

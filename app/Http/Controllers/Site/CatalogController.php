@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Site;
 
+use App;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Models\Goods;
 
 class CatalogController extends Controller
 {
@@ -12,10 +14,17 @@ class CatalogController extends Controller
      * Display a listing of the resource.
      *
      * @return Response
+     * $goodsList получает список товаров по текущей локале и отдаёт представлению
+     *
      */
     public function index()
     {
-        return view('site.catalog');
+
+        $goodsList = Goods::where('lang', App::getLocale())->orderBy('id', 'asc')->limit(4)->get();
+
+        return view('site.catalog',[
+            'goodsList' => $goodsList
+        ]);
     }
 
     /**
@@ -45,9 +54,14 @@ class CatalogController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function show($id)
+    public function show(Goods $goods)
     {
-        return view('site.catalogElement');
+        $good = Goods::whereRaw('lang = ? and id = ?',[App::getLocale(), $goods->id])->firstOrFail();
+
+
+        return view('site.catalogElement',[
+            'Goods' => $good
+        ]);
     }
 
     /**

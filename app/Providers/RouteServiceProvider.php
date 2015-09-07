@@ -39,10 +39,10 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         $router->bind('category', function($value) {
-            return \App\Models\Category::find($value)->firstOrFail();
+            return \App\Models\Category::find($value);
         });
 
-        $router->bind('goods', function($value) {
+        $router->bind('catalog', function($value) {
             return \App\Models\Goods::where('slug', $value)->firstOrFail();
         });
 

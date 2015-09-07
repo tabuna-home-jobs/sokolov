@@ -246,8 +246,12 @@
 
 <script>
 
+
+
     $(document).ready(function () {
         $("#loader-wrapper").remove();
+
+        $('.carousel-inner div.item:first-child').addClass('active');
     });
 
 

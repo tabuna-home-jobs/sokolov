@@ -19,99 +19,32 @@
                             <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
                         </ol>
                         <div class="carousel-inner" role="listbox">
-                            <div class="item active item-catalog">
-                                <img src="/img/catalog/backslider-1.png">
 
-                                <div class="carousel-caption">
-                                    <h2>Редактирование научных рукописей</h2>
+                            <!--Вывод статей в слайд-->
+                            @foreach($goodsList as $key => $gList)
+                                <div class="item item-catalog">
+                                    <img src="{{$gList->avatar}}">
 
-                                    <div class="text-slider-bg">
+                                    <div class="carousel-caption">
+                                        <h2>{{$gList->name}}</h2>
 
-                                        Включает корректировку уже написанных на английском языке рукописей и устранение
-                                        грамматических и орфографических ошибок, чтобы рукопись, написанная иностранным
-                                        учёным, не отличалась по качеству от той, которая написана коренным носителем
-                                        английского языка
+                                        <div class="text-slider-bg">
+                                            {{str_limit(strip_tags($gList->text),150,'...')}}
+                                        </div>
 
-                                    </div>
-
-                                    <p>
-                                        <button class="btn btn-warning">Заказать услугу</button>
-                                        <button class="btn btn-primary">Узнать больше</button>
-                                    </p>
-
-                                </div>
-                            </div>
-
-                            <div class="item item-catalog">
-                                <img src="/img/catalog/backslider-1.png">
-
-                                <div class="carousel-caption">
-                                    <h2>Редактирование научных рукописей</h2>
-
-                                    <div class="text-slider-bg">
-
-                                        Включает корректировку уже написанных на английском языке рукописей и устранение
-                                        грамматических и орфографических ошибок, чтобы рукопись, написанная иностранным
-                                        учёным, не отличалась по качеству от той, которая написана коренным носителем
-                                        английского языка
+                                        <p>
+                                            <button class="btn btn-warning">Заказать услугу</button>
+                                            <button class="btn btn-primary">
+                                                <a href="{{URL::route('catalog.show',$gList->slug)}}">
+                                                    Узнать больше
+                                                </a>
+                                            </button>
+                                        </p>
 
                                     </div>
-
-                                    <p>
-                                        <button class="btn btn-warning">Заказать услугу</button>
-                                        <button class="btn btn-primary">Узнать больше</button>
-                                    </p>
-
                                 </div>
-                            </div>
-
-                            <div class="item item-catalog">
-                                <img src="/img/catalog/backslider-1.png">
-
-                                <div class="carousel-caption">
-                                    <h2>Редактирование научных рукописей</h2>
-
-                                    <div class="text-slider-bg">
-
-                                        Включает корректировку уже написанных на английском языке рукописей и устранение
-                                        грамматических и орфографических ошибок, чтобы рукопись, написанная иностранным
-                                        учёным, не отличалась по качеству от той, которая написана коренным носителем
-                                        английского языка
-
-                                    </div>
-
-                                    <p>
-                                        <button class="btn btn-warning">Заказать услугу</button>
-                                        <button class="btn btn-primary">Узнать больше</button>
-                                    </p>
-
-                                </div>
-                            </div>
-
-                            <div class="item item-catalog">
-                                <img src="/img/catalog/backslider-1.png">
-
-                                <div class="carousel-caption">
-                                    <h2>Редактирование научных рукописей</h2>
-
-                                    <div class="text-slider-bg">
-
-                                        Включает корректировку уже написанных на английском языке рукописей и устранение
-                                        грамматических и орфографических ошибок, чтобы рукопись, написанная иностранным
-                                        учёным, не отличалась по качеству от той, которая написана коренным носителем
-                                        английского языка
-
-                                    </div>
-
-                                    <p>
-                                        <button class="btn btn-warning">Заказать услугу</button>
-                                        <button class="btn btn-primary">Узнать больше</button>
-                                    </p>
-
-                                </div>
-                            </div>
-
-
+                            @endforeach
+                            <!--Вывод статей в слайд-->
                         </div>
 
                     </div>
@@ -120,61 +53,24 @@
             </div>
 
             <div class="col-md-6 col-xs-12">
-
-
-                <article class="col-md-6 col-xs-6">
-                    <figure>
-                        <img src="/img/catalog/icon1.png" class="img-icon hidden-sm hidden-xs">
-
-                        <div class="img-wrapper">
-                            <img src="/img/catalog/slide1.png" class="img-responsive-sliderback">
-                        </div>
-                        <figcaption><a href="#">Редактирование
-                                научных
-                                рукописей</a></figcaption>
-                    </figure>
-                </article>
-
-                <article class="col-md-6 col-xs-6">
-                    <figure>
-                        <img src="/img/catalog/icon2.png" class="img-icon hidden-sm hidden-xs">
-
-                        <div class="img-wrapper">
-                            <img src="/img/catalog/slide2.png" class="img-responsive-sliderback">
-                        </div>
-                        <figcaption><a href="#">Редактирование
-                                научных
-                                рукописей</a></figcaption>
-                    </figure>
-                </article>
-
-                <article class="col-md-6 col-xs-6">
-                    <figure>
-                        <img src="/img/catalog/icon3.png" class="img-icon hidden-sm hidden-xs">
-
-                        <div class="img-wrapper">
-                            <img src="/img/catalog/slide3.png" class="img-responsive-sliderback">
-                        </div>
-                        <figcaption><a href="#">Редактирование
-                                научных
-                                рукописей</a></figcaption>
-                    </figure>
-                </article>
-
-                <article class="col-md-6 col-xs-6">
-                    <figure>
-                        <img src="/img/catalog/icon4.png" class="img-icon hidden-sm hidden-xs">
-
-                        <div class="img-wrapper">
-                            <img src="/img/catalog/slide4.png" class="img-responsive-sliderback">
-                        </div>
-                        <figcaption><a href="#">Редактирование
-                                научных
-                                рукописей</a></figcaption>
-                    </figure>
-                </article>
-
-
+                <!--Вывод статей-->
+                @foreach($goodsList as $key => $gList)
+                    <article class="col-md-6 col-xs-6">
+                        <figure>
+                            <!--Выводится иконка прибавляется к ней просто индекс-->
+                            <img src="/img/catalog/icon{{++$key}}.png" class="img-icon hidden-sm hidden-xs">
+                            <div class="img-wrapper">
+                                <img src="{{$gList->avatar}}" class="img-responsive-sliderback">
+                            </div>
+                            <figcaption>
+                                <a href="{{URL::route('catalog.show',$gList->slug)}}">
+                                    {{$gList->name}}
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </article>
+                @endforeach
+                <!--Вывод статей-->
             </div>
         </div>
 
