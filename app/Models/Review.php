@@ -2,6 +2,10 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\Review
+ *
+ */
 class Review extends Model
 {
 

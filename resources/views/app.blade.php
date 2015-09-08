@@ -67,14 +67,14 @@
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">
                         <i class="glyphicon glyphicon-envelope"></i>
-                        <span class="visible-xs-inline">Notifications</span>
+                        <span class="visible-xs-inline">Уведомления</span>
                         <span class="badge badge-sm up bg-danger pull-right-xs">2</span>
                     </a>
                     <!-- dropdown -->
                     <div class="dropdown-menu w-xl animated fadeInUp">
                         <div class="panel bg-white">
                             <div class="panel-heading b-light bg-light">
-                                <strong>You have <span>2</span> notifications</strong>
+                                <strong>У вас <span>2</span> уведомлений</strong>
                             </div>
                             <div class="list-group">
                                 <a href class="media list-group-item">
@@ -101,22 +101,21 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle clear" data-toggle="dropdown">
-                        <span class="hidden-sm hidden-md">{{Auth::User()->email }}</span> <b class="caret"></b>
+                        <span class="hidden-sm hidden-md"><i class="fa fa-user"></i> </span>
+                        <span class="visible-xs-inline">Пользователи</span>
                     </a>
                     <!-- dropdown -->
                     <ul class="dropdown-menu animated fadeInRight w">
 
                         <li>
-                            <a href="/dashboard/user">
-                                <span class="badge bg-danger pull-right">В процессе</span>
+                            <a href="{{route('dashboard.user.index')}}">
                                 <span>Пользователи</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="/dashboard/user">
-                                <span class="badge bg-danger pull-right">В процессе</span>
-                                <span>Группы</span>
+                            <a href="{{route('dashboard.editor.index')}}">
+                                <span>Редакторы</span>
                             </a>
                         </li>
 
@@ -126,8 +125,19 @@
                             <a href="/auth/logout">Выйти</a>
                         </li>
                     </ul>
-                    <!-- / dropdown -->
+
                 </li>
+
+
+                <li>
+                    <a href="/auth/logout">
+                        <span class="hidden-sm hidden-md"><i class="fa fa-sign-out"></i> </span>
+                        <span class="visible-xs-inline">Выйти</span>
+
+                    </a>
+                </li>
+
+
             </ul>
             <!-- / navbar right -->
         </div>

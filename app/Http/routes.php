@@ -27,6 +27,7 @@ Route::resource('language', 'Language\LanguageController');
 Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
 
     Route::resource('user', 'UserController');
+    Route::resource('editor', 'EditorUserController');
     //Route::resource('groups', 'GroupsController');
     Route::resource('page', 'PageController');
     Route::resource('news', 'NewsController');

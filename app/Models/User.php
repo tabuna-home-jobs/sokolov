@@ -7,6 +7,10 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Model;
 
 
+/**
+ * App\Models\User
+ *
+ */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
 
@@ -28,6 +32,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         'first_name',
         'last_name',
         'email',
+        'phone'
     ];
 
 
@@ -36,7 +41,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $hidden = ['password', 'remember_token', 'id', 'role'];
+    protected $hidden = ['password', 'remember_token', 'id', 'role', 'type'];
 
 
     public function getOrders()
@@ -91,6 +96,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return unserialize($this->role);
     }
 
+
+    public function getSkills()
+    {
+        return $this->hasMany('App\Models\Skills');
+    }
 
 
 }

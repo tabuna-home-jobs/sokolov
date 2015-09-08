@@ -4,6 +4,10 @@
 use Illuminate\Database\Eloquent\Model;
 
 
+/**
+ * App\Models\Menu
+ *
+ */
 class Menu extends Model {
 
 

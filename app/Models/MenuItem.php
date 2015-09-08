@@ -3,6 +3,10 @@
 use Illuminate\Database\Eloquent\Model;
 
 
+/**
+ * App\Models\MenuItem
+ *
+ */
 class MenuItem extends Model {
 
 

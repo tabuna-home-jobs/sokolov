@@ -2,6 +2,10 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\Page
+ *
+ */
 class Page extends Model {
 
     /**

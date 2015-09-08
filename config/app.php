@@ -149,6 +149,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Watson\Active\ActiveServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
     ],
 
     /*

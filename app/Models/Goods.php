@@ -3,6 +3,11 @@
 use Illuminate\Database\Eloquent\Model;
 
 
+/**
+ * App\Models\Goods
+ *
+ * @property-read \App\Models\Category $category
+ */
 class Goods extends Model {
 
     /**

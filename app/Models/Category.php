@@ -2,6 +2,11 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\Category
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Goods[] $goods
+ */
 class Category extends Model {
 
     /**

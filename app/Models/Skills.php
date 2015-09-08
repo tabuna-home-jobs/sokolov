@@ -2,20 +2,21 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+
 /**
- * App\Models\MetaOrder
+ * App\Models\Skills
  *
- * @property-read \App\Models\Category $category
  */
-class MetaOrder extends Model {
+class Skills extends Model
+{
+
 
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'orderMeta';
-
+    protected $table = 'skills';
 
     /**
      * The attributes that are mass assignable.
@@ -23,26 +24,20 @@ class MetaOrder extends Model {
      * @var array
      */
     protected $fillable = [
-        'order_id',
+        'user_id',
         'category_id',
     ];
 
 
-    public function getOrder()
+    public function getUser()
     {
-        return $this->belongsTo('App\Models\Order', 'order_id');
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
 
-
-    public function category()
+    public function getCategory()
     {
         return $this->belongsTo('App\Models\Category', 'category_id');
     }
 
-
-    public function getGood()
-    {
-        return $this->belongsTo('App\Models\Goods', 'category_id');
-    }
 
 }

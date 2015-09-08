@@ -1,8 +1,12 @@
 <?php namespace App\Models;
 
-use App;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\Order
+ *
+ * @property-read \App\Models\Category $category
+ */
 class Order extends Model {
 
     /**
