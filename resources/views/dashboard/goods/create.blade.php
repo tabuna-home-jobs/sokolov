@@ -96,7 +96,16 @@
                             </div>
 
 
+                            <div class="form-group">
+                                <label>Категория</label>
+                                <select class="form-control w-md" ui-jq="chosen" required name="block_id">
+                                    <option disabled>Выберите категорию</option>
 
+                                    @foreach($Blocks as $block)
+                                        <option value="{{$block->id}}">{{$block->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
 
 

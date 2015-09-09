@@ -24,6 +24,7 @@ class GoodsRequest extends Request {
             'title' => 'required|max:255',
             'name' => 'required|max:255',
             'text' => 'required',
+            'block_id' => 'required|integer',
             'tag' => 'max:255',
             'descript' => 'max:255',
             'avatar' => 'mimes:jpeg,bmp,png',

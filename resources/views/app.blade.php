@@ -225,13 +225,6 @@
                                 <span>Новости</span>
                             </a>
                         </li>
-                        <li class="{{Active::route('dashboard.shares.*')}}">
-                            <a href="{{URL::route('dashboard.shares.index')}}">
-                                <i class="fa fa-star"></i>
-                                <span>Акции</span>
-                            </a>
-                        </li>
-
 
                         <li class="{{Active::route('wmenuindex')}}">
                             <a href="{{URL::route('wmenuindex')}}">
@@ -245,6 +238,14 @@
 
                         <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
                             <span>Компоненты</span>
+                        </li>
+
+
+                        <li class="{{Active::route(['dashboard.block.*','dashboard.element.*'])}}">
+                            <a href="{{URL::route('dashboard.block.index')}}">
+                                <i class="fa fa-cubes icon"></i>
+                                <span class="font-bold">Блоки</span>
+                            </a>
                         </li>
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GoodsRequest;
+use App\Models\Block;
 use App\Models\Category;
 use App\Models\Goods;
 use Image;
@@ -30,8 +31,12 @@ class GoodsController extends Controller
      */
     public function create()
     {
+        $Blocks = Block::all();
         $Category = Category::all();
-        return view("dashboard/goods/create",['Category' => $Category]);
+        return view("dashboard/goods/create", [
+            'Category' => $Category,
+            'Blocks' => $Blocks,
+        ]);
     }
 
     /**
@@ -75,10 +80,17 @@ class GoodsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit(Goods $Goods)
+    public function edit($Goods)
     {
+        $Goods = Goods::where('slug', $Goods)->firstOrFail();
+
+        $Blocks = Block::all();
         $Category = Category::all();
-        return view("dashboard/goods/edit",['Goods' => $Goods , 'Category' => $Category]);
+        return view("dashboard/goods/edit", [
+            'Goods' => $Goods,
+            'Category' => $Category,
+            'Blocks' => $Blocks
+        ]);
 
     }
 
@@ -89,8 +101,10 @@ class GoodsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(GoodsRequest $request, Goods $Goods)
+    public function update(GoodsRequest $request, $Goods)
     {
+        $Goods = Goods::where('slug', $Goods)->firstOrFail();
+
         $Goods->fill($request->all());
         $Goods->category_id = $request->category;
         if ($request->hasFile('avatar')) {
@@ -113,8 +127,9 @@ class GoodsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy(Goods $Goods)
+    public function destroy($Goods)
     {
+        $Goods = Goods::where('slug', $Goods)->firstOrFail();
         $Goods->delete('cascade');
         Session::flash('good', 'Вы успешно удалили значения');
         return redirect()->route('dashboard.goods.index');

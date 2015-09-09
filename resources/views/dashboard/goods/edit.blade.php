@@ -3,6 +3,7 @@
 @section('content')
 
 
+
     <div class="bg-light lter b-b wrapper-md">
         <h1 class="m-n font-thin h3">{{ $Goods->name or 'Новая Услуга' }}</h1>
     </div>
@@ -99,7 +100,23 @@
                         </div>
 
 
-                        <div class="form-group">
+                            <div class="form-group">
+                                <label>Блок</label>
+                                <select class="form-control w-md" ui-jq="chosen" required name="block_id">
+                                    <option disabled>Выберите категорию</option>
+
+                                    @foreach($Blocks as $block)
+                                        @if($block->id == $Goods->block_id)
+                                            <option selected value="{{ $block->id}}">{{ $block->name}}</option>
+                                        @else
+                                            <option value="{{ $block->id}}">{{ $block->name}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+
+
+                            <div class="form-group">
                             <label>Цена</label>
 
                             <div class="input-group">

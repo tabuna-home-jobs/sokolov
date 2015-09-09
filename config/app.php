@@ -205,6 +205,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Menu' => App\Facades\Menu::class,
+        'htmlBlock' => App\Facades\htmlBlock::class,
 
 
     ],
