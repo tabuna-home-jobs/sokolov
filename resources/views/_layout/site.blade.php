@@ -15,7 +15,7 @@
     <meta name="twitter:title" content="@yield('title')">
     <meta name="twitter:description" content="@yield('description')"/>
     <meta name="twitter:image:src" content="@yield('avatar')"/>
-
+    <meta name="robots" content="noindex">
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic,500italic,300italic&subset=latin,cyrillic'
           rel='stylesheet' type='text/css'>
