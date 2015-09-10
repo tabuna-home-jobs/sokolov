@@ -41,6 +41,8 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth'], 'prefix' => 
     Route::resource('filemanager', 'FileManagerController');
     Route::resource('review', 'ReviewController');
 
+    Route::resource('task', 'TaskController');
+
     Route::resource('block', 'BlockController');
     Route::resource('element', 'ElementController');
 

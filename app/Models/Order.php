@@ -52,4 +52,11 @@ class Order extends Model {
     }
 
 
+    public function getTask()
+    {
+        return $this->hasMany('App\Models\Task');
+    }
+
+
+
 }

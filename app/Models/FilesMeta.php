@@ -21,7 +21,7 @@ class FilesMeta extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'files_id'];
+    protected $fillable = ['user_id', 'files_id', 'task_id'];
 
 
     public function getUser()

@@ -2,11 +2,6 @@
 
 
 
-
-
-
-
-
 @section('content')
 
     <div class="container blog-container">

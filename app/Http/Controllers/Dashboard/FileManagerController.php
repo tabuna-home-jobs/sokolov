@@ -8,7 +8,6 @@ use App\Models\Files;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Storage;
 
 class FileManagerController extends Controller
 {
@@ -65,7 +64,9 @@ class FileManagerController extends Controller
      */
     public function show($id)
     {
-        //
+        $file = Files::findOrFail($id);
+        return response()->download(storage_path() . '/app/order/' . $file->name);
+
     }
 
     /**

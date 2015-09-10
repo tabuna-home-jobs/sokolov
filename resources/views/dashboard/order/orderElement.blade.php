@@ -91,7 +91,6 @@
 
                                                             <li>
                                                                 {{$Goods->category()->first()->name}}
-                                                                {{--      {{$Goods->getGood()->select('name')->get()->first()->name}}--}}
                                                             </li>
 
                                                         @endforeach
@@ -242,7 +241,7 @@
                                                     <div class="collapse" id="collapseExample">
                                                         <div class="container-fluid">
 
-                                                            <form action="{{URL::route('dashboard.order.update', $SelectOrder->id) }}"
+                                                            <form action="{{URL::route('dashboard.task.store') }}"
                                                                   method="post">
 
                                                                 <div class="form-group col-xs-6">
@@ -257,7 +256,6 @@
 
                                                                     <div class="input-group">
                                                                         <input class="form-control" type="number"
-                                                                               value="{{$SelectOrder->price}}"
                                                                                maxlength="255" required
                                                                                name="price"
                                                                                value="">
@@ -274,10 +272,11 @@
                                                                     <label>Дата окончания</label>
 
                                                                     <div class='input-group date'
-                                                                         id='datetimepickerorder2'>
+                                                                         id='datetimepickertast'>
                                                                         <input type='text' class="form-control" required
                                                                                name="workfinish"
-                                                                               value="{{$SelectOrder->workfinish}}"/>
+                                                                               value=""
+                                                                               placeholder="Выберите дату"/>
 <span class="input-group-addon">
 <span class="glyphicon glyphicon-calendar"></span>
 </span>
@@ -288,9 +287,14 @@
                                                                 <div class="form-group col-xs-6">
                                                                     <label>Исполнитель</label>
                                                                     <select class="form-control w-md" ui-jq="chosen"
-                                                                            required name="status">
+                                                                            required name="user_id">
 
-                                                                        @foreach($AllUser as $user)
+
+                                                                        <option value="0" selected>Без исполнителя (В
+                                                                            катёл)
+                                                                        </option>
+
+                                                                    @foreach($AllUser as $user)
 
                                                                             <option value="{{$user->id}}">
                                                                                 {{$user->first_name}} {{$user->last_name}}
@@ -305,16 +309,18 @@
                                                                 <div class="form-group col-xs-6">
                                                                     <label>Услуга</label>
                                                                     <select class="form-control w-md" ui-jq="chosen"
-                                                                            required name="goods">
-                                                                        {{--
-                                                                                                                                                @foreach($SelectGoods as $Goods)
+                                                                            required name="goods_id">
 
-                                                                                                                                                    <option value="{{$Goods->getGood()->select('id')->get()->first()->id}}">
-                                                                                                                                                        {{$Goods->getGood()->select('name')->get()->first()->name}}
-                                                                                                                                                    </option>
 
-                                                                                                                                                @endforeach
-                                                                        --}}
+                                                                        @foreach($SelectGoods as $Goods)
+
+                                                                            <option value="{{$Goods->category()->first()->id}}">
+                                                                                {{$Goods->category()->first()->name}}
+                                                                            </option>
+
+                                                                        @endforeach
+
+
                                                                     </select>
                                                                 </div>
 
@@ -322,7 +328,7 @@
                                                                 <div class="form-group col-xs-6">
                                                                     <label>Объем работы</label>
                                                                     <input type="number" class="form-control" min="0"
-                                                                           required name="name"
+                                                                           required name="countWork"
                                                                            placeholder="Объем работы">
                                                                 </div>
 
@@ -356,7 +362,8 @@
                                                                 </div>
 
 
-                                                                <input type="hidden" name="_method" value="PUT">
+                                                                <input type="hidden" name="order_id"
+                                                                       value="{{$SelectOrder->id}}">
                                                                 <input type="hidden" name="_token"
                                                                        value="{{ csrf_token() }}">
                                                                 <button type="submit" class="btn btn-success btn-block">
@@ -371,7 +378,7 @@
                                                         <div class="line line-dashed b-b line-lg"></div>
 
 
-                                                        </div>
+                                                    </div>
 
 
                                                     <div class="table-responsive">
@@ -379,33 +386,42 @@
                                                              class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                                                             <div class="row">
                                                                 <div class="col-sm-12">
-                                                                    <table class="table table-striped m-b-none dataTable no-footer"
+                                                                    <table class="table table-striped m-b-none dataTable no-footer light-font-table"
                                                                            id="DataTables_Table_0" role="grid"
                                                                            aria-describedby="DataTables_Table_0_info">
                                                                         <thead>
                                                                         <tr role="row">
-                                                                            <th>#</th>
+                                                                            <th>Название</th>
                                                                             <th>Задача</th>
                                                                             <th>Исполнитель</th>
                                                                             <th>Статус</th>
-                                                                            <th>Время</th>
-
                                                                         </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                        <tr>
-                                                                            <td>20</td>
-                                                                            <td>Проснувшись однажды</td>
-                                                                            <td>Проснувшись однажды</td>
-                                                                            <td>en</td>
-                                                                            <td>2015-08-05 06:56:51</td>
-                                                                        </tr>
+                                                                        @foreach($TaskOrder as $task)
+                                                                            <tr @if($task->workfinish < date("Y-m-d H:i:s") ) class="danger" @endif>
+                                                                                <td>
+                                                                                    <a href="{{route('dashboard.task.show',$task->id)}}">{{$task->name}}</a>
+                                                                                </td>
+                                                                                <td>{{$task->getGoods()->first()->name}}</td>
+                                                                                <td>
+                                                                                    @if($task->user_id)
+                                                                                        {{$task->getUser()->first()->first_name}}  {{$task->getUser()->first()->last_name}}
+                                                                                    @else
+                                                                                        Исполнитель ещё не определён
+                                                                                    @endif
+                                                                                </td>
+                                                                                <td>
+                                                                                    <small>{{$task->status}}</small>
+                                                                                </td>
+                                                                            </tr>
+                                                                        @endforeach
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
-                                                                </div>
                                                             </div>
                                                         </div>
+                                                    </div>
 
 
                                                 </div>
@@ -415,17 +431,17 @@
                                                      aria-labelledby="files-tab">
 
 
+                                                    <ul class="list-group">
                                                         <ul class="list-group">
-                                                            <ul class="list-group">
-                                                                @foreach($SelectRequestFile as $file)
-                                                                    <a href="{{URL::route('dashboard.filemanager.show', $file->id)}}"
-                                                                       class="list-group-item"><i
-                                                                                class="fa fa-file-o"></i> {{$file->original}}
-                                                                        <small class="pull-right">{{$file->created_at}}</small>
-                                                                    </a>
-                                                                @endforeach
-                                                            </ul>
+                                                            @foreach($SelectRequestFile as $file)
+                                                                <a href="{{URL::route('dashboard.filemanager.show', $file->id)}}"
+                                                                   class="list-group-item"><i
+                                                                            class="fa fa-file-o"></i> {{$file->original}}
+                                                                    <small class="pull-right">{{$file->created_at}}</small>
+                                                                </a>
+                                                            @endforeach
                                                         </ul>
+                                                    </ul>
 
 
                                                 </div>
@@ -436,34 +452,31 @@
 
 
                                                     <p class="m-t-md">
-                                                        <!-- The fileinput-button span is used to style the file input field as button -->
-    <span class="btn btn-default btn-block fileinput-button">
+   <span class="btn btn-default btn-block fileinput-button">
     <span class="fileinput-new fa fa-cloud-upload text btn-block"> Выбрать файл</span>
-    <!-- The file input field used as target for the file upload widget -->
+
     <input id="fileupload" type="file" name="files[]" multiple>
     </span>
                                                     </p>
 
 
-                                                    <!-- The global progress bar -->
                                                     <div id="progress" class="progress">
                                                         <div class="progress-bar progress-bar-info"></div>
                                                     </div>
 
-                                                    <!-- The container for the uploaded files -->
                                                     <div id="files" class="files"></div>
 
+                                                    <ul class="list-group">
                                                         <ul class="list-group">
-                                                            <ul class="list-group">
-                                                                @foreach($SelectGoodFile as $file)
-                                                                    <a href="{{URL::route('dashboard.filemanager.show', $file->id)}}"
-                                                                       class="list-group-item"><i
-                                                                                class="fa fa-file-o"></i> {{$file->original}}
-                                                                        <small class="pull-right">{{$file->created_at}}</small>
-                                                                    </a>
-                                                                @endforeach
-                                                            </ul>
+                                                            @foreach($SelectGoodFile as $file)
+                                                                <a href="{{URL::route('dashboard.filemanager.show', $file->id)}}"
+                                                                   class="list-group-item"><i
+                                                                            class="fa fa-file-o"></i> {{$file->original}}
+                                                                    <small class="pull-right">{{$file->created_at}}</small>
+                                                                </a>
+                                                            @endforeach
                                                         </ul>
+                                                    </ul>
 
 
                                                 </div>
@@ -473,15 +486,15 @@
                                         </div>
 
 
-                                        </div>
-
-
                                     </div>
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             <!-- /column -->
 
             <!-- column -->
@@ -507,7 +520,7 @@
                                                     <div class="text-muted">{{$comment->created_at}}</div>
                                                     <p>{{$comment->text}}</p>
                                                 </div>
-                                                </div>
+                                            </div>
                                         @endforeach
 
 
@@ -516,9 +529,9 @@
 
 
                                 </div>
-                                </div>
                             </div>
                         </div>
+                    </div>
                     <div class="padder b-t b-light text-center">
                         <div class="m-xs">
                             <form action="{{URL::route('dashboard.comments.store')}}" method="post">
@@ -535,11 +548,11 @@
                             </form>
 
                         </div>
-                        </div>
                     </div>
                 </div>
-            <!-- /column -->
             </div>
+            <!-- /column -->
+        </div>
         <!-- /hbox layout -->
 
 
@@ -585,7 +598,7 @@
                     if (progress == 100) {
                         location.reload();
                     }
-                    }
+                }
 
             }).prop('disabled', !$.support.fileInput)
                     .parent().addClass($.support.fileInput ? undefined : 'disabled');

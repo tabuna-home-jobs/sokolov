@@ -69,6 +69,9 @@ class OrderController extends Controller
 
         $AllUser = User::select('id','first_name','last_name')->where('role', 'NOT LIKE', '%user%')->get();
 
+
+        $TaskOrder = $SelectOrder->getTask()->get();
+
         return view("dashboard/order/orderElement", [
             'Orders' => $Orders,
             'SelectOrder' => $SelectOrder,
@@ -77,7 +80,8 @@ class OrderController extends Controller
             'SelectGoods' => $SelectGoods,
             'SelectGoodFile' => $SelectGoodFile,
             'SelectRequestFile' => $SelectRequestFile,
-            'AllUser' => $AllUser
+            'AllUser' => $AllUser,
+            'TaskOrder' => $TaskOrder,
         ]);
     }
 

@@ -49,6 +49,24 @@ $(document).ready(function(){
     });
 
 
+    //Тайм пикер для задачи
+    $(function () {
+        if (document.getElementById('datetimepickertast')) {
+
+            $('#datetimepickertast').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm:ss',
+                locale: 'ru',
+                defaultDate: $('#datetimepickerorder input').attr('value')
+            });
+
+            $("#datetimepickertast").on("dp.change", function (e) {
+                $('#datetimepickerorder').data("DateTimePicker").minDate(e.date);
+            });
+
+
+        }
+        ;
+    });
 
 
 
