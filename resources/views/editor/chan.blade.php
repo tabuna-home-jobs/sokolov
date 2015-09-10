@@ -8,7 +8,7 @@
 
 
     <div class="panel panel-default">
-        <div class="panel-heading">Мои задачи</div>
+        <div class="panel-heading">Чан</div>
         <table class="table">
 
             <thead>
@@ -35,9 +35,21 @@
                         <td>{{$task->getGoods->eng_name}}</td>
                     @endif
 
+
                     <td>{{$task->price}}</td>
                     <td>{{$task->workfinish}}</td>
-                    <td><a href="{{route('editor.order.show', $task->id)}}"> Просмотр</a></td>
+
+
+                    <td>
+
+                        <form action="{{route('editor.chan.store')}}" method="POST">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" value="{{$task->id}}" name="task_id">
+                            <button class="btn btn-link">Принять</button>
+                        </form>
+                    </td>
+
+
                 </tr>
             @endforeach
 

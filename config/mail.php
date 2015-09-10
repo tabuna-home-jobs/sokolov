@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => 'mail',//env('MAIL_DRIVER', 'mail'),
+    'driver' => env('MAIL_DRIVER', 'mail'),
 
     /*
     |--------------------------------------------------------------------------

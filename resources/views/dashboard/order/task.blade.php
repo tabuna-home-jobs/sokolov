@@ -16,12 +16,10 @@
                             <div class="cell-inner">
                                 <div class="wrapper-md">
 
-
                                     <div class="bg-light lter b-b wrapper-md">
                                         <h1 class="m-n font-thin h3"> {{$task->name}}</h1>
                                     </div>
                                     <div class="wrapper-md panel">
-
 
                                         <form action="{{URL::route('dashboard.task.update', $task->id) }}"
                                               method="post">
@@ -60,7 +58,7 @@
 
                                                 <div class="input-group">
                                                     <input class="form-control" type="number"
-                                                           value="{{$task->getOrder->price}}" readonly maxlength="255"
+                                                           value="{{$task->getOrder->price}}" maxlength="255"
                                                            min="0"
                                                            required
                                                            name="price">

@@ -83,6 +83,7 @@ Route::group(['namespace' => 'Site'], function () {
 Route::group(['namespace' => 'Editor', 'middleware' => ['auth'], 'prefix' => 'editor'], function () {
     Route::resource('', 'IndexController');
     Route::resource('order', 'OrderController');
+    Route::resource('chan', 'ChanController');
 });
 
 

@@ -3,6 +3,8 @@
 namespace App\Listeners;
 
 use App\Events\NewOrder;
+use App\Events\Notification;
+use Config;
 use SMS;
 
 class NotificationSMSOrder
@@ -14,7 +16,7 @@ class NotificationSMSOrder
      */
     public function __construct()
     {
-        //
+
     }
 
     /**
@@ -23,8 +25,8 @@ class NotificationSMSOrder
      * @param  NewOrder $event
      * @return void
      */
-    public function handle(NewOrder $event)
+    public function handle(Notification $event)
     {
-        SMS::send('89513054530', 'Здравствуйте у вас новый заказ');
+        SMS::send(Config::get('link.phone'), 'Задача #' . $event->id . ' выла взята в работу');
     }
 }

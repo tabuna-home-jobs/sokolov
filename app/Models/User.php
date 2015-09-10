@@ -103,4 +103,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
 
+    public function getTask()
+    {
+        return $this->hasMany('App\Models\Task');
+    }
+
+
+
+
+
 }

@@ -33,13 +33,13 @@
 
                                 <div class="panel-collapse collapse in" id="MyAds">
                                     <ul class="acc-list">
-                                        <li><a class="{{Active::route('order.create')}}"
-                                               href="{{route('order.create')}}"><i class="fa fa-magic"></i> ЧАН
+                                        <li><a class="{{Active::route('editor.chan.index')}}"
+                                               href="{{route('editor.chan.index')}}"><i class="fa fa-magic"></i> ЧАН
                                             </a></li>
-                                        <li><a class="{{Active::route('oreder.index')}}"
-                                               href="{{route('order.index')}}"><i class="fa fa-tasks"></i>
-                                                Принятые заказы <span
-                                                        class="badge pull-right">{{Auth::user()->getOrders()->count()}}</span>
+                                        <li><a class="{{Active::route('editor.order.index')}}"
+                                               href="{{route('editor.order.index')}}"><i class="fa fa-tasks"></i>
+                                                Задачи <span
+                                                        class="badge pull-right">{{Auth::user()->getTask()->count()}}</span>
                                             </a></li>
                                         <li><a href="#"><i class="fa fa-usd"></i> Счета </a></li>
                                     </ul>

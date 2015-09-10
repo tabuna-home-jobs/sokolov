@@ -3,7 +3,10 @@
 namespace App\Listeners;
 
 use App\Events\NewOrder;
+use App\Events\Notification;
+use Config;
 use Mail;
+
 
 class NotificationEmailOrder
 {
@@ -14,7 +17,7 @@ class NotificationEmailOrder
      */
     public function __construct()
     {
-        //
+
     }
 
     /**
@@ -23,11 +26,10 @@ class NotificationEmailOrder
      * @param  NewOrder $event
      * @return void
      */
-    public function handle(NewOrder $event)
+    public function handle(Notification $event)
     {
-        Mail::raw('Здравствуйте у вас новый заказ', function ($message) {
-            $message->from('us@example.com', 'Laravel');
-            $message->to('octavian48@yandex.ru')->cc('octavian48@yandex.ru');
+        Mail::raw('Задача #' . $event->id . ' была взята в работу', function ($message) {
+            $message->from(Config::get('link.email'));
         });
     }
 }

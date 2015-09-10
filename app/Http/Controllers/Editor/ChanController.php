@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers\Editor;
 
+use App\Events\Notification;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Requests\Editor\ChanRequest;
+use App\Models\Task;
 use Auth;
+use Event;
 use Illuminate\Http\Request;
+use Session;
 
 
-class OrderController extends Controller
+class ChanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +22,13 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $Tasks = Auth::user()->getTask()->orderBy('id', 'Desc')->paginate(15);
-        return view('editor.order', [
-            'Tasks' => $Tasks
+
+        $freeTask = Task::where('user_id', 0)->with('getGoods')->paginate(15);
+        return view('editor.chan', [
+            'Tasks' => $freeTask,
         ]);
+
+
     }
 
     /**
@@ -39,9 +47,17 @@ class OrderController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(ChanRequest $request)
     {
-        //
+        $task = Task::where('user_id', 0)->findOrFail($request->task_id);
+        $task->user_id = Auth::user()->id;
+        $task->save();
+
+        Event::fire(new Notification($task->id));
+
+        Session::flash('good', 'Вы успешно взяли задачу');
+        return redirect()->back();
+
     }
 
     /**

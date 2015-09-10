@@ -22,6 +22,11 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\NotificationEmailOrder',
             'App\Listeners\NotificationSMSOrder',
         ],
+
+        'App\Events\Notification' => [
+            'App\Listeners\NotificationSMSOrder',
+            'App\Listeners\NotificationEmailOrder',
+        ]
     ];
 
     /**
