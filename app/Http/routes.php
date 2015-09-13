@@ -84,6 +84,8 @@ Route::group(['namespace' => 'Editor', 'middleware' => ['auth'], 'prefix' => 'ed
     Route::resource('', 'IndexController');
     Route::resource('order', 'OrderController');
     Route::resource('chan', 'ChanController');
+    Route::resource('comment', 'CommentController');
+    Route::resource('filemanager', 'FileManagerController');
 });
 
 

@@ -7,8 +7,9 @@ use App\Http\Requests;
 use App\Models\Comments;
 use Auth;
 use Illuminate\Http\Request;
+use Session;
 
-class OrderController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +18,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $Tasks = Auth::user()->getTask()->orderBy('id', 'Desc')->paginate(15);
-        return view('editor.order', [
-            'Tasks' => $Tasks
-        ]);
+        //
     }
 
     /**
@@ -41,7 +39,16 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task = Auth::user()->getTask()->findOrFail($request->beglouto);
+        $comments = new Comments([
+            'beglouto' => $task->id,
+            'type' => 'task',
+            'user_id' => Auth::user()->id,
+            'text' => $request->text,
+        ]);
+        $comments->save();
+        Session::flash('good', 'Вы успешно добавили комментарий');
+        return redirect()->back();
     }
 
     /**
@@ -50,14 +57,9 @@ class OrderController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function show($task)
+    public function show($id)
     {
-        $task = Auth::user()->getTask()->with('getGoods', 'getOrder', 'GetFileMeta.getFiles')->findOrFail($task);
-        $comments = Comments::whereRaw('type = ? and beglouto = ?', ['task', $task->id])->get();
-        return view('editor.task', [
-            'Task' => $task,
-            'Comments' => $comments
-        ]);
+        //
     }
 
     /**
