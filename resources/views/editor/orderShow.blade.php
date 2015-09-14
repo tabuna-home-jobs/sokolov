@@ -1,42 +1,22 @@
 @extends('_layout/editor')
 
-
-
-
-@section('timer')
-
-
-
-@endsection
-
-
-
-
-
 @section('content-editor')
 
 
 
+
     <div class="panel panel-default">
-        <div class="panel-heading">Заказ № {{$Task->id}}</div>
+        <div class="panel-heading">Задача № {{$Task->id}}</div>
+
+
+        <div id="counter"></div>
+
 
         <div class="panel-body">
-
             <h4>{{$Task->name}}</h4>
-
-
             <hr>
-            <p>Услуги:</p>
-
-            <ul class="list-group">
-                <li class="list-group-item">
-                    @if(App::getLocale() == 'ru')
-                        {{$Task->getGoods->name}}
-                    @else
-                        {{$Task->getGoods->eng_name}}
-                    @endif
-                </li>
-            </ul>
+            <p>Требуеться выполнение услуги
+                : @if(App::getLocale() == 'ru') {{$Task->getGoods->name}}  @else {{$Task->getGoods->eng_name}} @endif</p>
         </div>
 
 
@@ -51,9 +31,11 @@
             <li role="presentation" class="active"><a href="#comments" role="tab" data-toggle="tab" aria-controls="home"
                                                       aria-expanded="true">Комментарии</a></li>
             <li role="presentation" class=""><a href="#oldfile" role="tab" data-toggle="tab" aria-controls="profile"
-                                                aria-expanded="false">Доступные файлы</a></li>
+                                                aria-expanded="false">Загруженные файлы</a></li>
             <li role="presentation" class=""><a href="#newfile" role="tab" data-toggle="tab" aria-controls="profile"
                                                 aria-expanded="false">Готовые файлы</a></li>
+
+
         </ul>
         <div id="myTabContent" class="tab-content">
             <div role="tabpanel" class="tab-pane fade active in" id="comments" aria-labelledby="home-tab">
@@ -67,13 +49,13 @@
                     @endforeach
 
 
-                    <form action="{{URL::route('editor.comment.store')}}" method="post">
+                    <form action="{{URL::route('editor.comments.store')}}" method="post">
                         <div class="form-group">
                             <label>Написать комментарий</label>
         <textarea class="form-control" rows="3" required name="text"
                   style="resize: none;"></textarea>
                         </div>
-                        <input type="hidden" name="type" value="order">
+                        <input type="hidden" name="type" value="task">
                         <input type="hidden" name="beglouto" value="{{$Task->id}}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <button type="submit" class="btn btn-primary btn-block">Отправить</button>
@@ -88,6 +70,8 @@
 
                 <ul class="list-group">
                     <ul class="list-group">
+
+                        <h6 class="text-center">Файлы:</h6>
                         @foreach($Task->getFileMeta as $file)
                             @if(!$file->getFiles->finish)
                                 <a href="{{URL::route('filemanager.show', $file->getFiles->id)}}"
@@ -97,14 +81,8 @@
                                 </a>
                             @endif
                         @endforeach
-                    </ul>
-                </ul>
 
-
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="newfile" aria-labelledby="profile-tab">
-                <ul class="list-group">
-                    <ul class="list-group">
+                        <h6 class="text-center">Готовые файлы:</h6>
                         @foreach($Task->getFileMeta as $file)
                             @if($file->getFiles->finish)
                                 <a href="{{URL::route('filemanager.show', $file->getFiles->id)}}"
@@ -114,16 +92,19 @@
                                 </a>
                             @endif
                         @endforeach
+
                     </ul>
                 </ul>
 
 
-                <div class="container-fluid">
-                    <div class="row">
-                        <form action="{{route('editor.filemanager.store')}}" method="post" class="text-center"
-                              enctype="multipart/form-data">
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="newfile" aria-labelledby="profile-tab">
+                <ul class="list-group">
+                    <ul class="list-group">
 
-                            <h6> Загрузите необходимые документы</h6>
+
+                        <form action="" method="post">
+                            <h3> Загрузите необходимые документы</h3>
 
 
                             <fieldset>
@@ -141,16 +122,13 @@
                                     Переместите файлы которые вы хотите загрузить
                                 </div>
 
-
                                 <div id="submitbutton">
                                     <button type="submit">Upload Files</button>
                                 </div>
 
                             </fieldset>
 
-
                             <div class="panel panel-default">
-                                <!-- Default panel contents -->
                                 <div class="panel-heading">Файлы:</div>
                                 <ul class="list-group" id="messages">
 
@@ -158,27 +136,31 @@
                             </div>
 
 
-                            <input type="hidden" name="type" value="order">
-                            <input type="hidden" name="beglouto" value="{{$Task->id}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <button class="btn btn-primary btn-block" type="submit">Отправить!</button>
-
+                            <button class="btn btn-warning pull-right" type="submit">Отправить!</button>
                         </form>
-                    </div>
-                </div>
 
-
+                    </ul>
+                </ul>
             </div>
         </div>
 
 
         <div class="panel-footer">
-            <div class="text-center">
-                <div class="clock-time"></div>
-            </div>
+            <p class="text-right">Дата постановки задачи {{$Task->created_at}}</p>
         </div>
 
     </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -189,13 +171,14 @@
         window.onload = function () {
 
 
-            $(document).ready(function () {
+            $('#counter').countdown({
+                image: "digits.png",
+                format: "mm:ss",
+                endTime: new Date('07/16/17 05:00:00')
+            });
 
-                var clock = $('.clock-time').FlipClock({{strtotime($Task->workfinish) - time()}} , {
-                    'autoStart': true,
-                    'countdown': true,
-                    'clockFace': 'DailyCounter'
-                });
+
+            $(document).ready(function () {
 
 
                 $('.nextBtn').click(function () {
@@ -340,6 +323,22 @@
 
         };
     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

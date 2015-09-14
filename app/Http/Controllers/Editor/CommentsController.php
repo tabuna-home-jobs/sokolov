@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Editor;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Models\Comments;
+use Auth;
 use Illuminate\Http\Request;
+use Session;
 
-class IndexController extends Controller
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +18,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return redirect('/editor/chan');
+        //
     }
 
     /**
@@ -36,7 +39,12 @@ class IndexController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comments = new Comments($request->all());
+        $comments->user_id = Auth::user()->id;
+        $comments->type = "task";
+        $comments->save();
+        Session::flash('good', 'Вы успешно добавили комментарий');
+        return redirect()->back();
     }
 
     /**

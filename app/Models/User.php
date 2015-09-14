@@ -85,8 +85,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function checkRole($role)
     {
         $thisRole = unserialize($this->role);
+        $thisRole = array_dot($thisRole);
+
         if (array_search($role, $thisRole) !== false)
             return true;
+
         else
             return false;
     }

@@ -27,9 +27,14 @@ class SettingController extends Controller
      */
     public function index()
     {
-        return view('site.setting', [
-            'User' => $this->user
-        ]);
+        if (Auth::user()->checkRole('editor'))
+            return view('editor.setting', [
+                'User' => $this->user
+            ]);
+        else
+            return view('site.setting', [
+                'User' => $this->user
+            ]);
     }
 
     /**

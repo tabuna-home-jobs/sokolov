@@ -67,7 +67,7 @@ class OrderController extends Controller
         $SelectRequestFile = Files::select('id','original','created_at')
             ->whereRaw('type = ? and beglouto = ? and finish = ?', ['order', $id, false])->get();
 
-        $AllUser = User::select('id','first_name','last_name')->where('role', 'NOT LIKE', '%user%')->get();
+        $AllUser = User::select('id', 'first_name', 'last_name')->where('role', 'LIKE', '%editor%')->get();
 
 
         $TaskOrder = $SelectOrder->getTask()->get();

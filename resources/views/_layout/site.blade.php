@@ -34,6 +34,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <link rel="stylesheet" href="/build/css/flipclock.css">
 
 </head>
 <body>
@@ -242,6 +243,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
 
+<script src="/build/js/flipclock.min.js"></script>
 
 <script>
 

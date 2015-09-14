@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-use Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,8 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('site.home', [
-        ]);
+        return redirect('/order');
     }
 
     /**

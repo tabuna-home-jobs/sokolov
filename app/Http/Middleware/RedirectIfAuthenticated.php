@@ -34,8 +34,16 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next)
     {
+
         if ($this->auth->check()) {
-            return redirect('/home');
+
+            if ($this->auth->user()->checkRole('admin'))
+                return redirect('/dashboard');
+            elseif ($this->auth->user()->checkRole('editor'))
+                return redirect('/editor/chan');
+            else
+                return redirect('/order');
+
         }
 
         return $next($request);

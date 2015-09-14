@@ -144,8 +144,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-
-
         Intervention\Image\ImageServiceProvider::class,
         Watson\Active\ActiveServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
