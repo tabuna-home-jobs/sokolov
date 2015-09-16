@@ -1091,4 +1091,7 @@ pre {
     padding: 10px 20px;
 }
 
-
+.auth-container {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
