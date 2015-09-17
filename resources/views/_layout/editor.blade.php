@@ -17,7 +17,8 @@
                                 <div class="panel-collapse collapse in" id="MyAds">
                                     <ul class="acc-list">
                                         <li><a class="{{Active::route('editor.chan.index')}}"
-                                               href="{{route('editor.chan.index')}}"><i class="fa fa-magic"></i> ЧАН
+                                               href="{{route('editor.chan.index')}}"><i class="fa fa-magic"></i> Лента
+                                                задач
                                             </a></li>
                                         <li><a class="{{Active::route('editor.order.*')}}"
                                                href="{{route('editor.order.index')}}"><i class="fa fa-tasks"></i>

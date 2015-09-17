@@ -24,7 +24,7 @@ Route::resource('language', 'Language\LanguageController');
 /**
  * Администратор
  */
-Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
+Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'admin'], 'prefix' => 'dashboard'], function () {
 
     Route::resource('user', 'UserController');
     Route::resource('editor', 'EditorUserController');
@@ -67,20 +67,24 @@ Route::group(['namespace' => 'Site'], function () {
     Route::resource('catalog', 'CatalogController');
 
 
-    Route::group(['middleware' => ['auth']], function () {
+    Route::group(['middleware' => ['auth', 'user']], function () {
         Route::resource('home', 'HomeController');
-        Route::resource('setting', 'SettingController');
+        //  Route::resource('setting', 'SettingController');
         Route::resource('order', 'OrderController');
         Route::resource('comments', 'CommentsController');
         Route::resource('payments', 'PaymentsController');
         Route::resource('filemanager', 'FileManagerController');
     });
-
-
 });
 
 
-Route::group(['namespace' => 'Editor', 'middleware' => ['auth'], 'prefix' => 'editor'], function () {
+Route::group(['middleware' => ['auth'], 'namespace' => 'Site'], function () {
+
+    Route::resource('setting', 'SettingController');
+});
+
+
+Route::group(['namespace' => 'Editor', 'middleware' => ['auth', 'editor'], 'prefix' => 'editor'], function () {
     Route::resource('', 'IndexController');
     Route::resource('order', 'OrderController');
     Route::resource('chan', 'ChanController');
