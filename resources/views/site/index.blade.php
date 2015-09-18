@@ -124,7 +124,7 @@
 
     <div class="text-center">
 
-        <h1>Наши услуги</h1>
+        <h1>{{trans('main.Services')}}</h1>
 
     </div>
 
@@ -233,7 +233,7 @@
 
     <div class="text-center">
 
-        <h1><span>Как мы работаем</span></h1>
+        <h1><span>{{trans('main.Work')}}</span></h1>
 
     </div>
 
@@ -303,7 +303,7 @@
 
 
     <p class="h1-about text-center">
-        <span>Наши преимущества</span>
+        <span>{{trans('main.Advantages')}}</span>
     </p>
 
     <ol class="text-about">
@@ -371,7 +371,7 @@
         </div>
 
         <p class="text-center">
-            <a href="/auth/login" type="button" class="btn btn-warning">Заказать услугу</a>
+            <a href="/auth/login" type="button" class="btn btn-warning">{{trans('main.Order')}}</a>
         </p>
 
     </ol>
@@ -383,8 +383,9 @@
 
     <div class="text-center">
 
-        <h1>Новости и Акции</h1>
-        <a href="{{URL::route('news.index')}}">Все новости и акции <span class="glyphicon glyphicon-arrow-right"></span></a>
+        <h1>{{trans('main.News')}}</h1>
+        <a href="{{URL::route('news.index')}}">{{trans('main.News-sub')}} <span
+                    class="glyphicon glyphicon-arrow-right"></span></a>
 
     </div>
 
@@ -428,8 +429,9 @@
 
     <div class="text-center">
 
-        <h1>Отзывы наших клиентов</h1>
-        <a href="{{URL::route('review.index')}}">Все отзывы <span class="glyphicon glyphicon-arrow-right"></span></a>
+        <h1>{{trans('main.Reviews')}}</h1>
+        <a href="{{URL::route('review.index')}}">{{trans('main.Reviews-sub')}} <span
+                    class="glyphicon glyphicon-arrow-right"></span></a>
 
     </div>
 
@@ -486,7 +488,7 @@
     <span class="scroll-top pull-right glyphicon glyphicon-menu-up hidden-sm hidden-xs"></span>
 
     <p class="text-center">
-        <a href="/auth/login" type="button" class="btn btn-warning">Заказать услугу</a>
+        <a href="/auth/login" type="button" class="btn btn-warning">{{trans('main.Order')}}</a>
     </p>
 
 

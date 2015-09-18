@@ -8,7 +8,7 @@
 
 
     <div class="panel panel-default">
-        <div class="panel-heading">Чан</div>
+        <div class="panel-heading">Лента задач</div>
         <table class="table">
 
             <thead>

@@ -290,8 +290,8 @@
                                                                             required name="user_id">
 
 
-                                                                        <option value="0" selected>Без исполнителя (В
-                                                                            катёл)
+                                                                        <option value="0" selected>Без исполнителя
+                                                                            (Лента задач)
                                                                         </option>
 
                                                                     @foreach($AllUser as $user)

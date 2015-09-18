@@ -35,7 +35,9 @@
                             <label for="Phone" class="col-sm-3 control-label">Телефон</label>
 
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="phone" value="{{$User->phone}}">
+                                <input type="text" class="form-control" name="phone"
+                                       placeholder="+79802665074 или 89802665074 или 8-980-266-5074"
+                                       value="{{$User->phone}}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -67,6 +69,17 @@
                                 <input type="password" name="password" class="form-control" placeholder="******">
                             </div>
                         </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Повторите пароль</label>
+
+                            <div class="col-sm-9">
+                                <input type="password" name="password_confirmation" class="form-control"
+                                       placeholder="******">
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9">
                                 <button type="submit" class="btn btn-default">Изменить</button>

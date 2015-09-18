@@ -19,7 +19,6 @@ class EditTaskTable extends Migration
             $table->integer('countWork');
             $table->float('price');
             $table->string('status');
-
         });
     }
 

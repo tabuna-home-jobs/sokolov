@@ -109,14 +109,15 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav  navbar-right">
-                <li class="active"><a href="#">Главная</a></li>
                 @if(App::getLocale() == 'en')
                     {!! Menu::getLI('english-top-menu') !!}
                 @else
                     {!! Menu::getLI('russian-top-menu') !!}
                 @endif
 
-                <li class="login-a  hidden-sm hidden-xs"><a href="/auth/login">Вход</a></li>
+
+                    <li class="login-a  hidden-sm hidden-xs"><a href="/auth/login">@if(!Auth::check())Вход @else
+                                Сервис @endif</a></li>
             </ul>
 
         </div>
@@ -170,17 +171,10 @@
         <div class="container">
             <div class="row padding-footer">
                 <div class="col-sm-3 col-xs-6">
-                    <h4>Наша миссия</h4>
+                    <h4>{{trans('footer.mission')}}</h4>
 
                     <p>
-                        Учёные со всего мира хотят
-                        опубликовывать результаты своих
-                        исследований в престижных научных
-                        журналах на английском языке.
-                        Большенство не являются носителями
-                        английского языка и поэтому не могут
-                        излагать свои научные заключения
-                        элегантно и грамматически правильно.
+                        {{trans('footer.about')}}
                     </p>
 
 
@@ -188,7 +182,7 @@
 
                 </div>
                 <div class="col-sm-3  col-xs-6">
-                    <h4>Контакты</h4>
+                    <h4>{{trans('footer.contacts')}}</h4>
 
                     <ul class="menu-footer-contact">
                         <li><a href="skype:+79802665074?call"><span
@@ -200,7 +194,7 @@
 
                 </div>
                 <div class="col-sm-3 hidden-sm hidden-xs">
-                    <h4>Навигация по сайту</h4>
+                    <h4>{{trans('footer.navigation')}}</h4>
 
                     <ul class="menu-footer ">
                         @if(App::getLocale() == 'en')
@@ -212,7 +206,7 @@
 
                 </div>
                 <div class="col-sm-3  hidden-sm hidden-xs">
-                    <h4 class="text-u-c m-b font-thin">Способы оплаты</h4>
+                    <h4 class="text-u-c m-b font-thin">{{trans('footer.navigation')}}</h4>
                     <img src="/img/pay.png" class="img-responsive">
                 </div>
             </div>
@@ -225,11 +219,9 @@
                     © 2015, Falcon Scientific Editing, Соколов Денис Александрович
                 </div>
                 <div class="col-xs-6 text-right">
-                    <p>Разработка, поддержка и продвижение сайтов <span class="text-right"><a
+                    <p>{{trans('footer.octavian')}} <span class="text-right"><a
                                     href="http://octavian48.ru" target="_blank"><img src="/img/octavian.png"></a></span>
                     </p>
-
-                    <p><a href="#">Сообщить об ошибке</a></p>
                 </div>
             </div>
         </div>
