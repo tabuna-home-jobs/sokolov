@@ -236,7 +236,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
 
 
-<script src="/public/bower_components/vue/dist/vue.min.js"></script>
+<script src="/bower_components/vue/dist/vue.min.js"></script>
 <script src="/build/js/flipclock.min.js"></script>
 
 <script>
