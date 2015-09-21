@@ -32,7 +32,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         'first_name',
         'last_name',
         'email',
-        'phone'
+        'phone',
+        'dignity',
+        'country_id',
+        'institution',
     ];
 
 
@@ -111,7 +114,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('App\Models\Task');
     }
 
-
+    public function getCountry()
+    {
+        return $this->hasOne(Country::class);
+    }
 
 
 

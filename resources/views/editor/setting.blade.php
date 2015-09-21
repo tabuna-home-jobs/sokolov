@@ -39,6 +39,47 @@
                                 <input type="text" class="form-control" name="phone" value="{{$User->phone}}">
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Титул</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="dignity" value="{{$User->dignity}}">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Страна</label>
+
+                            <div class="col-sm-9">
+
+                                <select class="form-control" name="country_id">
+
+                                    @foreach($Country as $value)
+                                        @if($value->id == $User->country_id )
+
+                                            <option selected value="{{$value->id}}">{{$value->name}}</option>
+                                        @else
+                                            <option value="{{$value->id}}">{{$value->name}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Институт</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="institution"
+                                       value="{{$User->institution}}">
+                            </div>
+                        </div>
+
+
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9">
                                 <button type="submit" class="btn btn-default">Изменить</button>

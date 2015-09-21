@@ -12,15 +12,13 @@ class Menu  extends Facade {
         if (is_null($menu))
             return false;
 
-
         $element = $menu->getElement()->get();
-        $html = '';
-        foreach($element as $li)
-        {
-            $html .= "<li class='$li->class'><a href='$li->link'> $pref $li->label</a></li>";
-        }
 
-        return $html;
+
+        return view('htmlBlock.menu', [
+            'Elements' => $element,
+            'pref' => $pref
+        ]);
     }
 
 }

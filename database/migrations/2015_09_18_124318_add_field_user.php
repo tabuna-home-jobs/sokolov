@@ -12,7 +12,7 @@ class AddFieldUser extends Migration
      */
     public function up()
     {
-        Schema::table('task', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->string('dignity');
             $table->string('country_id');
             $table->string('institution');
@@ -26,7 +26,7 @@ class AddFieldUser extends Migration
      */
     public function down()
     {
-        Schema::table('task', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('dignity');
             $table->dropColumn('country_id');
             $table->dropColumn('institution');

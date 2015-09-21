@@ -5,11 +5,13 @@
     <title>Соколов</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
+    <link rel="icon" type="image/png" href="/img/logo-min.png"/>
 
     <link href="{{asset('/menu/menu.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="/dash/bootstrap/css/bootstrap.css" type="text/css"/>
     <link rel="stylesheet" href="/dash/bootstrap/css/font-awesome.min.css" type="text/css"/>
+
+
     <link rel="stylesheet" href="/dash/css/font.css" type="text/css"/>
     <link rel="stylesheet" href="/dash/css/app.css" type="text/css"/>
     <meta name="token" content="{{ csrf_token() }}">

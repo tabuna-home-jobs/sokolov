@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Models\Country;
 use Auth;
 use Illuminate\Http\Request;
 use Session;
@@ -27,13 +28,17 @@ class SettingController extends Controller
      */
     public function index()
     {
+        $Country = Country::all();
+
         if (Auth::user()->checkRole('editor'))
             return view('editor.setting', [
-                'User' => $this->user
+                'User' => $this->user,
+                'Country' => $Country,
             ]);
         else
             return view('site.setting', [
-                'User' => $this->user
+                'User' => $this->user,
+                'Country' => $Country,
             ]);
     }
 
