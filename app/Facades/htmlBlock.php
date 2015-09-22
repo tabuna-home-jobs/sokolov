@@ -12,12 +12,29 @@ class htmlBlock extends Facade
         $Block = Block::find($BlockId);
         $Elements = $Block->getElements()->where('lang', App::getLocale())->get();
 
+        if($Elements->count() == 0)
+            return null;
+
         return view('htmlBlock.GoodsSlider', [
             'Elements' => $Elements
         ]);
-
-
     }
+
+
+    static function getMainSlider($BlockId = 4)
+    {
+        $Block = Block::find($BlockId);
+        $Elements = $Block->getElements()->where('lang', App::getLocale())->get();
+
+        if($Elements->count() == 0)
+            return null;
+
+
+        return view('htmlBlock.MainSlider', [
+            'Elements' => $Elements
+        ]);
+    }
+
 
 
 }

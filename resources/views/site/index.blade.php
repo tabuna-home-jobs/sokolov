@@ -7,112 +7,23 @@
 
     <div class="row">
 
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <div class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <img src="/img/slider-1.png" width="1236px" height="519">
 
-                        <div class="carousel-caption">
-                            <h2>Редактирование научных рукописей</h2>
 
-                            <p>
-                                Включает корректировку уже написанных на английском языке рукописей и устранение
-                                грамматических и орфографических ошибок, чтобы рукопись, написанная иностранным
-                                учёным, не отличалась по качеству от той, которая написана коренным носителем
-                                английского языка
-                            </p>
 
-                            <p>
-                                <button class="btn btn-warning">Заказать услугу</button>
-                                <button class="btn btn-primary">Узнать больше</button>
-                            </p>
 
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="/img/slider-2.png">
+        {!! htmlBlock::getMainSlider() !!}
 
-                        <div class="carousel-caption">
-                            <h2>Техчический перевод научных рукописей</h2>
 
-                            <p>
-                                В основе технического перевода лежит формально-логический (коллективный) стиль, который
-                                характеризуется точностью, неэмоциональностью и безличностью. В лексике используется много терминов
-                                латинского или греческого происхождения. Грамматика технических переводов характеризуется
-                                использованием специфических и твердо устоявшихся грамматических норм: неопределенно-личные и
-                                безличные конструкции, пассивные обороты, широко используются неличные формы глагола. Логическое
-                                выделение осуществляется с помощью инверсии.
-                            </p>
 
-                            <p>
-                                <button class="btn btn-warning">Заказать услугу</button>
-                                <button class="btn btn-primary">Узнать больше</button>
-                            </p>
 
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="/img/slider-3.png" width="1236px" height="519">
 
-                        <div class="carousel-caption">
-                            <h2>Форматирование научных рукописей</h2>
 
-                            <p>
-                                В основе технического перевода лежит формально-логический (коллективный) стиль, который
-                                характеризуется точностью, неэмоциональностью и безличностью. В лексике используется много терминов
-                                латинского или греческого происхождения. Грамматика технических переводов характеризуется
-                                использованием специфических и твердо устоявшихся грамматических норм: неопределенно-личные и
-                                безличные конструкции, пассивные обороты, широко используются неличные формы глагола. Логическое
-                                выделение осуществляется с помощью инверсии.
-                            </p>
 
-                            <p>
-                                <button class="btn btn-warning">Заказать услугу</button>
-                                <button class="btn btn-primary">Узнать больше</button>
-                            </p>
 
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="/img/slider-4.png" width="1236px" height="519">
 
-                        <div class="carousel-caption">
-                            <h2>Форматирование научных рукописей</h2>
 
-                            <p>
-                                В основе технического перевода лежит формально-логический (коллективный) стиль, который
-                                характеризуется точностью, неэмоциональностью и безличностью. В лексике используется много терминов
-                                латинского или греческого происхождения. Грамматика технических переводов характеризуется
-                                использованием специфических и твердо устоявшихся грамматических норм: неопределенно-личные и
-                                безличные конструкции, пассивные обороты, широко используются неличные формы глагола. Логическое
-                                выделение осуществляется с помощью инверсии.
-                            </p>
 
-                            <p>
-                                <button class="btn btn-warning">Заказать услугу</button>
-                                <button class="btn btn-primary">Узнать больше</button>
-                            </p>
 
-                        </div>
-                    </div>
-                </div>
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
 
     </div>
 
@@ -378,7 +289,7 @@
 </div>
 
 
-<div class="container">
+<div class="container hidden-xs">
 
 
     <div class="text-center">

@@ -11,8 +11,28 @@ var elixir = require('laravel-elixir');
  |
  */
 
-elixir(function(mix) {
+
+//Сдандартные компоненты
+elixir(function (mix) {
+
  mix.styles([
+  "./vendor/bower_components/bootstrap/dist/css/bootstrap.min.css",
+  "./vendor/bower_components/font-awesome/css/font-awesome.min.css",
+  "./vendor/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css",
   "style.css",
  ], 'public/build/css/app.css');
+
+ mix.scripts([
+  "./vendor/bower_components/jquery/dist/jquery.min.js",
+  "./vendor/bower_components/bootstrap/dist/js/bootstrap.min.js",
+  "./vendor/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js",
+ ], 'public/build/js/app.js');
+
+ mix.copy('./vendor/bower_components/bootstrap/dist/fonts/', 'public/build/fonts');
+ mix.copy('./vendor/bower_components/font-awesome/fonts/', 'public/build/fonts');
+
+
+
+
+
 });

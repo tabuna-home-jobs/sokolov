@@ -1095,3 +1095,8 @@ pre {
     margin-top: 5%;
     margin-bottom: 5%;
 }
+
+
+.navbar-default .navbar-nav>li>a{
+    padding: 10px 10px;
+}
