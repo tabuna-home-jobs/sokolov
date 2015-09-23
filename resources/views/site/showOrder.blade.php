@@ -84,6 +84,60 @@
             <div role="tabpanel" class="tab-pane fade" id="oldfile" aria-labelledby="profile-tab">
 
 
+
+
+
+                <form class="text-center" action="{{route('order.update',$Order->id)}}" method="post" enctype="multipart/form-data">
+
+                    <hr>
+
+                    <fieldset>
+                        <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000"/>
+
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                            <span class="btn btn-default btn-file"><span class="fileinput-new">Выберите файл</span><span
+                                        class="fileinput-exists">Выберите файл</span>
+                                     <input required type="file" id="fileselect" name="files[]"
+                                            multiple="multiple"/></span>
+                        </div>
+
+
+                        <button class="btn btn-link" type="submit">Загрузить!</button>
+
+
+                        <div id="filedrag" class="upload-drop-zone">
+                            Переместите файлы которые вы хотите загрузить
+                        </div>
+
+
+                        <div id="submitbutton">
+                            <button type="submit">Upload Files</button>
+                        </div>
+
+                    </fieldset>
+
+
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Файлы которые будут загружены:</div>
+                        <ul class="list-group" id="messages">
+
+                        </ul>
+                    </div>
+
+
+                    <input type="hidden" name="_method" value="PUT">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                </form>
+
+
+
+
+
+
+
+
+
                 <ul class="list-group">
                     <ul class="list-group">
                         @foreach($SelectRequestFile as $file)
@@ -120,6 +174,160 @@
 
     </div>
 
+
+
+
+
+
+    <script>
+        window.onload = function () {
+
+
+            $(document).ready(function () {
+
+
+                $('.nextBtn').click(function () {
+                    var checket = $(".order input[type='radio']:checked").val();
+                    if (checket == 6) {
+                        $('#izdanie').removeClass('hidden');
+                    }
+                    else {
+                        $('#izdanie').addClass('hidden');
+                    }
+                });
+
+
+                var navListItems = $('div.setup-panel div a'),
+                        allWells = $('.setup-content'),
+                        allNextBtn = $('.nextBtn');
+
+                allWells.hide();
+
+                navListItems.click(function (e) {
+                    e.preventDefault();
+                    var $target = $($(this).attr('href')),
+                            $item = $(this);
+
+                    if (!$item.hasClass('disabled')) {
+                        navListItems.removeClass('btn-primary').addClass('btn-default');
+                        $item.addClass('btn-primary');
+                        allWells.hide();
+                        $target.show();
+                        $target.find('input:eq(0)').focus();
+                    }
+                });
+
+                allNextBtn.click(function () {
+                    var curStep = $(this).closest(".setup-content"),
+                            curStepBtn = curStep.attr("id"),
+                            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                            curInputs = curStep.find("input[type='text'],input[type='url']"),
+                            isValid = true;
+
+                    $(".form-group").removeClass("has-error");
+                    for (var i = 0; i < curInputs.length; i++) {
+                        if (!curInputs[i].validity.valid) {
+                            isValid = false;
+                            $(curInputs[i]).closest(".form-group").addClass("has-error");
+                        }
+                    }
+
+                    if (isValid)
+                        nextStepWizard.removeAttr('disabled').trigger('click');
+                });
+
+                $('div.setup-panel div a.btn-primary').trigger('click');
+            });
+
+
+            (function () {
+
+                // getElementById
+                function $id(id) {
+                    return document.getElementById(id);
+                }
+
+
+                // output information
+                function Output(msg) {
+                    var m = $id("messages");
+                    m.innerHTML = msg + m.innerHTML;
+                }
+
+
+                // file drag hover
+                function FileDragHover(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    e.target.className = (e.type == "dragover" ? "hover" : "");
+                }
+
+
+                // file selection
+                function FileSelectHandler(e) {
+
+                    // cancel event and hover styling
+                    FileDragHover(e);
+
+                    // fetch FileList object
+                    var files = e.target.files || e.dataTransfer.files;
+
+                    // process all File objects
+                    for (var i = 0, f; f = files[i]; i++) {
+                        ParseFile(f);
+                    }
+
+                }
+
+
+                // output file information
+                function ParseFile(file) {
+
+                    Output(
+                            "<li class='list-group-item'>" + file.name +
+                            "</li>"
+                    );
+
+                }
+
+
+                // initialize
+                function Init() {
+
+                    var fileselect = $id("fileselect"),
+                            filedrag = $id("filedrag"),
+                            submitbutton = $id("submitbutton");
+
+                    // file select
+                    fileselect.addEventListener("change", FileSelectHandler, false);
+
+                    // is XHR2 available?
+                    var xhr = new XMLHttpRequest();
+                    if (xhr.upload) {
+
+                        // file drop
+                        filedrag.addEventListener("dragover", FileDragHover, false);
+                        filedrag.addEventListener("dragleave", FileDragHover, false);
+                        filedrag.addEventListener("drop", FileSelectHandler, false);
+                        filedrag.style.display = "block";
+
+                        // remove submit button
+                        submitbutton.style.display = "none";
+                    }
+
+                }
+
+                // call initialization file
+                if (window.File && window.FileList && window.FileReader) {
+                    Init();
+                }
+
+
+            })();
+
+
+        };
+    </script>
 
 
 

@@ -49,7 +49,6 @@ class OrderController extends Controller
             $type = Category::lists('id', 'eng_name');
         }
 
-
         return view('site.createOrder', [
             'type' => $type,
         ]);
@@ -163,7 +162,25 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        foreach ($request->file('files') as $file) {
+
+            if (!Storage::exists('/app/order/' . date("Y-m-d"))) {
+                Storage::makeDirectory('/app/order/' . date("Y-m-d"));
+            }
+
+            $file->move(storage_path() . '/app/order/' . date("Y-m-d"), Str::ascii(time() . '-' . $file->getClientOriginalName()));
+            $DBfile = new Files([
+                'user_id' => Auth::user()->id,
+                'original' => $file->getClientOriginalName(),
+                'name' => date("Y-m-d") . '/' . Str::ascii(time() . '-' . $file->getClientOriginalName()),
+                'type' => 'order',
+                'beglouto' => $id,
+                'finish' => false,
+            ]);
+            $DBfile->save();
+        }
+        Session::flash('good', 'Файлы успешно загружены');
+        return redirect()->back();
     }
 
     /**
