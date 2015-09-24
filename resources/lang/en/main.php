@@ -10,4 +10,9 @@ return [
     'Reviews' => 'Customer Reviews',
     'Reviews-sub' => 'All reviews',
 
+    'Learn More' => 'Learn More',
+
+
+    'panel' => 'Service',
+    'sign' => 'Sign'
 ];

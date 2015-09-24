@@ -22,7 +22,7 @@
 
                         <p>
                             <a href="/auth/login" type="button" class="btn btn-warning">{{trans('main.Order')}}</a>
-                            <a href="{{$element->link}}" class="btn btn-primary">Узнать больше</a>
+                            <a href="{{$element->link}}" class="btn btn-primary">{{trans('main.Learn More')}}</a>
                         </p>
 
                     </div>

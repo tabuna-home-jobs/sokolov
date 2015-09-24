@@ -3,21 +3,20 @@
 namespace App\Http\Controllers\Site;
 
 use App;
-use App\Events\NewOrder;
+use App\Events\Notification;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Category;
 use App\Models\Comments;
 use App\Models\Files;
+use App\Models\LangOrder;
 use App\Models\MetaOrder;
 use App\Models\Order;
 use Auth;
 use Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Mail;
 use Session;
-use SMS;
 use Storage;
 
 class OrderController extends Controller
@@ -45,12 +44,15 @@ class OrderController extends Controller
         //Отдаём категорию в зависимости от языка
         if (App::getLocale() == 'ru') {
             $type = Category::lists('id', 'name');
+            $langTrans = LangOrder::lists('id', 'name');
         } else {
             $type = Category::lists('id', 'eng_name');
+            $langTrans = LangOrder::lists('id', 'eng_name');
         }
 
         return view('site.createOrder', [
             'type' => $type,
+            'langTrans' => $langTrans
         ]);
     }
 
@@ -69,6 +71,7 @@ class OrderController extends Controller
             'name' => $request->name,
             'text' => $request->text,
             'izdanie' => $request->izdanie,
+            'LangOrder_id' => $request->langOrder_id
         ]);
 
         $newOrder->save();
@@ -98,7 +101,7 @@ class OrderController extends Controller
             $DBfile->save();
         }
 
-        Event::fire(new NewOrder());
+        Event::fire(new Notification($newOrder->id));
         Session::flash('good', 'Спасибо, что написали, мы обязательно ответим вам.');
         return redirect()->back();
 

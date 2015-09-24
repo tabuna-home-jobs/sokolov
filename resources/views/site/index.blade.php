@@ -288,7 +288,7 @@
     </ol>
 </div>
 
-
+@if($NewsList->count())
 <div class="container hidden-xs">
 
 
@@ -333,8 +333,10 @@
 
 
 </div>
+@endif
 
 
+@if($ReviewsList->count())
 <div class="container container-reviews hidden-sm hidden-xs">
 
 
@@ -389,7 +391,7 @@
 
 
 </div>
-
+@endif
 
 <div class="container-fluid array-top hidden-sm hidden-xs">
 

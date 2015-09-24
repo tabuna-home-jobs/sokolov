@@ -3,21 +3,17 @@
 @section('content-editor')
 
 
-
-
-
-
     <div class="panel panel-default">
-        <div class="panel-heading">Мои задачи</div>
+        <div class="panel-heading">{{trans('orderTask.My Tasks')}}</div>
         <table class="table">
 
             <thead>
             <tr>
-                <th>Название работы</th>
-                <th>Услуга</th>
-                <th>Стоимость</th>
-                <th>Срок сдачи</th>
-                <th>Управление</th>
+                <th>{{trans('orderTask.Job title')}}</th>
+                <th>{{trans('orderTask.Service')}}</th>
+                <th>{{trans('orderTask.Price')}}</th>
+                <th>{{trans('orderTask.Deadline')}}</th>
+                <th>{{trans('orderTask.Control')}}</th>
             </tr>
             </thead>
 
@@ -35,9 +31,11 @@
                         <td>{{$task->getGoods->eng_name}}</td>
                     @endif
 
-                    <td>{{$task->price}}</td>
-                    <td>{{$task->workfinish}}</td>
-                    <td><a href="{{route('editor.order.show', $task->id)}}"> Просмотр</a></td>
+                    <td><i class="fa fa-dollar"></i> {{$task->price}}</td>
+                    <td>
+                        <small>{{$task->workfinish}}</small>
+                    </td>
+                    <td><a href="{{route('editor.order.show', $task->id)}}"> {{trans('orderTask.Viewing')}}</a></td>
                 </tr>
             @endforeach
 
@@ -49,16 +47,6 @@
 
 
     {!! $Tasks->render()!!}
-
-
-
-
-
-
-
-
-
-
 
 
 @endsection

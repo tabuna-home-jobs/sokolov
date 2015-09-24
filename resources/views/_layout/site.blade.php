@@ -113,8 +113,9 @@
                 @endif
 
 
-                    <li class="login-a  hidden-sm hidden-xs"><a href="/auth/login">@if(!Auth::check())Вход @else
-                                Сервис @endif</a></li>
+                    <li class="login-a  hidden-sm hidden-xs"><a
+                                href="/auth/login">@if(!Auth::check()) {{trans('main.sign')}} @else
+                                {{trans('main.panel')}} @endif</a></li>
             </ul>
 
         </div>

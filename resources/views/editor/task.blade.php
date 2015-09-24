@@ -3,22 +3,12 @@
 
 
 
-@section('timer')
-
-
-
-@endsection
-
-
-
-
-
 @section('content-editor')
 
 
 
     <div class="panel panel-default">
-        <div class="panel-heading">Заказ № {{$Task->id}}</div>
+        <div class="panel-heading">{{trans('orderTask.Task')}} № {{$Task->id}}</div>
 
         <div class="panel-body">
 
@@ -26,7 +16,7 @@
 
 
             <hr>
-            <p>Услуги:</p>
+            <p>{{trans('orderTask.Service')}}:</p>
 
             <ul class="list-group">
                 <li class="list-group-item">
@@ -41,19 +31,20 @@
 
 
         <ul class="list-group">
-            <li class="list-group-item">Статус: <p class="pull-right">{{$Task->status}}</p></li>
-            <li class="list-group-item">Дата окончания работы: <p class="pull-right">{{$Task->workfinish}}</p></li>
-            <li class="list-group-item">Цена: <p class="pull-right">{{$Task->price}}</p></li>
+            <li class="list-group-item">{{trans('orderTask.Status')}}: <p class="pull-right">{{$Task->status}}</p></li>
+            <li class="list-group-item">{{trans('orderTask.Deadline')}}: <p class="pull-right">{{$Task->workfinish}}</p>
+            </li>
+            <li class="list-group-item">{{trans('orderTask.Price')}}: <p class="pull-right">{{$Task->price}}</p></li>
         </ul>
 
 
         <ul id="myTabs" class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#comments" role="tab" data-toggle="tab" aria-controls="home"
-                                                      aria-expanded="true">Комментарии</a></li>
+                                                      aria-expanded="true">{{trans('orderTask.Comments')}}</a></li>
             <li role="presentation" class=""><a href="#oldfile" role="tab" data-toggle="tab" aria-controls="profile"
-                                                aria-expanded="false">Доступные файлы</a></li>
+                                                aria-expanded="false">{{trans('orderTask.Available files')}}</a></li>
             <li role="presentation" class=""><a href="#newfile" role="tab" data-toggle="tab" aria-controls="profile"
-                                                aria-expanded="false">Готовые файлы</a></li>
+                                                aria-expanded="false">{{trans('orderTask.Ready files')}}</a></li>
         </ul>
         <div id="myTabContent" class="tab-content">
             <div role="tabpanel" class="tab-pane fade active in" id="comments" aria-labelledby="home-tab">
@@ -69,14 +60,14 @@
 
                     <form action="{{URL::route('editor.comment.store')}}" method="post">
                         <div class="form-group">
-                            <label>Написать комментарий</label>
+                            <label>{{trans('orderTask.Write a comment')}}</label>
         <textarea class="form-control" rows="3" required name="text"
                   style="resize: none;"></textarea>
                         </div>
                         <input type="hidden" name="type" value="order">
                         <input type="hidden" name="beglouto" value="{{$Task->id}}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-primary btn-block">Отправить</button>
+                        <button type="submit" class="btn btn-primary btn-block">{{trans('orderTask.Send')}}</button>
 
                     </form>
                 </div>
@@ -123,22 +114,23 @@
                         <form action="{{route('editor.filemanager.store')}}" method="post" class="text-center"
                               enctype="multipart/form-data">
 
-                            <h6> Загрузите необходимые документы</h6>
+                            <h6>{{trans('orderTask.Download the required documents')}}</h6>
 
 
                             <fieldset>
                                 <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000"/>
 
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
-                            <span class="btn btn-default btn-file"><span class="fileinput-new">Выберите файл</span><span
-                                        class="fileinput-exists">Выберите файл</span>
+                            <span class="btn btn-default btn-file"><span
+                                        class="fileinput-new">{{trans('orderTask.Select files')}}</span><span
+                                        class="fileinput-exists">{{trans('orderTask.Select files')}}</span>
                                      <input required type="file" id="fileselect" name="files[]"
                                             multiple="multiple"/></span>
                                 </div>
 
 
                                 <div id="filedrag" class="upload-drop-zone">
-                                    Переместите файлы которые вы хотите загрузить
+                                    {{trans('orderTask.Move the files you want to upload')}}
                                 </div>
 
 
@@ -151,7 +143,7 @@
 
                             <div class="panel panel-default">
                                 <!-- Default panel contents -->
-                                <div class="panel-heading">Файлы:</div>
+                                <div class="panel-heading">{{trans('orderTask.Files')}}:</div>
                                 <ul class="list-group" id="messages">
 
                                 </ul>
@@ -161,7 +153,8 @@
                             <input type="hidden" name="type" value="order">
                             <input type="hidden" name="beglouto" value="{{$Task->id}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <button class="btn btn-primary btn-block" type="submit">Отправить!</button>
+                            <button class="btn btn-primary btn-block" type="submit">{{trans('orderTask.Send')}}!
+                            </button>
 
                         </form>
                     </div>

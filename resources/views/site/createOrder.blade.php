@@ -8,19 +8,19 @@
             <div class="stepwizard-step">
                 <a href="#step-1" type="button" class="btn btn-primary btn-circle"><i class="fa fa-eye"></i></a>
 
-                <p>Выбор услуги</p>
+                <p>{{trans('createOrder.Selection of services')}}</p>
             </div>
             <div class="stepwizard-step">
                 <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled"><i
                             class="fa fa-pencil-square-o"></i></a>
 
-                <p>Описание работы</p>
+                <p>{{trans('createOrder.Description of work')}}</p>
             </div>
             <div class="stepwizard-step">
                 <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled"><i
                             class="fa fa-file-word-o"></i></a>
 
-                <p>Прикрепить файлы</p>
+                <p>{{trans('createOrder.Attach files')}}</p>
             </div>
         </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="row setup-content" id="step-1">
             <div class="col-xs-12">
                 <div class="col-md-12">
-                    <h3 class="text-center"> Выберите предоставляемую услугу</h3>
+                    <h3 class="text-center">{{trans('createOrder.Select the service provided')}}</h3>
 
                     @foreach($type as $key => $value)
 
@@ -43,55 +43,71 @@
                     @endforeach
 
 
-                    <button class="btn btn-primary nextBtn pull-right" type="button">Далее</button>
+                    <button class="btn btn-primary nextBtn pull-right"
+                            type="button">{{trans('createOrder.Next')}}</button>
                 </div>
             </div>
         </div>
         <div class="row setup-content" id="step-2">
             <div class="col-xs-12">
                 <div class="col-md-12">
-                    <h3 class="text-center"> Дайте доступное описания работы</h3>
+                    <h3 class="text-center"> {{trans('createOrder.Give a description of the available work')}}</h3>
 
                     <div class="form-group">
-                        <label class="control-label">Название работы</label>
-                        <input maxlength="200" type="text" name="name" required="required" class="form-control"
-                               placeholder="Внедрение зависимостей"/>
+                        <label class="control-label">{{trans('createOrder.Job title')}}</label>
+                        <input maxlength="200" type="text" name="name" required="required" class="form-control"/>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label">Описание работы</label>
+                        <label class="control-label">{{trans('createOrder.Description of work')}}</label>
                         <textarea rows="20" class="form-control" name="text" required="required"></textarea>
                     </div>
 
-                    <div class="form-group hidden" id="izdanie">
-                        <label class="control-label"> Научное издание, для которого форматируется работа</label>
+                    <div class="form-group" id="izdanie2">
+                        <label class="control-label"> {{trans('createOrder.Scientific publication, for which formats work')}}</label>
                         <input rows="20" class="form-control" name="izdanie">
                     </div>
 
 
-                    <button class="btn btn-primary nextBtn pull-right" type="button">Далее</button>
+                    <div class="form-group">
+                        <label class="control-label"> {{trans('createOrder.For what language translation needs')}}</label>
+                        <select name="langOrder_id" required class="form-control">
+                            @foreach($langTrans as $key => $value)
+
+                                <option value="{{$value}}">
+                                    {{$key}}
+                                </option>
+
+                            @endforeach
+                        </select>
+                    </div>
+
+
+                    <button class="btn btn-primary nextBtn pull-right"
+                            type="button">{{trans('createOrder.Next')}}</button>
                 </div>
             </div>
         </div>
         <div class="row setup-content" id="step-3">
             <div class="col-xs-12">
                 <div class="col-md-12">
-                    <h3> Загрузите необходимые документы</h3>
+                    <h3>{{trans('createOrder.Download the required documents')}}</h3>
 
 
                     <fieldset>
                         <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000"/>
 
                         <div class="fileinput fileinput-new" data-provides="fileinput">
-                            <span class="btn btn-default btn-file"><span class="fileinput-new">Выберите файл</span><span
-                                        class="fileinput-exists">Выберите файл</span>
+                            <span class="btn btn-default btn-file"><span
+                                        class="fileinput-new">{{trans('createOrder.Select files')}}</span><span
+                                        class="fileinput-exists">{{trans('createOrder.Select files')}}</span>
                                      <input required type="file" id="fileselect" name="files[]"
                                             multiple="multiple"/></span>
                         </div>
 
 
                         <div id="filedrag" class="upload-drop-zone">
-                            Переместите файлы которые вы хотите загрузить
+                            {{trans('createOrder.Move the files you want to upload')}}
                         </div>
 
 
@@ -104,7 +120,7 @@
 
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
-                        <div class="panel-heading">Файлы:</div>
+                        <div class="panel-heading">{{trans('createOrder.Files')}}:</div>
                         <ul class="list-group" id="messages">
 
                         </ul>
@@ -112,7 +128,7 @@
 
 
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <button class="btn btn-warning pull-right" type="submit">Отправить!</button>
+                    <button class="btn btn-warning pull-right" type="submit">{{trans('createOrder.Send')}}!</button>
                 </div>
             </div>
         </div>

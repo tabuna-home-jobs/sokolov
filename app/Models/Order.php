@@ -31,7 +31,8 @@ class Order extends Model {
         'workfinish',
         'text',
         'izdanie',
-        'sold'
+        'sold',
+        'LangOrder_id'
     ];
 
 
@@ -45,12 +46,15 @@ class Order extends Model {
         return $this->belongsTo('App\Models\Category', 'category_id');
     }
 
+    public function getLangTranslite()
+    {
+        return $this->hasOne(LangOrder::class);
+    }
 
     public function getGoods()
     {
         return $this->hasMany('App\Models\MetaOrder', 'order_id');
     }
-
 
     public function getTask()
     {

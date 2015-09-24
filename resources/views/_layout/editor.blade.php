@@ -10,28 +10,30 @@
                         <div class="user-panel-sidebar">
 
                             <div class="collapse-box">
-                                <h5 class="collapse-title"> Сервис <a href="#MyAds" data-toggle="collapse"
+                                <h5 class="collapse-title"> {{trans('leftPanel.service')}} <a href="#MyAds"
+                                                                                              data-toggle="collapse"
                                                                       class="pull-right"><i
                                                 class="fa fa-angle-down"></i></a></h5>
 
                                 <div class="panel-collapse collapse in" id="MyAds">
                                     <ul class="acc-list">
                                         <li><a class="{{Active::route('editor.chan.index')}}"
-                                               href="{{route('editor.chan.index')}}"><i class="fa fa-magic"></i> Лента
-                                                задач
+                                               href="{{route('editor.chan.index')}}"><i class="fa fa-magic"></i>
+                                                {{trans('leftPanel.feed task')}}
                                             </a></li>
                                         <li><a class="{{Active::route('editor.order.*')}}"
                                                href="{{route('editor.order.index')}}"><i class="fa fa-tasks"></i>
-                                                Задачи <span
+                                                {{trans('leftPanel.task')}} <span
                                                         class="badge pull-right">{{Auth::user()->getTask()->count()}}</span>
                                             </a></li>
-                                        <li><a href="#"><i class="fa fa-usd"></i> Счета </a></li>
+                                        <li><a href="#"><i class="fa fa-usd"></i> {{trans('leftPanel.invoice')}} </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="collapse-box">
-                                <h5 class="collapse-title"> Управление <a href="#TerminateAccount"
+                                <h5 class="collapse-title"> {{trans('leftPanel.control')}} <a href="#TerminateAccount"
                                                                           data-toggle="collapse" class="pull-right"><i
                                                 class="fa fa-angle-down"></i></a></h5>
 
@@ -39,8 +41,10 @@
                                     <ul class="acc-list">
                                         <li><a class="{{Active::route('setting.*')}}"
                                                href="{{URL::route('setting.index')}}"><i class="fa fa-cog"></i>
-                                                Настройки </a></li>
-                                        <li><a href="/auth/logout"><i class="fa fa-sign-out "></i> Выйти </a></li>
+                                                {{trans('leftPanel.settings')}} </a></li>
+                                        <li><a href="/auth/logout"><i
+                                                        class="fa fa-sign-out "></i> {{trans('leftPanel.exit')}} </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

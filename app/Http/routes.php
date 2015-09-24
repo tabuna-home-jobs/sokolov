@@ -43,6 +43,10 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'admin'], 'pr
 
     Route::resource('task', 'TaskController');
 
+
+    Route::resource('langorder', OrderLangController::class);
+
+
     Route::resource('block', 'BlockController');
     Route::resource('element', 'ElementController');
 

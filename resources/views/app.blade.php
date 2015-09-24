@@ -66,6 +66,24 @@
 
             <!-- nabar right -->
             <ul class="nav navbar-nav navbar-right">
+
+
+                <li class="{{Active::route('dashboard.category.*')}}">
+                    <a href="{{URL::route('dashboard.category.index')}}">
+                        <span class="hidden-sm hidden-md"><i class="fa fa-briefcase icon"></i></span>
+                        <span class="visible-xs-inline">Категории</span>
+                    </a>
+                </li>
+
+
+                <li class="{{Active::route('dashboard.langorder.*')}}">
+                    <a href="{{URL::route('dashboard.langorder.index')}}">
+                        <span class="hidden-sm hidden-md"><i class="fa fa-book icon"></i></span>
+                        <span class="visible-xs-inline">Языки в заказе</span>
+                    </a>
+                </li>
+
+
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">
                         <i class="glyphicon glyphicon-envelope"></i>
@@ -255,14 +273,6 @@
                             <a href="{{URL::route('dashboard.feedback.index')}}">
                                 <i class="glyphicon glyphicon-envelope icon"></i>
                                 <span class="font-bold">Почта</span>
-                            </a>
-                        </li>
-
-
-                        <li class="{{Active::route('dashboard.category.*')}}">
-                            <a href="{{URL::route('dashboard.category.index')}}">
-                                <i class="fa fa-medkit icon"></i>
-                                <span>Категории</span>
                             </a>
                         </li>
 

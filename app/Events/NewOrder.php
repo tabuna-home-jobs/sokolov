@@ -16,9 +16,10 @@ class NewOrder extends Event
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($newOrder)
     {
-
+        $this->order = $newOrder;
+        dd($this->order);
     }
 
     /**
