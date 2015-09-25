@@ -1100,3 +1100,17 @@ pre {
 .navbar-default .navbar-nav>li>a{
     padding: 10px 10px;
 }
+
+.error-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.error-actions {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.error-actions .btn {
+    margin-right: 10px;
+}

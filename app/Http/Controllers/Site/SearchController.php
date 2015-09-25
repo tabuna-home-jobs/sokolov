@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Models\News;
 use Request;
+
 
 class SearchController extends Controller
 {
@@ -15,7 +17,16 @@ class SearchController extends Controller
      */
     public function index()
     {
-        dd(Request::all());
+        $search = Request::input('search');
+
+        $searchList = News::where('content', 'LIKE', '%' . $search . '%')
+            ->orderBy('id', 'desc')
+            ->paginate(12);
+
+        return view('site.search', [
+            'searchList' => $searchList
+        ]);
+
     }
 
     /**

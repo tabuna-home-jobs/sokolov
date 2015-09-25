@@ -1,43 +1,57 @@
 @extends('_layout/site')
 
+
 @section('content')
 
     <div class="container blog-container">
 
-        @foreach($ReviewList as $reviews)
+        @forelse($searchList as $search)
+            <article class="col-md-4 blog">
 
-            <article class="reviews-div row">
-                <div class="pull-left col-md-4 text-center">
-                    <img src="{{$reviews->avatar}}" class="img-circle">
+                <h4>
+                    <a href="{{URL::route('news.show',$search->slug)}}">{{ str_limit($search->title,$limit = 20, $end = '...')}}</a>
+                </h4>
+                <hr>
 
-                    <div class="caption">"></i>
-                    </p>
+                <div class="blog-thumbnail">
+                    <a href="{{URL::route('news.show',$search->slug)}}">
+                        <img src="{{$search->avatar}}">
+                    </a>
                 </div>
 
+                <main class="blog-content text-justify">
+                    {{
+                        str_limit(strip_tags($search->content), $limit = 250, $end = '...')
+                    }}
 
+                </main>
             </article>
-            <hr>
-        @endforeach
 
-        <h4>{{$reviews->name}}</h4>
+        @empty
 
-                            <span>{{$reviews->dolshnost}}
-                    </span>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="error-template">
+                            <h2>Not Found</h2>
+
+                            <div class="error-details">
+                                Sorry, an error has occured, Requested search not found!
+                            </div>
+                            <div class="error-actions">
+                                <a href="/" class="btn btn-default btn-lg"><span
+                                            class="glyphicon glyphicon-home"></span> Take Me Home </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        @endforelse
 
 
-        <p class="date">
-            {{$reviews->created_at}}
-        </p>
-    </div>
-    </div>
-    <div class="col-md-8">
-        <p class="text-justify reviews-text">
-            <i class="fa fa-quote-left fa-2x fa-pull-left"></i>
-            {{$reviews->comment}}
-            <i class="fa fa-quote-right fa-2x fa-pull-right
-        <div class="text-center">
-            {!! $ReviewList->render() !!}
-        </div>
+        {!! $searchList->render() !!}
+
 
     </div>
 
