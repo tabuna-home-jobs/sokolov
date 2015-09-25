@@ -50,15 +50,15 @@
                     <a href="">
                         <img class="img-hover" src="/img/service-1.png" data-altimg="/img/service-1-hover.png">
 
-                        <h3>Редактирование</h3>
+                        <h3>{{trans('main.Editing')}}</h3>
                     </a>
 
 
                     <div class="caption">
-                        <p>Корректировка написанных на
-                            английском языке научных рукописей
-                            и устранение грамматических и
-                            орфографических ошибок</p>
+                        <p>{{trans('main.Correcting written
+                             English scientific manuscripts
+                             and elimination of grammar and
+                             spelling mistakes')}}</p>
 
                     </div>
                 </div>
@@ -71,15 +71,14 @@
                     <a href="">
                         <img class="img-hover" src="/img/service-2.png" data-altimg="/img/service-2-hover.png">
 
-                        <h3>Редактирование</h3>
+                        <h3>{{trans('main.Translation')}}</h3>
                     </a>
 
 
                     <div class="caption">
-                        <p>Корректировка написанных на
-                            английском языке научных рукописей
-                            и устранение грамматических и
-                            орфографических ошибок</p>
+                        <p>{{trans('main.We provide technical
+                             translation from Russian into
+                             English')}}</p>
 
                     </div>
                 </div>
@@ -92,15 +91,14 @@
                     <a href="">
                         <img class="img-hover" src="/img/service-3.png" data-altimg="/img/service-3-hover.png">
 
-                        <h3>Редактирование</h3>
+                        <h3>{{trans('main.Format')}}</h3>
                     </a>
 
 
                     <div class="caption">
-                        <p>Корректировка написанных на
-                            английском языке научных рукописей
-                            и устранение грамматических и
-                            орфографических ошибок</p>
+                        <p>{{trans('main.Fit manuscripts under strict
+                             foreign scientific standards
+                             magazines')}}</p>
 
                     </div>
                 </div>
@@ -113,15 +111,15 @@
                     <a href="">
                         <img class="img-hover" src="/img/service-4.png" data-altimg="/img/service-4-hover.png">
 
-                        <h3>Редактирование</h3>
+                        <h3>{{trans('main.illustrating')}}</h3>
                     </a>
 
 
                     <div class="caption">
-                        <p>Корректировка написанных на
-                            английском языке научных рукописей
-                            и устранение грамматических и
-                            орфографических ошибок</p>
+                        <p>{{trans('main.Creation of scientific graphics
+                             according to the illustrations
+                             provided sketch or
+                             description')}}</p>
 
                     </div>
                 </div>
@@ -152,24 +150,27 @@
 
 
         <div class="col-md-3  text-center">
-            <h2><span>Вы:</span></h2>
+            <h2><span>{{trans('main.You')}}:</span></h2>
         </div>
 
         <div class="col-md-3">
             <img class="img-responsive" src="/img/infografica-1.png">
-            <p class="text-center">Заказываете Услугу</p>
+
+            <p class="text-center">{{trans('main.Order services')}}</p>
             <p class="text-center"><span class="glyphicon glyphicon-arrow-down"></span></p>
         </div>
 
         <div class="col-md-3">
             <img class="img-responsive" src="/img/infografica-2.png">
-            <p class="text-center">Заказываете Услугу</p>
+
+            <p class="text-center">{{trans('main.To pay for services')}}</p>
             <p class="text-center"><span class="glyphicon glyphicon-arrow-down"></span></p>
         </div>
 
         <div class="col-md-3">
             <img class="img-responsive" src="/img/infografica-3.png">
-            <p class="text-center">Заказываете Услугу</p>
+
+            <p class="text-center">{{trans('main.You get ready to work')}}</p>
             <p class="text-center"><span class="glyphicon glyphicon-arrow-down"></span></p>
         </div>
 
@@ -178,22 +179,25 @@
     <div class="row">
 
         <div class="col-md-3 text-center">
-            <h2><span>Мы:</span></h2>
+            <h2><span>{{trans('main.We')}}:</span></h2>
         </div>
 
         <div class="col-md-3">
             <img class="img-responsive" src="/img/infografica-4.png">
-            <p class="text-center">Заказываете Услугу</p>
+
+            <p class="text-center">{{trans('main.We expect the price')}}</p>
         </div>
 
         <div class="col-md-3">
             <img class="img-responsive" src="/img/infografica-5.png">
-            <p class="text-center">Заказываете Услугу</p>
+
+            <p class="text-center">{{trans('main.To provide services')}}</p>
         </div>
 
         <div class="col-md-3">
             <img class="img-responsive" src="/img/infografica-6.png">
-            <p class="text-center">Заказываете Услугу</p>
+
+            <p class="text-center">{{trans('main.Get Your review')}}</p>
         </div>
 
 
@@ -225,10 +229,7 @@
                 <li class="li-icons-1 row"><span>1.</span>
 
 
-                    У нас работают только опытные научные академические редакторы, которые являются экспертами в
-                    конкретной
-                    научной области.
-                    Все наши редакторы – эксперты в английской грамматике, орфографии и пунктуации.
+                    {{trans("main.We employ only experienced scientific academic editors who are experts in a particular scientific field. All our editors - experts in English grammar, spelling and punctuation.")}}
 
                 </li>
 
@@ -236,46 +237,28 @@
                 <li class="li-icons-2 row">
                     <span>2.</span>
 
-                    Наши научные редакторы имеют значительный опыт работы в престижных академических научных
-                    исследовательских
-                    учреждениях. Наши редакторы имеют значительное количество публикации в высоко цитируемых научных
-                    журналах на
-                    английском языке.
+
+                    {{trans("main.Our scientific editors have extensive experience in prestigious academic research institutions. Our editors have a significant number of highly cited publications in scientific journals in English.")}}
                 </li>
 
                 <li class="li-icons-3 row">
                     <span>3.</span>
-                    Наши научные редакторы написали, редактировали и рецензировали научные публикации и гранты.
+                    {{trans("main.Our scientific editors wrote, edited and reviewed scientific publications and grants.")}}
                 </li>
 
                 <li class="li-icons-4 row">
                     <span>4.</span>
-                    Мы знаем, что необходимо для публикации ваших важных научных открытий в англоязычном научном
-                    журнале.
-                    Языковой барьер
-                    никогда не должен быть препятствием для распространения важных идей и открытий! Мы здесь, чтобы
-                    помочь вам
-                    добиться
-                    успеха!
+                    {{trans("main.We know that you need to publish your important scientific discoveries in the English-language journal. The language barrier should never be a barrier to the spread of important ideas and discoveries! We are here to help you succeed!")}}
                 </li>
 
                 <li class="li-icons-5 row">
                     <span>5.</span>
-                    Если ваши исследования не опубликованы – их никогда не было. Множество рукописей не принимаются к
-                    публикации
-                    из-за
-                    плохого качества английского языка. Наши редакторы – эксперты английского языка. Наши редакторы –
-                    научные
-                    эксперты с
-                    многими годами исследовательской деятельности и публикациями в престижных научных журналах.
+                    {{trans("main.If your research is not published - they never had. Many manuscripts are accepted for publication because of the poor quality of the English language. Our editors - experts in English. Our editors - scientific experts with many years of research and publications in prestigious scientific journals.")}}
                 </li>
 
                 <li class="li-icons-6 row">
                     <span>6.</span>
-                    Мы гарантируем, что ваша статья не будет отвергнута научным журналом из-за низкого качества
-                    английского
-                    языка.
-                    Мы повторно отредактируем вашу статью – бесплатно.
+                    {{trans("main.We guarantee that your paper will not be rejected by the scientific journal of the poor quality of the English language. We re-edit your article - free of charge.")}}
                 </li>
 
             </ol>
