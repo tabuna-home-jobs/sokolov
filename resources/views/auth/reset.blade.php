@@ -12,7 +12,7 @@
         <div class="col-xs-12 col-md-6 col-md-offset-3">
 
 
-            <p class="lead text-center">Восстановление пароля :</p>
+            <p class="lead text-center">{{trans('auth.Password recovery')}} :</p>
 
 
             <div class="well">
@@ -32,18 +32,19 @@
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <label>Пароль</label>
-                        <input type="password" class="form-control" name="password" placeholder="Пароль"/>
+                        <label>{{trans('auth.Password')}}</label>
+                        <input type="password" class="form-control" name="password"
+                               placeholder="{{trans('auth.Password')}}"/>
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <label>Повторите парол</label>
+                        <label>{{trans('auth.Repeat password')}}</label>
                         <input type="password" class="form-control" name="password_confirmation"
-                               placeholder="Повторите пароль"/>
+                               placeholder="{{trans('auth.Repeat password')}}"/>
                         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                     </div>
 
-                    <button type="submit" class="btn btn-warning btn-block">Сменить пароль</button>
+                    <button type="submit" class="btn btn-warning btn-block">{{trans('auth.Change password')}}</button>
 
                 </form>
             </div>

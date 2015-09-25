@@ -8,7 +8,7 @@
         <div class="col-xs-12 col-md-6">
 
 
-            <p class="lead">Войти на сайт</p>
+            <p class="lead">{{trans('auth.Sign in')}}</p>
 
             <div class="well">
                 <form role="form" method="POST" action="{{ url('/auth/login') }}">
@@ -21,18 +21,20 @@
                         <span class="help-block"></span>
                     </div>
                     <div class="form-group">
-                        <label for="password" class="control-label">Пароль</label>
-                        <input type="password" class="form-control" name="password" placeholder="Пароль"/>
+                        <label for="password" class="control-label">{{trans('auth.Password')}}</label>
+                        <input type="password" class="form-control" name="password"
+                               placeholder="{{trans('auth.Password')}}"/>
                         <span class="help-block"></span>
                     </div>
 
-                    <button type="submit" class="btn btn-warning btn-block">Войти</button>
-                    <a href="/password/email/" class="btn btn-link btn-block">Забыли пароль</a>
+                    <button type="submit" class="btn btn-warning btn-block">{{trans('auth.Login')}}</button>
+                    <a href="/password/email/" class="btn btn-link btn-block">{{trans('auth.Forgot your password')}}</a>
                 </form>
             </div>
             </div>
         <div class="col-xs-12 col-md-6">
-            <p class="lead">Зарегистрируйся сейчас <span class="text-success">Бесплатно</span></p>
+            <p class="lead">{{trans('auth.Register now for ')}} <span class="text-success">{{trans('auth.free')}}</span>
+            </p>
             <ul class="list-unstyled" style="line-height: 2">
                 <li><span class="fa fa-check text-success"></span> Делай заказы</li>
                 <li><span class="fa fa-check text-success"></span> Оплачивай</li>
@@ -44,9 +46,9 @@
                     <small>много вещеё</small>
                 </li>
 
-                <li class="text-center"><a href="#">Условия пользовательского соглашения</a></li>
+                <li class="text-center"><a href="#">{{trans('auth.Terms of use')}}</a></li>
             </ul>
-            <p><a href="/auth/register/" class="btn btn-info btn-block">Я хочу зарегистрироваться</a></p>
+            <p><a href="/auth/register/" class="btn btn-info btn-block">{{trans('auth.I want to register')}}</a></p>
             </div>
     </div>
 
