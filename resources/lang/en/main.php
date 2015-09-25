@@ -69,4 +69,5 @@ return [
     "Get Your review" => "Get Your review",
 
 
+    "Search" => "Search",
 ];

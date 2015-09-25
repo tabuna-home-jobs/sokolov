@@ -80,7 +80,7 @@
                   <span class="glyphicon glyphicon-search"></span>
               </button>
              </span>
-                    <input type="text" name="search" placeholder="Search ..." class="form-control">
+                    <input type="text" name="search" placeholder="{{trans('main.Search')}} ..." class="form-control">
                 </div>
 
                 <a href="{{url('/language/en')}}" class="@if(App::getLocale() == 'en') active @endif">English</a>

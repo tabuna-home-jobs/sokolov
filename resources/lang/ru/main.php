@@ -68,4 +68,6 @@ return [
     "To provide services" => "Оказываем Услугу",
     "Get Your review" => "Получаем Ваш отзыв",
 
+
+    "Search" => "Поиск",
 ];
