@@ -204,7 +204,7 @@
 
                 </div>
                 <div class="col-sm-3  hidden-sm hidden-xs">
-                    <h4 class="text-u-c m-b font-thin">{{trans('footer.navigation')}}</h4>
+                    <h4 class="text-u-c m-b font-thin">{{trans('footer.payment')}}</h4>
                     <img src="/img/pay.png" class="img-responsive">
                 </div>
             </div>

@@ -303,7 +303,7 @@
                             }}
                         </p>
 
-                        <p><span class="label label-default"> {{$news->created_at}}</span></p>
+                        <p><span class="label label-default"> {{$news->created_at->diffForHumans()}}</span></p>
 
                     </div>
                 </div>
@@ -350,7 +350,7 @@
 
 
                         <p class="date">
-                            {{$reviews->created_at}}
+                            {{$reviews->created_at->diffForHumans()}}
                         </p>
 
 

@@ -3,9 +3,9 @@
 namespace App\Http\Middleware;
 
 use App;
+use Carbon\Carbon;
 use Closure;
 use Session;
-
 
 class Language
 {
@@ -23,6 +23,8 @@ class Language
             Session::put('lang', $langRequest);
             App::setLocale($langRequest);
         }
+        //Устанавливаем локализацию для формитирования дат
+        Carbon::setLocale(App::getLocale());
 
         return $next($request);
     }

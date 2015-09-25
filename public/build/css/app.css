@@ -885,7 +885,8 @@ body.modal-open {
 }
 
 .navbar-default .navbar-nav > li > a {
-    border-radius: 5px
+    border-radius: 5px;
+    margin: 5px
 }
 
 .thumbnail {
@@ -1631,7 +1632,7 @@ pre {
 }
 
 .navbar-default .navbar-nav > li > a {
-    padding: 10px
+    padding: 7px
 }
 
 .error-template {
