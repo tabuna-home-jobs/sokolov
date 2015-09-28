@@ -45,7 +45,7 @@ class ReviewController extends Controller
         );
 
         if ($request->hasFile('avatar')) {
-            Image::make($request->file('avatar'))->resize(300, 200)->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
+            Image::make($request->file('avatar'))->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
             $Review->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
         }
         $Review->save();
@@ -73,7 +73,7 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-        $Reviews = Review::find($id)->get()->first();
+        $Reviews = Review::findOrFail($id);
         return view("dashboard/reviews/edit", ['Reviews' => $Reviews]);
     }
 
@@ -86,7 +86,7 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Review = Review::find($id)->get()->first();
+        $Review = Review::findOrFail($id);
 
 
         $Review->fill(

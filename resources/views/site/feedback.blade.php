@@ -8,54 +8,48 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-md-8">
-                        <h2 class="text-left">Как Добраться</h2>
 
-                        <div class="map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2423.2438515896024!2d39.592403!3d52.601363!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x413a14e9eece3c35%3A0xdfbc4fe617d626e0!2z0J7QutGC0Y_QsdGA0YzRgdC60LDRjyDRg9C7LiwgNjEsINCb0LjQv9C10YbQuiwg0JvQuNC_0LXRhtC60LDRjyDQvtCx0LsuLCAzOTgwNTk!5e0!3m2!1sru!2sru!4v1432638437060"
-                                    width="600" height="450" frameborder="0" style="border:0"></iframe>
-                        </div>
-                        <div class="get-directions">
-                            <form action="http://maps.google.com/maps" method="get" target="_blank">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" name="saddr"
-                                           placeholder="Введите свой адрес"/>
-                                    <input class="form-control" type="hidden" name="daddr"
-                                           value="Октябрьская ул., 61, Липецк, Липецкая область"/>
-                                </div>
-                                <div class="form-group text-center">
-                                    <input class="btn btn btn-warning" type="submit" value="Как добраться"
-                                           class="direction-btn"/>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-4 contact-form">
-                        <h2 class="text-right">Написать нам</h2>
+                    <div class="col-md-6 col-md-offset-3 contact-form">
+                        <h2 class="text-center">{{trans('feedback.Write to us')}}</h2>
 
 
                         <form action="/feedback" method="post">
-                            <div class="form-group">
-                                <input class="form-control" type="text" name="fio" placeholder="ФИО" required>
+
+
+                            <div class="form-group has-feedback">
+                                <label for="username" class="control-label">{{trans('feedback.Full name')}}</label>
+                                <input type="text" class="form-control" name="fio" required
+                                       placeholder="{{trans('feedback.Full name')}}">
+                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
                             </div>
-                            <div class="form-group">
-                                <input class="form-control" type="email" name="email" placeholder="Email" required>
+
+
+                            <div class="form-group has-feedback">
+                                <label for="username" class="control-label">Email</label>
+                                <input type="email" class="form-control" name="email" required placeholder="Email">
+                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                             </div>
-                            <div class="form-group">
-                                <input class="form-control" type="text" name="phone" placeholder="Телефон" required>
+
+
+                            <div class="form-group has-feedback">
+                                <label for="username" class="control-label">{{trans('feedback.Phone')}}</label>
+                                <input type="text" class="form-control" name="phone" required
+                                       placeholder="{{trans('feedback.Phone')}}">
+                                <span class="glyphicon glyphicon-phone-alt form-control-feedback"></span>
                             </div>
+
+
                             <div class="form-group">
-                                <textarea class="form-control" name="message" required
-                                          placeholder="Текст сообщения"></textarea>
+                                <label for="username" class="control-label">{{trans('feedback.Message text')}}</label>
+                                <textarea class="form-control" name="message" required rows="5"
+                                          placeholder="{{trans('feedback.Message text')}}"></textarea>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" type="hidden" name="_token" value="{{ csrf_token() }}">
                             </div>
                             <div class="form-group text-center">
                                 <input class="btn btn btn-warning" type="submit" class="btn btn-default"
-                                       value="Отправить">
+                                       value="{{trans('feedback.Send')}}">
                             </div>
                         </form>
 

@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <div class="container">
+    <div class="container blog-container">
 
 
         <div class="row">
@@ -32,13 +32,11 @@
                                             {{str_limit(strip_tags($gList->text),150,'...')}}
                                         </div>
 
-                                        <p>
-                                            <button class="btn btn-warning">Заказать услугу</button>
-                                            <button class="btn btn-primary">
-                                                <a href="{{URL::route('catalog.show',$gList->slug)}}">
-                                                    Узнать больше
-                                                </a>
-                                            </button>
+                                        <p class="m-top-10">
+                                            <a href="/auth/login" type="button"
+                                               class="btn btn-warning">{{trans('main.Order')}}</a>
+                                            <a href="{{URL::route('catalog.show',$gList->slug)}}"
+                                               class="btn btn-primary">{{trans('main.Learn More')}}</a>
                                         </p>
 
                                     </div>
@@ -56,6 +54,8 @@
                 <!--Вывод статей-->
                 @foreach($goodsList as $key => $gList)
                     <article class="col-md-6 col-xs-6">
+
+                        <a href="{{URL::route('catalog.show',$gList->slug)}}">
                         <figure>
                             <!--Выводится иконка прибавляется к ней просто индекс-->
                             <img src="/img/catalog/icon{{++$key}}.png" class="img-icon hidden-sm hidden-xs">
@@ -68,6 +68,7 @@
                                 </a>
                             </figcaption>
                         </figure>
+                        </a>
                     </article>
                 @endforeach
                 <!--Вывод статей-->
@@ -78,44 +79,152 @@
         <div class="container blog-container">
 
 
-            <h1>Заголовок статьи на заданную тему</h1>
+            <h1>{{trans('catalog.Description of prices and terms of the services provided')}}</h1>
 
             <main class="blog-content">
 
-                <p>
-                    Многообразие задач и функций редактирования, осуществляемого в практике печати, издательского дела,
-                    кино, радиовещания и телевидения, обусловило
-                    необходимость различать несколько видов самого процесса редактирования. В частности, выделяют
-                    научное (или специальное), литературное,
-                    художественное, техническое редактирование, каждое из которых имеет присущие только ему
-                    специфические черты, цели и задачи.</p>
 
-                <p> В начальные периоды книгопечатания обязанности редактора выполнял типограф. Роль редактора возросла
-                    с 18 в., особенно с развитием периодических
-                    изданий. Позже редактирование становится неотъемлемым этапом подготовки научных и литературных
-                    публикаций. Наиболее сложный и деликатный вид
-                    редакторской работы — редактор художественных произведений. На этапе редактирования возможно
-                    осуществление прямой или скрытой политической,
-                    морально-этической, эстетической и прочей цензуры, в связи с чем возрастают требования к
-                    нравственным качествам редактора. Строгая редактура
-                    считается признаком хорошего издания.</p>
+                <h4>{{trans('catalog.Editing of scientific manuscripts')}} :</h4>
 
-                <p>Многообразие задач и функций редактирования, осуществляемого в практике печати, издательского дела,
-                    кино, радиовещания и телевидения, обусловило
-                    необходимость различать несколько видов самого процесса редактирования. В частности, выделяют
-                    научное (или специальное), литературное,
-                    художественное, техническое редактирование, каждое из которых имеет присущие только ему
-                    специфические черты, цели и задачи. В начальные периоды
-                    книгопечатания обязанности редактора выполнял типограф. Роль редактора возросла с 18 в., особенно с
-                    развитием периодических изданий. Позже
-                    редактирование становится неотъемлемым этапом подготовки научных и литературных публикаций. Наиболее
-                    сложный и деликатный вид редакторской
-                    работы — редактор художественных произведений. На этапе редактирования возможно осуществление прямой
-                    или скрытой политической, морально-
-                    этической, эстетической и прочей цензуры, в связи с чем возрастают требования к нравственным
-                    качествам редактора. Строгая редактура считается
-                    признаком хорошего издания.
-                </p>
+
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>{{trans('catalog.Speed')}}</th>
+                            <th>{{trans('catalog.Price per word in the ruble')}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{trans('catalog.Economy (7 days)')}}</td>
+                            <td>0.07{{trans('catalog.* the rate of USD')}}</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>{{trans('catalog.Standard (4 days)')}}</td>
+                            <td>0.08{{trans('catalog.* the rate of USD')}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{trans('catalog.Express (2 days)')}}</td>
+                            <td>0.09{{trans('catalog.* the rate of USD')}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <h4>{{trans('catalog.Technical translation of scientific manuscripts (including editing)')}} :</h4>
+
+
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>{{trans('catalog.Speed')}}</th>
+                            <th>{{trans('catalog.Price per word in the ruble')}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{trans('catalog.Economy (10 days)')}}</td>
+                            <td> 0.10{{trans('catalog.* the rate of USD')}}</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>{{trans('catalog.Standard (7 days)')}}</td>
+                            <td>0.11{{trans('catalog.* the rate of USD')}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{trans('catalog.Express (4 days)')}}</td>
+                            <td>0.12{{trans('catalog.* the rate of USD')}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <h4>{{trans('catalog.Formatting scientific manuscripts')}} :</h4>
+
+
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>{{trans('catalog.Word Count')}}</th>
+                            <th>{{trans('catalog.Speed')}}</th>
+                            <th>{{trans('catalog.Price in rubles')}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+
+                            <td>0-5000</td>
+                            <td>2 {{trans('catalog.day')}}</td>
+                            <td>110{{trans('catalog.* the rate of USD')}}</td>
+                        </tr>
+
+
+                        <tr>
+
+                            <td>5000-10000</td>
+                            <td>4 {{trans('catalog.day')}}</td>
+                            <td>190{{trans('catalog.* the rate of USD')}}</td>
+                        </tr>
+                        <tr>
+
+                            <td>10000-15000</td>
+                            <td>4-10 {{trans('catalog.day')}}</td>
+                            <td>270{{trans('catalog.* the rate of USD')}}</td>
+                        </tr>
+
+
+                        <tr>
+
+                            <td>>15000</td>
+                            <td>-</td>
+                            <td>{{trans('catalog.By agreement')}}</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <h4>{{trans('catalog.Illustrating scientific manuscripts')}} :</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th width="33%">{{trans('catalog.Service')}}</th>
+                            <th>{{trans('catalog.Speed')}}</th>
+                            <th>{{trans('catalog.Price in rubles')}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+
+                            <td>{{trans('catalog.Formatting tables and graphs (one illustration of an unlimited number of tables and charts in it)')}}</td>
+                            <td>{{trans('catalog.By agreement')}}</td>
+                            <td>80{{trans('catalog.* the rate of USD')}}</td>
+                        </tr>
+
+
+                        <tr>
+
+                            <td>{{trans('catalog.Creating an original illustration')}}</td>
+                            <td>{{trans('catalog.By agreement')}}</td>
+                            <td>{{trans('catalog.By agreement')}}</td>
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+
 
             </main>
 

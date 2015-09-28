@@ -61,6 +61,7 @@
                 <h3>Последние новости </h3>
                 <hr>
 
+
                 @foreach($NewsList as $news)
                     <a href="{{URL::route('news.show',$news->slug)}}">
                         <h5>{{$news->name}}</h5>
@@ -71,6 +72,7 @@
                             str_limit(strip_tags($news->content), $limit = 100, $end = '...')
                         }}
                     </p>
+                    <hr>
                 @endforeach
 
             </div>

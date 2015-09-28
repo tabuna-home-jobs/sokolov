@@ -101,7 +101,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><img src="/img/logo.png" class="img-responsive"></a>
+            <a class="navbar-brand" href="/"><img src="/img/logo.png" class="img-responsive hidden-xs"> <span
+                        class="visible-xs brand-name">Falcon Scientific Editing</span> </a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

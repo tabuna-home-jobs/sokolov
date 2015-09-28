@@ -1,0 +1,25 @@
+<?php
+
+return [
+    "Description of prices and terms of the services provided" => "Description of prices and terms of the services provided",
+    "Editing of scientific manuscripts" => "Editing of scientific manuscripts",
+    "Speed" => "Speed",
+    "Price per word in the ruble" => "Price per word in the ruble",
+    "Economy (7 days)" => "Economy (7 days)",
+    "Standard (4 days)" => "Standard (4 days)",
+    "Express (2 days)" => "Express (2 days)",
+    "Technical translation of scientific manuscripts (including editing)" => "Technical translation of scientific manuscripts (including editing)",
+    "Economy (10 days)" => "Economy (10 days)",
+    "Standard (7 days)" => "Standard (7 days)",
+    "Express (4 days)" => "Express (4 days)",
+    "Formatting scientific manuscripts" => "Formatting scientific manuscripts",
+    "Word Count" => "Word Count",
+    "day" => "day",
+    "By agreement" => "By agreement",
+    "Illustrating scientific manuscripts" => "Illustrating scientific manuscripts",
+    "Service" => "Service",
+    "Price in rubles" => "Price in rubles",
+    "Formatting tables and graphs (one illustration of an unlimited number of tables and charts in it)" => "Formatting tables and graphs (one illustration of an unlimited number of tables and charts in it)",
+    "Creating an original illustration" => "Creating an original illustration",
+    "* the rate of USD" => "* the rate of USD",
+];
