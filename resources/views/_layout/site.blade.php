@@ -114,6 +114,12 @@
                 @endif
 
 
+                    <li class="text-right hidden visible-xs @if(App::getLocale() == 'en') active @endif"><a
+                                href="{{url('/language/en')}}">English</a></li>
+                    <li class="text-right hidden visible-xs @if(App::getLocale() == 'ru') active @endif"><a
+                                href="{{url('/language/ru')}}">Русский</a></li>
+
+
                     <li class="login-a  hidden-sm hidden-xs"><a
                                 href="/auth/login">@if(!Auth::check()) {{trans('main.sign')}} @else
                                 {{trans('main.panel')}} @endif</a></li>
