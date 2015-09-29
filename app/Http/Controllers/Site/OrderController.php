@@ -43,13 +43,15 @@ class OrderController extends Controller
     {
         //Отдаём категорию в зависимости от языка
         if (App::getLocale() == 'ru') {
-            $type = Category::lists('id', 'name');
+            //$type = Category::lists('id', 'name')->with('getCategory')->get();
             $langTrans = LangOrder::lists('id', 'name');
         } else {
-            $type = Category::lists('id', 'eng_name');
+            //$type = Category::lists('id', 'eng_name');
             $langTrans = LangOrder::lists('id', 'eng_name');
         }
 
+
+        $type = Category::with('goods')->get();
         return view('site.createOrder', [
             'type' => $type,
             'langTrans' => $langTrans
@@ -77,9 +79,11 @@ class OrderController extends Controller
         $newOrder->save();
 
         foreach ($request->type as $type) {
+
             MetaOrder::create([
                 'order_id' => $newOrder->id,
-                'category_id' => $type
+                'category_id' => $type['id'],
+                'speed' => (isset($type['speed'])) ? $type['speed'] : '',
             ]);
         }
 

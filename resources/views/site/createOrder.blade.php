@@ -33,13 +33,36 @@
 
                     @foreach($type as $key => $value)
 
-                        <div class="radio">
-                            <label>
-                                <input type="checkbox" name="type[]" value="{{$value}}" required checked>
-                                {{$key}}
-                            </label>
+
+
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="radio">
+                                    <label>
+                                        <input type="checkbox" name="type[{{$value->id}}][id]" value=" {{$value->id}}"
+                                               required checked>
+                                        @if (App::getLocale() == 'ru') {{$value->name}} @else {{$value->eng_name}} @endif
+                                    </label>
+                                </div>
                         </div>
 
+
+                            @if(!empty(count(unserialize($value->goods->first()->attribute))))
+                                <div class="col-xs-6 pull-right">
+                                    <select class="form-control" name="type[{{$value->id}}][speed]">
+                                        @for($i=0; $i < count(unserialize($value->goods->first()->attribute)); $i++ )
+                                            @if(unserialize($value->goods->first()->attribute)[$i] == "Speed")
+                                                <option value="{{unserialize($value->goods->first()->attribute)[$i+1]}}">
+                                                    {{unserialize($value->goods->first()->attribute)[$i+1]}}
+                                                </option>
+                                            @endif
+                                        @endfor
+                                    </select>
+                                </div>
+                            @endif
+
+                        </div>
                     @endforeach
 
 
