@@ -198,7 +198,14 @@
 
             $(document).ready(function () {
 
-                var clock = $('.clock-time').FlipClock({{strtotime($Task->workfinish) - time()}} , {
+                var clock = $('.clock-time').FlipClock(
+                        @if(strtotime($Task->workfinish) - time() < 0)
+                            {{0}}
+                        @else
+                             {{strtotime($Task->workfinish) - time()}}
+                        @endif
+
+                        , {
                     'autoStart': true,
                     'countdown': true,
                     'clockFace': 'DailyCounter'

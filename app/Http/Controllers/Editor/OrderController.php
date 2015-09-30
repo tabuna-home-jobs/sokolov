@@ -18,7 +18,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $Tasks = Auth::user()->getTask()->orderBy('id', 'Desc')->paginate(15);
+        $Tasks = Auth::user()->getTask()->where('status', '!=', 'Завершена')->orderBy('id', 'Desc')->paginate(15);
         return view('editor.order', [
             'Tasks' => $Tasks
         ]);
