@@ -17,10 +17,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $newsList = News::where('lang',App::getLocale())->orderBy('id','desc')->paginate(12);
-
         return view('site.newsList',[
-            'NewsList' => $newsList
+            'NewsList' => News::where('lang', App::getLocale())->orderBy('id', 'desc')->paginate(12)
         ]);
     }
 
@@ -53,11 +51,9 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        $newsList = News::whereRaw('lang = ? and id != ?',[App::getLocale(), $news->id])->orderBy('id','desc')->limit(5)->get();
-
         return view('site.news',[
             'News' => $news,
-            'NewsList' => $newsList
+            'NewsList' => News::whereRaw('lang = ? and id != ?', [App::getLocale(), $news->id])->orderBy('id', 'desc')->limit(5)->get()
         ]);
 
     }
