@@ -16,7 +16,7 @@
                 <input type="hidden" name="finish" value="true">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <button class="btn btn-default  btn-xs">
-                    Завершить задачу
+                    {{trans('orderTask.End Task')}}
                 </button>
             </form>
 
@@ -44,10 +44,11 @@
 
 
         <ul class="list-group">
-            <li class="list-group-item">{{trans('orderTask.Status')}}: <p class="pull-right">{{$Task->status}}</p></li>
+            <li class="list-group-item">{{trans('orderTask.Status')}}: <p
+                        class="pull-right"> {{trans('status.'. $Task->status)}}</p></li>
             <li class="list-group-item">{{trans('orderTask.Deadline')}}: <p class="pull-right">{{$Task->workfinish}}</p>
             </li>
-            <li class="list-group-item">{{trans('orderTask.Price')}}: <p class="pull-right">{{$Task->price}}</p></li>
+            <li class="list-group-item">{{trans('orderTask.Price')}}: <p class="pull-right">$ {{$Task->price}}</p></li>
         </ul>
 
 

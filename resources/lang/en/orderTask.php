@@ -8,7 +8,7 @@ return [
     'Deadline' => 'Deadline',
     'Control' => 'Control',
     'Viewing' => 'Viewing',
-
+    'End Task' => 'End Task',
 
     'Task' => 'Task',
     'Status' => 'Status',
