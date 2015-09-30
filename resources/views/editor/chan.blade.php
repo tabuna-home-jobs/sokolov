@@ -8,16 +8,16 @@
 
 
     <div class="panel panel-default">
-        <div class="panel-heading">Лента задач</div>
+        <div class="panel-heading">{{trans('chan.Feed Task')}}</div>
         <table class="table">
 
             <thead>
             <tr>
-                <th>Название работы</th>
-                <th>Услуга</th>
-                <th>Стоимость</th>
-                <th>Срок сдачи</th>
-                <th>Управление</th>
+                <th>{{trans('chan.Job title')}}</th>
+                <th>{{trans('chan.Service')}}</th>
+                <th>{{trans('chan.Price')}}</th>
+                <th>{{trans('chan.Deadline')}}</th>
+                <th>{{trans('chan.Control')}}</th>
             </tr>
             </thead>
 
@@ -45,7 +45,7 @@
                         <form action="{{route('editor.chan.store')}}" method="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" value="{{$task->id}}" name="task_id">
-                            <button class="btn btn-link">Принять</button>
+                            <button class="btn btn-link">{{trans('chan.Take')}}</button>
                         </form>
                     </td>
 
