@@ -70,7 +70,7 @@
 
                                             <div class="well m-t bg-light lt">
                                                 <div class="row">
-                                                    <div class="col-xs-6">
+                                                    <div class="col-xs-5">
                                                         <strong>Заказ номер: #{{$SelectOrder->id}}</strong>
                                                         <h4>{{$SelectUser->first_name}} {{$SelectUser->last_name}}</h4>
 
@@ -83,7 +83,7 @@
                                                         </p>
 
                                                     </div>
-                                                    <div class="col-xs-6">
+                                                    <div class="col-xs-7">
                                                         <strong>Услуги:</strong>
 
 
@@ -91,6 +91,10 @@
 
                                                             <li>
                                                                 {{$Goods->category()->first()->name}}
+
+                                                                @if(!empty($Goods->speed))
+                                                                    <small> {{ " - ". trans('speed.'. $Goods->speed)}} </small>
+                                                                @endif
                                                             </li>
 
                                                         @endforeach

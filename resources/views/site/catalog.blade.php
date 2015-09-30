@@ -55,8 +55,9 @@
                 @foreach($goodsList as $key => $gList)
                     <article class="col-md-6 col-xs-6">
 
-                        <a href="{{URL::route('catalog.show',$gList->slug)}}">
                         <figure>
+
+                            <a href="{{URL::route('catalog.show',$gList->slug)}}">
                             <!--Выводится иконка прибавляется к ней просто индекс-->
                             <img src="/img/catalog/icon{{++$key}}.png" class="img-icon hidden-sm hidden-xs">
                             <div class="img-wrapper">
@@ -67,8 +68,9 @@
                                     {{$gList->name}}
                                 </a>
                             </figcaption>
+                            </a>
                         </figure>
-                        </a>
+
                     </article>
                 @endforeach
                 <!--Вывод статей-->

@@ -125,11 +125,13 @@ class OrderController extends Controller
 
         $OrderMeta = $Order->getGoods()->get();
 
+
         //dd($OrderMeta);
         $collectionGoods = [];
 
 
         foreach ($OrderMeta as $value) {
+            $value->category->speed = $value->speed;
             array_push($collectionGoods, $value->category);
         }
 

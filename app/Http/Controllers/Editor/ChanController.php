@@ -51,6 +51,7 @@ class ChanController extends Controller
     {
         $task = Task::where('user_id', 0)->findOrFail($request->task_id);
         $task->user_id = Auth::user()->id;
+        $task->status = "В работе";
         $task->save();
 
         Event::fire(new Notification($task->id));

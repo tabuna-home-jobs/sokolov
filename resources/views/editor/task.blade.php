@@ -8,7 +8,20 @@
 
 
     <div class="panel panel-default">
-        <div class="panel-heading">{{trans('orderTask.Task')}} № {{$Task->id}}</div>
+        <div class="panel-heading">{{trans('orderTask.Task')}} № {{$Task->id}}
+
+
+            <form class="pull-right" action="{{route('editor.order.update',$Task->id)}}" method="post">
+                <input type="hidden" name="_method" value="PUT">
+                <input type="hidden" name="finish" value="true">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <button class="btn btn-default  btn-xs">
+                    Завершить задачу
+                </button>
+            </form>
+
+
+        </div>
 
         <div class="panel-body">
 

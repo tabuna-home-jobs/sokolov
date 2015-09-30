@@ -30,6 +30,16 @@
                         @else
                             {{$value->eng_name}}
                         @endif
+
+
+
+                            @if(!empty($value->speed))
+                                <span class="pull-right">
+                                <small> {{ " - ". trans('speed.'. $value->speed)}} </small>
+                            </span>
+                            @endif
+
+
                     </li>
                 @endforeach
             </ul>
