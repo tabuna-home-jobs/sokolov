@@ -1193,3 +1193,8 @@ pre {
 .navbar-header > .navbar-toggle {
     margin-top: 40px;
 }
+.removeFile{
+    cursor: pointer;
+    color:#ff0000;
+    float:right;
+}
