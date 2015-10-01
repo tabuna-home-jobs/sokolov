@@ -875,6 +875,7 @@ figure .img-icon {
     position: absolute;
     padding: 20px;
     z-index: 10;
+    zoom: 0.7;
 }
 
 .catalog-img-text {
@@ -906,7 +907,7 @@ figcaption > a:hover {
     text-decoration: underline;
 }
 
-figcaption > a:hover > .catalog-img-text {
+figcaption > a:hover > .img-wrapper > .catalog-img-text {
     background: url("/img/catalog/background-icon.png") no-repeat 100%;
     position: absolute;
     bottom: 0;
@@ -931,7 +932,6 @@ figure:hover > .figcaption {
 
 .img-wrapper {
     background: black;
-    overflow: hidden;
 }
 
 
@@ -978,7 +978,7 @@ figure:hover .img-wrapper img {
     font-size: 16px;
     font-weight: 300;
     line-height: 21px;
-    padding: 30px;
+    padding: 20px 30px;
 }
 
 .carousel-caption-element {
@@ -1131,7 +1131,7 @@ pre {
 }
 
 .m-top-10 {
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .btn-primary > a {
@@ -1189,9 +1189,29 @@ pre {
 .nav.navbar-nav.navbar-right {
     padding-top: 30px;
 }
-
 .navbar-header > .navbar-toggle {
     margin-top: 40px;
+}
+.icon-s-caption {
+    height: auto !important;
+    width: auto !important;
+}
+
+.carousel-caption h2 {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+.block-img-catalog-z {
+    margin-bottom: 50px;
+}
+
+.carousel-caption-element-bg h2 {
+    padding: 10px;
+}
+
+.carousel-caption, .carousel-control {
+    text-shadow: none;
 }
 .removeFile{
     cursor: pointer;

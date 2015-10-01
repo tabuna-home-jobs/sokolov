@@ -7,7 +7,8 @@
         <h1 class="m-n font-thin h3">Новый Элемент</h1>
     </div>
     <div class="wrapper-md">
-        <form class="row" role="form" action="{{URL::route('dashboard.element.update')}}" method="post" class="row"
+        <form class="row" role="form" action="{{URL::route('dashboard.element.update',$Element->id)}}" method="post"
+              class="row"
               enctype="multipart/form-data">
             <div class="col-sm-8">
                 <div class="panel panel-default">

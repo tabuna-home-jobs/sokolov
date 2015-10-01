@@ -26,6 +26,10 @@
                                     <img src="{{$gList->avatar}}">
 
                                     <div class="carousel-caption">
+
+                                        <img src="/img/catalog/icon{{++$key}}.png"
+                                             class="icon-s-caption hidden-sm hidden-xs">
+
                                         <h2>{{$gList->name}}</h2>
 
                                         <div class="text-slider-bg">
@@ -53,7 +57,7 @@
             <div class="col-md-6 col-xs-12">
                 <!--Вывод статей-->
                 @foreach($goodsList as $key => $gList)
-                    <article class="col-md-6 col-xs-6">
+                    <article class="col-md-6 col-xs-12 block-img-catalog-z">
 
                         <figure>
 
@@ -63,15 +67,18 @@
 
                                 <a href="{{URL::route('catalog.show',$gList->slug)}}">
                                     <!--Выводится иконка прибавляется к ней просто индекс-->
-                                    <img src="/img/catalog/icon{{++$key}}.png" class="img-icon hidden-sm hidden-xs">
+                                    <img src="/img/catalog/icon{{++$key}}.png" class="img-icon">
 
                                     <div class="img-wrapper">
                                         <img src="{{$gList->avatar}}" class="img-responsive-sliderback">
+
+
+                                        <p class="catalog-img-text">
+                                        {{$gList->name}}
+                                        <p>
+
                                     </div>
 
-                                    <p class="catalog-img-text">
-                                    {{$gList->name}}
-                                    <p>
 
                                 </a>
                             </figcaption>
@@ -85,7 +92,7 @@
         </div>
 
 
-        <div class="container blog-container">
+        <div class="container">
 
 
             <h1>{{trans('catalog.Description of prices and terms of the services provided')}}</h1>
