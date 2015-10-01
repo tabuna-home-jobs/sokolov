@@ -1195,11 +1195,9 @@ pre {
 .nav.navbar-nav.navbar-right {
     padding-top: 30px;
 }
-
 .navbar-header > .navbar-toggle {
     margin-top: 40px;
 }
-
 .icon-s-caption {
     height: auto !important;
     width: auto !important;
@@ -1220,4 +1218,9 @@ pre {
 
 .carousel-caption, .carousel-control {
     text-shadow: none;
+}
+.removeFile{
+    cursor: pointer;
+    color:#ff0000;
+    float:right;
 }

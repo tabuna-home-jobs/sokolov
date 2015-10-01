@@ -105,7 +105,7 @@ class OrderController extends Controller
             $DBfile->save();
         }
 
-        Event::fire(new Notification($newOrder->id));
+        //Event::fire(new Notification($newOrder->id));
         Session::flash('good', 'Спасибо, что написали, мы обязательно ответим вам.');
         return redirect()->back();
 

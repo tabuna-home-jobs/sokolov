@@ -2,6 +2,13 @@
 
 @section('content-account')
 
+    <script type="text/javascript">
+        function delElem(elem){
+            //Удаляем элемент (файл)
+            $(elem).parent().remove();
+
+        }
+    </script>
 
     <div class="stepwizard">
         <div class="stepwizard-row setup-panel">
@@ -117,28 +124,28 @@
                     <h3>{{trans('createOrder.Download the required documents')}}</h3>
 
 
-                    <fieldset>
-                        <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000"/>
+                <fieldset>
+                    <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000"/>
 
-                        <div class="fileinput fileinput-new" data-provides="fileinput">
-                            <span class="btn btn-default btn-file"><span
-                                        class="fileinput-new">{{trans('createOrder.Select files')}}</span><span
-                                        class="fileinput-exists">{{trans('createOrder.Select files')}}</span>
-                                     <input required type="file" id="fileselect" name="files[]"
-                                            multiple="multiple"/></span>
-                        </div>
-
-
-                        <div id="filedrag" class="upload-drop-zone">
-                            {{trans('createOrder.Move the files you want to upload')}}
-                        </div>
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <span class="btn btn-default btn-file"><span
+                                    class="fileinput-new">{{trans('createOrder.Select files')}}</span><span
+                                    class="fileinput-exists">{{trans('createOrder.Select files')}}</span>
+                                 <input required type="file" id="fileselect" name="files[]"
+                                        multiple="multiple"/></span>
+                    </div>
 
 
-                        <div id="submitbutton">
-                            <button type="submit">Upload Files</button>
-                        </div>
+                    <div id="filedrag" class="upload-drop-zone">
+                        {{trans('createOrder.Move the files you want to upload')}}
+                    </div>
 
-                    </fieldset>
+
+                    <div id="submitbutton">
+                        <button type="submit">Upload Files</button>
+                    </div>
+
+                </fieldset>
 
 
                     <div class="panel panel-default">
@@ -158,26 +165,25 @@
     </form>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script>
         window.onload = function () {
 
 
             $(document).ready(function () {
 
+                //Проверка состояния загрузки файлов
+                $("#fileselect").on('click', function(){
+                    var obj = $("#messages");
+
+                    //Если юзер берет файлы то очищаем те которые он уже залил
+                    $('li',obj).each(function(){
+                        $(this).remove();
+                    });
+
+                    //Количество файлов, хз зачем я это сделал
+                    //var countFiles = this.files.length;
+
+                });
 
                 $('.nextBtn').click(function () {
                     var checket = $(".order input[type='radio']:checked").val();
@@ -241,6 +247,8 @@
                 }
 
 
+
+
                 // output information
                 function Output(msg) {
                     var m = $id("messages");
@@ -273,15 +281,18 @@
                 }
 
 
+
                 // output file information
                 function ParseFile(file) {
 
                     Output(
                             "<li class='list-group-item'>" + file.name +
-                            "</li>"
+                            "<span class='removeFile' onclick='delElem(this);'><i class='fa fa-times'></i></span></li>"
                     );
 
                 }
+
+
 
 
                 // initialize
