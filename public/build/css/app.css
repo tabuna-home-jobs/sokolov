@@ -8199,10 +8199,6 @@ body.modal-open {
     font-weight: 400
 }
 
-figcaption > a:hover > .img-wrapper > .catalog-img-text, figure:hover > .figcaption {
-    background: url(/img/catalog/background-icon.png) 100% no-repeat
-}
-
 .panel {
     border-radius: inherit;
     box-shadow: 0
@@ -8227,16 +8223,16 @@ figure .img-icon {
 .catalog-img-text, figcaption > a:hover > .img-wrapper > .catalog-img-text {
     padding: 24px 26px 10px 34px;
     position: absolute;
+    bottom: -11px;
     font-size: 20px;
     line-height: 27px;
     font-family: Roboto Slab;
     font-weight: 700;
-    color: #1c1c1c;
-    bottom: 0
+    color: #1c1c1c
 }
 
 .catalog-img-text {
-    width: 90%
+    width: 101%
 }
 
 figcaption > a {
@@ -8245,6 +8241,10 @@ figcaption > a {
     font-size: 20px;
     font-weight: 700;
     line-height: 27px
+}
+
+figcaption {
+    overflow: hidden
 }
 
 figcaption > a:hover {
@@ -8256,9 +8256,15 @@ figcaption > a:hover {
     text-decoration: underline
 }
 
+figcaption > a:hover > .img-wrapper > .catalog-img-text {
+    background: url(/img/catalog/background-icon.png) no-repeat;
+    background-size: 100% 100%
+}
+
 figure:hover > .figcaption {
+    background: url(/img/catalog/background-icon.png) 100% repeat-x;
     position: absolute;
-    bottom: 0;
+    bottom: -11px;
     color: #1c1c1c;
     font-family: Roboto Slab;
     font-size: 20px;
@@ -8267,7 +8273,8 @@ figure:hover > .figcaption {
 }
 
 .img-wrapper {
-    background: #000
+    background: #000;
+    position: relative
 }
 
 figure:hover .img-wrapper img {

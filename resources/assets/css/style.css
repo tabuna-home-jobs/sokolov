@@ -885,9 +885,9 @@ figure .img-icon {
     font-weight: 700;
     line-height: 27px;
     position: absolute;
-    bottom: 0;
+    bottom: -11px;
     padding: 24px 26px 10px 34px;
-    width: 90%;
+    width: 101%;
 }
 
 figcaption > a {
@@ -896,6 +896,10 @@ figcaption > a {
     font-size: 20px;
     font-weight: 700;
     line-height: 27px;
+}
+
+figcaption {
+    overflow: hidden;
 }
 
 figcaption > a:hover {
@@ -908,9 +912,10 @@ figcaption > a:hover {
 }
 
 figcaption > a:hover > .img-wrapper > .catalog-img-text {
-    background: url("/img/catalog/background-icon.png") no-repeat 100%;
+    background: url("/img/catalog/background-icon.png") no-repeat;
+    background-size: 100% 100%;
     position: absolute;
-    bottom: 0;
+    bottom: -11px;
     padding: 24px 26px 10px 34px;
     color: #1c1c1c;
     font-family: Roboto Slab;
@@ -920,9 +925,9 @@ figcaption > a:hover > .img-wrapper > .catalog-img-text {
 }
 
 figure:hover > .figcaption {
-    background: url("/img/catalog/background-icon.png") no-repeat 100%;
+    background: url("/img/catalog/background-icon.png") repeat-x 100%;
     position: absolute;
-    bottom: 0;
+    bottom: -11px;
     color: #1c1c1c;
     font-family: Roboto Slab;
     font-size: 20px;
@@ -932,6 +937,7 @@ figure:hover > .figcaption {
 
 .img-wrapper {
     background: black;
+    position: relative;
 }
 
 
