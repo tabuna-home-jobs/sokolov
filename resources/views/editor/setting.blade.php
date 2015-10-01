@@ -33,6 +33,17 @@
                                 <input type="email" class="form-control" name="email" value="{{$User->email}}">
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">{{trans('setting.Repeat email')}}</label>
+
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" name="email_confirmation"
+                                       value="{{$User->email}}">
+                            </div>
+                        </div>
+
+
                         <div class="form-group">
                             <label for="Phone" class="col-sm-3 control-label"> {{trans('setting.Phone')}}</label>
 

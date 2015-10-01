@@ -12,5 +12,6 @@ return [
     "Security" => "Security",
     "New Password" => "New Password",
     "Repeat password" => "Repeat password",
+    "Repeat email" => "Repeat email",
     "Change" => "Change",
 ];

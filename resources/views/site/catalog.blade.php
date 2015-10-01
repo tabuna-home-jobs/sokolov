@@ -57,18 +57,25 @@
 
                         <figure>
 
-                            <a href="{{URL::route('catalog.show',$gList->slug)}}">
-                            <!--Выводится иконка прибавляется к ней просто индекс-->
-                            <img src="/img/catalog/icon{{++$key}}.png" class="img-icon hidden-sm hidden-xs">
-                            <div class="img-wrapper">
-                                <img src="{{$gList->avatar}}" class="img-responsive-sliderback">
-                            </div>
+
                             <figcaption>
+
+
                                 <a href="{{URL::route('catalog.show',$gList->slug)}}">
+                                    <!--Выводится иконка прибавляется к ней просто индекс-->
+                                    <img src="/img/catalog/icon{{++$key}}.png" class="img-icon hidden-sm hidden-xs">
+
+                                    <div class="img-wrapper">
+                                        <img src="{{$gList->avatar}}" class="img-responsive-sliderback">
+                                    </div>
+
+                                    <p class="catalog-img-text">
                                     {{$gList->name}}
+                                    <p>
+
                                 </a>
                             </figcaption>
-                            </a>
+
                         </figure>
 
                     </article>

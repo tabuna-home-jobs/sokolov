@@ -96,6 +96,13 @@ class SettingController extends Controller
     {
 
         if ($request->type == 'personal') {
+
+            $this->validate($request, [
+                'email' => 'required|email',
+                'email_confirmation' => 'required|confirmed|email',
+            ]);
+
+
             $this->user->fill($request->all())->save();
         } elseif ($request->type == 'password') {
 

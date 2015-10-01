@@ -8193,21 +8193,14 @@ body.modal-open {
     text-transform: uppercase
 }
 
-figcaption, figcaption > a, figcaption > a:hover, figure:hover > figcaption {
-    font-size: 20px;
-    line-height: 27px
-}
-
 .collapse-box .badge {
     background-color: #e3e3e3;
     color: #666;
     font-weight: 400
 }
 
-.item-catalog h2, figcaption, figcaption > a, figcaption > a:hover, figure:hover > figcaption {
-    font-family: Roboto Slab;
-    font-weight: 700;
-    color: #1c1c1c
+figcaption > a:hover > .catalog-img-text, figure:hover > .figcaption {
+    background: url(/img/catalog/background-icon.png) 100% no-repeat
 }
 
 .panel {
@@ -8220,40 +8213,61 @@ figcaption, figcaption > a, figcaption > a:hover, figure:hover > figcaption {
     border-radius: inherit
 }
 
+figure {
+    padding: 0
+}
+
 figure .img-icon {
     position: absolute;
     padding: 20px;
     z-index: 10
 }
 
-figcaption {
+.catalog-img-text, figcaption > a:hover > .catalog-img-text {
+    padding: 24px 26px 10px 34px;
     position: absolute;
-    bottom: 0;
-    padding: 24px 56px 23px 34px;
+    font-size: 20px;
+    line-height: 27px;
+    font-family: Roboto Slab;
+    font-weight: 700;
+    color: #1c1c1c;
+    bottom: 0
+}
+
+.catalog-img-text {
     width: 90%
 }
 
+figcaption > a {
+    color: #1c1c1c;
+    font-family: Roboto Slab;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px
+}
+
 figcaption > a:hover {
+    color: #1c1c1c;
+    font-family: Roboto Slab;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
     text-decoration: underline
 }
 
-figure:hover > figcaption {
-    background: url(/img/catalog/background-icon.png) 100% 100% no-repeat
+figure:hover > .figcaption {
+    position: absolute;
+    bottom: 0;
+    color: #1c1c1c;
+    font-family: Roboto Slab;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px
 }
 
 .img-wrapper {
-    display: inline-block;
     background: #000;
-    padding: 0
-}
-
-.img-wrapper img {
-    display: block;
-    -webkit-transition: all .5s linear;
-    -moz-transition: all .5s linear;
-    -ms-transition: all .5s linear;
-    -o-transition: all .5s linear;
-    transition: all .5s linear
+    overflow: hidden
 }
 
 figure:hover .img-wrapper img {
@@ -8278,7 +8292,10 @@ figure:hover .img-wrapper img {
 }
 
 .item-catalog h2 {
+    color: #1c1c1c;
+    font-family: Roboto Slab;
     font-size: 36px;
+    font-weight: 700;
     line-height: 48px;
     padding-bottom: 0
 }

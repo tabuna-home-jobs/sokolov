@@ -12,5 +12,6 @@ return [
     "Security" => "Безопасность",
     "New Password" => "Новый пароль",
     "Repeat password" => "Повторите пароль",
+    "Repeat email" => "Повторите email",
     "Change" => "Изменить",
 ];
