@@ -8,7 +8,7 @@
 
         <div class="row">
 
-            <div class="col-md-6 hidden-sm hidden-xs">
+            <div class="col-md-6 col-xs-12">
 
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <div class="carousel slide" data-ride="carousel">
@@ -26,6 +26,10 @@
                                     <img src="{{$gList->avatar}}">
 
                                     <div class="carousel-caption">
+
+                                        <img src="/img/catalog/icon{{++$key}}.png"
+                                             class="icon-s-caption hidden-sm hidden-xs">
+
                                         <h2>{{$gList->name}}</h2>
 
                                         <div class="text-slider-bg">
@@ -50,10 +54,10 @@
 
             </div>
 
-            <div class="col-md-6 col-xs-12">
+            <div class="col-md-6 hidden-sm hidden-xs">
                 <!--Вывод статей-->
                 @foreach($goodsList as $key => $gList)
-                    <article class="col-md-6 col-xs-6">
+                    <article class="col-md-6 col-xs-6 block-img-catalog-z">
 
                         <figure>
 
@@ -85,7 +89,7 @@
         </div>
 
 
-        <div class="container blog-container">
+        <div class="container">
 
 
             <h1>{{trans('catalog.Description of prices and terms of the services provided')}}</h1>

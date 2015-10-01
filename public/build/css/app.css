@@ -15,6 +15,10 @@ hr, img {
     border: 0
 }
 
+.fa, .glyphicon {
+    -moz-osx-font-smoothing: grayscale
+}
+
 body, figure {
     margin: 0
 }
@@ -33,10 +37,6 @@ body, figure {
 
 .btn-group > .btn-group, .btn-toolbar .btn, .btn-toolbar .btn-group, .btn-toolbar .input-group, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .dropdown-menu {
     float: left
-}
-
-.fa, .glyphicon {
-    -moz-osx-font-smoothing: grayscale
 }
 
 html {
@@ -4308,7 +4308,7 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
     }
 }
 
-.carousel-inner, .embed-responsive, .modal, .modal-open, .progress {
+.embed-responsive, .modal, .modal-open, .progress {
     overflow: hidden
 }
 
@@ -5898,7 +5898,6 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:focus, a.list-g
 .popover, .tooltip {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: normal;
-    font-weight: 400;
     line-height: 1.42857143;
     text-shadow: none;
     text-transform: none;
@@ -6072,6 +6071,7 @@ button.close {
     z-index: 1070;
     display: block;
     font-size: 12px;
+    font-weight: 400;
     text-align: left;
     text-align: start;
     filter: alpha(opacity=0);
@@ -6182,6 +6182,7 @@ button.close {
     max-width: 276px;
     padding: 1px;
     font-size: 14px;
+    font-weight: 400;
     text-align: left;
     text-align: start;
     background-color: #fff;
@@ -6321,7 +6322,8 @@ button.close {
 }
 
 .carousel-inner {
-    width: 100%
+    width: 100%;
+    overflow: hidden
 }
 
 .carousel-inner > .item {
@@ -8220,7 +8222,8 @@ figure {
 figure .img-icon {
     position: absolute;
     padding: 20px;
-    z-index: 10
+    z-index: 10;
+    zoom: .7
 }
 
 .catalog-img-text, figcaption > a:hover > .catalog-img-text {
@@ -8312,7 +8315,7 @@ figure:hover .img-wrapper img {
     font-size: 16px;
     font-weight: 300;
     line-height: 21px;
-    padding: 30px
+    padding: 20px 30px
 }
 
 .carousel-caption-element {
@@ -8458,7 +8461,7 @@ pre {
 }
 
 .m-top-10 {
-    margin-top: 10%
+    margin-top: 5%
 }
 
 .btn-primary > a {
@@ -8514,5 +8517,23 @@ pre {
 
 .navbar-header > .navbar-toggle {
     margin-top: 40px
+}
+
+.icon-s-caption {
+    height: auto !important;
+    width: auto !important
+}
+
+.carousel-caption h2 {
+    padding-top: 0 !important;
+    margin-top: 0 !important
+}
+
+.block-img-catalog-z {
+    margin-bottom: 50px
+}
+
+.carousel-caption-element-bg h2 {
+    padding: 10px
 }
 /*# sourceMappingURL=app.css.map */

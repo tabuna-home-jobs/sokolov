@@ -122,6 +122,9 @@ class ElementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Element = Element::findOrFail($id);
+        $Element->delete();
+        Session::flash('good', 'Вы успешно удалили значение');
+        return redirect()->back();
     }
 }
