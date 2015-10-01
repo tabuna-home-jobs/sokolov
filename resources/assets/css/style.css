@@ -1,6 +1,6 @@
 body {
     color: #1c1c1c;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif !important;
 }
 
 
@@ -18,7 +18,7 @@ a:active, a:hover , .btn{
 }
 
 .service-edit h3{
-    font-family: RobotoSlab;
+    font-family: Roboto Slab;
     font-size: 20px;
     font-weight: 700;
     line-height: 20px;
@@ -103,7 +103,6 @@ a:active, a:hover , .btn{
 }
 
 #footer {
-    margin-top: 40px;
     background-color: #2f8398;
     color: #ffffff;
 }
@@ -152,7 +151,7 @@ a:active, a:hover , .btn{
 
     padding: 25px 0;
     color: #2f8398;
-    font-family: RobotoSlab;
+    font-family: Roboto Slab;
     font-size: 36px;
     font-weight: 700;
     line-height: 36px;
@@ -274,7 +273,7 @@ a:active, a:hover , .btn{
     width: 192px;
     height: 18px;
     color: white;
-    font-family: RobotoSlab;
+    font-family: Roboto Slab;
     font-size: 18px;
     font-weight: 700;
     line-height: 18px;
@@ -411,7 +410,7 @@ a:active, a:hover , .btn{
 
 .h1-about {
     color: white;
-    font-family: RobotoSlab;
+    font-family: Roboto Slab;
     font-size: 36px;
     font-weight: 700;
     line-height: 36px;
@@ -543,10 +542,14 @@ a:active, a:hover , .btn{
     background: url("/img/login-a.png") no-repeat 100%;
 }
 
+.why-work {
+    padding: 20px 0;
+}
+
 .why-work h1 span{
-    background: url("/img/whywork.png");
+    background: url("/img/whywork.png") repeat-x;
     color: white;
-    font-family: RobotoSlab;
+    font-family: Roboto Slab;
     font-size: 36px;
     font-weight: 700;
     line-height: 36px;
@@ -580,7 +583,7 @@ a:active, a:hover , .btn{
 
 .why-work h2 span {
     color: white;
-    font-family: RobotoSlab;
+    font-family: Roboto Slab;
     font-size: 75px;
     font-weight: 700;
     line-height: 75px;
@@ -870,7 +873,7 @@ figure .img-icon {
 
 figcaption {
     color: #1c1c1c;
-    font-family: RobotoSlab;
+    font-family: Roboto Slab;
     font-size: 20px;
     font-weight: 700;
     line-height: 27px;
@@ -882,7 +885,7 @@ figcaption {
 
 figcaption > a {
     color: #1c1c1c;
-    font-family: RobotoSlab;
+    font-family: Roboto Slab;
     font-size: 20px;
     font-weight: 700;
     line-height: 27px;
@@ -890,7 +893,7 @@ figcaption > a {
 
 figcaption > a:hover {
     color: #1c1c1c;
-    font-family: RobotoSlab;
+    font-family: Roboto Slab;
     font-size: 20px;
     font-weight: 700;
     line-height: 27px;
@@ -900,7 +903,7 @@ figcaption > a:hover {
 figure:hover > figcaption {
     background: url("/img/catalog/background-icon.png") no-repeat 100% 100%;
     color: #1c1c1c;
-    font-family: RobotoSlab;
+    font-family: Roboto Slab;
     font-size: 20px;
     font-weight: 700;
     line-height: 27px;
@@ -945,7 +948,7 @@ figure:hover .img-wrapper img {
 
 .item-catalog h2 {
     color: #1c1c1c;
-    font-family: RobotoSlab;
+    font-family: Roboto Slab;
     font-size: 36px;
     font-weight: 700;
     line-height: 48px;
@@ -986,7 +989,7 @@ figure:hover .img-wrapper img {
 
 .carousel-caption-element h2 {
     color: #2f8398;
-    font-family: RobotoSlab;
+    font-family: Roboto Slab;
     font-size: 36px;
     font-weight: 700;
     line-height: 36px;
@@ -1134,4 +1137,48 @@ pre {
 
 .brand-name {
     color: #2f8398;
+}
+
+.thumbnail {
+    border: 3px solid #f9f9f9;
+}
+
+.backgound-grey {
+    background-color: #f7f7f7;
+}
+
+.padding-container {
+    padding: 30px 0;
+}
+
+.padding-small {
+    padding: 5px;
+}
+
+.a-mack {
+    color: #2f8398;
+    font-family: Roboto;
+    font-weight: 300;
+    line-height: 16px;
+    text-decoration: underline;
+}
+
+.padding-small-2 {
+    padding: 15px;
+}
+
+.h1-slab {
+    color: #1c1c1c;
+    font-family: Roboto Slab;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 36px;
+}
+
+.nav.navbar-nav.navbar-right {
+    padding-top: 30px;
+}
+
+.navbar-header > .navbar-toggle {
+    margin-top: 40px;
 }

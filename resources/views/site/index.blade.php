@@ -18,24 +18,21 @@
 
 
 
-
-
-
-
-
-
-
     </div>
 
 </div>
 
 
-<div class="container container-service">
+
+
+<div class="container-fluid">
+    <div class="row backgound-grey">
+        <div class="container container-service">
 
 
     <div class="text-center">
 
-        <h1>{{trans('main.Services')}}</h1>
+        <h1 class="h1-slab">{{trans('main.Services')}}</h1>
 
     </div>
 
@@ -131,7 +128,8 @@
 
 
 </div>
-
+    </div>
+</div>
 
 
 
@@ -229,8 +227,9 @@
                 <li class="li-icons-1 row"><span>1.</span>
 
 
-                    {{trans("main.We employ only experienced scientific academic editors who are experts in a particular scientific field. All our editors - experts in English grammar, spelling and punctuation.")}}
-
+                    <div class="padding-small">
+                        {{trans("main.We employ only experienced scientific academic editors who are experts in a particular scientific field. All our editors - experts in English grammar, spelling and punctuation.")}}
+                    </div>
                 </li>
 
 
@@ -238,17 +237,25 @@
                     <span>2.</span>
 
 
-                    {{trans("main.Our scientific editors have extensive experience in prestigious academic research institutions. Our editors have a significant number of highly cited publications in scientific journals in English.")}}
+                    <div class="padding-small">
+                        {{trans("main.Our scientific editors have extensive experience in prestigious academic research institutions. Our editors have a significant number of highly cited publications in scientific journals in English.")}}
+                    </div>
                 </li>
 
                 <li class="li-icons-3 row">
                     <span>3.</span>
-                    {{trans("main.Our scientific editors wrote, edited and reviewed scientific publications and grants.")}}
+
+                    <div class="padding-small-2">
+                        {{trans("main.Our scientific editors wrote, edited and reviewed scientific publications and grants.")}}
+                    </div>
                 </li>
 
                 <li class="li-icons-4 row">
                     <span>4.</span>
-                    {{trans("main.We know that you need to publish your important scientific discoveries in the English-language journal. The language barrier should never be a barrier to the spread of important ideas and discoveries! We are here to help you succeed!")}}
+
+                    <div class="padding-small">
+                        {{trans("main.We know that you need to publish your important scientific discoveries in the English-language journal. The language barrier should never be a barrier to the spread of important ideas and discoveries! We are here to help you succeed!")}}
+                    </div>
                 </li>
 
                 <li class="li-icons-5 row">
@@ -258,18 +265,31 @@
 
                 <li class="li-icons-6 row">
                     <span>6.</span>
-                    {{trans("main.We guarantee that your paper will not be rejected by the scientific journal of the poor quality of the English language. We re-edit your article - free of charge.")}}
+
+                    <div class="padding-small">
+                        {{trans("main.We guarantee that your paper will not be rejected by the scientific journal of the poor quality of the English language. We re-edit your article - free of charge.")}}
+                    </div>
                 </li>
 
             </ol>
         </div>
 
-        <p class="text-center">
-            <a href="/auth/login" type="button" class="btn btn-warning">{{trans('main.Order')}}</a>
-        </p>
 
     </ol>
 </div>
+
+
+
+<div class="container-fluid">
+    <div class="row backgound-grey padding-container text-center">
+
+        <a href="/auth/login" type="button" class="btn btn-warning">{{trans('main.Order')}}</a>
+
+    </div>
+</div>
+
+
+
 
 @if($NewsList->count())
 <div class="container hidden-xs">
@@ -277,8 +297,8 @@
 
     <div class="text-center">
 
-        <h1>{{trans('main.News')}}</h1>
-        <a href="{{URL::route('news.index')}}">{{trans('main.News-sub')}} <span
+        <h1 class="h1-slab">{{trans('main.News')}}</h1>
+        <a href="{{URL::route('news.index')}}" class="a-mack">{{trans('main.News-sub')}} <span
                     class="glyphicon glyphicon-arrow-right"></span></a>
 
     </div>
@@ -320,13 +340,18 @@
 
 
 @if($ReviewsList->count())
-<div class="container container-reviews hidden-sm hidden-xs">
+
+
+    <div class="container-fluid">
+        <div class="row backgound-grey ">
+
+            <div class="container container-reviews hidden-sm hidden-xs">
 
 
     <div class="text-center">
 
-        <h1>{{trans('main.Reviews')}}</h1>
-        <a href="{{URL::route('review.index')}}">{{trans('main.Reviews-sub')}} <span
+        <h1 class="h1-slab">{{trans('main.Reviews')}}</h1>
+        <a href="{{URL::route('review.index')}}" class="a-mack">{{trans('main.Reviews-sub')}} <span
                     class="glyphicon glyphicon-arrow-right"></span></a>
 
     </div>
@@ -374,9 +399,13 @@
 
 
 </div>
+
+        </div>
+    </div>
+
 @endif
 
-<div class="container-fluid array-top hidden-sm hidden-xs">
+<div class="container-fluid array-top hidden-sm hidden-xs padding-container">
 
 
     <span class="scroll-top pull-left glyphicon glyphicon-menu-up hidden-sm hidden-xs"></span>
