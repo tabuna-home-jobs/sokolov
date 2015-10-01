@@ -907,7 +907,7 @@ figcaption > a:hover {
     text-decoration: underline;
 }
 
-figcaption > a:hover > .catalog-img-text {
+figcaption > a:hover > .img-wrapper > .catalog-img-text {
     background: url("/img/catalog/background-icon.png") no-repeat 100%;
     position: absolute;
     bottom: 0;
@@ -932,7 +932,6 @@ figure:hover > .figcaption {
 
 .img-wrapper {
     background: black;
-    overflow: hidden;
 }
 
 
@@ -1211,4 +1210,8 @@ pre {
 
 .carousel-caption-element-bg h2 {
     padding: 10px;
+}
+
+.carousel-caption, .carousel-control {
+    text-shadow: none;
 }

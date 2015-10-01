@@ -8,7 +8,7 @@
 
         <div class="row">
 
-            <div class="col-md-6 col-xs-12">
+            <div class="col-md-6 hidden-sm hidden-xs">
 
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <div class="carousel slide" data-ride="carousel">
@@ -54,10 +54,10 @@
 
             </div>
 
-            <div class="col-md-6 hidden-sm hidden-xs">
+            <div class="col-md-6 col-xs-12">
                 <!--Вывод статей-->
                 @foreach($goodsList as $key => $gList)
-                    <article class="col-md-6 col-xs-6 block-img-catalog-z">
+                    <article class="col-md-6 col-xs-12 block-img-catalog-z">
 
                         <figure>
 
@@ -67,15 +67,18 @@
 
                                 <a href="{{URL::route('catalog.show',$gList->slug)}}">
                                     <!--Выводится иконка прибавляется к ней просто индекс-->
-                                    <img src="/img/catalog/icon{{++$key}}.png" class="img-icon hidden-sm hidden-xs">
+                                    <img src="/img/catalog/icon{{++$key}}.png" class="img-icon">
 
                                     <div class="img-wrapper">
                                         <img src="{{$gList->avatar}}" class="img-responsive-sliderback">
+
+
+                                        <p class="catalog-img-text">
+                                        {{$gList->name}}
+                                        <p>
+
                                     </div>
 
-                                    <p class="catalog-img-text">
-                                    {{$gList->name}}
-                                    <p>
 
                                 </a>
                             </figcaption>
