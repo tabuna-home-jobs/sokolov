@@ -3,7 +3,13 @@
 @section('content-editor')
 
 
+    <script type="text/javascript">
+        function delElem(elem) {
+            //Удаляем элемент (файл)
+            $(elem).parent().remove();
 
+        }
+    </script>
 
     <div class="panel panel-default">
         <div class="panel-heading">Задача № {{$Task->id}}</div>
@@ -162,24 +168,33 @@
 
 
 
-
-
-
-
-
     <script>
         window.onload = function () {
 
 
-            $('#counter').countdown({
-                image: "digits.png",
-                format: "mm:ss",
-                endTime: new Date('07/16/17 05:00:00')
-            });
-
-
             $(document).ready(function () {
 
+
+                $('#counter').countdown({
+                    image: "digits.png",
+                    format: "mm:ss",
+                    endTime: new Date('07/16/17 05:00:00')
+                });
+
+
+                //Проверка состояния загрузки файлов
+                $("#fileselect").on('click', function () {
+                    var obj = $("#messages");
+
+                    //Если юзер берет файлы то очищаем те которые он уже залил
+                    $('li', obj).each(function () {
+                        $(this).remove();
+                    });
+
+                    //Количество файлов, хз зачем я это сделал
+                    //var countFiles = this.files.length;
+
+                });
 
                 $('.nextBtn').click(function () {
                     var checket = $(".order input[type='radio']:checked").val();
@@ -275,12 +290,13 @@
                 }
 
 
+
                 // output file information
                 function ParseFile(file) {
 
                     Output(
                             "<li class='list-group-item'>" + file.name +
-                            "</li>"
+                            "<span class='removeFile' onclick='delElem(this);'><i class='fa fa-times'></i></span></li>"
                     );
 
                 }
@@ -323,22 +339,6 @@
 
         };
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Site;
 
 use App;
-use App\Events\Notification;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Category;
@@ -13,7 +12,6 @@ use App\Models\LangOrder;
 use App\Models\MetaOrder;
 use App\Models\Order;
 use Auth;
-use Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Session;
@@ -66,7 +64,6 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-
         $newOrder = new Order([
             'user_id' => Auth::user()->id,
             'status' => 'Обрабатываеться',

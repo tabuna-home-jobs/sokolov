@@ -100,47 +100,35 @@
             <div role="tabpanel" class="tab-pane fade" id="oldfile" aria-labelledby="profile-tab">
 
 
-
-
-
-                <form class="text-center" action="{{route('order.update',$Order->id)}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('order.update',$Order->id)}}" method="post" enctype="multipart/form-data">
 
                     <hr>
 
-                    <fieldset>
-                        <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000"/>
 
-                        <div class="fileinput fileinput-new" data-provides="fileinput">
-                            <span class="btn btn-default btn-file"><span class="fileinput-new">Выберите файл</span><span
-                                        class="fileinput-exists">Выберите файл</span>
-                                     <input required type="file" id="fileselect" name="files[]"
-                                            multiple="multiple"/></span>
-                        </div>
-
-
-                        <button class="btn btn-link" type="submit">Загрузить!</button>
-
-
-                        <div id="filedrag" class="upload-drop-zone">
-                            Переместите файлы которые вы хотите загрузить
-                        </div>
-
-
-                        <div id="submitbutton">
-                            <button type="submit">Upload Files</button>
-                        </div>
-
-                    </fieldset>
-
-
-                    <div class="panel panel-default">
-                        <!-- Default panel contents -->
-                        <div class="panel-heading">Файлы которые будут загружены:</div>
-                        <ul class="list-group" id="messages">
-
-                        </ul>
+                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                        <div class="form-control" data-trigger="fileinput"><i
+                                    class="glyphicon glyphicon-file fileinput-exists"></i> <span
+                                    class="fileinput-filename"></span></div>
+                        <span class="input-group-addon btn btn-default btn-file"><span
+                                    class="fileinput-new">{{trans('file.Select file')}}</span><span
+                                    class="fileinput-exists">{{trans('file.Change')}}</span><input type="file"
+                                                                                                   name="files[]"></span>
+                        <a href="#" class="input-group-addon btn btn-default fileinput-exists"
+                           data-dismiss="fileinput">{{trans('file.Remove')}}</a>
                     </div>
 
+
+                    <div id="NewUploader">
+
+                    </div>
+
+
+                    <hr>
+                    <p class="text-center">
+                        <a class="btn btn-link" id="MoreUpload">{{trans('file.More')}}</a>
+                        <button class="btn btn-warning" type="submit">{{trans("orderTask.Send")}}</button>
+                    </p>
+                    <hr>
 
                     <input type="hidden" name="_method" value="PUT">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -200,6 +188,26 @@
 
 
             $(document).ready(function () {
+
+
+                var myhtml = '<div class="fileinput fileinput-new input-group" data-provides="fileinput">';
+                myhtml += '<div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>';
+                myhtml += '<span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">{{trans("file.Select file")}}</span><span class="fileinput-exists">{{trans("file.Change")}}</span><input type="file" name="files[]"></span>';
+                myhtml += ' <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">{{trans("file.Remove")}}</a>';
+                myhtml += '</div>';
+
+                $("#MoreUpload").click(function () {
+                    $("#NewUploader").html(
+                            $("#NewUploader").html() + myhtml
+                    );
+                });
+
+
+
+
+
+
+
 
                 //Проверка состояния загрузки файлов
                 $("#fileselect").on('click', function () {
@@ -267,93 +275,6 @@
 
                 $('div.setup-panel div a.btn-primary').trigger('click');
             });
-
-
-            (function () {
-
-                // getElementById
-                function $id(id) {
-                    return document.getElementById(id);
-                }
-
-
-                // output information
-                function Output(msg) {
-                    var m = $id("messages");
-                    m.innerHTML = msg + m.innerHTML;
-                }
-
-
-                // file drag hover
-                function FileDragHover(e) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    e.target.className = (e.type == "dragover" ? "hover" : "");
-                }
-
-
-                // file selection
-                function FileSelectHandler(e) {
-
-                    // cancel event and hover styling
-                    FileDragHover(e);
-
-                    // fetch FileList object
-                    var files = e.target.files || e.dataTransfer.files;
-
-                    // process all File objects
-                    for (var i = 0, f; f = files[i]; i++) {
-                        ParseFile(f);
-                    }
-
-                }
-
-
-
-                // output file information
-                function ParseFile(file) {
-
-                    Output(
-                            "<li class='list-group-item'>" + file.name +
-                            "<span class='removeFile' onclick='delElem(this);'><i class='fa fa-times'></i></span></li>"
-                    );
-
-                }
-
-
-                // initialize
-                function Init() {
-
-                    var fileselect = $id("fileselect"),
-                            filedrag = $id("filedrag"),
-                            submitbutton = $id("submitbutton");
-
-                    // file select
-                    fileselect.addEventListener("change", FileSelectHandler, false);
-
-                    // is XHR2 available?
-                    var xhr = new XMLHttpRequest();
-                    if (xhr.upload) {
-
-                        // file drop
-                        filedrag.addEventListener("dragover", FileDragHover, false);
-                        filedrag.addEventListener("dragleave", FileDragHover, false);
-                        filedrag.addEventListener("drop", FileSelectHandler, false);
-                        filedrag.style.display = "block";
-
-                        // remove submit button
-                        submitbutton.style.display = "none";
-                    }
-
-                }
-
-                // call initialization file
-                if (window.File && window.FileList && window.FileReader) {
-                    Init();
-                }
-
-
-            })();
 
 
         };
