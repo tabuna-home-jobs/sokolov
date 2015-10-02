@@ -44,7 +44,7 @@
             <div class="col-sm-6 col-md-3">
                 <div class="service service-edit">
 
-                    <a href="">
+                    <a href="@if(App::getLocale() == 'ru') {{url('/catalog/redaktirovanie-nauchnykh-rukopisey')}}@else {{url("/catalog/editing-of-scientific-manuscripts")}} @endif">
                         <img class="img-hover" src="/img/service-1.png" data-altimg="/img/service-1-hover.png">
 
                         <h3>{{trans('main.Editing')}}</h3>
@@ -65,7 +65,7 @@
             <div class="col-sm-6 col-md-3">
                 <div class="service service-edit">
 
-                    <a href="">
+                    <a href="@if(App::getLocale() == 'ru') {{url('/catalog/tekhnicheskiy-perevod-nauchnykh-rukopisey')}}@else {{url("/catalog/translation-of-scientific-papers")}} @endif">
                         <img class="img-hover" src="/img/service-2.png" data-altimg="/img/service-2-hover.png">
 
                         <h3>{{trans('main.Translation')}}</h3>
@@ -85,7 +85,7 @@
             <div class="col-sm-6 col-md-3">
                 <div class="service service-edit">
 
-                    <a href="">
+                    <a href="@if(App::getLocale() == 'ru') {{url('/catalog/formatirovanie-nauchnykh-rukopisey')}}@else {{url("/catalog/formatting-scientific-papers")}} @endif">
                         <img class="img-hover" src="/img/service-3.png" data-altimg="/img/service-3-hover.png">
 
                         <h3>{{trans('main.Format')}}</h3>
@@ -105,7 +105,7 @@
             <div class="col-sm-6 col-md-3">
                 <div class="service service-edit">
 
-                    <a href="">
+                    <a href="@if(App::getLocale() == 'ru') {{url('/catalog/illyustrirovanie-nauchnykh-rukopisey')}}@else {{url("/catalog/illustrating-scientific-manuscripts")}} @endif">
                         <img class="img-hover" src="/img/service-4.png" data-altimg="/img/service-4-hover.png">
 
                         <h3>{{trans('main.illustrating')}}</h3>
