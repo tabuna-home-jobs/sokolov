@@ -9,17 +9,16 @@ class NewOrder extends Event
 {
     use SerializesModels;
 
-    public $order;
+    public $id;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($newOrder)
+    public function __construct($id)
     {
-        $this->order = $newOrder;
-        dd($this->order);
+        $this->id = $id;
     }
 
     /**

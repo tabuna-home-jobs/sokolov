@@ -3,11 +3,11 @@
 namespace App\Listeners;
 
 use App\Events\NewOrder;
+use App\Events\Notification;
 use Config;
 use Mail;
 
-
-class NotificationEmailOrder
+class NotificationEmailNotification
 {
     /**
      * Create the event listener.
@@ -16,7 +16,7 @@ class NotificationEmailOrder
      */
     public function __construct()
     {
-
+        //
     }
 
     /**
@@ -25,9 +25,9 @@ class NotificationEmailOrder
      * @param  NewOrder $event
      * @return void
      */
-    public function handle(NewOrder $event)
+    public function handle(Notification $event)
     {
-        Mail::raw('Новый заказ #' . $event->id . ' ожидает рассмотрения', function ($message) {
+        Mail::raw('Задача #' . $event->id . ' была взята в работу', function ($message) {
             $message->from(Config::get('link.email'));
         });
     }

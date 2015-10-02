@@ -3,7 +3,6 @@
 namespace App\Listeners;
 
 use App\Events\NewOrder;
-use App\Events\Notification;
 use Config;
 use SMS;
 
@@ -25,8 +24,8 @@ class NotificationSMSOrder
      * @param  NewOrder $event
      * @return void
      */
-    public function handle(Notification $event)
+    public function handle(NewOrder $event)
     {
-        SMS::send(Config::get('link.phone'), 'Задача #' . $event->id . ' выла взята в работу');
+        SMS::send(Config::get('link.phone'), 'Новый заказ #' . $event->id . ' ожидает рассмотрения');
     }
 }

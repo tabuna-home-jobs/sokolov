@@ -8,7 +8,6 @@ use App\Http\Requests;
 use App\Http\Requests\Editor\ChanRequest;
 use App\Models\Task;
 use Auth;
-use Event;
 use Illuminate\Http\Request;
 use Session;
 
@@ -54,7 +53,7 @@ class ChanController extends Controller
         $task->status = "В работе";
         $task->save();
 
-        Event::fire(new Notification($task->id));
+        event(new Notification($task->id));
 
         Session::flash('good', 'Вы успешно взяли задачу');
         return redirect()->back();

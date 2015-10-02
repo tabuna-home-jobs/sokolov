@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App;
+use App\Events\NewOrder;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Category;
@@ -102,7 +103,7 @@ class OrderController extends Controller
             $DBfile->save();
         }
 
-        //Event::fire(new Notification($newOrder->id));
+        event(new NewOrder($newOrder->id));
         Session::flash('good', 'Спасибо, что написали, мы обязательно ответим вам.');
         return redirect()->back();
 
