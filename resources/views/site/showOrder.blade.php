@@ -2,7 +2,13 @@
 
 @section('content-account')
 
+    <script type="text/javascript">
+        function delElem(elem) {
+            //Удаляем элемент (файл)
+            $(elem).parent().remove();
 
+        }
+    </script>
 
     <div class="panel panel-default">
         <div class="panel-heading">Заказ № {{$Order->id}}</div>
@@ -195,6 +201,19 @@
 
             $(document).ready(function () {
 
+                //Проверка состояния загрузки файлов
+                $("#fileselect").on('click', function () {
+                    var obj = $("#messages");
+
+                    //Если юзер берет файлы то очищаем те которые он уже залил
+                    $('li', obj).each(function () {
+                        $(this).remove();
+                    });
+
+                    //Количество файлов, хз зачем я это сделал
+                    //var countFiles = this.files.length;
+
+                });
 
                 $('.nextBtn').click(function () {
                     var checket = $(".order input[type='radio']:checked").val();
@@ -290,12 +309,13 @@
                 }
 
 
+
                 // output file information
                 function ParseFile(file) {
 
                     Output(
                             "<li class='list-group-item'>" + file.name +
-                            "</li>"
+                            "<span class='removeFile' onclick='delElem(this);'><i class='fa fa-times'></i></span></li>"
                     );
 
                 }
@@ -338,7 +358,6 @@
 
         };
     </script>
-
 
 
 @endsection

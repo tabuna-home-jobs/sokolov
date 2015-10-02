@@ -47,8 +47,9 @@
                             <div class="col-xs-6">
                                 <div class="radio">
                                     <label>
-                                        <input type="checkbox" name="type[{{$value->id}}][id]" value=" {{$value->id}}"
-                                               required checked>
+                                        <input type="checkbox" class="select-disable" data-activion="{{$value->id}}"
+                                               name="type[{{$value->id}}][id]" value=" {{$value->id}}"
+                                               checked>
                                         @if (App::getLocale() == 'ru') {{$value->name}} @else {{$value->eng_name}} @endif
                                     </label>
                                 </div>
@@ -57,7 +58,8 @@
 
                             @if(!empty(count(unserialize($value->goods->first()->attribute))))
                                 <div class="col-xs-6 pull-right">
-                                    <select class="form-control" name="type[{{$value->id}}][speed]">
+                                    <select class="form-control select-disable-{{$value->id}}"
+                                            name="type[{{$value->id}}][speed]">
                                         @for($i=0; $i < count(unserialize($value->goods->first()->attribute)); $i++ )
                                             @if(unserialize($value->goods->first()->attribute)[$i] == "Speed")
                                                 <option value="{{unserialize($value->goods->first()->attribute)[$i+1]}}">
@@ -169,7 +171,29 @@
         window.onload = function () {
 
 
+
             $(document).ready(function () {
+
+
+                $(".select-disable").each(function () {
+                    if (!this.checked) {
+                        var idService = $(this).data('activion');
+                        $(".select-disable-" + idService).attr("disabled", true);
+                    }
+                }).change(function () {
+                    if (this.checked) {
+                        var idService = $(this).data('activion');
+                        $(".select-disable-" + idService).attr("disabled", false);
+                    }
+                    else {
+                        var idService = $(this).data('activion');
+                        $(".select-disable-" + idService).attr("disabled", true);
+                    }
+                });
+
+
+
+
 
                 //Проверка состояния загрузки файлов
                 $("#fileselect").on('click', function(){

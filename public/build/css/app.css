@@ -7318,6 +7318,10 @@ button.close {
     cursor: text
 }
 
+.removeFile, .scroll-top {
+    cursor: pointer
+}
+
 .fileinput .thumbnail {
     display: inline-block;
     margin-bottom: 5px;
@@ -7877,10 +7881,6 @@ body.modal-open {
 
 .li-icons-6 {
     background-image: url(/img/icons-6.png)
-}
-
-.scroll-top {
-    cursor: pointer
 }
 
 .menu-footer, .menu-footer-contact {
@@ -8543,5 +8543,10 @@ pre {
 
 .carousel-caption, .carousel-control {
     text-shadow: none
+}
+
+.removeFile {
+    color: red;
+    float: right
 }
 /*# sourceMappingURL=app.css.map */
