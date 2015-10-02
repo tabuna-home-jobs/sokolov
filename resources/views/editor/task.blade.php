@@ -148,7 +148,7 @@
                                                                                                            name="files[]"></span>
                                 <a href="#" class="input-group-addon btn btn-default fileinput-exists"
                                    data-dismiss="fileinput">{{trans('file.Remove')}}</a>
-                                </div>
+                            </div>
 
 
                             <div id="NewUploader">
@@ -159,7 +159,6 @@
                             <hr>
                             <a class="btn btn-link" id="MoreUpload">{{trans('file.More')}}</a>
                             <hr>
-
 
 
                             <input type="hidden" name="type" value="order">
@@ -210,10 +209,6 @@
                 });
 
 
-
-
-
-
                 var clock = $('.clock-time').FlipClock(
                         @if(strtotime($Task->workfinish) - time() < 0)
                             {{0}}
@@ -222,10 +217,10 @@
                         @endif
 
                         , {
-                    'autoStart': true,
-                    'countdown': true,
-                    'clockFace': 'DailyCounter'
-                });
+                            'autoStart': true,
+                            'countdown': true,
+                            'clockFace': 'DailyCounter'
+                        });
 
 
                 //Проверка состояния загрузки файлов
