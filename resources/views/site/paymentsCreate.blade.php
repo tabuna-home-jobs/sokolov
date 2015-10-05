@@ -12,6 +12,11 @@
             <input type="hidden" name="shopId" value="{{Config::get('yandexMoney.shopId')}}">
             <input type="hidden" name="scid" value="{{Config::get('yandexMoney.scid')}}">
             <input type="hidden" name="CustomerNumber" size="64" value="{{Auth::user()->email}}">
+
+            <input type="hidden" name="orderSumCurrencyPaycash" value="USD">
+            <input type="hidden" name="shopSumCurrencyPaycash" value="USD">
+
+
             <input name="paymentType" value="AC" type="hidden"/>
             <input name="cps_phone" value="{{Auth::user()->phone}}" type="hidden"/>
             <input name="cps_email" value="{{Auth::user()->email}}" type="hidden"/>

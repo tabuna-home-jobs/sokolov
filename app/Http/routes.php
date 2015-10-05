@@ -98,8 +98,7 @@ Route::group(['namespace' => 'Editor', 'middleware' => ['auth', 'editor'], 'pref
 
 
 Route::group(['namespace' => 'Payments', 'prefix' => 'payments'], function () {
-    Route::controller('order', 'AvisoController');
-    Route::controller('aviso', 'AvisoController');
-    Route::controller('status', 'StatusController');
+    Route::resource('order', 'AvisoController');
+    Route::resource('status', 'StatusController');
 });
 

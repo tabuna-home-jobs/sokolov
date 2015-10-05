@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "hash": "8a4859ee24261273d22d10063c9dc5c7",
+    "content-hash": "5b8a0cd51a4e9553f6e095a5da45d745",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
