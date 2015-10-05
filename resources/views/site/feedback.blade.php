@@ -41,8 +41,7 @@
 
                             <div class="form-group">
                                 <label for="username" class="control-label">{{trans('feedback.Message text')}}</label>
-                                <textarea class="form-control" name="message" required rows="5"
-                                          placeholder="{{trans('feedback.Message text')}}"></textarea>
+                                <textarea class="form-control" name="message" required rows="5"></textarea>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" type="hidden" name="_token" value="{{ csrf_token() }}">

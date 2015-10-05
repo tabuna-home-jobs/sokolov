@@ -1326,7 +1326,6 @@ button, input, select, textarea {
 }
 
 a {
-    color: #337ab7;
     text-decoration: none
 }
 
@@ -3414,9 +3413,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-info {
-    color: #fff;
-    background-color: #5bc0de;
-    border-color: #46b8da
+    color: #fff
 }
 
 .btn-info.focus, .btn-info:focus {
@@ -3426,9 +3423,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-info.active, .btn-info:active, .btn-info:hover, .open > .dropdown-toggle.btn-info {
-    color: #fff;
-    background-color: #31b0d5;
-    border-color: #269abc
+    color: #fff
 }
 
 .btn-info.active.focus, .btn-info.active:focus, .btn-info.active:hover, .btn-info:active.focus, .btn-info:active:focus, .btn-info:active:hover, .open > .dropdown-toggle.btn-info.focus, .open > .dropdown-toggle.btn-info:focus, .open > .dropdown-toggle.btn-info:hover {
@@ -4911,7 +4906,6 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 
 .pager {
     padding-left: 0;
-    margin: 20px 0;
     text-align: center;
     list-style: none
 }
@@ -6437,6 +6431,10 @@ button.close {
     opacity: .9
 }
 
+.btn, a, a:active, a:hover {
+    outline: 0 !important
+}
+
 .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
     position: absolute;
     top: 50%;
@@ -7415,8 +7413,8 @@ body.modal-open {
     padding-right: inherit !important
 }
 
-.btn, a, a:active, a:hover {
-    outline: 0 !important
+a {
+    color: #2f8398
 }
 
 .service-edit h3 {
@@ -7883,6 +7881,10 @@ body.modal-open {
     background-image: url(/img/icons-6.png)
 }
 
+.login-a > a, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+    background: url(/img/login-a.png) 100% no-repeat
+}
+
 .menu-footer, .menu-footer-contact {
     padding: 0
 }
@@ -7910,8 +7912,11 @@ body.modal-open {
     font-family: Roboto;
     font-size: 16px;
     font-weight: 400;
-    line-height: 16px;
-    background: url(/img/login-a.png) 100% no-repeat
+    line-height: 16px
+}
+
+.login-a .nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+    border-color: inherit !important
 }
 
 .why-work {
@@ -8139,7 +8144,7 @@ body.modal-open {
     background: #FFF;
     border-radius: 3px;
     -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
-    box-shadow: 0 1px 1px rgba(180, 180, 180, .5);
+    box-shadow: 1px 1px 1px 2px rgba(180, 180, 180, .5);
     margin-bottom: 30px;
     padding: 20px 15px
 }
@@ -8548,5 +8553,34 @@ pre {
 .removeFile {
     color: red;
     float: right
+}
+
+.well-danger {
+    background: initial;
+    border: 1px solid #f28130;
+    border-radius: 15px
+}
+
+.well-primary {
+    background: initial;
+    border: 1px solid #2f8398;
+    border-radius: 15px
+}
+
+.p-t-40 {
+    padding-top: 40px
+}
+
+.btn-info, .btn-info.active, .btn-info:active, .btn-info:hover, .open > .dropdown-toggle.btn-info {
+    background-color: #2f8398 !important;
+    border-color: #2f8398 !important
+}
+
+.acc-list .badge {
+    margin-top: 4px
+}
+
+.pager {
+    margin: 20px 0 0
 }
 /*# sourceMappingURL=app.css.map */

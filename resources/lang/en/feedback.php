@@ -1,9 +1,9 @@
 <?php
 
 return [
-    "Write to us" => "Write to us",
+    "Write to us" => "Contact Us",
     "Full name" => "Full name",
     "Phone" => "Phone",
-    "Message text" => "Message text",
+    "Message text" => "Message",
     "Send" => "Send",
 ];

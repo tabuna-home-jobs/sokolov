@@ -122,6 +122,25 @@
                     <li class="login-a  hidden-sm hidden-xs"><a
                                 href="/auth/login">@if(!Auth::check()) {{trans('main.sign')}} @else
                                 {{trans('main.panel')}} @endif</a></li>
+
+                    <li class="login-a">
+                        <!-- Single button -->
+
+                        <a type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            Action <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+
+                    </li>
+
+
             </ul>
 
         </div>
@@ -220,7 +239,7 @@
         <div class="container">
             <div class="row padder-v m-t">
                 <div class="col-xs-6">
-                    © 2015, Falcon Scientific Editing, Соколов Денис Александрович
+                    © 2015, Falcon Scientific Editing, {{trans('footer.Denis A. Sokolov')}}
                 </div>
                 <div class="col-xs-6 text-right">
                     <p>{{trans('footer.octavian')}} <span class="text-right"><a

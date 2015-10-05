@@ -5,15 +5,15 @@
 
 
     <div class="panel panel-default">
-        <div class="panel-heading">Заказы</div>
+        <div class="panel-heading">{{trans("order.Your Orders")}}</div>
         <table class="table">
 
             <thead>
             <tr>
-                <th>#</th>
-                <th>Название работы</th>
-                <th>Статус</th>
-                <th>Управление</th>
+                <th>{{trans("order.Order")}} #</th>
+                <th>{{trans("order.Order Date")}}</th>
+                <th>{{trans("order.Title")}}</th>
+                <th>{{trans("order.Status")}}</th>
             </tr>
             </thead>
 
@@ -21,10 +21,10 @@
             <tbody>
             @foreach($Orders as $order)
                 <tr>
-                    <th scope="row">{{$order->id}}</th>
+                    <th scope="row"><a href="{{route('order.show',$order->id)}}">{{$order->id}}</a></th>
+                    <td>{{ date("Y-m-d",$order->created_at->timestamp)}}</td>
                     <td>{{$order->name}}</td>
                     <td>{{$order->status}}</td>
-                    <td><a href="{{route('order.show',$order->id)}}">Открыть</a></td>
                 </tr>
             @endforeach
 

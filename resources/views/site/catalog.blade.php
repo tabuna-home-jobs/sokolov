@@ -200,7 +200,7 @@
                         <tr>
 
                             <td>>15000</td>
-                            <td>-</td>
+                            <td>{{trans('catalog.By agreement')}}</td>
                             <td>{{trans('catalog.By agreement')}}</td>
                         </tr>
 

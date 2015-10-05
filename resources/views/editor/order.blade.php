@@ -9,11 +9,11 @@
 
             <thead>
             <tr>
+                <th>#</th>
                 <th>{{trans('orderTask.Job title')}}</th>
                 <th>{{trans('orderTask.Service')}}</th>
                 <th>{{trans('orderTask.Price')}}</th>
                 <th>{{trans('orderTask.Deadline')}}</th>
-                <th>{{trans('orderTask.Control')}}</th>
             </tr>
             </thead>
 
@@ -23,6 +23,7 @@
 
 
                 <tr>
+                    <td><a href="{{route('editor.order.show', $task->id)}}"> {{$task->id}}</a></td>
                     <td>{{$task->name}}</td>
 
                     @if(App::getLocale() == 'ru')
@@ -35,7 +36,6 @@
                     <td>
                         <small>{{$task->workfinish}}</small>
                     </td>
-                    <td><a href="{{route('editor.order.show', $task->id)}}"> {{trans('orderTask.Viewing')}}</a></td>
                 </tr>
             @endforeach
 
