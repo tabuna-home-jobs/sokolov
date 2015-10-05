@@ -1,13 +1,28 @@
 <?php namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Kyslik\ColumnSortable\Sortable;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Auth\Passwords\CanResetPassword;
 /**
  * App\Models\Order
  *
  * @property-read \App\Models\Category $category
  */
 class Order extends Model {
+
+    use Authenticatable, CanResetPassword, Sortable;
+
+    /**
+     * @var array
+     * Поля по которым будем сортировать
+     */
+    protected $sortable = [
+        'id',
+        'status',
+        'created_at',
+        'updated_at'
+    ];
 
     /**
      * The database table used by the model.

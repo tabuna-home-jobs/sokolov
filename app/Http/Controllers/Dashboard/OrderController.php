@@ -21,7 +21,50 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $Orders = Order::select('id','name','created_at')->orderBy('id', 'desc')->simplePaginate(15);
+        if(!is_null(request()->status)){
+            $orderStatus = request()->status;
+
+            if($orderStatus == 'pay'){
+
+                $orderStatus = 'В работе';
+
+            }elseif($orderStatus == 'ocenka'){
+
+                $orderStatus = 'Обрабатываеться';
+
+            }
+            elseif($orderStatus == 'canlcel'){
+
+                $orderStatus = 'Отменён';
+
+            }
+            elseif($orderStatus == 'notpay'){
+
+                $orderStatus = 'Не оплачен';
+
+            }elseif($orderStatus == 'done'){
+
+                $orderStatus = 'Завершён';
+
+            }elseif($orderStatus == 'all'){
+
+                $orderStatus = 'all';
+
+            }
+
+        }else{
+            $orderStatus = null;
+        }
+
+        if((is_null($orderStatus)) || ($orderStatus == 'all')) {
+
+            $Orders = Order::select('id', 'name', 'created_at')->orderBy('id', 'desc')->simplePaginate(15);
+        }else{
+            $Orders = Order::select('id', 'name', 'created_at')
+                ->whereRaw('status = ?',[$orderStatus])
+                ->orderBy('id', 'desc')
+                ->simplePaginate(15);
+        }
         return view("dashboard/order/order", ['Orders' => $Orders]);
     }
 
@@ -54,7 +97,41 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $Orders = Order::select('id','name','created_at')->orderBy('id', 'desc')->simplePaginate(15);
+
+        if(!is_null(request()->status)){
+            $orderStatus = request()->status;
+
+            if($orderStatus == 'pay'){
+
+                $orderStatus = 'В работе';
+
+            }elseif($orderStatus == 'done'){
+
+                $orderStatus = 'Завершён';
+
+            }elseif($orderStatus == 'all'){
+
+                $orderStatus = 'all';
+
+            }
+
+        }else{
+            $orderStatus = null;
+        }
+
+        if((is_null($orderStatus)) || ($orderStatus == 'all')){
+
+            $Orders = Order::select('id','name','created_at')
+                ->orderBy('id', 'desc')
+                ->simplePaginate(15);
+
+        }else{
+
+            $Orders = Order::select('id','name','created_at')
+                ->whereRaw('status = ?',[$orderStatus])
+                ->orderBy('id', 'desc')
+                ->simplePaginate(15);
+        }
 
         $SelectOrder = Order::findorfail($id);
         $SelectUser = $SelectOrder->getUser()->get()->first();
@@ -75,6 +152,7 @@ class OrderController extends Controller
                     ->where('users.role','LIKE','%editor%')
                     ->where('orderMeta.order_id','=',$id)
                     ->get();
+
 
         $TaskOrder = $SelectOrder->getTask()->get();
 

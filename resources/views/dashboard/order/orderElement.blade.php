@@ -17,13 +17,19 @@
                     <div class="nav-tabs-alt">
                         <ul class="nav nav-tabs nav-justified">
                             <li>
-                                <a>Все</a>
+                                <a href="?status=all">
+                                    Все
+                                </a>
                             </li>
                             <li>
-                                <a>Опл</a>
+                                <a href="?status=pay">
+                                    Опл
+                                </a>
                             </li>
                             <li>
-                                <a>Зав</a>
+                                <a href="?status=done">
+                                    Зав
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -41,7 +47,7 @@
                                     </ul>
                                 </ul>
 
-                                {!! $Orders->render() !!}
+                                {!! $Orders->appends(\Input::except('page'))->render() !!}
 
                             </div>
                         </div>

@@ -12,7 +12,8 @@
         "laravelcollective/html": "5.1.*",
         "yandex-money/yandex-money-sdk-php": "3.0.*",
         "barryvdh/laravel-ide-helper": "^2.1",
-        "nesbot/carbon": "^1.20"
+        "nesbot/carbon": "^1.20",
+        "kyslik/column-sortable": "~3.0.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
