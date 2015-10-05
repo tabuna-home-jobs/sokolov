@@ -3,8 +3,10 @@
 namespace App\Http\Middleware;
 
 use App;
+use Auth;
 use Carbon\Carbon;
 use Closure;
+use Config;
 use Session;
 
 class Language
@@ -13,6 +15,12 @@ class Language
 
     public function handle($request, Closure $next)
     {
+
+        if (Auth::check()) {
+            if (!is_null(Auth::user()->utc) && !empty(Auth::user()->utc))
+                Config::set('app.timezone', Auth::user()->utc);
+        }
+
 
         $lang = Session::get('lang', null);
 
@@ -23,8 +31,10 @@ class Language
             Session::put('lang', $langRequest);
             App::setLocale($langRequest);
         }
+
         //Устанавливаем локализацию для формитирования дат
         Carbon::setLocale(App::getLocale());
+
 
         return $next($request);
     }

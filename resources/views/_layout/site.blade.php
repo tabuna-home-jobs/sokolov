@@ -119,9 +119,11 @@
                                 href="{{url('/language/ru')}}">Русский</a></li>
 
 
+                    @if(!Auth::check())
                     <li class="login-a  hidden-sm hidden-xs"><a
                                 href="/auth/login">@if(!Auth::check()) {{trans('main.sign')}} @else
                                 {{trans('main.panel')}} @endif</a></li>
+                    @endif
 
                     <li class=" dropdown">
                         <!-- Single button -->
@@ -130,11 +132,11 @@
                 <a id="drop1" href="#" role="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
 
-                        {{Auth::user()->first_name}}
+                    {{trans('main.panel')}}
 
                     <span class="caret"></span>
                 </a>
-            @endif
+
                         <ul class="dropdown-menu" aria-labelledby="drop1">
                             <li>
                                 <a  href="/auth/login">
@@ -151,11 +153,10 @@
                                     @endif
                                 </a>
                             </li>
-                            @if(Auth::check())
                                 <li role="separator" class="divider"></li>
                                 <li><a href="/auth/logout/">{{trans('main.logout')}}</a></li>
-                            @endif
                         </ul>
+                        @endif
 
                     </li>
 

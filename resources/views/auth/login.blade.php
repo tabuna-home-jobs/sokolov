@@ -6,8 +6,8 @@
 
     <div class="container auth-container">
 
-        <div class="col-md-8 col-md-offset-2">
-            <div class="col-xs-12 col-md-7">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="col-xs-12 col-md-6">
 
                 <div class="well well-danger">
                     <form class="p-t-40" role="form" method="POST" action="{{ url('/auth/login') }}">
@@ -34,7 +34,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-xs-12 col-md-5">
+            <div class="col-xs-12 col-md-6">
                 <div class="well well-primary">
                     <p class="lead">{{trans('auth.Register now for ')}} {{trans('auth.free')}}
                     </p>

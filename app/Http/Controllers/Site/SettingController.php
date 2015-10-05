@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Country;
+use App\Models\Zone;
 use Auth;
 use Illuminate\Http\Request;
 use Session;
@@ -29,16 +30,20 @@ class SettingController extends Controller
     public function index()
     {
         $Country = Country::all();
+        $Zone = Zone::orderBy('zone_name')->get();
+
 
         if (Auth::user()->checkRole('editor'))
             return view('editor.setting', [
                 'User' => $this->user,
                 'Country' => $Country,
+                'Zone' => $Zone
             ]);
         else
             return view('site.setting', [
                 'User' => $this->user,
                 'Country' => $Country,
+                'Zone' => $Zone
             ]);
     }
 
@@ -98,8 +103,7 @@ class SettingController extends Controller
         if ($request->type == 'personal') {
 
             $this->validate($request, [
-                'email' => 'required|email',
-                'email_confirmation' => 'required|confirmed|email',
+                'email' => 'required|email|confirmed',
             ]);
 
 

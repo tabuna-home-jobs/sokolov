@@ -34,6 +34,7 @@ class Task extends Model
         'status'
     ];
 
+    protected $dates = ['created_at', 'updated_at', 'disabled_at', 'workfinish'];
 
     public function getUser()
     {

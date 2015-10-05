@@ -36,6 +36,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         'dignity',
         'country_id',
         'institution',
+        'utc'
     ];
 
 

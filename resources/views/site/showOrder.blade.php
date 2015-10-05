@@ -78,7 +78,7 @@
                 <div class="user-comment">
                     @foreach($SelectComments as $comment)
                         <p>{{$comment->text}}</p>
-                        <p class="text-muted pull-right">{{$comment->created_at}}</p>
+                        <p class="text-muted pull-right">{{$comment->created_at->tz('UTC')}}</p>
                         <hr>
                     @endforeach
 
@@ -152,7 +152,7 @@
                             <a href="{{URL::route('filemanager.show', $file->id)}}"
                                class="list-group-item"><i
                                         class="fa fa-file-o"></i> {{$file->original}}
-                                <small class="pull-right">{{$file->created_at}}</small>
+                                <small class="pull-right">{{$file->created_at->tz('UTC')}}</small>
                             </a>
                         @endforeach
                     </ul>
@@ -167,7 +167,7 @@
                             <a href="{{URL::route('filemanager.show', $file->id)}}"
                                class="list-group-item"><i
                                         class="fa fa-file-o"></i> {{$file->original}}
-                                <small class="pull-right">{{$file->created_at}}</small>
+                                <small class="pull-right">{{$file->created_at->tz('UTC')}}</small>
                             </a>
                         @endforeach
                     </ul>
@@ -177,7 +177,7 @@
 
 
         <div class="panel-footer">
-            <p class="text-right">Формирование заказа {{$Order->created_at}}</p>
+            <p class="text-right">Формирование заказа {{$Order->created_at->tz('UTC')}}</p>
         </div>
 
     </div>

@@ -14,4 +14,5 @@ return [
     "Repeat password" => "Repeat password",
     "Repeat email" => "Repeat email",
     "Change" => "Save changes",
+    "UTC" => "UTC",
 ];

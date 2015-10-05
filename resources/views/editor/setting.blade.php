@@ -73,6 +73,7 @@
                                 <select class="form-control" name="country_id">
 
                                     @foreach($Country as $value)
+
                                         @if($value->id == $User->country_id )
 
                                             <option selected value="{{$value->id}}">{{$value->name}}</option>
@@ -92,6 +93,24 @@
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="institution"
                                        value="{{$User->institution}}">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"> {{trans('setting.UTC')}}</label>
+
+                            <div class="col-sm-9">
+                                <select class="form-control" name="utc">
+
+                                    @foreach($Zone as $value)
+                                        <option value="{{$value->zone_name}}"
+                                                @if($User->utc == $value->zone_name) selected @endif>{{$value->zone_name}}</option>
+                                    @endforeach
+
+                                </select>
+
+
                             </div>
                         </div>
 

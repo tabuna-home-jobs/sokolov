@@ -98,6 +98,25 @@
 
 
                         <div class="form-group">
+                            <label class="col-sm-3 control-label"> {{trans('setting.UTC')}}</label>
+
+                            <div class="col-sm-9">
+                                <select class="form-control" name="utc">
+
+                                    @foreach($Zone as $value)
+                                        <option value="{{$value->zone_name}}"
+                                                @if($User->utc == $value->zone_name) selected @endif >$value->zone_name
+                                        </option>
+                                    @endforeach
+
+                                </select>
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9">
                                 <button type="submit" class="btn btn-default"> {{trans('setting.Change')}}</button>
                             </div>

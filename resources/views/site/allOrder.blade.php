@@ -22,7 +22,7 @@
             @foreach($Orders as $order)
                 <tr>
                     <th scope="row"><a href="{{route('order.show',$order->id)}}">{{$order->id}}</a></th>
-                    <td>{{ date("Y-m-d",$order->created_at->timestamp)}}</td>
+                    <td>{{ date("Y-m-d",$order->created_at->tz('UTC')->timestamp)}}</td>
                     <td>{{$order->name}}</td>
                     <td>{{$order->status}}</td>
                 </tr>
