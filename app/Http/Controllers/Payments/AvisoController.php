@@ -38,7 +38,7 @@ class AvisoController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function anyIndex(Request $request)
+    public function store(Request $request)
     {
         $configs = Config::get('yandexMoney');
 
