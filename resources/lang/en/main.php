@@ -12,6 +12,11 @@ return [
     'Learn More' => 'Learn more',
     'panel' => 'Service',
     'sign' => 'Sign',
+    'dashboard' => 'Panel',
+    'logout' => 'Logout',
+    'userhome' => 'Account',
+    'editorhome' => 'Account',
+
 
     "We employ only experienced scientific academic editors who are experts in a particular scientific field. All our editors - experts in English grammar, spelling and punctuation." =>
         "We only employ experienced scientific editors who are experts in a particular scientific field. All our editors are experts in English grammar, spelling and punctuation.",

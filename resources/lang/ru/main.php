@@ -12,6 +12,10 @@ return [
     'Learn More' => 'Узнать больше',
     'panel' => 'Сервис',
     'sign' => 'Вход',
+    'dashboard' => 'Панель',
+    'logout' => 'Выход',
+    'userhome' => 'Личный кабинет',
+    'editorhome' => 'Личный кабинет',
 
     "We employ only experienced scientific academic editors who are experts in a particular scientific field. All our editors - experts in English grammar, spelling and punctuation." => "У нас работают только опытные научные академические редакторы, которые являются экспертами в конкретной научной области. Все наши редакторы – эксперты в английской грамматике, орфографии и пунктуации.",
     "Our scientific editors have extensive experience in prestigious academic research institutions. Our editors have a significant number of highly cited publications in scientific journals in English." => "Наши научные редакторы являются авторами, редакторами и рецензентами научных публикаций и грантов.",

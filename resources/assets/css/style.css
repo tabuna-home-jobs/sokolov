@@ -1263,3 +1263,8 @@ pre {
 .pager {
     margin: 20px 0 0 0;
 }
+.dropdown #drop1{
+    border: none;
+    color:#fff;
+    background: url("/img/login-a.png") 100% no-repeat;
+}
