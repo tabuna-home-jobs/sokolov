@@ -14,7 +14,7 @@ return [
     'sign' => 'Вход',
 
     "We employ only experienced scientific academic editors who are experts in a particular scientific field. All our editors - experts in English grammar, spelling and punctuation." => "У нас работают только опытные научные академические редакторы, которые являются экспертами в конкретной научной области. Все наши редакторы – эксперты в английской грамматике, орфографии и пунктуации.",
-    "Our scientific editors have extensive experience in prestigious academic research institutions. Our editors have a significant number of highly cited publications in scientific journals in English." => "Наши научные редакторы имеют значительный опыт работы в престижных академических научных исследовательских учреждениях. Наши редакторы имеют значительное количество публикации в высоко цитируемых научных журналах на английском языке.",
+    "Our scientific editors have extensive experience in prestigious academic research institutions. Our editors have a significant number of highly cited publications in scientific journals in English." => "Наши научные редакторы являются авторами, редакторами и рецензентами научных публикаций и грантов.",
     "Our scientific editors wrote, edited and reviewed scientific publications and grants." => "Наши научные редакторы написали, редактирование и рецензирование научные публикации и гранты.",
     "We know that you need to publish your important scientific discoveries in the English-language journal. The language barrier should never be a barrier to the spread of important ideas and discoveries! We are here to help you succeed!" => "Мы знаем, что необходимо для публикации ваших важных научных открытий в англоязычном научном журнале. Языковой барьер никогда не должен быть препятствием для распространения важных идей и открытий! Мы здесь, чтобы помочь вам добиться успеха!",
     "If your research is not published - they never had. Many manuscripts are accepted for publication because of the poor quality of the English language. Our editors - experts in English. Our editors - scientific experts with many years of research and publications in prestigious scientific journals." => "Если ваши исследования не опубликованы – их никогда не было. Множество рукописей не принимаются к публикации из-за плохого качества английского языка. Наши редакторы – эксперты английского языка. Наши редакторы – научные эксперты с многими годами исследовательской деятельности и публикациями в престижных научных журналах.",
@@ -29,36 +29,26 @@ return [
     "Correcting written
                              English scientific manuscripts
                              and elimination of grammar and
-                             spelling mistakes" => "Корректировка написанных на
-                            английском языке научных рукописей
-                            и устранение грамматических и
-                            орфографических ошибок",
+                             spelling mistakes" => "Подчеркните уникальность вашей работы, доверяякорректировкуанглийскогоязыкапрофессиональными редакторам с ученой степенью кандидата наук и выше",
 
 
     "Translation" => "Перевод",
     "We provide technical
                              translation from Russian into
-                             English" => "Мы осуществляем технический
-                            перевод с русского языка на
-                            английский",
+                             English" => "Грамотный и оперативный технический перевод рукописей и других документов с русского на английский",
 
     "Format" => "Форматирование",
 
 
     "Fit manuscripts under strict
                              foreign scientific standards
-                             magazines" => "Подгон рукописей под жёсткие
-                            стандарты зарубежных научных
-                            журналов",
+                             magazines" => "Мы выявляем и исправляем проблемы в рукописи и адаптированиитекста к требованиям, выдвигаемым тем или иным зарубежным изданием",
     "illustrating" => "Иллюстрирование",
 
     "Creation of scientific graphics
                              according to the illustrations
                              provided sketch or
-                             description" => "Создание научных графических
-                            иллюстраций согласно
-                            предоставленному эскизу или
-                            описанию",
+                             description" => "Мы создадим для Вас уникальные и интересные иллюстрации, поясняющие графики и таблицы, которые будут соответствовать тематике работы и требованиям конкретного издания",
 
 
     "Order services" => "Заказываете Услугу",

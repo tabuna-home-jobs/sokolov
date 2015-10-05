@@ -11,7 +11,7 @@
     </script>
 
     <div class="panel panel-default">
-        <div class="panel-heading">Заказ № {{$Order->id}}</div>
+        <div class="panel-heading">{{trans("order.Order")}} # {{$Order->id}}</div>
 
 
         <div class="panel-body">
@@ -21,11 +21,11 @@
             <p>{{$Order->text}}</p>
 
             @if(!empty($Order->izdanie))
-                <p>Издание: {{$Order->izdanie}}</p>
+                <p>{{trans("order.Target journal")}}: {{$Order->izdanie}}</p>
             @endif
 
             <hr>
-            <p>Услуги:</p>
+            <p>{{trans("order.Requested services")}}:</p>
 
             <ul class="list-group">
                 @foreach($collectionGoods as $key => $value)
@@ -53,19 +53,21 @@
 
 
         <ul class="list-group">
-            <li class="list-group-item">Статус: <p class="pull-right">{{$Order->status}}</p></li>
-            <li class="list-group-item">Дата окончания работы: <p class="pull-right">{{$Order->workfinish}}</p></li>
-            <li class="list-group-item">Цена: <p class="pull-right">{{$Order->price}}</p></li>
+            <li class="list-group-item">{{trans("order.Status")}}: <p class="pull-right">{{$Order->status}}</p></li>
+            <li class="list-group-item">{{trans("order.Order completion date and time")}}: <p
+                        class="pull-right">{{$Order->workfinish}}</p></li>
+            <li class="list-group-item">{{trans("order.Total price")}}: <p class="pull-right">{{$Order->price}} $</p>
+            </li>
         </ul>
 
 
         <ul id="myTabs" class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#comments" role="tab" data-toggle="tab" aria-controls="home"
-                                                      aria-expanded="true">Комментарии</a></li>
+                                                      aria-expanded="true">{{trans("order.Comments")}}</a></li>
             <li role="presentation" class=""><a href="#oldfile" role="tab" data-toggle="tab" aria-controls="profile"
-                                                aria-expanded="false">Загруженные файлы</a></li>
+                                                aria-expanded="false">{{trans("order.Loaded files")}}</a></li>
             <li role="presentation" class=""><a href="#newfile" role="tab" data-toggle="tab" aria-controls="profile"
-                                                aria-expanded="false">Готовые файлы</a></li>
+                                                aria-expanded="false">{{trans("order.Completed files")}}</a></li>
 
 
         </ul>
@@ -83,15 +85,17 @@
 
                     <form action="{{URL::route('comments.store')}}" method="post">
                         <div class="form-group">
-                            <label>Написать комментарий</label>
+                            <label>{{trans("order.Send additional comments/questions")}}</label>
         <textarea class="form-control" rows="3" required name="text"
                   style="resize: none;"></textarea>
                         </div>
                         <input type="hidden" name="type" value="order">
                         <input type="hidden" name="beglouto" value="{{$Order->id}}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-primary btn-block">Отправить</button>
 
+                        <p class="text-center">
+                            <button type="submit" class="btn btn-primary">{{trans("orderTask.Send")}}</button>
+                        </p>
                     </form>
                 </div>
 

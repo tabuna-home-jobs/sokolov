@@ -9,11 +9,9 @@
                     <div class="inner-box">
                         <div class="user-panel-sidebar">
 
+                            <h5> {{trans('leftPanel.Hello')}}, {{Auth::user()->first_name}} </h5>
                             <div class="collapse-box">
-                                <h5 class="collapse-title"> {{trans('leftPanel.service')}} <a href="#MyAds"
-                                                                                              data-toggle="collapse"
-                                                                      class="pull-right"><i
-                                                class="fa fa-angle-down"></i></a></h5>
+                                <h5 class="collapse-title"> {{trans('leftPanel.service')}} </h5>
 
                                 <div class="panel-collapse collapse in" id="MyAds">
                                     <ul class="acc-list">
@@ -28,23 +26,11 @@
                                             </a></li>
                                         <li><a href="#"><i class="fa fa-usd"></i> {{trans('leftPanel.invoice')}} </a>
                                         </li>
-                                    </ul>
-                                </div>
-                            </div>
 
-                            <div class="collapse-box">
-                                <h5 class="collapse-title"> {{trans('leftPanel.control')}} <a href="#TerminateAccount"
-                                                                          data-toggle="collapse" class="pull-right"><i
-                                                class="fa fa-angle-down"></i></a></h5>
-
-                                <div class="panel-collapse collapse in" id="TerminateAccount">
-                                    <ul class="acc-list">
                                         <li><a class="{{Active::route('setting.*')}}"
                                                href="{{URL::route('setting.index')}}"><i class="fa fa-cog"></i>
                                                 {{trans('leftPanel.settings')}} </a></li>
-                                        <li><a href="/auth/logout"><i
-                                                        class="fa fa-sign-out "></i> {{trans('leftPanel.exit')}} </a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>

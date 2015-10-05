@@ -17,12 +17,12 @@ return [
     "On the specified mailbox will receive a letter containing a link to request a new password." => "On the specified mailbox will receive a letter containing a link to request a new password.",
     "Click on the link in the email recovery." => "Click on the link in the email recovery.",
     "I remembered your password" => "I remembered your password",
-    "Register" => "Register",
-    "Do you already have an " => "Do you already have an ",
+    "Register" => "Sign Up",
+    "Do you already have an " => "Already have an ",
     "account" => "account",
     "first name" => "first name",
     "Repeat password" => "Repeat password",
-    "To login" => "To login",
+    "To login" => "Log In",
     "Change password" => "Change password"
 
 ];

@@ -3,15 +3,15 @@
 return [
 
     "Personal data" => "Personal data",
-    "First Name" => "First Nam",
+    "First Name" => "First Name",
     "Last Name" => "Last Name",
     "Phone" => "Phone",
-    "title" => 'title',
+    "title" => 'Title',
     "Country" => "Country",
     "Institution" => "Institution",
     "Security" => "Security",
     "New Password" => "New Password",
     "Repeat password" => "Repeat password",
     "Repeat email" => "Repeat email",
-    "Change" => "Change",
+    "Change" => "Save changes",
 ];

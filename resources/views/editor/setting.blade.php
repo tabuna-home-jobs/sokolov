@@ -12,6 +12,16 @@
             <div class="panel-collapse collapse in" id="collapseB1">
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="post" action="{{URL::route('setting.update')}}">
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"> {{trans('setting.title')}}</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="dignity" value="{{$User->dignity}}">
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label class="col-sm-3 control-label"> {{trans('setting.First Name')}}</label>
 
@@ -51,15 +61,6 @@
                                 <input type="text" class="form-control" name="phone"
                                        placeholder="+79802665074 или 89802665074 или 8-980-266-5074"
                                        value="{{$User->phone}}">
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label"> {{trans('setting.title')}}</label>
-
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="dignity" value="{{$User->dignity}}">
                             </div>
                         </div>
 

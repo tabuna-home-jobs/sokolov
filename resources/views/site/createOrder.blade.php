@@ -23,23 +23,23 @@
     </script>
 
     <div class="stepwizard">
-        <div class="stepwizard-row setup-panel">
-            <div class="stepwizard-step">
+        <div class="stepwizard-row setup-panel col-xs-12">
+            <div class="stepwizard-step col-xs-4">
                 <a href="#step-1" type="button" class="btn btn-primary btn-circle"><i class="fa fa-eye"></i></a>
 
-                <p>{{trans('createOrder.Selection of services')}}</p>
+                <h4>{{trans('createOrder.Selection of services')}}</h4>
             </div>
-            <div class="stepwizard-step">
+            <div class="stepwizard-step col-xs-4">
                 <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled"><i
                             class="fa fa-pencil-square-o"></i></a>
 
-                <p>{{trans('createOrder.Description of work')}}</p>
+                <h4>{{trans('createOrder.Description of work')}}</h4>
             </div>
-            <div class="stepwizard-step">
+            <div class="stepwizard-step col-xs-4">
                 <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled"><i
                             class="fa fa-file-word-o"></i></a>
 
-                <p>{{trans('createOrder.Attach files')}}</p>
+                <h4>{{trans('createOrder.Attach files')}}</h4>
             </div>
         </div>
     </div>
@@ -48,7 +48,6 @@
         <div class="row setup-content" id="step-1">
             <div class="col-xs-12">
                 <div class="col-md-12">
-                    <h3 class="text-center">{{trans('createOrder.Select the service provided')}}</h3>
 
                     @foreach($type as $key => $value)
 
@@ -66,7 +65,7 @@
 
 
                             @if(!empty(count(unserialize($value->goods->first()->attribute))))
-                                <div class="col-xs-6 pull-right">
+                                <div class="col-xs-4 pull-right">
                                     <select class="form-control select-disable-{{$value->id}}"
                                             name="type[{{$value->id}}][speed]">
                                         @for($i=0; $i < count(unserialize($value->goods->first()->attribute)); $i++ )
@@ -92,7 +91,6 @@
         <div class="row setup-content" id="step-2">
             <div class="col-xs-12">
                 <div class="col-md-12">
-                    <h3 class="text-center"> {{trans('createOrder.Give a description of the available work')}}</h3>
 
                     <div class="form-group">
                         <label class="control-label">{{trans('createOrder.Job title')}}</label>
@@ -132,8 +130,6 @@
         <div class="row setup-content" id="step-3">
             <div class="col-xs-12">
                 <div class="col-md-12">
-                    <h3>{{trans('createOrder.Download the required documents')}}</h3>
-
 
                     <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                         <div class="form-control" data-trigger="fileinput"><i

@@ -15,7 +15,7 @@
             <p class="lead text-center">{{trans('auth.Password recovery')}} :</p>
 
 
-            <div class="well">
+            <div class="well well-danger">
                 <form action="{{ url('/auth/reset') }}" method="post">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
