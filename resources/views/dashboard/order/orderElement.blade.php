@@ -298,13 +298,13 @@
                                                                             (Лента задач)
                                                                         </option>
 
-                                                                    @foreach($AllUser as $user)
+            @foreach($AllUser as $user)
 
-                                                                            <option value="{{$user->id}}">
-                                                                                {{$user->first_name}} {{$user->last_name}}
-                                                                            </option>
+                    <option value="{{$user->id}}">
+                        {{$user->first_name}} {{$user->last_name}}
+                    </option>
 
-                                                                        @endforeach
+            @endforeach
 
                                                                     </select>
                                                                 </div>

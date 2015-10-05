@@ -11,7 +11,7 @@ use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Session;
-
+use DB;
 class OrderController extends Controller
 {
     /**
@@ -67,8 +67,14 @@ class OrderController extends Controller
         $SelectRequestFile = Files::select('id','original','created_at')
             ->whereRaw('type = ? and beglouto = ? and finish = ?', ['order', $id, false])->get();
 
-        $AllUser = User::select('id', 'first_name', 'last_name')->where('role', 'LIKE', '%editor%')->get();
 
+        $AllUser = DB::table('users')
+                    ->leftJoin('skills','users.id','=','skills.user_id')
+                    ->leftJoin('orderMeta','orderMeta.category_id','=','skills.category_id')
+                    ->groupBy('users.id')
+                    ->where('users.role','LIKE','%editor%')
+                    ->where('orderMeta.order_id','=',$id)
+                    ->get();
 
         $TaskOrder = $SelectOrder->getTask()->get();
 
