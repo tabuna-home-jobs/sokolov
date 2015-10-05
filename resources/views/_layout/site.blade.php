@@ -123,19 +123,38 @@
                                 href="/auth/login">@if(!Auth::check()) {{trans('main.sign')}} @else
                                 {{trans('main.panel')}} @endif</a></li>
 
-                    <li class="login-a">
+                    <li class=" dropdown">
                         <!-- Single button -->
 
-                        <a type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            Action <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
+            @if(Auth::check())
+                <a id="drop1" href="#" role="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+
+                        {{Auth::user()->first_name}}
+
+                    <span class="caret"></span>
+                </a>
+            @endif
+                        <ul class="dropdown-menu" aria-labelledby="drop1">
+                            <li>
+                                <a  href="/auth/login">
+                                    @if(!Auth::check())
+                                        {{trans('main.sign')}}
+                                    @else
+                                        @if(Auth::user()->checkRole('admin'))
+                                            {{trans('main.dashboard')}}
+                                        @elseif(Auth::user()->checkRole('user'))
+                                            {{trans('main.userhome')}}
+                                        @elseif(Auth::user()->checkRole('editor'))
+                                            {{trans('main.editorhome')}}
+                                        @endif
+                                    @endif
+                                </a>
+                            </li>
+                            @if(Auth::check())
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/auth/logout/">{{trans('main.logout')}}</a></li>
+                            @endif
                         </ul>
 
                     </li>
