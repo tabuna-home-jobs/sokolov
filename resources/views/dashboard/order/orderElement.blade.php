@@ -105,7 +105,14 @@
 
 
                                             <div class="line line-dashed b-b line-lg"></div>
-
+                                            <p class="text-left">
+                                      <b>Название работы:</b> <span>{{$SelectOrder->name}}</span>
+                                            </p>
+                                            <div class="line line-dashed b-b line-lg"></div>
+                                            <p class="text-left">
+                                                <b>Научное издание:</b> <span>{{$SelectOrder->izdanie}}</span>
+                                            </p>
+                                            <div class="line line-dashed b-b line-lg"></div>
                                             <p class="text-justify">
                                                 {{$SelectOrder->text}}
                                             </p>
