@@ -1,9 +1,10 @@
 <?php namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
+
 /**
  * App\Models\Order
  *
@@ -49,6 +50,9 @@ class Order extends Model {
         'sold',
         'LangOrder_id'
     ];
+
+
+    protected $dates = ['created_at', 'updated_at', 'disabled_at', 'workfinish'];
 
 
     public function getUser()

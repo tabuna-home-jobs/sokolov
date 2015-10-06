@@ -34,7 +34,7 @@
 
                     <td><i class="fa fa-dollar"></i> {{$task->price}}</td>
                     <td>
-                        <small>{{$task->workfinish->tz(Config::get('app.timezone'))}}</small>
+                        <small>{{$task->workfinish}}</small>
                     </td>
                 </tr>
             @endforeach

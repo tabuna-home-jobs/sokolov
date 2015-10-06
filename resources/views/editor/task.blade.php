@@ -54,7 +54,7 @@
             <li class="list-group-item">{{trans('orderTask.Status')}}: <p
                         class="pull-right"> {{trans('status.'. $Task->status)}}</p></li>
             <li class="list-group-item">{{trans('orderTask.Deadline')}}: <p
-                        class="pull-right">{{$Task->workfinish->tz('UTC')}}</p>
+                        class="pull-right">{{$Task->workfinish->tz(Config::get('app.timezone'))}}</p>
             </li>
             <li class="list-group-item">{{trans('orderTask.Price')}}: <p class="pull-right">$ {{$Task->price}}</p></li>
         </ul>
@@ -75,7 +75,7 @@
                 <div class="user-comment">
                     @foreach($Comments as $comment)
                         <p>{{$comment->text}}</p>
-                        <p class="text-muted pull-right">{{$comment->created_at->tz('UTC')}}</p>
+                        <p class="text-muted pull-right">{{$comment->created_at->tz(Config::get('app.timezone'))}}</p>
                         <hr>
                     @endforeach
 
@@ -106,7 +106,7 @@
                                 <a href="{{URL::route('filemanager.show', $file->getFiles->id)}}"
                                    class="list-group-item"><i
                                             class="fa fa-file-o"></i> {{$file->getFiles->original}}
-                                    <small class="pull-right">{{$file->getFiles->created_at->tz('UTC')}}</small>
+                                    <small class="pull-right">{{$file->getFiles->created_at->tz(Config::get('app.timezone'))}}</small>
                                 </a>
                             @endif
                         @endforeach
@@ -123,7 +123,7 @@
                                 <a href="{{URL::route('filemanager.show', $file->getFiles->id)}}"
                                    class="list-group-item"><i
                                             class="fa fa-file-o"></i> {{$file->getFiles->original}}
-                                    <small class="pull-right">{{$file->getFiles->created_at->tz('UTC')}}</small>
+                                    <small class="pull-right">{{$file->getFiles->created_at->tz(Config::get('app.timezone'))}}</small>
                                 </a>
                             @endif
                         @endforeach
@@ -211,10 +211,10 @@
 
 
                 var clock = $('.clock-time').FlipClock(
-                        @if(strtotime($Task->workfinish->tz('UTC')) - time() < 0)
+                        @if(strtotime($Task->workfinish->tz(Config::get('app.timezone'))) - time() < 0)
                             {{0}}
                         @else
-                             {{strtotime($Task->workfinish->tz('UTC')) - time()}}
+                             {{strtotime($Task->workfinish->tz(Config::get('app.timezone'))) - time()}}
                         @endif
 
                         , {

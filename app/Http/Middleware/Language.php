@@ -19,6 +19,7 @@ class Language
         if (Auth::check()) {
             if (!is_null(Auth::user()->utc) && !empty(Auth::user()->utc))
                 Config::set('app.timezone', Auth::user()->utc);
+
         }
 
 

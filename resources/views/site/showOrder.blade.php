@@ -55,7 +55,7 @@
         <ul class="list-group">
             <li class="list-group-item">{{trans("order.Status")}}: <p class="pull-right">{{$Order->status}}</p></li>
             <li class="list-group-item">{{trans("order.Order completion date and time")}}: <p
-                        class="pull-right">{{$Order->workfinish}}</p></li>
+                        class="pull-right">{{$Order->workfinish->tz(Config::get('app.timezone'))}}</p></li>
             <li class="list-group-item">{{trans("order.Total price")}}: <p class="pull-right">{{$Order->price}} $</p>
             </li>
         </ul>
@@ -78,7 +78,7 @@
                 <div class="user-comment">
                     @foreach($SelectComments as $comment)
                         <p>{{$comment->text}}</p>
-                        <p class="text-muted pull-right">{{$comment->created_at->tz('UTC')}}</p>
+                        <p class="text-muted pull-right">{{$comment->created_at->tz(Config::get('app.timezone'))}}</p>
                         <hr>
                     @endforeach
 
@@ -152,7 +152,7 @@
                             <a href="{{URL::route('filemanager.show', $file->id)}}"
                                class="list-group-item"><i
                                         class="fa fa-file-o"></i> {{$file->original}}
-                                <small class="pull-right">{{$file->created_at->tz('UTC')}}</small>
+                                <small class="pull-right">{{$file->created_at->tz(Config::get('app.timezone'))}}</small>
                             </a>
                         @endforeach
                     </ul>
@@ -167,7 +167,7 @@
                             <a href="{{URL::route('filemanager.show', $file->id)}}"
                                class="list-group-item"><i
                                         class="fa fa-file-o"></i> {{$file->original}}
-                                <small class="pull-right">{{$file->created_at->tz('UTC')}}</small>
+                                <small class="pull-right">{{$file->created_at->tz(Config::get('app.timezone'))}}</small>
                             </a>
                         @endforeach
                     </ul>
@@ -177,7 +177,7 @@
 
 
         <div class="panel-footer">
-            <p class="text-right">Формирование заказа {{$Order->created_at->tz('UTC')}}</p>
+            <p class="text-right">{{trans('order.Order placed')}} {{$Order->created_at->tz(Config::get('app.timezone'))}}</p>
         </div>
 
     </div>

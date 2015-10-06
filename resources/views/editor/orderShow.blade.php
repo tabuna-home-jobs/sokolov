@@ -29,7 +29,7 @@
         <ul class="list-group">
             <li class="list-group-item">Статус: <p class="pull-right">{{$Task->status}}</p></li>
             <li class="list-group-item">Дата окончания работы: <p
-                        class="pull-right">{{$Task->workfinish->tz('UTC')}}</p></li>
+                        class="pull-right">{{$Task->workfinish->tz(Config::get('app.timezone'))}}</p></li>
             <li class="list-group-item">Цена: <p class="pull-right">{{$Task->price}}</p></li>
         </ul>
 
@@ -51,7 +51,7 @@
                 <div class="user-comment">
                     @foreach($Comments as $comment)
                         <p>{{$comment->text}}</p>
-                        <p class="text-muted pull-right">{{$comment->created_at->tz('UTC')}}</p>
+                        <p class="text-muted pull-right">{{$comment->created_at->tz(Config::get('app.timezone'))}}</p>
                         <hr>
                     @endforeach
 
