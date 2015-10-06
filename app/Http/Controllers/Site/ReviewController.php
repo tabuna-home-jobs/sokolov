@@ -17,7 +17,10 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $ReviewList = Review::where('lang', App::getLocale())->orderBy('id', 'desc')->paginate(12);
+        $ReviewList = Review::where('lang', App::getLocale())
+            ->where('publish', true)
+            ->orderBy('id', 'desc')
+            ->paginate(12);
 
         return view('site.reviews', [
             'ReviewList' => $ReviewList

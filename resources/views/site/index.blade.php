@@ -370,8 +370,11 @@
                     <div class="caption">
                         <h4>{{$reviews->name}}</h4>
 
-                            <span>{{$reviews->dolshnost}}
-                            </span>
+                        <p class="p-no-m">{{$reviews->dolshnost}}</p>
+
+                        <p class="p-no-m">{{$reviews->institute}}</p>
+
+                        <p class="p-no-m">{{$reviews->country}}</p>
 
 
                         <p class="date">

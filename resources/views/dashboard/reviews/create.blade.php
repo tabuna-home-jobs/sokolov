@@ -25,12 +25,30 @@
                                            value="{{ $Reviews->name or '' }}">
                                 </div>
 
+                                <div class="line line-dashed b-b line-lg"></div>
+
+                                <div class="form-group">
+                                    <label for="country">Страна</label>
+                                    <input type="text" class="form-control" name="country" id="country"
+                                           value="{{ $Reviews->country or '' }}">
+                                </div>
+
+                                <div class="line line-dashed b-b line-lg"></div>
+
+                                <div class="form-group">
+                                    <label for="institute">Институт</label>
+                                    <input type="text" class="form-control" name="institute" id="institute"
+                                           value="{{ $Reviews->institute or '' }}">
+                                </div>
+                                <div class="line line-dashed b-b line-lg"></div>
+
                                 <div class="form-group">
                                     <label for="dolshnost">Должность</label>
                                     <input type="text" class="form-control" name="dolshnost" id="dolshnost"
                                            value="{{ $Reviews->dolshnost or '' }}">
                                 </div>
 
+                                <div class="line line-dashed b-b line-lg"></div>
 
                                 <div class="form-group">
                                     <label for="comment">Содержание</label>
@@ -70,6 +88,24 @@
                                     </div>
                                 </div>
 
+                                <div class="line line-dashed b-b line-lg"></div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Опубликовано</label>
+
+                                    <div class="col-sm-8">
+                                        <label class="i-switch bg-danger m-t-xs m-r">
+                                            <input type="radio" name="publish" value="0" checked="">
+                                            <i></i>
+                                        </label>
+                                        <label class="i-switch bg-success m-t-xs m-r">
+                                            <input type="radio" name="publish" value="1">
+                                            <i></i>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="line line-dashed b-b line-lg"></div>
 
                                 <div class="form-group">
                                     <label>Категория</label>
@@ -80,6 +116,7 @@
                                     </select>
                                 </div>
 
+                                <div class="line line-dashed b-b line-lg"></div>
 
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <button type="submit" class="btn btn-default">Отправить</button>

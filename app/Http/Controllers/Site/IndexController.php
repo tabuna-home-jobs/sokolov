@@ -18,8 +18,17 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $reviews = Review::where('lang', App::getLocale())->orderBy('id', 'desc')->limit(4)->get();
-        $news = News::where('lang',App::getLocale())->orderBy('id','desc')->limit(4)->get();
+        $reviews = Review::where('lang', App::getLocale())
+            ->where('publish', true)
+            ->orderBy('id', 'desc')
+            ->limit(4)
+            ->get();
+
+        $news = News::where('lang', App::getLocale())
+            ->orderBy('id', 'desc')
+            ->limit(4)
+            ->get();
+
         return view('site.index',[
             'NewsList' => $news,
             'ReviewsList' => $reviews,

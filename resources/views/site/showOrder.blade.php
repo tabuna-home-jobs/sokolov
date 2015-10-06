@@ -69,6 +69,9 @@
             <li role="presentation" class=""><a href="#newfile" role="tab" data-toggle="tab" aria-controls="profile"
                                                 aria-expanded="false">{{trans("order.Completed files")}}</a></li>
 
+            <li role="presentation" class=""><a href="#reviews" role="tab" data-toggle="tab" aria-controls="reviews"
+                                                aria-expanded="false">{{trans("order.Completed files")}}</a></li>
+
 
         </ul>
         <div id="myTabContent" class="tab-content">
@@ -173,6 +176,63 @@
                     </ul>
                 </ul>
             </div>
+
+
+            <div role="tabpanel" class="tab-pane fade" id="reviews" aria-labelledby="reviews-tab">
+
+
+                <form>
+
+
+                    <div class="panel-body">
+
+
+                        <div class="form-group">
+                            <label for="name">ФИО</label>
+                            <input type="text" class="form-control" readonly name="name" id="name"
+                                   value="{{Auth::user()->first_name}} {{Auth::user()->last_name}}">
+                        </div>
+
+                        <div class="line line-dashed b-b line-lg"></div>
+
+                        <div class="form-group">
+                            <label for="country">Страна</label>
+                            <input type="text" class="form-control" name="country" readonly id="country" value="">
+                        </div>
+
+                        <div class="line line-dashed b-b line-lg"></div>
+
+                        <div class="form-group">
+                            <label for="institute">Институт</label>
+                            <input type="text" class="form-control" name="institute" readonly id="institute"
+                                   value="{{Auth::user()->institution}}">
+                        </div>
+                        <div class="line line-dashed b-b line-lg"></div>
+
+
+                        <div class="form-group">
+                            <label for="dolshnost">Должность</label>
+                            <input type="text" class="form-control" name="dolshnost" readonly id="dolshnost"
+                                   value="{{Auth::user()->dolshnost}}">
+                        </div>
+
+                        <div class="line line-dashed b-b line-lg"></div>
+
+                        <div class="form-group">
+                            <label for="comment">Содержание</label>
+                            <textarea class="form-control" name="comment" rows="10" id="comment"></textarea>
+                        </div>
+
+
+                    </div>
+
+
+                </form>
+
+
+            </div>
+
+
         </div>
 
 
@@ -181,6 +241,9 @@
         </div>
 
     </div>
+
+
+
 
 
 

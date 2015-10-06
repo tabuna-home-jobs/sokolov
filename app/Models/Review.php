@@ -27,6 +27,9 @@ class Review extends Model
         'comment',
         'avatar',
         'lang',
+        'publish',
+        'country',
+        'institute'
     ];
 
 
