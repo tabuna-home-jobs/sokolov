@@ -23,4 +23,10 @@ class Country extends Model
         'name',
     ];
 
+    public function getUser()
+    {
+        return $this->hasMany('App\Models\User');
+    }
+
+
 }

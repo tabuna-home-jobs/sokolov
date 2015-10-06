@@ -20,9 +20,10 @@ return [
     "Register" => "Sign Up",
     "Do you already have an " => "Already have an ",
     "account" => "account",
-    "first name" => "first name",
+    "first name" => "First name",
     "Repeat password" => "Repeat password",
     "To login" => "Log In",
-    "Change password" => "Change password"
+    "Change password" => "Change password",
+    "Phone" => "Phone number",
 
 ];

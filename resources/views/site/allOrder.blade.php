@@ -24,7 +24,7 @@
                     <th scope="row"><a href="{{route('order.show',$order->id)}}">{{$order->id}}</a></th>
                     <td>{{ date("Y-m-d",$order->created_at->tz(Config::get('app.timezone'))->timestamp)}}</td>
                     <td>{{$order->name}}</td>
-                    <td>{{$order->status}}</td>
+                    <td>{{ trans('status.' . $order->status)}}</td>
                 </tr>
             @endforeach
 

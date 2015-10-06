@@ -117,7 +117,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function getCountry()
     {
-        return $this->hasOne(Country::class);
+        return $this->belongsTo('App\Models\Country', 'country_id');
     }
 
 

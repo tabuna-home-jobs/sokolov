@@ -26,6 +26,15 @@
                                    placeholder="Email"/>
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         </div>
+
+                        <div class="form-group has-feedback">
+                            <label for="username" class="control-label">{{trans('auth.Phone')}}</label>
+                            <input type="text" class="form-control" name="phone" value="{{ old('phone') }}"
+                                   placeholder="+74742471542"/>
+                            <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+                        </div>
+
+
                         <div class="form-group has-feedback">
                             <label for="username" class="control-label">{{trans('auth.Password')}}</label>
                             <input type="password" class="form-control" name="password"

@@ -53,7 +53,8 @@
 
 
         <ul class="list-group">
-            <li class="list-group-item">{{trans("order.Status")}}: <p class="pull-right">{{$Order->status}}</p></li>
+            <li class="list-group-item">{{trans("order.Status")}}: <p
+                        class="pull-right">{{ trans('status.' . $Order->status)}}</p></li>
             <li class="list-group-item">{{trans("order.Order completion date and time")}}: <p
                         class="pull-right">{{$Order->workfinish->tz(Config::get('app.timezone'))}}</p></li>
             <li class="list-group-item">{{trans("order.Total price")}}: <p class="pull-right">{{$Order->price}} $</p>
@@ -69,9 +70,10 @@
             <li role="presentation" class=""><a href="#newfile" role="tab" data-toggle="tab" aria-controls="profile"
                                                 aria-expanded="false">{{trans("order.Completed files")}}</a></li>
 
+            @if($Order->status == "Готова")
             <li role="presentation" class=""><a href="#reviews" role="tab" data-toggle="tab" aria-controls="reviews"
-                                                aria-expanded="false">{{trans("order.Completed files")}}</a></li>
-
+                                                aria-expanded="false">{{trans("reviews.Write a review")}}</a></li>
+            @endif
 
         </ul>
         <div id="myTabContent" class="tab-content">
@@ -178,60 +180,74 @@
             </div>
 
 
+            @if($Order->status == "Готова")
             <div role="tabpanel" class="tab-pane fade" id="reviews" aria-labelledby="reviews-tab">
 
 
-                <form>
+                <form action="{{route('review.store')}}" method="post" enctype="multipart/form-data">
 
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <div class="panel-body">
 
 
                         <div class="form-group">
-                            <label for="name">ФИО</label>
+                            <label for="name">{{trans('feedback.Full name')}}</label>
                             <input type="text" class="form-control" readonly name="name" id="name"
                                    value="{{Auth::user()->first_name}} {{Auth::user()->last_name}}">
                         </div>
 
-                        <div class="line line-dashed b-b line-lg"></div>
-
                         <div class="form-group">
-                            <label for="country">Страна</label>
-                            <input type="text" class="form-control" name="country" readonly id="country" value="">
+                            <label for="country">{{trans('setting.Country')}}</label>
+                            <input type="text" class="form-control" name="country" readonly id="country"
+                                   value="{{Auth::user()->getCountry()->first()->name}}">
                         </div>
 
-                        <div class="line line-dashed b-b line-lg"></div>
-
                         <div class="form-group">
-                            <label for="institute">Институт</label>
+                            <label for="institute">{{trans('setting.Institution')}}</label>
                             <input type="text" class="form-control" name="institute" readonly id="institute"
                                    value="{{Auth::user()->institution}}">
                         </div>
-                        <div class="line line-dashed b-b line-lg"></div>
-
 
                         <div class="form-group">
-                            <label for="dolshnost">Должность</label>
+                            <label for="dolshnost">{{trans('setting.title')}}</label>
                             <input type="text" class="form-control" name="dolshnost" readonly id="dolshnost"
-                                   value="{{Auth::user()->dolshnost}}">
+                                   value="{{Auth::user()->dignity}}">
                         </div>
 
-                        <div class="line line-dashed b-b line-lg"></div>
+                        <div class="form-group">
+                            <label for="comment">{{trans('reviews.Content')}}</label>
+                            <textarea class="form-control" name="comment" rows="10" id="comment"></textarea>
+                        </div>
+
 
                         <div class="form-group">
-                            <label for="comment">Содержание</label>
-                            <textarea class="form-control" name="comment" rows="10" id="comment"></textarea>
+                            <label for="avatar">{{trans('reviews.Your image')}}</label>
+
+                            <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                <div class="form-control" data-trigger="fileinput"><i
+                                            class="glyphicon glyphicon-file fileinput-exists"></i> <span
+                                            class="fileinput-filename"></span></div>
+                        <span class="input-group-addon btn btn-default btn-file"><span
+                                    class="fileinput-new">{{trans('file.Select file')}}</span><span
+                                    class="fileinput-exists">{{trans('file.Change')}}</span><input type="file"
+                                                                                                   name="avatar"></span>
+                                <a href="#" class="input-group-addon btn btn-default fileinput-exists"
+                                   data-dismiss="fileinput">{{trans('file.Remove')}}</a>
+                            </div>
                         </div>
 
 
                     </div>
 
-
+                    <p class="text-center">
+                        <button class="btn btn-link" type="submit">{{trans('reviews.Send')}}</button>
+                    </p>
                 </form>
 
 
             </div>
-
+            @endif
 
         </div>
 

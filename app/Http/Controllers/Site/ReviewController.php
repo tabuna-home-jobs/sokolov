@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Image;
+use Session;
 
 class ReviewController extends Controller
 {
@@ -45,7 +47,20 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $Review = new Review(
+            $request->all()
+        );
+        $Review->publish = 0;
+
+        if ($request->hasFile('avatar')) {
+            Image::make($request->file('avatar'))->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
+            $Review->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
+        }
+        $Review->save();
+
+        Session::flash('good', trans('alert.You have successfully left a review'));
+        return redirect()->back();
     }
 
     /**
