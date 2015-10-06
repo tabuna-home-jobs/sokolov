@@ -57,13 +57,13 @@
 
             <div class="icon-info-top navbar-form navbar-left hidden-xs">
 
-                <a href="skype:+79802665074?call"><span class="glyphicon glyphicon-earphone"></span>
-                    <b>8(980)266-5074</b></a>
+                <a href="skype:+79802665074?call"><img src="/img/icon/phone-icon.png">
+                    <b> 8(980)266-5074</b></a>
 
-                <a href="mailto:contact@falconediting.com"><span
-                            class="fa fa-envelope-o"></span> contact@falconediting.com</a>
+                <a href="mailto:contact@falconediting.com"><img src="/img/icon/email-icon.png"> contact@falconediting
+                    .com</a>
 
-                <a href="skype:falconediting?call"><span class="fa fa-skype"></span> falconediting</a>
+                <a href="skype:falconediting?call"><img src="/img/icon/skype-icon.png"> falconediting</a>
 
             </div>
         </div>
@@ -225,11 +225,12 @@
                     <h4>{{trans('footer.contacts')}}</h4>
 
                     <ul class="menu-footer-contact">
-                        <li><a href="skype:+79802665074?call"><span
-                                        class="glyphicon glyphicon-earphone"></span> 8(980)266-5074</a></li>
-                        <li><a href="mailto:contact@falconediting.com"><span
-                                        class="fa fa-envelope-o"></span> contact@falconediting.com</a></li>
-                        <li><a href="skype:falconediting?call"><span class="fa fa-skype"></span> falconediting</a></li>
+                        <li><a href="skype:+79802665074?call"> <img src="/img/icon/phone-icon-m.png"> 8(980)266-5074</a>
+                        </li>
+                        <li><a href="mailto:contact@falconediting.com"><img src="/img/icon/email-icon-m.png">
+                                contact@falconediting.com</a></li>
+                        <li><a href="skype:falconediting?call"> <img src="/img/icon/skype-icon-m.png"> falconediting</a>
+                        </li>
                     </ul>
 
                 </div>
