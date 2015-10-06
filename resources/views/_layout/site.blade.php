@@ -172,16 +172,14 @@
         <div class="container-alert">
             <div class="alert alert-success alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-check"></i> Успех!</h4>
-                {{Session::get('good')}}
+                <i class="icon fa fa-check"></i> {{Session::get('good')}}
             </div>
         </div>
     @elseif(Session::has('bad'))
         <div class="container-alert">
             <div class="alert alert-danger alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-ban"></i> Что то пошло не так!</h4>
-                {{Session::get('bad')}}
+                <i class="icon fa fa-ban"></i> {{Session::get('bad')}}
             </div>
         </div>
     @endif
@@ -191,7 +189,6 @@
         <div class="container-alert">
             <div class="alert alert-danger alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Ошибка!</strong> Пожалуйста проверте вводимые данные.<br><br>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
