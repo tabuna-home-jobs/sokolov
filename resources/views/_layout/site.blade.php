@@ -125,7 +125,7 @@
                                 {{trans('main.panel')}} @endif</a></li>
                     @endif
 
-                    <li class=" dropdown hidden-sm hidden-xs">
+                    <li class="dropdown hidden-sm hidden-xs">
 
 
                     @if(Auth::check())
