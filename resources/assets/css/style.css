@@ -177,6 +177,7 @@ a:active, a:hover , .btn{
     font-weight: 300;
     line-height: 24px;
     padding-bottom: 20px;
+    max-width: 600px;
 }
 
 .navbar-default {
@@ -578,6 +579,8 @@ a:active, a:hover , .btn{
     line-height: 36px;
     padding: 10px 20px;
     margin: 20px 0;
+    vertical-align: middle;
+    background-size: 100% 100%;
 }
 
 
@@ -639,6 +642,7 @@ a:active, a:hover , .btn{
 .right-top-menu a.active{
     color: #ffffff;
     background: #f68d44;
+    border-radius: 5px;
 }
 
 
@@ -1280,4 +1284,9 @@ pre {
     border: none;
     color:#fff;
     background: url("/img/login-a.png") 100% no-repeat;
+    background-size: 100%;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    border-radius: 8px;
 }

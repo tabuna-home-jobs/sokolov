@@ -7566,7 +7566,8 @@ a {
     font-size: 16px;
     font-weight: 300;
     line-height: 24px;
-    padding-bottom: 20px
+    padding-bottom: 20px;
+    max-width: 600px
 }
 
 .navbar-default {
@@ -7942,7 +7943,9 @@ a {
     font-weight: 700;
     line-height: 36px;
     padding: 10px 20px;
-    margin: 20px 0
+    margin: 20px 0;
+    vertical-align: middle;
+    background-size: 100% 100%
 }
 
 .why-work p {
@@ -7991,7 +7994,8 @@ a {
 
 .right-top-menu a.active {
     color: #fff;
-    background: #f68d44
+    background: #f68d44;
+    border-radius: 5px
 }
 
 .carousel, .carousel-inner, .carousel-inner > .active {
@@ -8597,6 +8601,11 @@ pre {
 .dropdown #drop1 {
     border: none;
     color: #fff;
-    background: url(/img/login-a.png) 100% no-repeat
+    background: url(/img/login-a.png) 100% no-repeat;
+    background-size: 100%;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    border-radius: 8px
 }
 /*# sourceMappingURL=app.css.map */

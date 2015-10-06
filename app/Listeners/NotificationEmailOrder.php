@@ -29,6 +29,7 @@ class NotificationEmailOrder
     {
         Mail::raw('Новый заказ #' . $event->id . ' ожидает рассмотрения', function ($message) {
             $message->from(Config::get('link.email'));
+            $message->to(Config::get('link.email'))->cc(Config::get('link.email'));
         });
     }
 }
