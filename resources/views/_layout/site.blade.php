@@ -125,10 +125,10 @@
                                 {{trans('main.panel')}} @endif</a></li>
                     @endif
 
-                    <li class=" dropdown">
-                        <!-- Single button -->
+                    <li class=" dropdown hidden-sm hidden-xs">
 
-            @if(Auth::check())
+
+                    @if(Auth::check())
                 <a id="drop1" href="#" role="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
 

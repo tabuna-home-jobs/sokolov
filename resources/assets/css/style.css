@@ -1,6 +1,13 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
 body {
     color: #1c1c1c;
     font-family: 'Roboto', sans-serif !important;
+    margin-bottom: 400px;
 }
 
 
@@ -106,6 +113,12 @@ a:active, a:hover , .btn{
 #footer {
     background-color: #2f8398;
     color: #ffffff;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 400px;
 }
 
 #footer a {
