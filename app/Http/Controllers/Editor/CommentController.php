@@ -47,7 +47,7 @@ class CommentController extends Controller
             'text' => $request->text,
         ]);
         $comments->save();
-        Session::flash('good', 'Вы успешно добавили комментарий');
+        Session::flash('good', trans('alert.You have successfully added a comment'));
         return redirect()->back();
     }
 

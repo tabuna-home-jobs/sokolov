@@ -84,7 +84,7 @@ class OrderController extends Controller
         $task = Auth::user()->getTask()->findOrFail($id);
         $task->status = "На проверке";
         $task->save();
-        Session::flash('good', 'Вы успешно изменили статус задачи');
+        Session::flash('good', trans('alert.You have successfully changed the status of the task'));
         return redirect()->back();
     }
 

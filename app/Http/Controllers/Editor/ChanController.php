@@ -55,7 +55,7 @@ class ChanController extends Controller
 
         event(new Notification($task->id));
 
-        Session::flash('good', 'Вы успешно взяли задачу');
+        Session::flash('good', trans('alert.You have successfully taken the task'));
         return redirect()->back();
 
     }

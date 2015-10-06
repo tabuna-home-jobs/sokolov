@@ -43,7 +43,7 @@ class CommentsController extends Controller
         $comments->user_id = Auth::user()->id;
         $comments->type = "task";
         $comments->save();
-        Session::flash('good', 'Вы успешно добавили комментарий');
+        Session::flash('good', trans('alert.You have successfully added a comment'));
         return redirect()->back();
     }
 

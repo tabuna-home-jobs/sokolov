@@ -120,7 +120,7 @@ class SettingController extends Controller
         }
 
 
-        Session::flash('good', 'Вы успешно изменили значения');
+        Session::flash('good', trans('alert.You have successfully changed values'));
         return redirect()->back();
 
     }

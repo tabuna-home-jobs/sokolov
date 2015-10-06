@@ -104,7 +104,7 @@ class OrderController extends Controller
         }
 
         event(new NewOrder($newOrder->id));
-        Session::flash('good', 'Спасибо, что написали, мы обязательно ответим вам.');
+        Session::flash('good', trans('alert.Thank you for writing, we will respond to you.'));
         return redirect()->back();
 
     }

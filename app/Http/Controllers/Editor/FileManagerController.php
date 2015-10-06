@@ -71,7 +71,7 @@ class FileManagerController extends Controller
 
         }
 
-        Session::flash('good', 'Вы успешно добавили комментарий');
+        Session::flash('good', trans('trans.You have successfully added a comment'));
         return redirect()->back();
 
     }
