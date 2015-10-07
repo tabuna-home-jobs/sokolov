@@ -26,10 +26,6 @@
     <h1>{{$Page->title}}</h1>
 
 
-    <div class="blog-thumbnail">
-        <img src="{{$Page->avatar}}">
-    </div>
-
     <main class="blog-content">
 
         {!! $Page->content !!}
