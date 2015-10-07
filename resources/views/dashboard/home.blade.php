@@ -136,7 +136,7 @@
               yaxis:{ font: { color: '#a1a7ac' } },
               grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#dce5ec' },
               tooltip: true,
-              tooltipOpts: { content: '%s of %x.1 is %y.4',  defaultTheme: false, shifts: { x: 10, y: -25 } }
+              tooltipOpts: { content: '%s  %x.0 числа сделано заявок: %y.0',  defaultTheme: false, shifts: { x: 10, y: -25 } }
             }
           " style="height: 240px; padding: 0px; position: relative;">
                                 <canvas class="flot-base"
