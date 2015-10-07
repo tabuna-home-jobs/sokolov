@@ -40,7 +40,7 @@
 
 
     <div class="share-post clearfix">
-        <label>Поделиться</label>
+        <label>{{trans('content.Share')}}</label>
         <ul class="social-rounded">
             <li><a href="http://www.facebook.com/sharer.php?u={{Request::url()}}" target="_blank"><i
                             class="fa fa-facebook"></i></a></li>
@@ -56,8 +56,7 @@
     </div>
 
 
-
-    <p class="blog-meta pull-left">Теги: {{$Page->tag}}</p>
+    <p class="blog-meta pull-left">{{trans('content.Tags')}}: {{$Page->tag}}</p>
     <p class="blog-meta pull-right">{{$Page->created_at}}</p>
 
 </article>
@@ -66,7 +65,7 @@
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar hidden-xs hidden-sm">
             <div class="sidebar-module sidebar-module-inset">
 
-                <h3>Последние новости </h3>
+                <h3>{{trans('content.Last news')}} </h3>
                 <hr>
 
                 @foreach($NewsList as $news)

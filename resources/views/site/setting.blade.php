@@ -59,7 +59,7 @@
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="phone"
-                                       placeholder="+79802665074 или 89802665074 или 8-980-266-5074"
+                                       placeholder="+79802665074"
                                        value="{{$User->phone}}">
                             </div>
                         </div>
