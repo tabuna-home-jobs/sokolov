@@ -150,7 +150,8 @@
 
 
                     <hr>
-                    <a class="btn btn-link" id="MoreUpload">{{trans('file.More')}}</a>
+                    <p class="text-center"><a class="btn btn-link" id="MoreUpload"> <i
+                                    class="fa fa-plus"></i> {{trans('file.More')}}</a></p>
                     <hr>
 
 
