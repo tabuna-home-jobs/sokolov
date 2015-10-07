@@ -15,5 +15,6 @@ return [
     "Select files" => "Select files",
     "Move the files you want to upload" => "Move the files you want to upload",
     "Files" => "Files",
-    "Send" => "Submit order!",
+    "Send" => "Submit order",
+    "I agree to the terms of the user agreement" => "I agree to the terms of the user agreement",
 ];

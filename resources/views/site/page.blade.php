@@ -38,27 +38,6 @@
 
 
 
-
-    <div class="share-post clearfix">
-        <label>{{trans('content.Share')}}</label>
-        <ul class="social-rounded">
-            <li><a href="http://www.facebook.com/sharer.php?u={{Request::url()}}" target="_blank"><i
-                            class="fa fa-facebook"></i></a></li>
-            <li><a href="https://twitter.com/share?url={{Request::url()}}" target="_blank"><i
-                            class="fa fa-twitter"></i></a></li>
-            <li><a href="https://plus.google.com/share?url={{Request::url()}}" target="_blank"><i
-                            class="fa fa-google-plus"></i></a></li>
-            <li><a href="http://vkontakte.ru/share.php?url={{Request::url()}}" target="_blank"><i
-                            class="fa fa-vk"></i></a></li>
-            <li><a href="http://www.ok.ru/dk?st.cmd=addShare&st.s=1&st._surl={{Request::url()}}"
-                   target="_blank"><i class="fa fa-odnoklassniki"></i></a></li>
-        </ul>
-    </div>
-
-
-    <p class="blog-meta pull-left">{{trans('content.Tags')}}: {{$Page->tag}}</p>
-    <p class="blog-meta pull-right">{{$Page->created_at}}</p>
-
 </article>
 
 

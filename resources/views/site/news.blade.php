@@ -50,7 +50,7 @@
 
             <p class="blog-meta pull-left">{{trans('content.Tags')}}: {{$News->tag}}</p>
 
-            <p class="blog-meta pull-right">{{$News->created_at}}</p>
+            <p class="blog-meta pull-right">{{$News->created_at->diffForHumans()}}</p>
 
         </article>
 

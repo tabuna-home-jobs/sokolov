@@ -16,4 +16,6 @@ return [
     "Move the files you want to upload" => "Переместите файлы которые вы хотите загрузить",
     "Files" => "Файлы",
     "Send" => "Отправить",
+    "I agree to the terms of the user agreement" => "Я согласен с условиями пользовательского соглашения",
+
 ];
