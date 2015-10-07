@@ -30,11 +30,6 @@
                            href="/dashboard/feedback/"><i class="fa fa-long-arrow-left"></i></a>
 
                         <div class="btn-group m-r-sm">
-                            <button tooltip="Archive" class="btn btn-sm btn-default w-xxs w-auto-xs"><i
-                                        class="fa fa-print"></i></button>
-                            <button tooltip="Report" class="btn btn-sm btn-default w-xxs w-auto-xs"><i
-                                        class="fa fa-reply"></i></button>
-
 
                             <form action="{{URL::route('dashboard.feedback.destroy',$Feedback->id)}}" method="post" class="pull-right">
                                 <input type="hidden" name="_method" value="delete">
