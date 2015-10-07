@@ -926,7 +926,7 @@ figcaption > a {
 }
 
 figcaption {
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 figcaption > a:hover {
