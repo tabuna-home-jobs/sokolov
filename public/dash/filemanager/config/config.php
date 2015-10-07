@@ -66,7 +66,7 @@ $config = array(
 	| with start and final /
 	|
 	*/
-	'upload_dir' => '../source/',
+	'upload_dir' => '/dash/source/',
 
 	/*
 	|--------------------------------------------------------------------------

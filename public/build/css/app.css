@@ -8262,10 +8262,6 @@ figcaption > a {
     line-height: 27px
 }
 
-figcaption {
-    overflow: hidden
-}
-
 figcaption > a:hover {
     color: #1c1c1c;
     font-family: Roboto Slab;
