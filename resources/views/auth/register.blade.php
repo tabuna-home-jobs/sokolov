@@ -60,18 +60,11 @@
                 <div class="well well-primary">
                     <p class="lead">{{trans('auth.Do you already have an ')}} {{trans('auth.account')}}?</p>
                     <ul class="list-unstyled" style="line-height: 2">
-                        <li><span class="fa fa-check text-success"></span> Делай заказы</li>
-                        <li><span class="fa fa-check text-success"></span> Оплачивай</li>
-                        <li><span class="fa fa-check text-success"></span> Проверяй работу</li>
-                        <li><span class="fa fa-check text-success"></span> Делай заказы</li>
-                        <li><span class="fa fa-check text-success"></span> Оплачивай</li>
-                        <li><span class="fa fa-check text-success"></span> Проверяй работу</li>
-                        <li><span class="fa fa-check text-success"></span> Делай заказы</li>
-                        <li><span class="fa fa-check text-success"></span> Оплачивай</li>
-                        <li><span class="fa fa-check text-success"></span> Проверяй работу</li>
-                        <li><span class="fa fa-check text-success"></span> можно ещё написать
-                            <small>много вещеё</small>
-                        </li>
+                        <li><span class="fa fa-check text-success"></span> {{trans('auth.Create orders')}}</li>
+                        <li><span class="fa fa-check text-success"></span> {{trans('auth.Pay for services')}}</li>
+                        <li><span class="fa fa-check text-success"></span> {{trans('auth.Check order status')}}</li>
+                        <li><span class="fa fa-check text-success"></span> {{trans('auth.Send questions')}}</li>
+                        <li><span class="fa fa-check text-success"></span> {{trans('auth.Leave reviews')}}</li>
                     </ul>
                     <p class="text-center"><a href="/auth/login/" class="btn btn-info">{{trans('auth.To login')}}</a>
                     </p>

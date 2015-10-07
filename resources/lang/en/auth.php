@@ -26,4 +26,12 @@ return [
     "Change password" => "Change password",
     "Phone" => "Phone number",
 
+
+    "Create orders" => "Create orders",
+    "Pay for services" => "Pay for services",
+    "Check order status" => "Check order status",
+    "Send questions" => "Send questions",
+    "Leave reviews" => "Leave reviews",
+
+
 ];

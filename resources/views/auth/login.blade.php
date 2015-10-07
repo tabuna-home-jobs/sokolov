@@ -39,11 +39,11 @@
                     <p class="lead">{{trans('auth.Register now for ')}} {{trans('auth.free')}}
                     </p>
                     <ul class="list-unstyled" style="line-height: 2">
-                        <li><span class="fa fa-check text-success"></span> Делайте заказыы</li>
-                        <li><span class="fa fa-check text-success"></span> Оплачивайте за услуги</li>
-                        <li><span class="fa fa-check text-success"></span> Проверяйте статус работ</li>
-                        <li><span class="fa fa-check text-success"></span> Задавайте вопросы</li>
-                        <li><span class="fa fa-check text-success"></span> Оставляйте отзывы</li>
+                        <li><span class="fa fa-check text-success"></span> {{trans('auth.Create orders')}}</li>
+                        <li><span class="fa fa-check text-success"></span> {{trans('auth.Pay for services')}}</li>
+                        <li><span class="fa fa-check text-success"></span> {{trans('auth.Check order status')}}</li>
+                        <li><span class="fa fa-check text-success"></span> {{trans('auth.Send questions')}}</li>
+                        <li><span class="fa fa-check text-success"></span> {{trans('auth.Leave reviews')}}</li>
                     </ul>
                     <p class="text-center"><a href="/auth/register/"
                                               class="btn btn-info">{{trans('auth.I want to register')}}</a></p>
