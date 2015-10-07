@@ -4,35 +4,25 @@
 @section('content')
 
 
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3"> Пользователи</h1>
+    </div>
+    <div class="wrapper-md">
+        <div class="panel panel-default">
 
-
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-            Пользователи
-        </h1>
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">
-                            <h5 class="box-title">
-                                <small>Добовление пользователей невозможно</small>
-                            </h5>
-                        </h3>
-                    </div><!-- /.box-header -->
-                    <div class="box-body">
-                        <table class="table table-bordered table-hover">
+            <div class="table-responsive">
+                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-striped m-b-none dataTable no-footer" id="DataTables_Table_0"
+                                   role="grid" aria-describedby="DataTables_Table_0_info">
                             <thead>
-                            <tr>
+                            <tr role="row">
                                 <th>#</th>
                                 <th>Имя</th>
                                 <th>Email</th>
-
+                                <th>Телефон</th>
+                                <th>Управление</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -41,6 +31,7 @@
                                     <td>{{$User->id}}</td>
                                     <td>{{$User->first_name}}</td>
                                     <td>{{$User->email}}</td>
+                                    <td>{{$User->phone}}</td>
                                     <td>
                                         <div class="btn-group pull-right" role="group" aria-label="...">
                                             <a href="{{URL::route('dashboard.user.show', $User->id)}}"
@@ -88,23 +79,41 @@
 
                             @endforeach
                             </tbody>
-                            <tfoot>
-                            <tr>
-                                <th>#</th>
-                                <th>Имя</th>
-                                <th>Email</th>
+                            </table>
+                        </div>
+                    </div>
 
-                            </tr>
-                            </tfoot>
 
-                        </table>
-                        {!! $Users->render(); !!}
-                    </div><!-- /.box-body -->
-                </div><!-- /.box -->
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            <small class="text-muted inline m-t-sm m-b-sm">Всего
+                                элементов: {!! $Users->count() !!}</small>
+                        </div>
+                        <div class="col-sm-6 text-right text-center-xs">
+                            {!! $Users->render() !!}
+                        </div>
+                    </div>
 
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </section><!-- /.content -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

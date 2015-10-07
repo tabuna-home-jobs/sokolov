@@ -46,8 +46,9 @@ class TaskController extends Controller
         if ($request->user_id == 0)
             $task->status = "Исполнитель не определён";
         else {
-            $task->status = "Исполнитель опрределён";
+            $task->status = "В работе";
             //Отправить СМС
+
 
             SMS::send($task->getUser()->first()->phone, 'У вас новая задача в системе');
         }

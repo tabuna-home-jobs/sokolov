@@ -8,10 +8,10 @@ use App\Http\Requests\Site\OrderElementRequest;
 use App\Models\Comments;
 use App\Models\Files;
 use App\Models\Order;
-use App\Models\User;
+use DB;
 use Illuminate\Http\Request;
 use Session;
-use DB;
+
 class OrderController extends Controller
 {
     /**
@@ -21,6 +21,10 @@ class OrderController extends Controller
      */
     public function index()
     {
+        /**
+         * http://s00.yaplakal.com/pics/pics_original/7/8/2/6036287.jpg
+         */
+
         if(!is_null(request()->status)){
             $orderStatus = request()->status;
 
@@ -146,6 +150,7 @@ class OrderController extends Controller
 
 
         $AllUser = DB::table('users')
+            ->select('users.*')
                     ->leftJoin('skills','users.id','=','skills.user_id')
                     ->leftJoin('orderMeta','orderMeta.category_id','=','skills.category_id')
                     ->groupBy('users.id')

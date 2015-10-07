@@ -5,7 +5,7 @@ use App\Http\Requests;
 use App\Http\Requests\Admin\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
-use Sentry;
+use Auth;
 use Session;
 
 class UserController extends Controller
@@ -81,15 +81,12 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request)
     {
 
-        $user = Sentry::getUser();
+        $user = Auth::user();
         $user->email = $request->email;
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->save();
-
-
-        dd(Sentry::getUser());
-
+        return redirect()->route('dashboard.user.index');
     }
 
     /**
