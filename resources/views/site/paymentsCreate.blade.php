@@ -13,8 +13,8 @@
             <input type="hidden" name="scid" value="{{Config::get('yandexMoney.scid')}}">
             <input type="hidden" name="CustomerNumber" size="64" value="{{Auth::user()->email}}">
 
-            <input type="hidden" name="orderSumCurrencyPaycash" value="USD">
-            <input type="hidden" name="shopSumCurrencyPaycash" value="USD">
+            <input type="hidden" name="orderSumCurrencyPaycash" value="840">
+            <input type="hidden" name="shopSumCurrencyPaycash" value="840">
 
 
             <input name="paymentType" value="AC" type="hidden"/>
