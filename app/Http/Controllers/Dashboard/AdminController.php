@@ -30,7 +30,6 @@ class AdminController extends Controller
             return Order::orderBy('id', 'desc')->limit(5)->get();
         });
 
-
         $Pages = Cache::remember('Pages', 10, function () {
             return Page::count();
         });

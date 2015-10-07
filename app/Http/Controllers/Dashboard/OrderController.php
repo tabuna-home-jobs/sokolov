@@ -34,7 +34,7 @@ class OrderController extends Controller
 
             }elseif($orderStatus == 'ocenka'){
 
-                $orderStatus = 'Обрабатываеться';
+                $orderStatus = 'Обрабатывается';
 
             }
             elseif($orderStatus == 'canlcel'){
@@ -48,7 +48,7 @@ class OrderController extends Controller
 
             }elseif($orderStatus == 'done'){
 
-                $orderStatus = 'Завершён';
+                $orderStatus = 'Готова';
 
             }elseif($orderStatus == 'all'){
 
