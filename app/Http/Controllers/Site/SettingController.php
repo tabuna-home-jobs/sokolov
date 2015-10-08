@@ -110,9 +110,9 @@ class SettingController extends Controller
             $this->user->fill($request->all())->save();
         } elseif ($request->type == 'password') {
 
+
             $this->validate($request, [
-                'password' => 'required|max:255',
-                'password_confirmation' => 'required|confirmed',
+                'password' => 'required|max:255|confirmed',
             ]);
 
             $this->user->password = bcrypt($request->password);
