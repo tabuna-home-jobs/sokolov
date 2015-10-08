@@ -16,4 +16,5 @@ return [
     "Your Orders" => "Заказы",
     "Order Date" => "Дата заказа",
     "Title" => "Название работы",
+    "Requested speed" => "Скорость",
 ];

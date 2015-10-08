@@ -16,4 +16,5 @@ return [
     "Your Orders" => "Your Orders",
     "Order Date" => "Order Date",
     "Title" => "Title",
+    "Requested speed" => "Requested speed",
 ];

@@ -32,7 +32,7 @@
                         <td>{{$task->getGoods->eng_name}}</td>
                     @endif
 
-                    <td><i class="fa fa-dollar"></i> {{$task->price}}</td>
+                    <td>{{$task->price}} USD</td>
                     <td>
                         <small>{{$task->workfinish}}</small>
                     </td>

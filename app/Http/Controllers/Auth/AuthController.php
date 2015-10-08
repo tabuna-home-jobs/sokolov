@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Zone;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Validator;
@@ -33,6 +34,14 @@ class AuthController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
+    public function getRegister()
+    {
+        $Zone = Zone::orderBy('zone_name')->get();
+        return view('auth.register', [
+            'Zone' => $Zone
+        ]);
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -60,13 +69,15 @@ class AuthController extends Controller
             'first_name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'phone' => $data['phone'],
+            'utc' => $data['utc'],
         ]);
         $user->password = bcrypt($data['password']);
         $user->addRole('user');
         $user->save();
 
         return $user;
-
-
     }
+
+
 }

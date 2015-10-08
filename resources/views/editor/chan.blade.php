@@ -36,7 +36,7 @@
                     @endif
 
 
-                    <td>{{$task->price}}</td>
+                    <td>{{$task->price}} USD</td>
                     <td>{{$task->workfinish}}</td>
 
 

@@ -25,7 +25,9 @@
             @endif
 
             <hr>
-            <p>{{trans("order.Requested services")}}:</p>
+            <p class="pull-left">{{trans("order.Requested services")}}:</p>
+
+            <p class="text-right">{{trans("order.Requested speed")}}:</p>
 
             <ul class="list-group">
                 @foreach($collectionGoods as $key => $value)
@@ -38,13 +40,11 @@
                         @endif
 
 
-
                             @if(!empty($value->speed))
                                 <span class="pull-right">
-                                <small> {{ " - ". trans('speed.'. $value->speed)}} </small>
-                            </span>
+                            <small> {{ " - ". trans('speed.'. $value->speed)}} </small>
+                        </span>
                             @endif
-
 
                     </li>
                 @endforeach
@@ -57,7 +57,7 @@
                         class="pull-right">{{ trans('status.' . $Order->status)}}</p></li>
             <li class="list-group-item">{{trans("order.Order completion date and time")}}: <p
                         class="pull-right">{{$Order->workfinish->tz(Config::get('app.timezone'))}}</p></li>
-            <li class="list-group-item">{{trans("order.Total price")}}: <p class="pull-right">{{$Order->price}} $</p>
+            <li class="list-group-item">{{trans("order.Total price")}}: <p class="pull-right">{{$Order->price}} USD</p>
             </li>
         </ul>
 

@@ -36,6 +36,19 @@
 
 
                         <div class="form-group has-feedback">
+                            <label for="utc" class="control-label"> {{trans('setting.UTC')}}</label>
+                            <select class="form-control" name="utc">
+
+                                @foreach($Zone as $value)
+                                    <option value="{{$value->zone_name}}">{{$value->zone_name}}
+                                    </option>
+                                @endforeach
+
+                            </select>
+                        </div>
+
+
+                        <div class="form-group has-feedback">
                             <label for="username" class="control-label">{{trans('auth.Password')}}</label>
                             <input type="password" class="form-control" name="password"
                                    placeholder="{{trans('auth.Password')}}"/>

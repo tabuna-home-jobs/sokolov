@@ -105,7 +105,7 @@
 
                                     @foreach($Zone as $value)
                                         <option value="{{$value->zone_name}}"
-                                                @if($User->utc == $value->zone_name) selected @endif >$value->zone_name
+                                                @if($User->utc == $value->zone_name) selected @endif >{{$value->zone_name}}
                                         </option>
                                     @endforeach
 

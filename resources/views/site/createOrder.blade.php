@@ -29,18 +29,22 @@
 
                 <h4>{{trans('createOrder.Selection of services')}}</h4>
             </div>
+
             <div class="stepwizard-step col-xs-4">
                 <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled"><i
-                            class="fa fa-pencil-square-o"></i></a>
-
-                <h4>{{trans('createOrder.Description of work')}}</h4>
-            </div>
-            <div class="stepwizard-step col-xs-4">
-                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled"><i
                             class="fa fa-file-word-o"></i></a>
 
                 <h4>{{trans('createOrder.Attach files')}}</h4>
             </div>
+
+            <div class="stepwizard-step col-xs-4">
+                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled"><i
+                            class="fa fa-pencil-square-o"></i></a>
+
+                <h4>{{trans('createOrder.Description of work')}}</h4>
+            </div>
+
+
         </div>
     </div>
 
@@ -92,6 +96,41 @@
             <div class="col-xs-12">
                 <div class="col-md-12">
 
+                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                        <div class="form-control" data-trigger="fileinput"><i
+                                    class="glyphicon glyphicon-file fileinput-exists"></i> <span
+                                    class="fileinput-filename"></span></div>
+                        <span class="input-group-addon btn btn-default btn-file"><span
+                                    class="fileinput-new">{{trans('file.Select file')}}</span><span
+                                    class="fileinput-exists">{{trans('file.Change')}}</span><input type="file"
+                                                                                                   name="files[]"></span>
+                        <a href="#" class="input-group-addon btn btn-default fileinput-exists"
+                           data-dismiss="fileinput">{{trans('file.Remove')}}</a>
+                    </div>
+
+
+                    <div id="NewUploader">
+
+                    </div>
+
+
+                    <hr>
+                    <p class="text-center"><a class="btn btn-link" id="MoreUpload"> <i
+                                    class="fa fa-plus"></i> {{trans('file.More')}}</a></p>
+                    <hr>
+
+
+                    <button class="btn btn-primary nextBtn pull-right"
+                            type="button">{{trans('createOrder.Next')}}</button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row setup-content" id="step-3">
+            <div class="col-xs-12">
+                <div class="col-md-12">
+
                     <div class="form-group">
                         <label class="control-label">{{trans('createOrder.Job title')}}</label>
                         <input maxlength="200" type="text" name="name" required="required" class="form-control"/>
@@ -122,39 +161,6 @@
                     </div>
 
 
-                    <button class="btn btn-primary nextBtn pull-right"
-                            type="button">{{trans('createOrder.Next')}}</button>
-                </div>
-            </div>
-        </div>
-        <div class="row setup-content" id="step-3">
-            <div class="col-xs-12">
-                <div class="col-md-12">
-
-                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                        <div class="form-control" data-trigger="fileinput"><i
-                                    class="glyphicon glyphicon-file fileinput-exists"></i> <span
-                                    class="fileinput-filename"></span></div>
-                        <span class="input-group-addon btn btn-default btn-file"><span
-                                    class="fileinput-new">{{trans('file.Select file')}}</span><span
-                                    class="fileinput-exists">{{trans('file.Change')}}</span><input type="file"
-                                                                                                   name="files[]"></span>
-                        <a href="#" class="input-group-addon btn btn-default fileinput-exists"
-                           data-dismiss="fileinput">{{trans('file.Remove')}}</a>
-                    </div>
-
-
-                    <div id="NewUploader">
-
-                    </div>
-
-
-                    <hr>
-                    <p class="text-center"><a class="btn btn-link" id="MoreUpload"> <i
-                                    class="fa fa-plus"></i> {{trans('file.More')}}</a></p>
-                    <hr>
-
-
                     <div class="checkbox pull-left">
                         <label>
                             <input type="checkbox" required><a
@@ -162,8 +168,10 @@
                         </label>
                     </div>
 
+
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <button class="btn btn-warning pull-right" type="submit">{{trans('createOrder.Send')}}</button>
+
                 </div>
             </div>
         </div>

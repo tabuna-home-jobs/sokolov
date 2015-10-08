@@ -56,7 +56,8 @@
             <li class="list-group-item">{{trans('orderTask.Deadline')}}: <p
                         class="pull-right">{{$Task->workfinish->tz(Config::get('app.timezone'))}}</p>
             </li>
-            <li class="list-group-item">{{trans('orderTask.Price')}}: <p class="pull-right">$ {{$Task->price}}</p></li>
+            <li class="list-group-item">{{trans('orderTask.Price')}}: <p class="pull-right">{{$Task->price}} USD</p>
+            </li>
         </ul>
 
 
