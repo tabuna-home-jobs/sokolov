@@ -25,7 +25,7 @@
 
 
                         <p class="date">
-                            {{$reviews->created_at}}
+                            {{$reviews->created_at->toDateString()}}
                         </p>
                     </div>
                 </div>

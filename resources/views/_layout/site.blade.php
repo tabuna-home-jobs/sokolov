@@ -113,6 +113,23 @@
                 @endif
 
 
+
+                    @if(!Auth::check())
+                        <li class="hidden-sm hidden-md hidden-lg">
+                            <a href="/auth/login">{{trans('main.sign')}}</a>
+                        </li>
+                    @else
+                        <li class="hidden-sm hidden-md hidden-lg">
+                            <a href="/auth/login"> {{trans('main.userhome')}}</a>
+                        </li>
+                        <li class="hidden-sm hidden-md hidden-lg">
+                            <a href="/auth/logout/">{{trans('main.logout')}}</a>
+                        </li>
+                    @endif
+
+
+
+
                     <li class="text-right hidden visible-xs @if(App::getLocale() == 'en') active @endif"><a
                                 href="{{url('/language/en')}}">English</a></li>
                     <li class="text-right hidden visible-xs @if(App::getLocale() == 'ru') active @endif"><a

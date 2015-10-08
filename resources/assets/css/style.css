@@ -7,7 +7,7 @@ html {
 body {
     color: #1c1c1c;
     font-family: 'Roboto', sans-serif !important;
-    margin-bottom: 450px;
+    margin-bottom: 400px;
 }
 
 
@@ -123,7 +123,6 @@ a:active, a:hover , .btn{
 
 #footer a {
     color: #ffffff;
-    text-decoration: underline;
 }
 
 .icon-info-top {
@@ -467,6 +466,11 @@ a:active, a:hover , .btn{
     padding: 10px 20px;
 }
 
+.reviews-div img {
+    max-height: 100px;
+}
+
+
 .reviews-list > .row {
     padding: 60px 0;
 }
@@ -599,6 +603,7 @@ a:active, a:hover , .btn{
 
 
 .why-work h2{
+    margin-top: 0px;
     background: #f68d44;
     width: 262px;
     height: 262px;

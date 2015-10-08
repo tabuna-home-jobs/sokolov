@@ -130,7 +130,7 @@
               { data: [ @foreach($statOrderMath as $stats) [{{$stats->dat}},{{$stats->count}}], @endforeach ], lines: { show: true, lineWidth: 1, fill:true, fillColor: { colors: [{opacity: 0.2}, {opacity: 0.8}] } } }
             ],
             {
-              colors: ['#e8eff0'],
+              colors: ['#23b7e5'],
               series: { shadowSize: 3 },
               xaxis:{ show:false },
               yaxis:{ font: { color: '#a1a7ac' } },

@@ -25,7 +25,7 @@
 
 </head>
 <body>
-<div class="app app-header-fixed app-aside-fixed container app-aside-dock app-aside-folded ">
+<div class="app app-header-fixed app-aside-fixed app-aside-dock app-aside-folded ">
 
     <!-- header -->
     <header id="header" class="app-header navbar" role="menu">

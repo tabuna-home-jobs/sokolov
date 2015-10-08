@@ -4,6 +4,6 @@
 return [
 
 
-    'phone' => '89513054530',
-    'email' => 'bliz48rus@gmail.com',
+    'phone' => '89802665074',
+    'email' => 'contact@falconediting.com',
 ];
