@@ -78,7 +78,7 @@ $(document).ready(function(){
                 skin: 'light',
                 language: 'ru',
                 selector: "textarea.textareaedit",
-                extended_valid_elements: "img[class=img-responsive|!src|border:0|alt|title|width|height|style]",
+                extended_valid_elements: "img[class=img-responsive fancybox-thumb-img-text|!src|border:0|alt|title|width|height|style]",
                 plugins: "image,code,link,preview,hr,media,responsivefilemanager",
                 toolbar: "styleselect | fontsizeselect   | bullist numlist outdent indent | link image media  | preview code | more  ",
                 menu: "false",

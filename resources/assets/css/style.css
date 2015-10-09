@@ -1299,3 +1299,7 @@ pre {
 .p-no-m {
     margin: 0px;
 }
+
+.fancybox-thumb-img-text {
+    display: block !important;
+}

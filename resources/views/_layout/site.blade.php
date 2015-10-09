@@ -300,6 +300,23 @@
         $("#loader-wrapper").remove();
 
         $('.carousel-inner div.item:first-child').addClass('active');
+
+        $(".fancybox-thumb-img-text").fancybox({
+            openEffect: 'elastic',
+            closeEffect: 'elastic',
+
+            closeClick: false,
+            helpers: {
+                title: null,
+                overlay: null
+            }
+        });
+
+        $(".fancybox-thumb-img-text").click(function () {
+            $(this).css('display', 'inherit');
+        });
+
+
     });
 
 

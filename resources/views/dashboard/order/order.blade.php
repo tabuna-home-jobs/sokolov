@@ -3,6 +3,11 @@
 @section('content')
 
 
+
+
+
+
+
     <section class="app-content-full">
 
 
@@ -17,22 +22,22 @@
                     <div class="nav-tabs-alt">
                         <ul class="nav nav-tabs nav-justified">
                             <li>
-                                <a href="?status=all">Все</a>
+                                <a href="?status=all">Все <span class="badge">{{$Count}}</span></a>
                             </li>
                             <li>
-                                <a href="?status=ocenka">На оценке</a>
+                                <a href="?status=ocenka">На оценке <span class="badge">{{$CountOcenka}}</span></a>
                             </li>
                             <li>
-                                <a href="?status=canlcel">Отменён</a>
+                                <a href="?status=canlcel">Отменён <span class="badge">{{$CountCanlcel}}</span></a>
                             </li>
                             <li>
-                                <a href="?status=notpay">Не оплачен</a>
+                                <a href="?status=notpay">Не оплачен <span class="badge">{{$CountNotpay}}</span></a>
                             </li>
                             <li>
-                                <a href="?status=pay">В работе</a>
+                                <a href="?status=pay">В работе <span class="badge">{{$CountPay}}</span></a>
                             </li>
                             <li>
-                                <a href="?status=done">Готова</a>
+                                <a href="?status=done">Готова <span class="badge">{{$CountDone}}</span></a>
                             </li>
                         </ul>
                     </div>

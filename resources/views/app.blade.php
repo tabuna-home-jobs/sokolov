@@ -266,5 +266,6 @@
 <script src="{{asset('/dash/dist/js/ru-picker.js')}}" type="text/javascript"></script>
 <script src="{{asset('/dash/dist/js/bootstrap-datetimepicker.min.js')}}" type="text/javascript"></script>
 
+
 </body>
 </html>

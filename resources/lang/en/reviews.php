@@ -3,6 +3,6 @@
 return [
     "Write a review" => "Write a review",
     "Send" => "Send",
-    "Your image" => "Your image",
+    "Your image" => "Choose your picture",
     "Content" => "Content",
 ];

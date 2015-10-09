@@ -25,6 +25,7 @@ class OrderController extends Controller
          * http://s00.yaplakal.com/pics/pics_original/7/8/2/6036287.jpg
          */
 
+
         if(!is_null(request()->status)){
             $orderStatus = request()->status;
 
@@ -69,7 +70,15 @@ class OrderController extends Controller
                 ->orderBy('id', 'desc')
                 ->simplePaginate(15);
         }
-        return view("dashboard/order/order", ['Orders' => $Orders]);
+        return view("dashboard/order/order", [
+            'Orders' => $Orders,
+            'CountPay' => Order::where('status', 'В работе')->count(),
+            'CountOcenka' => Order::where('status', 'Обрабатывается')->count(),
+            'CountCanlcel' => Order::where('status', 'Отменён')->count(),
+            'CountNotpay' => Order::where('status', 'Не оплачен')->count(),
+            'CountDone' => Order::where('status', 'Готова')->count(),
+            'Count' => Order::count(),
+        ]);
     }
 
     /**
