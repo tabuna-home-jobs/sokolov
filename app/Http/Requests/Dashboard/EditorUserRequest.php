@@ -27,11 +27,10 @@ class EditorUserRequest extends Request
         return [
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
-            'phone' => 'required|max:255|unique:users',
-            'email' => 'required|email|max:255|unique:users',
+            'phone' => 'required|max:255',
+            'email' => 'required|email|max:255',
             'password' => 'sometimes|confirmed|min:6',
             'password_confirmation' => 'sometimes'
-
         ];
     }
 }

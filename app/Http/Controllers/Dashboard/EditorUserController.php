@@ -94,12 +94,11 @@ class EditorUserController extends Controller
         $user = User::findOrFail($id);
         $SelectSkills = $user->getSkills()->get();
 
-
         $MegaArray = [];
 
         foreach ($skills as $value) {
             foreach ($SelectSkills as $Select) {
-                if ($value->id == $Select->id) {
+                if ($value->id == $Select->category_id) {
                     $MegaArray = array_add($MegaArray, $value->id, [
                         'id' => $value->id,
                         'name' => $value->name,
@@ -110,6 +109,7 @@ class EditorUserController extends Controller
             }
         }
 
+        /*
         foreach ($skills as $value) {
             foreach ($SelectSkills as $Select) {
                 if ($value->id != $Select->id) {
@@ -121,6 +121,7 @@ class EditorUserController extends Controller
                 }
             }
         }
+*/
 
         return view("dashboard/editor/edit", [
             'User' => $user,
