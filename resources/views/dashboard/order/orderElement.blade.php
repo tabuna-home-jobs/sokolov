@@ -189,13 +189,7 @@
 
                                                 <div class='input-group date' id='datetimepickerorder'>
                                                     <input type='text' class="form-control" required name="workfinish"
-                                                           value="
-                                                           @if($SelectOrder->workfinish == "0000-00-00 00:00:00")
-                                                           {{date("Y-m-d H:i:s")}}
-                                                           @else
-                                                           {{$SelectOrder->workfinish}}
-                                                           @endif
-                                                                   "/>
+                                                           value="{{date("Y-m-d H:i:s")}}"/>
 <span class="input-group-addon">
 <span class="glyphicon glyphicon-calendar"></span>
 </span>
