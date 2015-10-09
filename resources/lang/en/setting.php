@@ -15,4 +15,10 @@ return [
     "Repeat email" => "Repeat email",
     "Change" => "Save changes",
     "UTC" => "UTC",
+
+    "I want to be notified by Email" => "I want to be notified by Email",
+    "I want to be notified by Phone" => "I want to be notified by Phone",
+    "Notification" => "Notification",
+    "Yes" => "Yes",
+    "No" => "No",
 ];

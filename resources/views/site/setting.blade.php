@@ -2,11 +2,15 @@
 
 @section('content-account')
 
+
     <div id="accordion" class="panel-group">
         <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title"><a href="#collapseB1"
-                                           data-toggle="collapse"> {{trans('setting.Personal data')}} </a></h4>
+            <div class="panel-heading" role="tab" >
+                <h4 class="panel-title"><a
+                            role="button" data-toggle="collapse" data-parent="#accordion"
+                            href="#collapseB1" aria-expanded="false" aria-controls="collapseB1"
+
+                            > {{trans('setting.Personal data')}} </a></h4>
             </div>
             <div class="panel-collapse collapse in" id="collapseB1">
                 <div class="panel-body">
@@ -43,7 +47,6 @@
                             </div>
                         </div>
 
-
                         <div class="form-group">
                             <label class="col-sm-3 control-label">{{trans('setting.Repeat email')}}</label>
 
@@ -65,7 +68,6 @@
                         </div>
 
 
-
                         <div class="form-group">
                             <label class="col-sm-3 control-label"> {{trans('setting.Country')}}</label>
 
@@ -74,6 +76,7 @@
                                 <select class="form-control" name="country_id">
 
                                     @foreach($Country as $value)
+
                                         @if($value->id == $User->country_id )
 
                                             <option selected value="{{$value->id}}">{{$value->name}}</option>
@@ -105,8 +108,7 @@
 
                                     @foreach($Zone as $value)
                                         <option value="{{$value->zone_name}}"
-                                                @if($User->utc == $value->zone_name) selected @endif >{{$value->zone_name}}
-                                        </option>
+                                                @if($User->utc == $value->zone_name) selected @endif>{{$value->zone_name}}</option>
                                     @endforeach
 
                                 </select>
@@ -130,8 +132,9 @@
             </div>
         </div>
         <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title"><a href="#collapseB2" data-toggle="collapse" class="collapsed">
+            <div class="panel-heading" role="tab" >
+                <h4 class="panel-title"><a  role="button" data-toggle="collapse" data-parent="#accordion"
+                                            href="#collapseB2" aria-expanded="false" aria-controls="collapseB2">
                         {{trans('setting.Security')}} </a>
                 </h4>
             </div>
@@ -168,6 +171,88 @@
                 </div>
             </div>
         </div>
+
+
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                       href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        {{trans('setting.Notification')}}
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                 aria-labelledby="headingThree">
+                <div class="panel-body">
+
+
+                    <form class="form-horizontal" action="{{URL::route('setting.update')}}"
+                          method="post">
+
+                        <div class="col-sm-12">
+
+
+                            <div class="form-group col-xs-12">
+                                <label class="col-sm-4 control-label">{{trans('setting.I want to be notified by Email')}}</label>
+
+                                <div class="col-sm-8">
+                                    <p>
+                                        <label class="i-switch m-t-xs m-r">
+                                            <input type="radio" name="email_notification"
+                                                   @if(Auth::user()->email_notification) checked="" @endif value="1">
+                                            {{trans('setting.Yes')}}
+                                        </label>
+                                        <label class="i-switch m-t-xs m-r">
+                                            <input type="radio" name="email_notification"
+                                                   @if(!Auth::user()->email_notification) checked="" @endif value="0">
+                                            {{trans('setting.No')}}
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group col-xs-12">
+                                <label class="col-sm-4 control-label">{{trans('setting.I want to be notified by Phone')}}</label>
+
+                                <div class="col-sm-8">
+                                    <p>
+                                        <label class="i-switch m-t-xs m-r">
+                                            <input type="radio" name="phone_notification"
+                                                   @if(Auth::user()->phone_notification) checked="" @endif value="1">
+                                            {{trans('setting.Yes')}}
+                                        </label>
+                                        <label class="i-switch m-t-xs m-r">
+                                            <input type="radio" name="phone_notification"
+                                                   @if(!Auth::user()->phone_notification) checked="" @endif value="0">
+                                            {{trans('setting.No')}}
+                                        </label>
+                                    </p>
+                                </div>
+
+
+
+                                <input type="hidden" name="_method" value="PUT">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                <input type="hidden" class="form-control" name="type" value="notification">
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <button type="submit" class="btn btn-primary">{{trans('setting.Change')}}</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
     </div>
 
 

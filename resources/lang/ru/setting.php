@@ -15,4 +15,11 @@ return [
     "Repeat email" => "Повторите email",
     "Change" => "Изменить",
     "UTC" => "UTC",
+
+    "I want to be notified by Email" => "Я хочу получать уведомления по Email",
+    "I want to be notified by Phone" => "Я хочу получать уведомления по Телефону",
+    "Notification" => "Уведомления",
+    "Yes" => "Да",
+    "No" => "Нет",
+
 ];
