@@ -206,6 +206,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Menu' => App\Facades\Menu::class,
         'htmlBlock' => App\Facades\htmlBlock::class,
+        "CurrencyRate" => App\Facades\CurrencyRateFacades::class,
 
 
     ],

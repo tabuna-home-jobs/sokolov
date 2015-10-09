@@ -114,17 +114,20 @@
                         <tbody>
                         <tr>
                             <td>{{trans('catalog.Economy (7 days)')}}</td>
-                            <td>0.07{{trans('catalog.* the rate of USD')}}</td>
+                            <td>@if(App::getLocale() == 'en')
+                                    0.07 @else {{0.07 * CurrencyRate::getOneRecord()}} @endif</td>
                         </tr>
 
 
                         <tr>
                             <td>{{trans('catalog.Standard (4 days)')}}</td>
-                            <td>0.08{{trans('catalog.* the rate of USD')}}</td>
+                            <td>@if(App::getLocale() == 'en')
+                                    0.08 @else {{0.08 * CurrencyRate::getOneRecord()}} @endif</td>
                         </tr>
                         <tr>
                             <td>{{trans('catalog.Express (2 days)')}}</td>
-                            <td>0.09{{trans('catalog.* the rate of USD')}}</td>
+                            <td>@if(App::getLocale() == 'en')
+                                    0.09 @else {{0.09 * CurrencyRate::getOneRecord()}} @endif</td>
                         </tr>
                         </tbody>
                     </table>
@@ -145,17 +148,20 @@
                         <tbody>
                         <tr>
                             <td>{{trans('catalog.Economy (10 days)')}}</td>
-                            <td> 0.10{{trans('catalog.* the rate of USD')}}</td>
+                            <td> @if(App::getLocale() == 'en')
+                                    0.10 @else {{0.10 * CurrencyRate::getOneRecord()}} @endif</td>
                         </tr>
 
 
                         <tr>
                             <td>{{trans('catalog.Standard (7 days)')}}</td>
-                            <td>0.11{{trans('catalog.* the rate of USD')}}</td>
+                            <td>@if(App::getLocale() == 'en')
+                                    0.11 @else {{0.11 * CurrencyRate::getOneRecord()}} @endif</td>
                         </tr>
                         <tr>
                             <td>{{trans('catalog.Express (4 days)')}}</td>
-                            <td>0.12{{trans('catalog.* the rate of USD')}}</td>
+                            <td>@if(App::getLocale() == 'en')
+                                    0.12 @else {{0.12 * CurrencyRate::getOneRecord()}} @endif</td>
                         </tr>
                         </tbody>
                     </table>
@@ -179,7 +185,8 @@
 
                             <td>0-5000</td>
                             <td>2 {{trans('catalog.day')}}</td>
-                            <td>110{{trans('catalog.* the rate of USD')}}</td>
+                            <td>@if(App::getLocale() == 'en')
+                                    110 @else {{110 * CurrencyRate::getOneRecord()}} @endif</td>
                         </tr>
 
 
@@ -187,13 +194,15 @@
 
                             <td>5000-10000</td>
                             <td>4 {{trans('catalog.day')}}</td>
-                            <td>190{{trans('catalog.* the rate of USD')}}</td>
+                            <td>@if(App::getLocale() == 'en')
+                                    190 @else {{190 * CurrencyRate::getOneRecord()}} @endif</td>
                         </tr>
                         <tr>
 
                             <td>10000-15000</td>
                             <td>4-10 {{trans('catalog.day')}}</td>
-                            <td>270{{trans('catalog.* the rate of USD')}}</td>
+                            <td>@if(App::getLocale() == 'en')
+                                    270 @else {{270 * CurrencyRate::getOneRecord()}} @endif</td>
                         </tr>
 
 
@@ -225,7 +234,7 @@
 
                             <td>{{trans('catalog.Formatting tables and graphs (one illustration of an unlimited number of tables and charts in it)')}}</td>
                             <td>{{trans('catalog.By agreement')}}</td>
-                            <td>80{{trans('catalog.* the rate of USD')}}</td>
+                            <td>@if(App::getLocale() == 'en') 80 @else {{80 * CurrencyRate::getOneRecord()}} @endif</td>
                         </tr>
 
 
