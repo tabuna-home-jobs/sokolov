@@ -18,8 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $Users = User::paginate(15);
-
+        $Users = User::where('type', 'users')->paginate(15);
         return view('dashboard/user/users', ['Users' => $Users]);
     }
 

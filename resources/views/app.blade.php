@@ -69,12 +69,21 @@
                 </li>
 
 
+                <li class="{{Active::route('dashboard.user.*')}}">
+                    <a href="{{route('dashboard.user.index')}}">
+                        <span class="hidden-sm hidden-md"><i class="fa fa-users icon"></i></span>
+                        <span class="visible-xs-inline">Пользователи</span>
+                    </a>
+                </li>
+
+
                 <li class="{{Active::route('dashboard.editor.*')}}">
                     <a href="{{route('dashboard.editor.index')}}">
-                        <span class="hidden-sm hidden-md"><i class="fa fa-users icon"></i></span>
+                        <span class="hidden-sm hidden-md"><i class="fa fa-user icon"></i></span>
                         <span class="visible-xs-inline">Редакторы</span>
                     </a>
                 </li>
+
 
                 <li>
                     <a href="/auth/logout">
