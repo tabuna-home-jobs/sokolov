@@ -12,7 +12,8 @@
         "laravelcollective/html": "5.1.*",
         "yandex-money/yandex-money-sdk-php": "3.0.*",
         "nesbot/carbon": "^1.20",
-        "kyslik/column-sortable": "~3.0.0"
+        "kyslik/column-sortable": "~3.0.0",
+        "guzzlehttp/guzzle": "6.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -466,7 +466,7 @@ a:active, a:hover , .btn{
     padding: 10px 20px;
 }
 
-.reviews-div img {
+.reviews-div.full-reviews img {
     max-height: 100px;
 }
 

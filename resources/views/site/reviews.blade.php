@@ -13,7 +13,7 @@
 
         @foreach($ReviewList as $reviews)
 
-            <article class="reviews-div row">
+            <article class="reviews-div full-reviews row">
                 <div class="pull-left col-md-4 text-center">
                     <img src="{{$reviews->avatar}}" class="img-circle">
 

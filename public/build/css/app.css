@@ -7836,7 +7836,7 @@ a {
     background: #0aa2b1
 }
 
-.reviews-div img {
+.reviews-div.full-reviews img {
     max-height: 100px
 }
 
