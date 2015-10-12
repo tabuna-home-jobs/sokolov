@@ -93,7 +93,8 @@
 
     <nav class="navbar navbar-default">
 
-        <div class="navbar-header">
+        <div class="navbar-header col-xs-12 col-md-6">
+            <a class="navbar-brand2" href="/"><img src="/img/logo.jpg" class="img-responsive"> </a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
@@ -101,7 +102,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand2" href="/"><img src="/img/logo.jpg" class="img-responsive"> </a>
+
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -227,7 +228,7 @@
     <div class="bg-white">
         <div class="container">
             <div class="row padding-footer">
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-3 col-xs-6 hidden-sm hidden-xs">
                     <h4>{{trans('footer.mission')}}</h4>
 
                     <p>
@@ -238,7 +239,7 @@
                     <img src="/img/logo-while.png" class="img-responsive">
 
                 </div>
-                <div class="col-sm-3  col-xs-6">
+                <div class="col-sm-3  col-xs-12">
                     <h4>{{trans('footer.contacts')}}</h4>
 
                     <ul class="menu-footer-contact">

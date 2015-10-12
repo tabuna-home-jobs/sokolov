@@ -28,7 +28,6 @@
 
         <div class="container blog-container">
 
-            <h1>{{$Goods->name}}</h1>
             <main class="blog-content">
                 {!!$Goods->text!!}
             </main>
