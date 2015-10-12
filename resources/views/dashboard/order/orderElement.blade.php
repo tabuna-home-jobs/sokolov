@@ -344,8 +344,15 @@
                                                                 </div>
 
 
-                                                                <div class="form-group col-xs-12">
+                                                                <div class="form-group col-xs-12"
+                                                                     id="select-files-upload-wrapper">
                                                                     <h4 class="text-center">Прикрепить файлы</h4>
+                                                                    <span class="pull-right">
+                                                                        <a id="select-all-upload">Выбрать все</a>
+                                                                        <a id="unselect-all-upload" class="hidden">Отменить
+                                                                            все</a>
+                                                                    </span>
+
                                                                     <hr>
                                                                     <label>Загруженные файлы:</label>
                                                                     @foreach($SelectGoodFile as $file)
@@ -615,6 +622,26 @@
                     .parent().addClass($.support.fileInput ? undefined : 'disabled');
         });
     </script>
+
+    <script>
+        $('#select-all-upload').click(function () {
+            $(this).addClass('hidden');
+            $('#unselect-all-upload').removeClass('hidden');
+            $('#select-files-upload-wrapper').each(function () {
+                $('input', this).prop('checked', true);
+            });
+        });
+
+        $('#unselect-all-upload').click(function () {
+            $(this).addClass('hidden');
+            $('#select-all-upload').removeClass('hidden');
+            $('#select-files-upload-wrapper').each(function () {
+                $('input', this).prop('checked', false);
+            });
+        });
+
+    </script>
+
 
 
 @endsection
