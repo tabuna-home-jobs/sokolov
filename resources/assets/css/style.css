@@ -907,7 +907,7 @@ figure .img-icon {
     position: absolute;
     padding: 20px;
     z-index: 10;
-    zoom: 0.7;
+    width: 40%;
 }
 
 .catalog-img-text {
@@ -968,10 +968,12 @@ figure:hover > .figcaption {
 }
 
 .img-wrapper {
-    background: black;
     position: relative;
 }
 
+figure:hover .img-wrapper {
+    background: black;
+}
 
 figure:hover .img-wrapper img {
     opacity: 0.7;
@@ -980,6 +982,9 @@ figure:hover .img-wrapper img {
 .img-responsive-sliderback {
     height: 100%;
     width: 100%;
+    background: #fff;
+    box-shadow: 1px 1px 5px #999;
+    opacity: 0.85;
 }
 
 .carousel-indicators-catalog {
@@ -1302,4 +1307,8 @@ pre {
 
 .fancybox-thumb-img-text {
     display: block !important;
+}
+
+.navbar-brand2 img {
+    max-width: 400px;
 }

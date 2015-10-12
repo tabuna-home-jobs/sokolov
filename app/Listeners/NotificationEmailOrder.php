@@ -3,9 +3,9 @@
 namespace App\Listeners;
 
 use App\Events\NewOrder;
+use App\Models\Order;
 use Config;
 use Mail;
-
 
 class NotificationEmailOrder
 {
@@ -31,5 +31,16 @@ class NotificationEmailOrder
             $message->from(Config::get('link.email'));
             $message->to(Config::get('link.email'))->cc(Config::get('link.email'));
         });
+
+
+        $Order = Order::findOrFail($event->id);
+        $User = $Order->getUser()->select('email_notification', 'email')->first();
+        if ($User->email_notification) {
+            Mail::raw('Новый заказ #' . $event->id . ' ожидает рассмотрения', function ($message, $User) {
+                $message->from(Config::get('link.email'));
+                $message->to($User->email)->cc($User->email);
+            });
+        }
+
     }
 }

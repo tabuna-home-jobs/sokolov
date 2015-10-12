@@ -101,7 +101,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand2" href="/"><img src="/img/logo.png" class="img-responsive"> </a>
+            <a class="navbar-brand2" href="/"><img src="/img/logo.jpg" class="img-responsive"> </a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

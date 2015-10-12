@@ -1,7 +1,7 @@
 @extends('_layout/site')
 
 
-@section('title','Catalog - Falcon Scientific Editing ')
+@section('title',trans('main.Services').' - Falcon Scientific Editing ')
 
 
 @section('content')

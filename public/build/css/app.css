@@ -11011,7 +11011,7 @@ figure .img-icon {
     position: absolute;
     padding: 20px;
     z-index: 10;
-    zoom: .7
+    width: 40%
 }
 
 .catalog-img-text, figcaption > a:hover > .img-wrapper > .catalog-img-text {
@@ -11062,9 +11062,12 @@ figure:hover > .figcaption {
     line-height: 27px
 }
 
-.img-wrapper {
-    background: #000;
+.img-wrapper, .stepwizard {
     position: relative
+}
+
+figure:hover .img-wrapper {
+    background: #000
 }
 
 figure:hover .img-wrapper img {
@@ -11073,7 +11076,10 @@ figure:hover .img-wrapper img {
 
 .img-responsive-sliderback {
     height: 100%;
-    width: 100%
+    width: 100%;
+    background: #fff;
+    box-shadow: 1px 1px 5px #999;
+    opacity: .85
 }
 
 .item-catalog, .item-catalog > img {
@@ -11154,8 +11160,7 @@ figure:hover .img-wrapper img {
 
 .stepwizard {
     display: table;
-    width: 100%;
-    position: relative
+    width: 100%
 }
 
 .stepwizard-step button[disabled] {
@@ -11387,5 +11392,9 @@ pre {
 
 .fancybox-thumb-img-text {
     display: block !important
+}
+
+.navbar-brand2 img {
+    max-width: 400px
 }
 /*# sourceMappingURL=app.css.map */
