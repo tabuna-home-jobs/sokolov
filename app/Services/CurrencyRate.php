@@ -14,6 +14,7 @@ class CurrencyRate
 
     public $VAL_NM_RQ;
 
+    public $Attempts = 0;
 
     public function __construct($date_req1 = null, $date_req2 = null, $VAL_NM_RQ = null)
     {
@@ -30,9 +31,12 @@ class CurrencyRate
 
     public function get()
     {
-        return Cache::remember('ValCurs-' . $this->VAL_NM_RQ, Carbon::now()->addMinutes(60), function () {
+        if (Cache::has('ValCurs-' . $this->VAL_NM_RQ)) {
+            return Cache::get('ValCurs-' . $this->VAL_NM_RQ);
+        } else {
             return $this->sendQuery();
-        });
+        }
+
     }
 
     public function sendQuery()
@@ -59,7 +63,9 @@ class CurrencyRate
         $json = json_encode($xml);
         $array = json_decode($json, TRUE);
 
-        Cache::put('ValCurs-' . $this->VAL_NM_RQ, $array, Carbon::now()->addMinutes(60));
+
+        if (!empty($array['Record']['Value']))
+            Cache::put('ValCurs-' . $this->VAL_NM_RQ, $array, Carbon::now()->addMinutes(60));
 
         return $array;
 
@@ -67,9 +73,36 @@ class CurrencyRate
 
     public function getOneRecord()
     {
-        $result = $this->get();
+        do {
+            $result = $this->get();
+
+            if ($this->Attempts == 5) {
+                dd($this->Attempts, $this->date_req1, $this->date_req2, $result);
+            }
+
+
+        } while (!$this->validFreeDay($result));
+
+
         return $result['Record']['Value'];
     }
+
+
+    function validFreeDay($result)
+    {
+        if (!isset($result['Record']['Value'])) {
+            $this->Attempts++;
+            $MinusDate = (60 * 60 * 24) * $this->Attempts;
+            $this->date_req1 = date("d.m.Y", time() - $MinusDate);
+            $this->date_req2 = date("d.m.Y", time() - $MinusDate);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
+
 
 
 }

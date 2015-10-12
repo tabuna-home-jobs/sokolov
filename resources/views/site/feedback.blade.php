@@ -1,5 +1,9 @@
 @extends('_layout/site')
 
+
+@section('title',trans('feedback.Write to us').' - Falcon Scientific Editing ')
+
+
 @section('content')
 
 

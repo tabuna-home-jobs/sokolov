@@ -1,5 +1,10 @@
 @extends('_layout/site')
 
+
+@section('title',$Goods->name.' - Falcon Scientific Editing ')
+
+
+
 @section('content')
 
 
