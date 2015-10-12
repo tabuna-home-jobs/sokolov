@@ -4,7 +4,7 @@ return [
     "Description of prices and terms of the services provided" => "Описание цен и сроков на оказываемые услуги",
     "Editing of scientific manuscripts" => "Редактирование научных рукописей ",
     "Speed" => "Скорость",
-    "Price per word in the ruble" => "Стоимость за слово в рубля",
+    "Price per word in the ruble" => "Стоимость за слово в рублях",
     "Economy (7 days)" => "Эконом (7 дней)",
     "Standard (4 days)" => "Стандарт (4 дня)",
     "Express (2 days)" => "Экспресс (2 дня)",

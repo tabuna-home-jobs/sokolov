@@ -196,9 +196,9 @@
 
 
                             <div class="form-group col-xs-12">
-                                <label class="col-sm-4 control-label">{{trans('setting.I want to be notified by Email')}}</label>
+                                <label class="col-sm-6 control-label">{{trans('setting.I want to be notified by Email')}}</label>
 
-                                <div class="col-sm-8">
+                                <div class="col-sm-6">
                                     <p>
                                         <label class="i-switch m-t-xs m-r">
                                             <input type="radio" name="email_notification"
@@ -216,9 +216,9 @@
 
 
                             <div class="form-group col-xs-12">
-                                <label class="col-sm-4 control-label">{{trans('setting.I want to be notified by Phone')}}</label>
+                                <label class="col-sm-6 control-label">{{trans('setting.I want to be notified by Phone')}}</label>
 
-                                <div class="col-sm-8">
+                                <div class="col-sm-6">
                                     <p>
                                         <label class="i-switch m-t-xs m-r">
                                             <input type="radio" name="phone_notification"

@@ -32,7 +32,7 @@ class NotificationSMSOrder
         $Order = Order::findOrFail($event->id);
         $User = $Order->getUser()->select('phone_notification', 'phone')->first();
         if ($User->phone_notification) {
-            SMS::send($User->phone, 'Новый заказ #' . $event->id . ' ожидает рассмотрения');
+            SMS::send($User->phone, 'Ваш заказ #' . $event->id . ' ожидает рассмотрения');
         }
 
     }

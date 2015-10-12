@@ -36,7 +36,7 @@ class NotificationEmailOrder
         $Order = Order::findOrFail($event->id);
         $User = $Order->getUser()->select('email_notification', 'email')->first();
         if ($User->email_notification) {
-            Mail::raw('Новый заказ #' . $event->id . ' ожидает рассмотрения', function ($message, $User) {
+            Mail::raw('Ваш заказ #' . $event->id . ' ожидает рассмотрения', function ($message) use ($User) {
                 $message->from(Config::get('link.email'));
                 $message->to($User->email)->cc($User->email);
             });
