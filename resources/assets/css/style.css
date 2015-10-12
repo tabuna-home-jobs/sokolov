@@ -1068,6 +1068,7 @@ figure:hover .img-wrapper img {
     display: table;
     width: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 .stepwizard-step button[disabled] {
@@ -1083,8 +1084,8 @@ figure:hover .img-wrapper img {
     width: 100%;
     height: 1px;
     background-color: #ccc;
-    z-order: 0;
-
+    z-index: 0;
+    left: 0;
 }
 
 .stepwizard-step {

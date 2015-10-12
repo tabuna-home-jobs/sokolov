@@ -48,7 +48,7 @@
                     <p class="text-center"><a href="/auth/register/"
                                               class="btn btn-info">{{trans('auth.I want to register')}}</a></p>
 
-                    <p class="text-center"><a href="#">{{trans('auth.Terms of use')}}</a></p>
+                    <p class="text-center"><a target="_blank" href="@if(App::getLocale()=='ru') /oferta/RussianRules.doc @else /oferta/EnglishRules.doc @endif">{{trans('auth.Terms of use')}}</a></p>
                 </div>
             </div>
         </div>
