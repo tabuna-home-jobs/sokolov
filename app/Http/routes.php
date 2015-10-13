@@ -28,7 +28,6 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'admin'], 'pr
 
     Route::resource('user', 'UserController');
     Route::resource('editor', 'EditorUserController');
-    //Route::resource('groups', 'GroupsController');
     Route::resource('page', 'PageController');
     Route::resource('news', 'NewsController');
     Route::resource('shares', 'SharesController');
@@ -40,15 +39,12 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'admin'], 'pr
     Route::resource('comments', 'CommentsController');
     Route::resource('filemanager', 'FileManagerController');
     Route::resource('review', 'ReviewController');
-
     Route::resource('task', 'TaskController');
-
-
     Route::resource('langorder', OrderLangController::class);
-
-
     Route::resource('block', 'BlockController');
     Route::resource('element', 'ElementController');
+
+    Route::resource('statinfo', 'StatInfoController');
 
     Route::get('/wmenuindex', array('as' => 'wmenuindex', 'uses' => 'WmenuController@wmenuindex'));
     Route::post('/addcustommenu', array('as' => 'addcustommenu', 'uses' => 'WmenuController@addcustommenu'));

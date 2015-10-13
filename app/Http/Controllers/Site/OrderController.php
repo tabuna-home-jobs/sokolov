@@ -123,8 +123,6 @@ class OrderController extends Controller
 
         $OrderMeta = $Order->getGoods()->get();
 
-
-        //dd($OrderMeta);
         $collectionGoods = [];
 
 

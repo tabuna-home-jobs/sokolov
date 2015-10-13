@@ -9,7 +9,6 @@
 
             <div class="col-xs-12 col-md-7">
 
-
                 <div class="well well-danger">
                     <form class="p-t-40" action="{{ url('/auth/register') }}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

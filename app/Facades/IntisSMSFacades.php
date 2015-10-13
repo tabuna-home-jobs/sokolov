@@ -1,7 +1,7 @@
 <?php
 namespace App\Facades;
+use App\Services\IntisSMS;
 use Illuminate\Support\Facades\Facade;
-
 
 class IntisSMSFacades extends Facade {
 
@@ -11,7 +11,7 @@ class IntisSMSFacades extends Facade {
      * @return string
      */
     protected static function getFacadeAccessor() {
-        return  'App\Services\IntisSMS';
+        return  IntisSMS::class;
     }
 }
 

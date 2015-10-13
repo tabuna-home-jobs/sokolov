@@ -190,6 +190,14 @@
                         </li>
 
 
+                        <li class="{{Active::route('dashboard.statinfo.*')}}">
+                            <a href="{{URL::route('dashboard.statinfo.index')}}">
+                                <i class="fa fa-sitemap"></i>
+                                <span>Учёт</span>
+                            </a>
+                        </li>
+
+
                     </ul>
                 </nav>
                 <!-- nav -->

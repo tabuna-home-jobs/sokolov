@@ -31,10 +31,12 @@ class Task extends Model
         'workfinish',
         'countWork',
         'price',
-        'status'
+        'status',
+        'spent',
+        'pause'
     ];
 
-    protected $dates = ['created_at', 'updated_at', 'disabled_at', 'workfinish'];
+    protected $dates = ['created_at', 'updated_at', 'disabled_at', 'workfinish', 'pause'];
 
     public function getUser()
     {

@@ -83,6 +83,17 @@ class OrderController extends Controller
     {
         $task = Auth::user()->getTask()->findOrFail($id);
         $task->status = "На проверке";
+
+
+        if ($task->spent == 0) {
+            $task->spent = time() - $task->created_at->timestamp;
+            $task->pause = date("Y-m-d H:i:s");
+        } else {
+            $task->spent = $task->spend + time() - $task->pause->timestamp;
+            $task->pause = date("Y-m-d H:i:s");
+        }
+
+
         $task->save();
         Session::flash('good', trans('alert.You have successfully changed the status of the task'));
         return redirect()->back();
