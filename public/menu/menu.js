@@ -14,12 +14,35 @@ function getmenus() {
         };
         var textoiner = $(this).find(".item-edit").context.id;
         console.log(textoiner);
+		var currentElem = this.id;
 	  var id = this.id.split("-");
-        var textoexplotado = textoiner.split("|"); 
-        var padre = 0;  
-        if (!!textoexplotado[textoexplotado.length-2] && textoexplotado[textoexplotado.length-2]!= id[2]) {  
-            padre = textoexplotado[textoexplotado.length-2]
+
+		var textoexplotado = textoiner.split("-");
+		var padre = 0;
+
+
+		if (!!textoexplotado[textoexplotado.length - 1] && textoexplotado[textoexplotado.length - 1] != id[2]) {
+			padre = textoexplotado[textoexplotado.length - 1]
+
         }
+
+		if (dept != 0) {
+
+			$idPadreSuka = 0;
+			$predidushiy = $("#" + currentElem).prev();
+			while (true) {
+				if ($predidushiy.hasClass('menu-item-depth-0')) {
+					$idPadreSuka = $predidushiy.attr('id');
+					break;
+				}
+				else {
+					$predidushiy = $predidushiy.prev();
+				}
+			}
+			padre = $idPadreSuka.split("-")[2];
+
+		}
+
         arraydata.push({
             depth : dept,
             id : id[2],

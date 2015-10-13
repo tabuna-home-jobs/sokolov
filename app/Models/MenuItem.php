@@ -12,6 +12,22 @@ class MenuItem extends Model {
 
     protected $table = 'menuitems';
 
+    protected $fillable = [
+        'label',
+        'link',
+        'parent',
+        'sort',
+        'menu',
+        'depth'
+    ];
+
+
+    public function getParent()
+    {
+        return $this->hasMany(MenuItem::class, 'parent');
+    }
+
+
     public function getsons($id) {
         return $this -> where("parent", $id) -> get();
     }

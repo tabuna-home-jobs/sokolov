@@ -96,7 +96,7 @@
         </div>
 
 
-        <div class="container">
+        <div class="container" id="price">
 
 
             <h1>{{trans('catalog.Description of prices and terms of the services provided')}}</h1>

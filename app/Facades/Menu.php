@@ -12,7 +12,11 @@ class Menu  extends Facade {
         if (is_null($menu))
             return false;
 
-        $element = $menu->getElement()->get();
+        $element = $menu->getElement()
+            ->with('getParent')
+            ->where('depth', 0)
+            ->orderBy('sort', 'ASC')
+            ->get();
 
 
         return view('htmlBlock.menu', [

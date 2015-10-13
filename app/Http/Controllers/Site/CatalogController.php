@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Site;
 use App;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-use Illuminate\Http\Request;
 use App\Models\Goods;
+use Illuminate\Http\Request;
 
 class CatalogController extends Controller
 {
@@ -59,8 +59,13 @@ class CatalogController extends Controller
         $good = Goods::whereRaw('lang = ? and id = ?',[App::getLocale(), $goods->id])->firstOrFail();
 
 
+        $array = Goods::select('slug')->whereRaw('lang = ? and id != ?', [App::getLocale(), $goods->id])->get();
+
+
         return view('site.catalogElement',[
-            'Goods' => $good
+            'Goods' => $good,
+            'next' => $array->first(),
+            'prev' => $array->last(),
         ]);
     }
 

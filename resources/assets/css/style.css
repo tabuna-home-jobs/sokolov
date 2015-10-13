@@ -299,7 +299,7 @@ a:active, a:hover , .btn{
     font-weight: 300;
     line-height: 16px;
     color: #fff;
-    background-color: #f68d44;
+    background-color: #f68d44 !important;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -567,6 +567,14 @@ a:active, a:hover , .btn{
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
     background: url("/img/login-a.png") no-repeat 100%;
+}
+
+.not-effec-open.open > a {
+    background: none !important;
+}
+
+.not-effec-open > .dropdown-toggle {
+    padding: 7px 0 !important;
 }
 
 
@@ -1312,4 +1320,26 @@ pre {
 
 .navbar-brand2 img {
     max-width: 400px;
+}
+
+.small-menu-element-left {
+    margin-right: 0 !important;
+}
+
+.active .pull-left.hidden-xs.hidden-sm.dropdown-toggle {
+    background: none !important;
+    color: #777 !important;
+}
+
+.catalog-sing-array {
+    position: fixed;
+    width: 100%;
+    padding: 5%;
+}
+
+.last-next {
+    font-size: 42px;
+    padding: 5px;
+    color: #f0ad4e;
+    cursor: pointer;
 }
