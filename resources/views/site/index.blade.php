@@ -105,7 +105,7 @@
             <div class="col-sm-6 col-md-3">
                 <div class="service service-edit">
 
-                    <a href="@if(App::getLocale() == 'ru') {{url('/catalog/illyustrirovanie-nauchnykh-rukopisey')}}@else {{url("/catalog/illustrating-scientific-manuscripts")}} @endif">
+                    <a href="@if(App::getLocale() == 'ru') {{url('/catalog/illyustrirovanie-nauchnykh-rukopisey')}}@else {{url("/catalog/illustration-of-scientific-manuscripts")}} @endif">
                         <img class="img-hover" src="/img/service-4.png" data-altimg="/img/service-4-hover.png">
 
                         <h3>{{trans('main.illustrating')}}</h3>
