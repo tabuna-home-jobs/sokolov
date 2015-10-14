@@ -49,7 +49,8 @@ class Order extends Model {
         'izdanie',
         'sold',
         'LangOrder_id',
-        'icon'
+        'icon',
+        'price_rub'
     ];
 
 

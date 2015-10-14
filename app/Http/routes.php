@@ -12,6 +12,11 @@
 */
 
 
+Route::post('/payments/order/', function () {
+    return 'Hello World';
+});
+
+
 /**
  * Авторизация, регистрация, востановление пароля
  */
