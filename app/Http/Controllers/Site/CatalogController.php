@@ -59,13 +59,23 @@ class CatalogController extends Controller
         $good = Goods::whereRaw('lang = ? and id = ?',[App::getLocale(), $goods->id])->firstOrFail();
 
 
-        $array = Goods::select('slug')->whereRaw('lang = ? and id != ?', [App::getLocale(), $goods->id])->get();
+        $next = Goods::select('slug')->whereRaw('lang = ? and id != ? and id > ?', [App::getLocale(), $goods->id, $good->id])->first();
+
+        if (is_null($next)) {
+            $next = Goods::select('slug')->whereRaw('lang = ? and id != ? and id < ?', [App::getLocale(), $goods->id, $good->id])->orderBy('id', 'Desc')->limit(1)->first();
+        }
+
+        $prev = Goods::select('slug')->whereRaw('lang = ? and id != ? and id < ?', [App::getLocale(), $goods->id, $good->id])->first();
+        if (is_null($prev)) {
+            $prev = Goods::select('slug')->whereRaw('lang = ? and id != ? and id > ?', [App::getLocale(), $goods->id, $good->id])->orderBy('id', 'Desc')->limit(1)->first();
+        }
+
 
 
         return view('site.catalogElement',[
             'Goods' => $good,
-            'next' => $array->first(),
-            'prev' => $array->last(),
+            'next' => $next,
+            'prev' => $prev,
         ]);
     }
 
