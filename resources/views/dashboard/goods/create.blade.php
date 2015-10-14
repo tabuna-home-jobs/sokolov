@@ -71,6 +71,30 @@
                                 </div>
                             </div>
 
+
+                            <div class="form-group">
+                                <label>Иконка</label>
+
+                                <div class="form-group text-center">
+
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div data-trigger="fileinput" class="fileinput-preview thumbnail"
+                                             style="line-height: 150px;"><img src="{{$Goods->icon or ''}}">
+                                        </div>
+
+                                        <div>
+                                                <span class="btn btn-default btn-file"><span class="fileinput-new">Выбрать изображение</span><span
+                                                            class="fileinput-exists">Изменить</span><input type="file"
+                                                                                                           name="icon"
+                                                                                                           value="{{$Goods->icon or ''}}"></span>
+                                            <a href="#" class="btn btn-default fileinput-exists"
+                                               data-dismiss="fileinput">Удалить</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <div class="form-group">
                                 <label>Категория</label>
                                 <select class="form-control w-md"   ui-jq="chosen" required name="category">

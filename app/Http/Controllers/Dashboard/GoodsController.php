@@ -54,6 +54,14 @@ class GoodsController extends Controller
             $Goods->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
         }
 
+
+        if ($request->hasFile('icon')) {
+            Image::make($request->file('icon'))/*->resize(300, 200)*/
+            ->save('upload/' . time() . '.' . $request->file('icon')->getClientOriginalExtension());
+            $Goods->icon = '/upload/' . time() . '.' . $request->file('icon')->getClientOriginalExtension();
+        }
+
+
         if(!is_null($request->fieldsAttr))
             $Goods->attribute = serialize(array_filter($request->fieldsAttr));
 
@@ -111,6 +119,13 @@ class GoodsController extends Controller
             Image::make($request->file('avatar'))/*->resize(300, 200)*/->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
             $Goods->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
         }
+
+        if ($request->hasFile('icon')) {
+            Image::make($request->file('icon'))/*->resize(300, 200)*/
+            ->save('upload/' . time() . '.' . $request->file('icon')->getClientOriginalExtension());
+            $Goods->icon = '/upload/' . time() . '.' . $request->file('icon')->getClientOriginalExtension();
+        }
+
 
         if(!is_null($request->fieldsAttr))
             $Goods->attribute = serialize(array_filter($request->fieldsAttr));

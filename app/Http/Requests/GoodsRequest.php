@@ -28,6 +28,7 @@ class GoodsRequest extends Request {
             'tag' => 'max:255',
             'descript' => 'max:255',
             'avatar' => 'mimes:jpeg,bmp,png',
+            'icon' => 'mimes:jpeg,bmp,png',
             'price' => 'integer',
             'category'=> 'integer'
         ];

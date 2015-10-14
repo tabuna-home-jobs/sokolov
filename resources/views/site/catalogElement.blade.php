@@ -29,7 +29,10 @@
                 <a class="pull-right" href="{{route('catalog.show',$prev->slug)}}"><span
                             class="pull-right last-next fa fa-chevron-right hidden-sm hidden-xs"></span></a>
 
-                <h1 class="text-center">{{$Goods->name}}</h1>
+                <h1 class="text-center">
+                    <img class="img-responsive" src="{{$Goods->icon}}">
+                    {{$Goods->name}}
+                </h1>
 
 
             </header>
