@@ -4,8 +4,10 @@ namespace App\Providers;
 
 use App\Models\Goods;
 use App\Models\News;
+use App\Models\Order;
 use App\Models\Page;
 use App\Models\Shares;
+use App\Observer\ConvertValueObserver;
 use App\Observer\SlugGenerateObserver;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -43,5 +45,6 @@ class EventServiceProvider extends ServiceProvider
         News::observe(new SlugGenerateObserver);
         Shares::observe(new SlugGenerateObserver);
         Goods::observe(new SlugGenerateObserver);
+        Order::observe(new ConvertValueObserver);
     }
 }
