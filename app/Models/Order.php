@@ -48,7 +48,8 @@ class Order extends Model {
         'text',
         'izdanie',
         'sold',
-        'LangOrder_id'
+        'LangOrder_id',
+        'icon'
     ];
 
 

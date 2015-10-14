@@ -296,12 +296,8 @@
 <script>
 
 
-    window.onload = function () {
-        $("#loader-wrapper").remove();
-    }
-
     $(document).ready(function () {
-        //$("#loader-wrapper").remove();
+        $("#loader-wrapper").remove();
 
         $('.carousel-inner div.item:first-child').addClass('active');
 
