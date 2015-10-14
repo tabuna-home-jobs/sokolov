@@ -37,7 +37,6 @@ class StatusController extends Controller
      */
     public function store(Request $request)
     {
-        abort(200);
         $configs = Config::get('yandexMoney');
 
         $hash = md5($_POST['action'] . ';' . $_POST['orderSumAmount'] . ';' . $_POST['orderSumCurrencyPaycash'] . ';' . $_POST['orderSumBankPaycash'] . ';' . $configs['shopId'] . ';' . $_POST['invoiceId'] . ';' . $_POST['customerNumber'] . ';' . $configs['ShopPassword']);

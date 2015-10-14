@@ -40,7 +40,6 @@ class AvisoController extends Controller
      */
     public function store(Request $request)
     {
-        abort(200);
         $configs = Config::get('yandexMoney');
 
 
