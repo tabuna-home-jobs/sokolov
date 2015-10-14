@@ -59,13 +59,13 @@ class CatalogController extends Controller
         $good = Goods::whereRaw('lang = ? and id = ?',[App::getLocale(), $goods->id])->firstOrFail();
 
 
-        $next = Goods::select('slug')->whereRaw('lang = ? and id != ? and id > ?', [App::getLocale(), $goods->id, $good->id])->first();
+        $next = Goods::select('slug')->whereRaw('lang = ? and id != ? and id > ?', [App::getLocale(), $goods->id, $good->id])->orderBy('id', 'Desc')->first();
 
         if (is_null($next)) {
             $next = Goods::select('slug')->whereRaw('lang = ? and id != ? and id < ?', [App::getLocale(), $goods->id, $good->id])->orderBy('id', 'Desc')->limit(1)->first();
         }
 
-        $prev = Goods::select('slug')->whereRaw('lang = ? and id != ? and id < ?', [App::getLocale(), $goods->id, $good->id])->first();
+        $prev = Goods::select('slug')->whereRaw('lang = ? and id != ? and id < ?', [App::getLocale(), $goods->id, $good->id])->orderBy('id', 'Desc')->first();
         if (is_null($prev)) {
             $prev = Goods::select('slug')->whereRaw('lang = ? and id != ? and id > ?', [App::getLocale(), $goods->id, $good->id])->orderBy('id', 'Desc')->limit(1)->first();
         }
