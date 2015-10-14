@@ -95,7 +95,7 @@
 
         <div class="navbar-header col-xs-12 col-md-6">
             <a class="navbar-brand2" href="/"><img src="/img/logo.jpg" class="img-responsive"> </a>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            <button type="button" class="navbar-toggle collapsed but-menu-top" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>

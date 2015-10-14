@@ -23,16 +23,29 @@
             <header>
 
 
-                <a class="pull-left" href="{{route('catalog.show',$next->slug)}}"><span
-                            class="pull-left last-next fa fa-chevron-left hidden-sm hidden-xs"></span></a>
+                <div class="text-center row">
 
-                <a class="pull-right" href="{{route('catalog.show',$prev->slug)}}"><span
-                            class="pull-right last-next fa fa-chevron-right hidden-sm hidden-xs"></span></a>
+                    <div class="col-md-1 vcenter">
+                        <a href="{{route('catalog.show',$next->slug)}}"><span
+                                    class="last-next fa fa-chevron-left hidden-sm hidden-xs"></span></a>
 
-                <h1 class="text-center">
-                    <img class="img-responsive" src="{{$Goods->icon}}">
-                    {{$Goods->name}}
-                </h1>
+                    </div>
+
+                    <div class="col-md-1 col-xs-12 vcenter">
+                        <img class="img-responsive img-center" src="{{$Goods->icon}}">
+                    </div>
+                    <div class="col-md-8 col-xs-12 vcenter">
+                        <h1> {{$Goods->name}}</h1>
+                    </div>
+
+                    <div class="col-md-1 vcenter">
+                        <a href="{{route('catalog.show',$prev->slug)}}"><span
+                                    class="last-next fa fa-chevron-right hidden-sm hidden-xs"></span></a>
+
+                    </div>
+
+
+                </div>
 
 
             </header>

@@ -1239,7 +1239,7 @@ pre {
 }
 
 .nav.navbar-nav.navbar-right {
-    padding-top: 30px;
+    padding-top: 40px;
 }
 .navbar-header > .navbar-toggle {
     margin-top: 40px;
@@ -1318,8 +1318,14 @@ pre {
     display: block !important;
 }
 
+.navbar-brand2 {
+    display: block;
+}
+
+
 .navbar-brand2 img {
-    max-width: 400px;
+    /*max-width: 400px;*/
+    padding-right: 20%;
 }
 
 .small-menu-element-left {
@@ -1342,4 +1348,36 @@ pre {
     padding: 5px;
     color: #f0ad4e;
     cursor: pointer;
+}
+
+.img-center {
+    margin: 0 auto;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.vcenter > h1 {
+    margin: 0;
+}
+
+.but-menu-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+@media (max-width: 767px) {
+    .pull-left.hidden-xs.hidden-sm .dropdown-toggle {
+        float: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .small-menu-element-left {
+        float: none !important;
+    }
 }
