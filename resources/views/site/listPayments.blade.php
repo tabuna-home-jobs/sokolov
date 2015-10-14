@@ -5,15 +5,23 @@
 
 
     <div class="panel panel-default">
-        <div class="panel-heading">Платежи</div>
+        <div class="panel-heading">{{trans('payments.Invoices')}}
+
+            <div class="pull-right">
+                <a href="{{route('payments.create')}}" class="btn btn-default  btn-xs">
+                    {{trans('payments.New payment')}}
+                </a>
+            </div>
+
+        </div>
         <table class="table">
 
             <thead>
             <tr>
                 <th>#</th>
-                <th>Сумма</th>
-                <th>Название работы</th>
-                <th>Статус</th>
+                <th>{{trans('payments.Total')}}</th>
+                <th>{{trans('payments.Title')}}</th>
+                <th>{{trans('payments.Date')}}</th>
             </tr>
             </thead>
 
@@ -23,8 +31,8 @@
                 <tr>
                     <th scope="row">{{$order->id}}</th>
                     <td>{{$order->sum}}</td>
-                    <td>{{$order->sum}}</td>
-                    <td>{{$order->status}}</td>
+                    <td>{{$order->getOrder->name}}</td>
+                    <td>{{$order->created_at}}</td>
                 </tr>
             @endforeach
 

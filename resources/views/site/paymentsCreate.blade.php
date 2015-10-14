@@ -3,10 +3,13 @@
 @section('content-account')
 
     <div class="panel panel-default">
-        <div class="panel-heading">Платежи</div>
+        <div class="panel-heading">{{trans('payments.Invoices')}}</div>
 
-
-        <form name="ShopForm" method="POST" action="https://demomoney.yandex.ru/eshop.xml">
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <form name="ShopForm" method="POST" class="col-xs-12"
+                          action="https://demomoney.yandex.ru/eshop.xml">
 
 
             <input type="hidden" name="shopId" value="{{Config::get('yandexMoney.shopId')}}">
@@ -23,28 +26,31 @@
 
 
             <div class="form-group">
-                <label>Выберите заказ</label>
+                <label>{{trans('payments.Select order')}}</label>
                 <select id="order" class="form-control" name="orderNumber" required>
                     @foreach($order as $value)
-                        <option data-price="{{$value->price}}" value="{{$value->id}}">{{$value->name}}</option>
+                        <option data-price="{{$value->price_rub}}" value="{{$value->id}}">{{$value->name}}
+                            ({{$value->price}} USD)
+                        </option>
                     @endforeach
                 </select>
             </div>
 
 
             <div class="form-group">
-                <label>Сумма к оплате</label>
+                <label>{{trans('payments.Amount to be paid in rubles')}}</label>
                 <input id="price" class="form-control" type=number name="sum" size="64" readonly
-                       value="{{$order[0]->price or 0}}">
+                       value="{{$order[0]->price_rub or 0}}">
             </div>
 
 
             <div class="form-group">
-                <button class="btn btn-default" type="submit">Оплатить</button>
+                <button class="btn btn-default" type="submit">{{trans('payments.Checkout')}}</button>
             </div>
         </form>
-
-
+                </div>
+            </div>
+        </div>
     </div>
 
 

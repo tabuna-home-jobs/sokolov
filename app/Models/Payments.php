@@ -36,6 +36,6 @@ class Payments extends Model
 
     public function getOrder()
     {
-        return $this->belongsTo('App\Models\User', 'order_id');
+        return $this->belongsTo('App\Models\Order', 'order_id');
     }
 }

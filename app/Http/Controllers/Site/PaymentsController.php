@@ -16,7 +16,7 @@ class PaymentsController extends Controller
      */
     public function index()
     {
-        $payments = Auth::user()->getPayments()->paginate(10);
+        $payments = Auth::user()->getPayments()->with('getOrder')->paginate(10);
         return view('site.listPayments', [
             'payments' => $payments,
         ]);
@@ -31,7 +31,7 @@ class PaymentsController extends Controller
     {
         $order = Auth::user()
             ->getOrders()
-            ->Select('id', 'price', 'name')
+            ->Select('id', 'price', 'name', 'price_rub')
             ->whereRaw('price > ? and sold = ?', ['0.01', 'false'])
             ->get();
 
