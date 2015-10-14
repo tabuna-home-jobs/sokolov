@@ -1,4 +1,9 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<div class="row">
+
+    <div class="col-md-12 hidden-sm hidden-xs">
+
+
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <div class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators carousel-indicators-catalog">
 
@@ -46,4 +51,8 @@
 
 
     </div>
+</div>
+
+    </div>
+
 </div>

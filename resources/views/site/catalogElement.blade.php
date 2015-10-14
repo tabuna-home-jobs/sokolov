@@ -26,16 +26,8 @@
 
     <div class="container">
 
-        <div class="row">
 
-            <div class="col-md-12 hidden-sm hidden-xs">
-
-                {!! htmlBlock::getGoodSlider($Goods->block_id) !!}
-
-
-            </div>
-
-        </div>
+        {!! htmlBlock::getGoodSlider($Goods->block_id) !!}
 
 
         <div class="container blog-container">

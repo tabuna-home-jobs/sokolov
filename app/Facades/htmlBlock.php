@@ -10,6 +10,10 @@ class htmlBlock extends Facade
     static function getGoodSlider($BlockId)
     {
         $Block = Block::find($BlockId);
+
+        if (is_null($Block))
+            return null;
+
         $Elements = $Block->getElements()->where('lang', App::getLocale())->get();
 
         if($Elements->count() == 0)
@@ -28,7 +32,6 @@ class htmlBlock extends Facade
 
         if($Elements->count() == 0)
             return null;
-
 
         return view('htmlBlock.MainSlider', [
             'Elements' => $Elements

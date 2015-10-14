@@ -103,8 +103,8 @@
                             <div class="form-group">
                                 <label>Блок</label>
                                 <select class="form-control w-md" ui-jq="chosen" required name="block_id">
-                                    <option disabled>Выберите категорию</option>
-
+                                    <option disabled>Выберите блок</option>
+                                    <option value="0">Без блока</option>
                                     @foreach($Blocks as $block)
                                         @if($block->id == $Goods->block_id)
                                             <option selected value="{{ $block->id}}">{{ $block->name}}</option>
