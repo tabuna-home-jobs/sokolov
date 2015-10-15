@@ -10,12 +10,12 @@ return [
     'Reviews' => 'Customer Reviews',
     'Reviews-sub' => 'All reviews',
     'Learn More' => 'Learn more',
-    'panel' => 'Service',
+    'panel' => 'Account',
     'sign' => 'Log In',
     'dashboard' => 'Panel',
-    'logout' => 'Logout',
-    'userhome' => 'Account',
-    'editorhome' => 'Account',
+    'logout' => 'Log Out',
+    'userhome' => 'Your Account',
+    'editorhome' => 'Your Account',
 
 
     "We employ only experienced scientific academic editors who are experts in a particular scientific field. All our editors - experts in English grammar, spelling and punctuation." =>
@@ -25,7 +25,7 @@ return [
         "Our scientific editors have extensive experience working in prestigious academic research institutions and have a significant number of highly cited publications in scientific journals in English.",
 
     "Our scientific editors wrote, edited and reviewed scientific publications and grants." =>
-        "Our scientific editors wrote, edited and reviewed scientific publications and grants.",
+        "Our scientific editors have authored, edited and reviewed scientific publications and grants.",
 
     "We know that you need to publish your important scientific discoveries in the English-language journal. The language barrier should never be a barrier to the spread of important ideas and discoveries! We are here to help you succeed!" =>
         "We know that you need to publish your important scientific discoveries in the English-language journal. The language barrier should never be a barrier to the spread of important ideas and discoveries! We are here to help you succeed!",

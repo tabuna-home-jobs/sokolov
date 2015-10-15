@@ -1,14 +1,15 @@
 <?php
 
 return [
-    'My Tasks' => 'My Tasks',
-    'Job title' => 'Job title',
+    'My Tasks' => 'Your tasks',
+    'Job title' => 'Task title',
     'Service' => 'Service',
-    'Price' => 'Price',
+    'Price' => 'Compensation',
     'Deadline' => 'Deadline',
     'Control' => 'Control',
     'Viewing' => 'Viewing',
     'End Task' => 'End Task',
+    'Workload' => 'Workload',
 
     'Task' => 'Task',
     'Status' => 'Status',

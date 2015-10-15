@@ -11,6 +11,7 @@ return [
     "exit" => "Exit",
     "Hello" => "Hello",
 
-    "feed task" => "Feed Task",
-    "task" => "Tasks",
+    "feed task" => "TASKS IN QUEUE",
+    "task" => "ACTIVE TASKS",
+    "TASK HISTORY" => "TASK HISTORY",
 ];

@@ -2,11 +2,12 @@
 
 return [
 
-    "Feed Task" => "Feed Task",
-    "Job title" => "Job title",
+    "Feed Task" => "Tasks in queue",
+    "Job title" => "Task title",
     "Service" => "Service",
-    "Price" => "Price",
+    "Workload" => "Workload",
+    "Price" => "Compensation",
     "Deadline" => "Deadline",
-    "Control" => "Control",
+    "Control" => "Action",
     "Take" => "Take"
 ];
