@@ -33,9 +33,9 @@
             </article>
         @endforeach
 
-
+            <div class="text-center">
         {!! $NewsList->render() !!}
-
+            </div>
 
     </div>
 

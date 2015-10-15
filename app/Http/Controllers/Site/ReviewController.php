@@ -22,7 +22,7 @@ class ReviewController extends Controller
         $ReviewList = Review::where('lang', App::getLocale())
             ->where('publish', true)
             ->orderBy('id', 'desc')
-            ->paginate(12);
+            ->paginate(10);
 
         return view('site.reviews', [
             'ReviewList' => $ReviewList
