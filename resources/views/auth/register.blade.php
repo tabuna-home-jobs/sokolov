@@ -71,7 +71,7 @@
                             <button type="submit" class="btn btn-warning">{{trans('auth.Register')}}</button>
                         </p>
                         <a href="/password/email/"
-                           class="btn btn-link btn-block">{{trans('auth.Forgot your password')}}</a>
+                           class="btn btn-link btn-block">{{trans('auth.Forgot your password')}}?</a>
                     </form>
                 </div>
             </div>
@@ -88,7 +88,9 @@
                     <p class="text-center"><a href="/auth/login/" class="btn btn-info">{{trans('auth.To login')}}</a>
                     </p>
 
-                    <p class="text-center"><a target="_blank" href="@if(App::getLocale()=='ru') /oferta/RussianRules.doc @else /oferta/EnglishRules.doc @endif">{{trans('auth.Terms of use')}}</a></p>
+                    <p class="text-center"><a target="_blank"
+                                              href="@if(App::getLocale()=='ru') /page/publichnaya-oferta-ob-okazanii-perevodcheskikh-i-inykh-uslug @else /page/public-offer-on-provision-of-translation-and-other-services @endif">{{trans('auth.Terms of use')}}</a>
+                    </p>
                 </div>
             </div>
         </div>

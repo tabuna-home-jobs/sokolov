@@ -23,7 +23,7 @@
                                         <li><a class="{{Active::route('editor.order.*')}}"
                                                href="{{route('editor.order.index')}}"><i class="fa fa-tasks"></i>
                                                 {{trans('leftPanel.task')}} <span
-                                                        class="badge pull-right">{{Auth::user()->getTask()->count()}}</span>
+                                                        class="badge pull-right">{{Auth::user()->getTask()->where('status','!=','Завершена')->count()}}</span>
                                             </a></li>
                                         <li><a class="{{Active::route('setting.*')}}"
                                                href="{{URL::route('setting.index')}}"><i class="fa fa-cog"></i>

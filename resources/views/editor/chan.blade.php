@@ -16,6 +16,7 @@
                 <th>{{trans('chan.Job title')}}</th>
                 <th>{{trans('chan.Service')}}</th>
                 <th>{{trans('chan.Price')}}</th>
+                <th>{{trans('chan.Workload')}}</th>
                 <th>{{trans('chan.Deadline')}}</th>
                 <th>{{trans('chan.Control')}}</th>
             </tr>
@@ -37,6 +38,7 @@
 
 
                     <td>{{$task->price}} USD</td>
+                    <td>{{$task->countWork}}</td>
                     <td>{{$task->workfinish}}</td>
 
 

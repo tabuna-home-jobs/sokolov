@@ -7,10 +7,10 @@
     <div class="container auth-container">
 
         <div class="col-md-10 col-md-offset-1">
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12 col-md-8">
 
                 <div class="well well-danger">
-                    <form class="p-t-40" role="form" method="POST" action="{{ url('/auth/login') }}">
+                    <form class="p-t-40 p-b-5" role="form" method="POST" action="{{ url('/auth/login') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <div class="form-group">
@@ -34,7 +34,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12 col-md-4">
                 <div class="well well-primary">
                     <p class="lead">{{trans('auth.Register now for ')}} {{trans('auth.free')}}
                     </p>
@@ -48,7 +48,9 @@
                     <p class="text-center"><a href="/auth/register/"
                                               class="btn btn-info">{{trans('auth.I want to register')}}</a></p>
 
-                    <p class="text-center"><a target="_blank" href="@if(App::getLocale()=='ru') /oferta/RussianRules.doc @else /oferta/EnglishRules.doc @endif">{{trans('auth.Terms of use')}}</a></p>
+                    <p class="text-center"><a target="_blank"
+                                              href="@if(App::getLocale()=='ru') /page/publichnaya-oferta-ob-okazanii-perevodcheskikh-i-inykh-uslug @else /page/public-offer-on-provision-of-translation-and-other-services @endif">{{trans('auth.Terms of use')}}</a>
+                    </p>
                 </div>
             </div>
         </div>

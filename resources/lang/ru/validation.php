@@ -112,5 +112,9 @@ return [
     |   )
     |
     */
-    'attributes' => [],
+    'attributes' => [
+        'email' => 'электронный адрес',
+        'password' => 'пароль',
+        'phone' => 'телефон'
+    ],
 ];

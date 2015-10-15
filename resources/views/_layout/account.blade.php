@@ -24,7 +24,7 @@
                                         <li><a class="{{Active::route(['order.index', 'order.show'])}}"
                                                href="{{route('order.index')}}"><i class="fa fa-cart-arrow-down"></i>
                                                 {{trans('leftPanel.orders')}}<span
-                                                        class="badge pull-right">{{Auth::user()->getOrders()->count()}}</span>
+                                                        class="badge pull-right">{{Auth::user()->getOrders()->where('status','!=','Завершена')->count()}}</span>
                                             </a></li>
                                         <li><a class="{{Active::route(['payments.*'])}}"
                                                href="{{route('payments.index')}}"><i

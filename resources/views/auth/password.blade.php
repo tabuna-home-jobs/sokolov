@@ -6,7 +6,7 @@
     <div class="container auth-container">
         <div class="col-xs-12 col-md-6 col-md-offset-3">
 
-            <p class="lead text-center">{{trans('auth.Password recovery')}} :</p>
+            <p class="lead text-center">{{trans('auth.Password recovery')}}</p>
 
             <div class="well well-danger">
                 <form action="{{ url('/password/email')}}" method="post">
@@ -26,14 +26,14 @@
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     </div>
 
-                    <button type="submit" class="btn btn-warning btn-block">{{trans('auth.Restore password')}}</button>
+                    <button type="submit" class="btn btn-warning btn-block"> {{trans('auth.Restore password')}}</button>
 
 
                     <hr>
 
                     <ul class="list-unstyled" style="line-height: 2">
                         <ol>
-                            <span class="fa fa-check text-success"></span>{{trans('auth.In the form, specify your E-mail')}}
+                            <span class="fa fa-check text-success"></span> {{trans('auth.In the form, specify your E-mail')}}
                         </ol>
                         <ol>
                             <span class="fa fa-check text-success"></span> {{trans("auth.Click on the 'forgot my password'.")}}

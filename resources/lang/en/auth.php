@@ -11,7 +11,7 @@ return [
     "Terms of use" => "Terms of use",
     "Forgot your password" => "Forgot your password",
     "Password recovery" => "Password recovery",
-    "Restore password" => "Restore password",
+    "Restore password" => "Reset password",
     "In the form, specify your E-mail" => 'Specify your Email in the above field',
     "Click on the 'forgot my password'." => "Click on the “Reset password” button",
     "On the specified mailbox will receive a letter containing a link to request a new password." => "Reset link will be sent to the specified Email address",

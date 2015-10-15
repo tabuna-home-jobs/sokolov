@@ -57,13 +57,15 @@
 
             <div class="icon-info-top navbar-form navbar-left hidden-xs">
 
-                <a href="skype:+79802665074?call"><img src="/img/icon/phone-icon.png">
+                <a href="skype:+79802665074?call"><img src="/img/icon/phone-icon-300.png" class="icon-top">
                     <b> 8(980)266-5074</b></a>
 
-                <a href="mailto:contact@falconediting.com"><img src="/img/icon/email-icon.png"> contact@falconediting
+                <a href="mailto:contact@falconediting.com"><img src="/img/icon/email-icon-300.png" class="icon-top">
+                    contact@falconediting
                     .com</a>
 
-                <a href="skype:falconediting?call"><img src="/img/icon/skype-icon.png"> falconediting</a>
+                <a href="skype:falconediting?call"><img src="/img/icon/skype-icon-300.png" class="icon-top">
+                    falconediting</a>
 
             </div>
         </div>
@@ -250,6 +252,10 @@
                         <li><a href="skype:falconediting?call"> <img src="/img/icon/skype-icon-m.png"> falconediting</a>
                         </li>
                     </ul>
+
+
+                    <img src="/img/icon/social-icon.png" class="p-t-15">
+
 
                 </div>
                 <div class="col-sm-3 hidden-sm hidden-xs">
