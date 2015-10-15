@@ -12,7 +12,7 @@
         <div class="col-xs-12 col-md-6 col-md-offset-3">
 
 
-            <p class="lead text-center">{{trans('auth.Password recovery')}} :</p>
+            <p class="lead text-center">{{trans('auth.Password recovery')}}</p>
 
 
             <div class="well well-danger">

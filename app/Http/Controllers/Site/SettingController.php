@@ -107,7 +107,14 @@ class SettingController extends Controller
             ]);
 
 
-            $this->user->fill($request->all())->save();
+            $data = $request->all();
+
+            if (empty($data['phone']))
+                $data['phone'] = null;
+
+
+            $this->user->fill($data)->save();
+
         } elseif ($request->type == 'password') {
 
 

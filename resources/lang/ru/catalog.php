@@ -14,7 +14,7 @@ return [
     "Express (4 days)" => "Экспресс (4 дня)",
     "Formatting scientific manuscripts" => "Форматирование научных рукописей",
     "Word Count" => "Количество слов",
-    "day" => "дня",
+    "days" => "дня",
     "By agreement" => "По договорённости",
     "Illustrating scientific manuscripts" => "Иллюстрирование научных рукописей",
     "Service" => "Услуга",

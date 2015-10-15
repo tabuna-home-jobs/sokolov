@@ -20,8 +20,15 @@
                             <span class="glyphicon glyphicon-user form-control-feedback"></span>
                         </div>
                         <div class="form-group has-feedback">
-                            <label for="username" class="control-label">Email</label>
+                            <label for="email" class="control-label">Email</label>
                             <input type="email" class="form-control" name="email" value="{{ old('email') }}"
+                                   placeholder="Email"/>
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                            <label for="email" class="control-label">{{trans('setting.Repeat email')}}</label>
+                            <input type="email" class="form-control" name="email_confirmation"
                                    placeholder="Email"/>
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         </div>

@@ -4,6 +4,6 @@ return [
     "Write to us" => "Написать нам",
     "Full name" => "ФИО",
     "Phone" => "Телефон",
-    "Message text" => "Тест сообщения",
+    "Message text" => "Текст сообщения",
     "Send" => "Отправить",
 ];

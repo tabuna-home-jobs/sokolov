@@ -301,6 +301,7 @@
 
         $('.carousel-inner div.item:first-child').addClass('active');
 
+        /*
         $(".fancybox-thumb-img-text").fancybox({
             openEffect: 'elastic',
             closeEffect: 'elastic',
@@ -315,6 +316,7 @@
         $(".fancybox-thumb-img-text").click(function () {
             $(this).css('display', 'inherit');
         });
+         */
 
 
     });

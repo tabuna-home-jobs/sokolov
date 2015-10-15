@@ -64,7 +64,7 @@
 
 
 
-    <div class="container-fluid array-top hidden-sm hidden-xs padding-container">
+    <div class="container-fluid hidden-sm hidden-xs">
 
         <p class="text-center">
             <a href="/auth/login" type="button" class="btn btn-warning">{{trans('main.Order')}}</a>
