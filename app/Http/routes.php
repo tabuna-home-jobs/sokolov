@@ -12,9 +12,9 @@
 */
 
 
-Route::post('/payments/order/', function () {
-    return 'Hello World';
-});
+//Route::post('/payments/order', function () {
+//    return 'Hello World';
+//});
 
 
 Route::group(['namespace' => 'Payments', 'prefix' => 'payments'], function () {

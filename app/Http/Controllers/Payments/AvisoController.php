@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Payments;
 use Config;
 use Illuminate\Http\Request;
+use Storage;
 
 class AvisoController extends Controller
 {
@@ -16,10 +17,40 @@ class AvisoController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
+        $contents = Storage::get('yandexTest.txt');
+        dd(json_decode($contents));
 
+
+        $configs = Config::get('yandexMoney');
+
+        //$hash = md5($_POST['action'] . ';' . $_POST['orderSumAmount'] . ';' . $_POST['orderSumCurrencyPaycash'] . ';' . $_POST['orderSumBankPaycash'] . ';' . $configs['shopId'] . ';' . $_POST['invoiceId'] . ';' . $_POST['customerNumber'] . ';' . $configs['ShopPassword']);
+
+
+        $hash = md5(
+            $request->action . ';' .
+            $request->orderSumAmount . ';' .
+            $request->orderSumCurrencyPaycash . ";" .
+            $request->orderSumBankPaycash . ";" .
+            $configs['shopId'] . ";" .
+            $request->invoiceId . ";" .
+            $request->customerNumber . ";" .
+            $configs['ShopPassword']
+        );
+
+
+        if (strtolower($hash) != strtolower($request->md5)) {
+            $code = 1;
+        } else {
+            $code = 0;
+        }
+
+
+        $response = '<?xml version="1.0" encoding="UTF-8"?>';
+        $response .= '<checkOrderResponse performedDatetime="' . $request->requestDatetime . '" code="' . $code . '"' . ' invoiceId="' . $request->invoiceId . '" shopId="' . $configs['shopId'] . '"/>';
+        return response($response)->header('Content-Type', 'application/xml');
     }
 
     /**
@@ -40,44 +71,64 @@ class AvisoController extends Controller
      */
     public function store(Request $request)
     {
+
         $configs = Config::get('yandexMoney');
-
-
-        $hash = md5($_POST['action'] . ';' . $_POST['orderSumAmount'] . ';' . $_POST['orderSumCurrencyPaycash'] . ';' . $_POST['orderSumBankPaycash'] . ';' . $configs['shopId'] . ';'
-            . $_POST['invoiceId'] . ';' . $_POST['customerNumber'] . ';' . $configs['ShopPassword']);
 
         $hash = md5(
             $request->action . ';' .
             $request->orderSumAmount . ';' .
             $request->orderSumCurrencyPaycash . ";" .
             $request->orderSumBankPaycash . ";" .
-            $configs['shopId'] . ";" .
+            $request->shopId . ";" .
             $request->invoiceId . ";" .
             $request->customerNumber . ";" .
-            $configs['ShopPassword']
+            $configs['ShopPassword'] . ";"
         );
 
 
-        if (strtolower($hash) != strtolower($request->md5)) {
-            $code = 1; //vse plosho kak ya poonayl
-        } else {
-            $code = 0; // vse ok
+        if ($request->action == 'checkOrder') {
 
-            $order = Order::find($request->customerNumber);
-            $order->sold = true;
-            $order->save;
+            Storage::put('yandexTest.txt', json_encode([strtolower($hash), strtolower($request->md5)]));
 
-            Payments::create([
-                'sum' => $request->orderSumAmount,
-                'users_id' => $order->user_id,
-                'status' => true,
-                'order_id' => $order->id
-            ]);
+            if (strtolower($hash) != strtolower($request->md5)) {
+                $code = 1;
+            } else {
+                $code = 0;
+            }
+
+            $response = '<?xml version="1.0" encoding="UTF-8"?>';
+            $response .= '<checkOrderResponse performedDatetime="' . $request->requestDatetime . '" code="' . $code . '"' . ' invoiceId="' . $request->invoiceId . '" shopId="' . $configs['shopId'] . '"/>';
+            return response($response)->header('Content-Type', 'application/xml');
+        } elseif ($request->action == 'paymentAviso') {
+
+            //Storage::put('yandexTest.txt', json_encode($request->all()));
+
+
+            if (strtolower($hash) != strtolower($request->md5)) {
+                $code = 1; //vse plosho kak ya poonayl
+            } else {
+                $code = 0; // vse ok
+
+                $order = Order::find($request->customerNumber);
+                $order->sold = true;
+                $order->save;
+
+                Payments::create([
+                    'sum' => $request->orderSumAmount,
+                    'users_id' => $order->user_id,
+                    'status' => true,
+                    'order_id' => $order->id
+                ]);
+
+            }
+
+            $response = '<?xml version="1.0" encoding="UTF-8"?>';
+            $response .= '<paymentAvisoResponse performedDatetime="' . $request->requestDatetime . '" code="' . $code . '" invoiceId="' . $request->invoiceId . '" shopId="' . $configs['shopId'] . '"/>';
+            return response($response)->header('Content-Type', 'application/xml');
 
 
         }
-        print '<?xml version="1.0" encoding="UTF-8"?>';
-        print '<paymentAvisoResponse performedDatetime="' . $request->requestDatetime . '" code="' . $code . '" invoiceId="' . $request->invoiceId . '" shopId="' . $configs['shopId'] . '"/>';
+
 
     }
 
@@ -87,9 +138,9 @@ class AvisoController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

@@ -39,7 +39,19 @@ class StatusController extends Controller
     {
         $configs = Config::get('yandexMoney');
 
-        $hash = md5($_POST['action'] . ';' . $_POST['orderSumAmount'] . ';' . $_POST['orderSumCurrencyPaycash'] . ';' . $_POST['orderSumBankPaycash'] . ';' . $configs['shopId'] . ';' . $_POST['invoiceId'] . ';' . $_POST['customerNumber'] . ';' . $configs['ShopPassword']);
+        //$hash = md5($_POST['action'] . ';' . $_POST['orderSumAmount'] . ';' . $_POST['orderSumCurrencyPaycash'] . ';' . $_POST['orderSumBankPaycash'] . ';' . $configs['shopId'] . ';' . $_POST['invoiceId'] . ';' . $_POST['customerNumber'] . ';' . $configs['ShopPassword']);
+
+        $hash = md5(
+            $request->action . ';' .
+            $request->orderSumAmount . ';' .
+            $request->orderSumCurrencyPaycash . ";" .
+            $request->orderSumBankPaycash . ";" .
+            $configs['shopId'] . ";" .
+            $request->invoiceId . ";" .
+            $request->customerNumber . ";" .
+            $configs['ShopPassword']
+        );
+
         if (strtolower($hash) != strtolower($_POST['md5'])) {
             $code = 1;
         } else {
@@ -56,9 +68,9 @@ class StatusController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
