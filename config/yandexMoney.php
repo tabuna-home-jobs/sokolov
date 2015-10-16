@@ -3,5 +3,5 @@
 return [
     'shopId' => '50061',
     'scid' => '526526',
-    'ShopPassword' => 'FalconEditing#111',
+    'ShopPassword' => 'FalconEditing1',
 ];

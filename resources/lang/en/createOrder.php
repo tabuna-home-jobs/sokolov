@@ -4,6 +4,9 @@ return [
 
     "Selection of services" => "Selection of services",
     "Description of work" => "Comments",
+
+    "Description of work filed" => "Comments",
+
     "Attach files" => "Attach files",
     "Select the service provided" => "Select the service provided",
     "Next" => 'Next',

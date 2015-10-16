@@ -19,38 +19,7 @@ class AvisoController extends Controller
      */
     public function index(Request $request)
     {
-
-        $contents = Storage::get('yandexTest.txt');
-        dd(json_decode($contents));
-
-
-        $configs = Config::get('yandexMoney');
-
-        //$hash = md5($_POST['action'] . ';' . $_POST['orderSumAmount'] . ';' . $_POST['orderSumCurrencyPaycash'] . ';' . $_POST['orderSumBankPaycash'] . ';' . $configs['shopId'] . ';' . $_POST['invoiceId'] . ';' . $_POST['customerNumber'] . ';' . $configs['ShopPassword']);
-
-
-        $hash = md5(
-            $request->action . ';' .
-            $request->orderSumAmount . ';' .
-            $request->orderSumCurrencyPaycash . ";" .
-            $request->orderSumBankPaycash . ";" .
-            $configs['shopId'] . ";" .
-            $request->invoiceId . ";" .
-            $request->customerNumber . ";" .
-            $configs['ShopPassword']
-        );
-
-
-        if (strtolower($hash) != strtolower($request->md5)) {
-            $code = 1;
-        } else {
-            $code = 0;
-        }
-
-
-        $response = '<?xml version="1.0" encoding="UTF-8"?>';
-        $response .= '<checkOrderResponse performedDatetime="' . $request->requestDatetime . '" code="' . $code . '"' . ' invoiceId="' . $request->invoiceId . '" shopId="' . $configs['shopId'] . '"/>';
-        return response($response)->header('Content-Type', 'application/xml');
+        return redirect()->url('/');
     }
 
     /**
@@ -82,18 +51,35 @@ class AvisoController extends Controller
             $request->shopId . ";" .
             $request->invoiceId . ";" .
             $request->customerNumber . ";" .
-            $configs['ShopPassword'] . ";"
+            $configs['ShopPassword']
         );
+
+
+        Storage::put('yandexTest.txt', json_encode($request->all()));
 
 
         if ($request->action == 'checkOrder') {
 
-            Storage::put('yandexTest.txt', json_encode([strtolower($hash), strtolower($request->md5)]));
 
             if (strtolower($hash) != strtolower($request->md5)) {
                 $code = 1;
             } else {
                 $code = 0;
+
+
+                $order = Order::findOrFail($request->orderNumber);
+                $order->sold = 1;
+                $order->status = "В работе";
+                $order->save();
+
+                Payments::create([
+                    'sum' => $request->orderSumAmount,
+                    'users_id' => $order->user_id,
+                    'status' => 1,
+                    'order_id' => $order->id
+                ]);
+
+
             }
 
             $response = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -101,25 +87,11 @@ class AvisoController extends Controller
             return response($response)->header('Content-Type', 'application/xml');
         } elseif ($request->action == 'paymentAviso') {
 
-            //Storage::put('yandexTest.txt', json_encode($request->all()));
-
 
             if (strtolower($hash) != strtolower($request->md5)) {
                 $code = 1; //vse plosho kak ya poonayl
             } else {
                 $code = 0; // vse ok
-
-                $order = Order::find($request->customerNumber);
-                $order->sold = true;
-                $order->save;
-
-                Payments::create([
-                    'sum' => $request->orderSumAmount,
-                    'users_id' => $order->user_id,
-                    'status' => true,
-                    'order_id' => $order->id
-                ]);
-
             }
 
             $response = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -140,7 +112,7 @@ class AvisoController extends Controller
      */
     public function show(Request $request)
     {
-        dd($request->all());
+        return redirect()->url('/');
     }
 
     /**

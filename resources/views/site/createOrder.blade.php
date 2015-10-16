@@ -137,7 +137,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label">{{trans('createOrder.Description of work')}}</label>
+                        <label class="control-label">{{trans('createOrder.Description of work filed')}}</label>
                         <textarea rows="20" class="form-control" name="text" required="required"></textarea>
                     </div>
 

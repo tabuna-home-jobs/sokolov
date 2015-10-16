@@ -12,9 +12,15 @@ class ConvertValueObserver
     {
         $order = Order::find($model->id);
 
-        if (is_null($model) || $model->price != $order->price) {
+        if (is_null($model)) {
             $model->price_rub = CurrencyRate::getOneRecord() * $model->price;
+        } elseif (!is_null($model->price) && !is_null($order->price)) {
+            if ($model->price != $order->price) {
+                $model->price_rub = CurrencyRate::getOneRecord() * $model->price;
+            }
         }
+
+
 
 
     }

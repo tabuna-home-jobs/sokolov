@@ -3,7 +3,10 @@
 return [
 
     "Selection of services" => "Выбор услуги",
-    "Description of work" => "Описание работы (Укажите файлы для выставления счёта)",
+    "Description of work" => "Описание работы",
+
+    "Description of work filed" => "Описание работы (Укажите файлы для выставления счёта)",
+
     "Attach files" => "Прикрепить файлы",
     "Select the service provided" => "Выберите предоставляемую услугу",
     "Next" => 'Далее',

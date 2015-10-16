@@ -50,7 +50,11 @@ class Order extends Model {
         'sold',
         'LangOrder_id',
         'icon',
-        'price_rub'
+        'price_rub',
+    ];
+
+    protected $casts = [
+        'sold' => 'boolean',
     ];
 
 
