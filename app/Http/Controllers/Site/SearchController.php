@@ -19,7 +19,7 @@ class SearchController extends Controller
     {
         $search = Request::input('search');
 
-        $searchList = News::whereOr('content', 'LIKE', '%' . $search . '%')
+        $searchList = News::where('content', 'LIKE', '%' . $search . '%')
             ->whereOr('title', 'LIKE', '%' . $search . '%')
             ->whereOr('descript', 'LIKE', '%' . $search . '%')
             ->orderBy('id', 'desc')
@@ -27,7 +27,7 @@ class SearchController extends Controller
             ->get();
 
         $searchGoods = Goods::
-        whereOr('text', 'LIKE', '%' . $search . '%')
+        where('text', 'LIKE', '%' . $search . '%')
             ->whereOr('title', 'LIKE', '%' . $search . '%')
             ->whereOr('descript', 'LIKE', '%' . $search . '%')
             ->orderBy('id', 'desc')
