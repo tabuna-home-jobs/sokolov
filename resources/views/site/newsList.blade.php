@@ -1,7 +1,7 @@
 @extends('_layout/site')
 
 
-@section('title',trans('main.News').' - Falcon Scientific Editing ')
+@section('title',trans('main.News'))
 
 
 

@@ -204,8 +204,10 @@
 
                                             <input type="hidden" name="_method" value="PUT">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <button type="submit" class="btn btn-success btn-block">Сохранить</button>
 
+                                            <p class="text-center">
+                                                <button type="submit" class="btn btn-success">Сохранить</button>
+                                            </p>
                                         </form>
 
 
@@ -242,8 +244,8 @@
                                                 <div role="tabpanel" class="tab-pane fade active in" id="taskTab"
                                                      aria-labelledby="taskTab-tab">
 
-                                                    <p class="m-t-md">
-                                                        <button class="btn m-b-xs btn-sm btn-info btn-block"
+                                                    <p class="m-t-md text-center">
+                                                        <button class="btn m-b-xs btn-sm btn-info"
                                                                 type="button" data-toggle="collapse"
                                                                 data-target="#collapseExample" aria-expanded="false"
                                                                 aria-controls="collapseExample">

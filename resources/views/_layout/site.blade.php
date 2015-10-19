@@ -58,7 +58,7 @@
             <div class="icon-info-top navbar-form navbar-left hidden-xs">
 
                 <a href="skype:+79802665074?call"><img src="/img/icon/phone-icon-300.png" class="icon-top">
-                    <b> 8(980)266-5074</b></a>
+                    <b> +7(980)266-5074</b></a>
 
                 <a href="mailto:contact@falconediting.com"><img src="/img/icon/email-icon-300.png" class="icon-top">
                     contact@falconediting
@@ -244,7 +244,8 @@
                     <h4>{{trans('footer.contacts')}}</h4>
 
                     <ul class="menu-footer-contact">
-                        <li><a href="skype:+79802665074?call"> <img src="/img/icon/phone-icon-m.png"> 8(980)266-5074</a>
+                        <li><a href="skype:+79802665074?call"> <img src="/img/icon/phone-icon-m.png">
+                                +7(980)266-5074</a>
                         </li>
                         <li><a href="mailto:contact@falconediting.com"><img src="/img/icon/email-icon-m.png">
                                 contact@falconediting.com</a></li>

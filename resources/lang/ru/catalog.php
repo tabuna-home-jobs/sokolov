@@ -15,6 +15,7 @@ return [
     "Formatting scientific manuscripts" => "Форматирование научных рукописей",
     "Word Count" => "Количество слов",
     "days" => "дня",
+    "day" => "дней",
     "By agreement" => "По договорённости",
     "Illustrating scientific manuscripts" => "Иллюстрирование научных рукописей",
     "Service" => "Услуга",

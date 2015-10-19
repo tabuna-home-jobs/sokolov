@@ -1,13 +1,13 @@
 <?php
 
 return [
-    "На оценке" => "On assessment",
+    "На оценке" => "Waiting for invoice",
     "Отменён" => "Cancelled",
-    "Не оплачен" => "Not paid",
-    "В работе" => "In work",
-    "Готова" => "Complete",
+    "Не оплачен" => "Waiting for payment",
+    "В работе" => "Under review",
+    "Готова" => "Completed",
     "На проверке" => "Upon verification",
     "На доработке" => "On completion",
     "Завершена" => "Completed",
-    "Обрабатывается" => "processed",
+    "Обрабатывается" => "Processed",
 ];

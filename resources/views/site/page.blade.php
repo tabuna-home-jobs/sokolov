@@ -15,7 +15,6 @@
 
             <h1>{{$Page->title}}</h1>
 
-
             <main class="blog-content">
 
                 {!! $Page->content !!}
@@ -35,8 +34,18 @@
                 @foreach($NewsList as $news)
                     <a href="{{URL::route('news.show',$news->slug)}}">
                         <h5>{{$news->name}}</h5>
+                    </a>
+
+                    <hr>
+                    <h5 class="date">
+                        <small>{{$news->created_at->toDateString()}}</small>
+                    </h5>
+
+                    <a href="{{URL::route('news.show',$news->slug)}}">
                         <img class="img-respinsive" src="{{$news->avatar}}">
                     </a>
+
+
                     <p>
                         {{
                             str_limit(strip_tags($news->content), $limit = 100, $end = '...')

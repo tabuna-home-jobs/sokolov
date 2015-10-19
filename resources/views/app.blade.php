@@ -53,38 +53,6 @@
             <ul class="nav navbar-nav navbar-right">
 
 
-                <li class="{{Active::route('dashboard.category.*')}}">
-                    <a href="{{URL::route('dashboard.category.index')}}">
-                        <span class="hidden-sm hidden-md"><i class="fa fa-briefcase icon"></i></span>
-                        <span class="visible-xs-inline">Категории</span>
-                    </a>
-                </li>
-
-
-                <li class="{{Active::route('dashboard.langorder.*')}}">
-                    <a href="{{URL::route('dashboard.langorder.index')}}">
-                        <span class="hidden-sm hidden-md"><i class="fa fa-book icon"></i></span>
-                        <span class="visible-xs-inline">Языки в заказе</span>
-                    </a>
-                </li>
-
-
-                <li class="{{Active::route('dashboard.user.*')}}">
-                    <a href="{{route('dashboard.user.index')}}">
-                        <span class="hidden-sm hidden-md"><i class="fa fa-users icon"></i></span>
-                        <span class="visible-xs-inline">Пользователи</span>
-                    </a>
-                </li>
-
-
-                <li class="{{Active::route('dashboard.editor.*')}}">
-                    <a href="{{route('dashboard.editor.index')}}">
-                        <span class="hidden-sm hidden-md"><i class="fa fa-user icon"></i></span>
-                        <span class="visible-xs-inline">Редакторы</span>
-                    </a>
-                </li>
-
-
                 <li>
                     <a href="/auth/logout">
                         <span class="hidden-sm hidden-md"><i class="fa fa-sign-out"></i> </span>
@@ -194,6 +162,36 @@
                             <a href="{{URL::route('dashboard.statinfo.index')}}">
                                 <i class="fa fa-sitemap"></i>
                                 <span>Учёт</span>
+                            </a>
+                        </li>
+
+                        <li class="{{Active::route('dashboard.category.*')}}">
+                            <a href="{{URL::route('dashboard.category.index')}}">
+                                <i class="fa fa-briefcase"></i>
+                                <span>Категории</span>
+                            </a>
+                        </li>
+
+
+                        <li class="{{Active::route('dashboard.langorder.*')}}">
+                            <a href="{{URL::route('dashboard.langorder.index')}}">
+                                <i class="fa fa-book"></i>
+                                <span>Языки в заказе</span>
+                            </a>
+                        </li>
+
+                        <li class="{{Active::route('dashboard.user.*')}}">
+                            <a href="{{route('dashboard.user.index')}}">
+                                <i class="fa fa-users"></i>
+                                <span>Языки в заказе</span>
+                            </a>
+                        </li>
+
+
+                        <li class="{{Active::route('dashboard.editor.*')}}">
+                            <a href="{{route('dashboard.editor.index')}}">
+                                <i class="fa fa-user"></i>
+                                <span>Редакторы</span>
                             </a>
                         </li>
 

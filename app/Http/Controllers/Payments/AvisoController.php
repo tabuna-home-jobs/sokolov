@@ -19,7 +19,7 @@ class AvisoController extends Controller
      */
     public function index(Request $request)
     {
-        return redirect()->url('/');
+        return redirect('/');
     }
 
     /**

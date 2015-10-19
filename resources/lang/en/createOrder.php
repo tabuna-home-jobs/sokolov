@@ -5,7 +5,7 @@ return [
     "Selection of services" => "Selection of services",
     "Description of work" => "Comments",
 
-    "Description of work filed" => "Comments",
+    "Description of work filed" => "Comments (please specify the files to modify)",
 
     "Attach files" => "Attach files",
     "Select the service provided" => "Select the service provided",

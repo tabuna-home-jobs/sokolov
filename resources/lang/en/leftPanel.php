@@ -2,7 +2,7 @@
 
 return [
 
-    "service" => "YOUR ACCOUN",
+    "service" => "YOUR ACCOUNT",
     "create order" => "CREATE NEW ORDER",
     "orders" => "ORDER HISTORY",
     "invoice" => "INVOICES",
