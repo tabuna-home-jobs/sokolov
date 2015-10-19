@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Models\Goods;
 use App\Models\News;
 use Request;
-
 
 class SearchController extends Controller
 {
@@ -19,12 +19,24 @@ class SearchController extends Controller
     {
         $search = Request::input('search');
 
-        $searchList = News::where('content', 'LIKE', '%' . $search . '%')
+        $searchList = News::whereOr('content', 'LIKE', '%' . $search . '%')
+            ->whereOr('title', 'LIKE', '%' . $search . '%')
+            ->whereOr('descript', 'LIKE', '%' . $search . '%')
             ->orderBy('id', 'desc')
-            ->paginate(12);
+            ->limit(10)
+            ->get();
+
+        $searchGoods = Goods::
+        whereOr('text', 'LIKE', '%' . $search . '%')
+            ->whereOr('title', 'LIKE', '%' . $search . '%')
+            ->whereOr('descript', 'LIKE', '%' . $search . '%')
+            ->orderBy('id', 'desc')
+            ->limit(10)
+            ->get();
 
         return view('site.search', [
-            'searchList' => $searchList
+            'searchList' => $searchList,
+            'searchGoods' => $searchGoods
         ]);
 
     }
