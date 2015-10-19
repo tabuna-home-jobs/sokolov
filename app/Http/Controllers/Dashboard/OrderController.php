@@ -61,7 +61,7 @@ class OrderController extends Controller
 
         if ((is_null($orderStatus)) || ($orderStatus == 'all')) {
 
-            $Orders = Order::select('id', 'name', 'created_at')->orderBy('id', 'desc')->simplePaginate(15);
+            $Orders = Order::select('id', 'name', 'created_at')->orderBy('id', 'desc')->paginate(15);
         } else {
             $Orders = Order::select('id', 'name', 'created_at')
                 ->whereRaw('status = ?', [$orderStatus])
