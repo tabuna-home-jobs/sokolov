@@ -28,12 +28,13 @@ class NotificationSMSNotification
      */
     public function handle(Notification $event)
     {
+
         SMS::send(Config::get('link.phone'), 'Задача #' . $event->id . ' выла взята в работу');
 
         $Task = Task::findOrFail($event->id);
         $User = $Task->getUser()->select('phone_notification', 'phone')->first();
         if ($User->phone_notification) {
-            SMS::send($User->phone, 'Ваш заказ #' . $event->id . ' ожидает рассмотрения');
+            SMS::send($User->phone, 'Задача #' . $event->id . ' выла взята в работу');
         }
     }
 }

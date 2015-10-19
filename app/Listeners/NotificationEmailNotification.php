@@ -34,12 +34,14 @@ class NotificationEmailNotification
         });
 
         $Task = Task::findOrFail($event->id);
-        $User = $Task->getUser()->select('phone_notification', 'phone')->first();
+        $User = $Task->getUser()->select('email_notification', 'email')->first();
         if ($User->email_notification) {
+
             Mail::raw('Задача #' . $event->id . ' была взята в работу', function ($message) use ($User) {
                 $message->from(Config::get('link.email'));
                 $message->to($User->email)->cc($User->email);
             });
+
         }
 
 
