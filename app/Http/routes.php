@@ -102,6 +102,8 @@ Route::group(['namespace' => 'Editor', 'middleware' => ['auth', 'editor'], 'pref
     Route::resource('chan', 'ChanController');
     Route::resource('comment', 'CommentController');
     Route::resource('filemanager', 'FileManagerController');
+
+    Route::resource('payments', 'PaymentsController');
 });
 
 

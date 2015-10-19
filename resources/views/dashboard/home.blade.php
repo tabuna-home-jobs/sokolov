@@ -176,7 +176,8 @@
 
                             <div class="">
                                 <div class="">
-                                    <span class="pull-right text-primary">{{$completeOrder /$allOrder * 100 }}%</span>
+                                    <span class="pull-right text-primary">{{round($completeOrder /$allOrder * 100) }}
+                                        %</span>
                                     <span>Завершённых</span>
                                 </div>
                                 <div class="progress progress-xs m-t-sm bg-white">
@@ -184,7 +185,7 @@
                                          style="width: {{$completeOrder /$allOrder * 100 }}%"></div>
                                 </div>
                                 <div class="">
-                                    <span class="pull-right text-info">{{$toWork /$allOrder * 100 }}%</span>
+                                    <span class="pull-right text-info">{{round($toWork /$allOrder * 100) }}%</span>
                                     <span>В работе</span>
                                 </div>
                                 <div class="progress progress-xs m-t-sm bg-white">
@@ -192,7 +193,8 @@
                                          style="width: {{$toWork /$allOrder * 100 }}%"></div>
                                 </div>
                                 <div class="">
-                                    <span class="pull-right text-danger">{{$dangerOrder /$allOrder * 100 }}%</span>
+                                    <span class="pull-right text-danger">{{ round($dangerOrder /$allOrder * 100) }}
+                                        %</span>
                                     <span>Отказ</span>
                                 </div>
                                 <div class="progress progress-xs m-t-sm bg-white">

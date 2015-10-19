@@ -4,7 +4,7 @@
 
 
     <div class="panel panel-default">
-        <div class="panel-heading">{{trans('orderTask.My Tasks')}}</div>
+        <div class="panel-heading">{{trans('payments.Invoices')}}</div>
         <table class="table">
 
             <thead>
@@ -13,7 +13,7 @@
                 <th>{{trans('orderTask.Job title')}}</th>
                 <th>{{trans('orderTask.Service')}}</th>
                 <th>{{trans('orderTask.Price')}}</th>
-                <th>{{trans('orderTask.Deadline')}}</th>
+                <th>{{trans('order.Status')}}</th>
             </tr>
             </thead>
 
@@ -24,6 +24,7 @@
 
                 <tr>
                     <td><a href="{{route('editor.order.show', $task->id)}}"> {{$task->id}}</a></td>
+
                     <td>{{$task->name}}</td>
 
                     @if(App::getLocale() == 'ru')
@@ -33,8 +34,9 @@
                     @endif
 
                     <td>{{$task->price}} USD</td>
+
                     <td>
-                        <small>{{$task->workfinish->tz(Config::get('app.timezone'))}}</small>
+                        @if($task->payment) {{trans('payments.Paid')}} @else {{trans('payments.Pending payments')}} @endif
                     </td>
                 </tr>
             @endforeach

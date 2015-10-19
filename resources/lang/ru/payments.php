@@ -8,5 +8,7 @@ return [
     "Date" => "Дата",
     "Select order" => "Выберите заказ",
     "Amount to be paid in rubles" => "Сумма к оплате в рублях",
-    "Checkout" => "Оплатить"
+    "Checkout" => "Оплатить",
+    "Paid" => "Выплачен",
+    "Pending payments" => "Ожидает выплаты",
 ];

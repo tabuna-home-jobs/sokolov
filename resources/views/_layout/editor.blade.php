@@ -25,6 +25,13 @@
                                                 {{trans('leftPanel.task')}} <span
                                                         class="badge pull-right">{{Auth::user()->getTask()->where('status','!=','Завершена')->count()}}</span>
                                             </a></li>
+
+
+                                        <li><a class="{{Active::route(['editor.payments.*'])}}"
+                                               href="{{route('editor.payments.index')}}"><i
+                                                        class="fa fa-usd"></i> {{trans('leftPanel.invoice')}} </a>
+                                        </li>
+
                                         <li><a class="{{Active::route('setting.*')}}"
                                                href="{{URL::route('setting.index')}}"><i class="fa fa-cog"></i>
                                                 {{trans('leftPanel.settings')}} </a></li>

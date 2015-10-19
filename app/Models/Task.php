@@ -33,7 +33,13 @@ class Task extends Model
         'price',
         'status',
         'spent',
-        'pause'
+        'pause',
+        'payment'
+    ];
+
+
+    protected $casts = [
+        'payment' => 'boolean',
     ];
 
     protected $dates = ['created_at', 'updated_at', 'disabled_at', 'workfinish', 'pause'];
