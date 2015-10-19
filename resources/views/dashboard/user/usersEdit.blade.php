@@ -108,7 +108,7 @@
                                                             <div class="checkbox">
                                                                 <input type="checkbox" name="groups[]"
                                                                        value="{{$value->id}}"
-                                                                @if($value->id == $thisUserGroup->id)
+                                                                       @if($value->id == $thisUserGroup->id)
                                                                        checked
                                                                         @endif
                                                                         >
@@ -136,9 +136,9 @@
                                                                 <input type="checkbox"
                                                                        name="permissions['{{$route->getName()}}']"
                                                                        value="1"
-                                                                @if(isset($user->permissions[$route->getName()]))
+                                                                       @if(isset($user->permissions[$route->getName()]))
                                                                        checked
-                                                                       @endif
+                                                                        @endif
                                                                         >
                                                                 {{$route->getName()}}
                                                             </label>

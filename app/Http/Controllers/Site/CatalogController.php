@@ -22,7 +22,7 @@ class CatalogController extends Controller
 
         $goodsList = Goods::where('lang', App::getLocale())->orderBy('id', 'asc')->limit(4)->get();
 
-        return view('site.catalog',[
+        return view('site.catalog', [
             'goodsList' => $goodsList
         ]);
     }
@@ -56,7 +56,7 @@ class CatalogController extends Controller
      */
     public function show(Goods $goods)
     {
-        $good = Goods::whereRaw('lang = ? and id = ?',[App::getLocale(), $goods->id])->firstOrFail();
+        $good = Goods::whereRaw('lang = ? and id = ?', [App::getLocale(), $goods->id])->firstOrFail();
 
 
         $next = Goods::select('slug')->whereRaw('lang = ? and id != ? and id > ?', [App::getLocale(), $goods->id, $good->id])->orderBy('id', 'Desc')->first();
@@ -71,8 +71,7 @@ class CatalogController extends Controller
         }
 
 
-
-        return view('site.catalogElement',[
+        return view('site.catalogElement', [
             'Goods' => $good,
             'next' => $next,
             'prev' => $prev,

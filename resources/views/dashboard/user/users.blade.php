@@ -16,28 +16,28 @@
                         <div class="col-sm-12">
                             <table class="table table-striped m-b-none dataTable no-footer" id="DataTables_Table_0"
                                    role="grid" aria-describedby="DataTables_Table_0_info">
-                            <thead>
-                            <tr role="row">
-                                <th>Имя</th>
-                                <th>Фамилия</th>
-                                <th>Титутл</th>
-                                <th>Институт</th>
-                                <th>Email</th>
-                                <th>Телефон</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($Users as $key => $User)
-                                <tr>
-                                    <td>{{$User->first_name}}</td>
-                                    <td>{{$User->last_name}}</td>
-                                    <td>{{$User->dignity}}</td>
-                                    <td>{{$User->institution}}</td>
-                                    <td>{{$User->email}}</td>
-                                    <td>{{$User->phone}}</td>
+                                <thead>
+                                <tr role="row">
+                                    <th>Имя</th>
+                                    <th>Фамилия</th>
+                                    <th>Титутл</th>
+                                    <th>Институт</th>
+                                    <th>Email</th>
+                                    <th>Телефон</th>
                                 </tr>
-                            @endforeach
-                            </tbody>
+                                </thead>
+                                <tbody>
+                                @foreach($Users as $key => $User)
+                                    <tr>
+                                        <td>{{$User->first_name}}</td>
+                                        <td>{{$User->last_name}}</td>
+                                        <td>{{$User->dignity}}</td>
+                                        <td>{{$User->institution}}</td>
+                                        <td>{{$User->email}}</td>
+                                        <td>{{$User->phone}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
                             </table>
                         </div>
                     </div>

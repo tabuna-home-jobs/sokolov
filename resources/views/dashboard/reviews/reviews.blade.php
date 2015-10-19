@@ -17,7 +17,8 @@
                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                     <div class="row">
                         <div class="col-sm-12">
-                            <table class="table table-striped m-b-none dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                            <table class="table table-striped m-b-none dataTable no-footer" id="DataTables_Table_0"
+                                   role="grid" aria-describedby="DataTables_Table_0_info">
                                 <thead>
                                 <tr role="row">
                                     <th>#</th>
@@ -29,7 +30,6 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
 
 
                                 @foreach ($ReviewsList as $Review)
@@ -59,25 +59,26 @@
                                     </tr>
                                 @endforeach
 
-                        </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            <small class="text-muted inline m-t-sm m-b-sm">Всего
+                                элементов: {!! $ReviewsList->count() !!}</small>
+                        </div>
+                        <div class="col-sm-6 text-right text-center-xs">
+                            {!! $ReviewsList->render() !!}
+                        </div>
+                    </div>
+
+
                 </div>
-
-
-                <div class="row">
-                    <div class="col-sm-6 text-center">
-                        <small class="text-muted inline m-t-sm m-b-sm">Всего элементов: {!! $ReviewsList->count() !!}</small>
-                    </div>
-                    <div class="col-sm-6 text-right text-center-xs">
-                        {!! $ReviewsList->render() !!}
-                    </div>
-                </div>
-
-
             </div>
         </div>
-    </div>
     </div>
 
 

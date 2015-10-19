@@ -26,7 +26,7 @@ class OrderElementRequest extends Request
     {
         return [
             'price' => 'numeric|required',
-            'status'=> 'required',
+            'status' => 'required',
             'workfinish' => 'date|required',
         ];
     }

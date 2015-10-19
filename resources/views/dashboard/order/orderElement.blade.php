@@ -112,12 +112,14 @@
 
                                             <div class="line line-dashed b-b line-lg"></div>
                                             <p class="text-left">
-                                      <b>Название работы:</b> <span>{{$SelectOrder->name}}</span>
+                                                <b>Название работы:</b> <span>{{$SelectOrder->name}}</span>
                                             </p>
+
                                             <div class="line line-dashed b-b line-lg"></div>
                                             <p class="text-left">
                                                 <b>Научное издание:</b> <span>{{$SelectOrder->izdanie}}</span>
                                             </p>
+
                                             <div class="line line-dashed b-b line-lg"></div>
                                             <p class="text-justify">
                                                 {{$SelectOrder->text}}
@@ -305,13 +307,13 @@
                                                                             (Лента задач)
                                                                         </option>
 
-            @foreach($AllUser as $user)
+                                                                        @foreach($AllUser as $user)
 
-                    <option value="{{$user->id}}">
-                        {{$user->first_name}} {{$user->last_name}}
-                    </option>
+                                                                            <option value="{{$user->id}}">
+                                                                                {{$user->first_name}} {{$user->last_name}}
+                                                                            </option>
 
-            @endforeach
+                                                                        @endforeach
 
                                                                     </select>
                                                                 </div>

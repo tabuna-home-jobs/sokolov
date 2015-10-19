@@ -124,7 +124,7 @@ class SettingController extends Controller
 
             $this->user->password = bcrypt($request->password);
             $this->user->save();
-        }elseif ($request->type == 'notification') {
+        } elseif ($request->type == 'notification') {
             $this->user = $this->user->fill($request->all());
             $this->user->save();
         }

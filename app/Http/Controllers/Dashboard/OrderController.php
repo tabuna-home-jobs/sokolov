@@ -26,47 +26,45 @@ class OrderController extends Controller
          */
 
 
-        if(!is_null(request()->status)){
+        if (!is_null(request()->status)) {
             $orderStatus = request()->status;
 
-            if($orderStatus == 'pay'){
+            if ($orderStatus == 'pay') {
 
                 $orderStatus = 'В работе';
 
-            }elseif($orderStatus == 'ocenka'){
+            } elseif ($orderStatus == 'ocenka') {
 
                 $orderStatus = 'Обрабатывается';
 
-            }
-            elseif($orderStatus == 'canlcel'){
+            } elseif ($orderStatus == 'canlcel') {
 
                 $orderStatus = 'Отменён';
 
-            }
-            elseif($orderStatus == 'notpay'){
+            } elseif ($orderStatus == 'notpay') {
 
                 $orderStatus = 'Не оплачен';
 
-            }elseif($orderStatus == 'done'){
+            } elseif ($orderStatus == 'done') {
 
                 $orderStatus = 'Готова';
 
-            }elseif($orderStatus == 'all'){
+            } elseif ($orderStatus == 'all') {
 
                 $orderStatus = 'all';
 
             }
 
-        }else{
+        } else {
             $orderStatus = null;
         }
 
-        if((is_null($orderStatus)) || ($orderStatus == 'all')) {
+        if ((is_null($orderStatus)) || ($orderStatus == 'all')) {
 
             $Orders = Order::select('id', 'name', 'created_at')->orderBy('id', 'desc')->simplePaginate(15);
-        }else{
+        } else {
             $Orders = Order::select('id', 'name', 'created_at')
-                ->whereRaw('status = ?',[$orderStatus])
+                ->whereRaw('status = ?', [$orderStatus])
                 ->orderBy('id', 'desc')
                 ->simplePaginate(15);
         }
@@ -94,7 +92,7 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -105,43 +103,43 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show($id)
     {
 
-        if(!is_null(request()->status)){
+        if (!is_null(request()->status)) {
             $orderStatus = request()->status;
 
-            if($orderStatus == 'pay'){
+            if ($orderStatus == 'pay') {
 
                 $orderStatus = 'В работе';
 
-            }elseif($orderStatus == 'done'){
+            } elseif ($orderStatus == 'done') {
 
                 $orderStatus = 'Завершён';
 
-            }elseif($orderStatus == 'all'){
+            } elseif ($orderStatus == 'all') {
 
                 $orderStatus = 'all';
 
             }
 
-        }else{
+        } else {
             $orderStatus = null;
         }
 
-        if((is_null($orderStatus)) || ($orderStatus == 'all')){
+        if ((is_null($orderStatus)) || ($orderStatus == 'all')) {
 
-            $Orders = Order::select('id','name','created_at')
+            $Orders = Order::select('id', 'name', 'created_at')
                 ->orderBy('id', 'desc')
                 ->simplePaginate(15);
 
-        }else{
+        } else {
 
-            $Orders = Order::select('id','name','created_at')
-                ->whereRaw('status = ?',[$orderStatus])
+            $Orders = Order::select('id', 'name', 'created_at')
+                ->whereRaw('status = ?', [$orderStatus])
                 ->orderBy('id', 'desc')
                 ->simplePaginate(15);
         }
@@ -151,21 +149,21 @@ class OrderController extends Controller
         $SelectComments = Comments::whereRaw('type = ? and beglouto = ?', ['order', $id])->get();
         $SelectGoods = $SelectOrder->getGoods()->get();
 
-        $SelectGoodFile = Files::select('id','original','created_at')
+        $SelectGoodFile = Files::select('id', 'original', 'created_at')
             ->whereRaw('type = ? and beglouto = ? and finish = ?', ['order', $id, true])->get();
 
-        $SelectRequestFile = Files::select('id','original','created_at')
+        $SelectRequestFile = Files::select('id', 'original', 'created_at')
             ->whereRaw('type = ? and beglouto = ? and finish = ?', ['order', $id, false])->get();
 
 
         $AllUser = DB::table('users')
             ->select('users.*')
-                    ->leftJoin('skills','users.id','=','skills.user_id')
-                    ->leftJoin('orderMeta','orderMeta.category_id','=','skills.category_id')
-                    ->groupBy('users.id')
-                    ->where('users.role','LIKE','%editor%')
-                    ->where('orderMeta.order_id','=',$id)
-                    ->get();
+            ->leftJoin('skills', 'users.id', '=', 'skills.user_id')
+            ->leftJoin('orderMeta', 'orderMeta.category_id', '=', 'skills.category_id')
+            ->groupBy('users.id')
+            ->where('users.role', 'LIKE', '%editor%')
+            ->where('orderMeta.order_id', '=', $id)
+            ->get();
 
 
         $TaskOrder = $SelectOrder->getTask()->get();
@@ -186,7 +184,7 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit($id)
@@ -197,8 +195,8 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  int  $id
+     * @param  Request $request
+     * @param  int $id
      * @return Response
      */
     public function update(OrderElementRequest $request, $id)
@@ -213,7 +211,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function destroy($id)

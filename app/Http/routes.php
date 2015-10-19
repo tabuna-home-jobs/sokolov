@@ -23,7 +23,6 @@ Route::group(['namespace' => 'Payments', 'prefix' => 'payments'], function () {
 });
 
 
-
 /**
  * Авторизация, регистрация, востановление пароля
  */
@@ -66,7 +65,6 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'admin'], 'pr
     Route::post('/generatemenucontrol', array('as' => 'generatemenucontrol', 'uses' => 'WmenuController@generatemenucontrol'));
     Route::post('/updateitem', array('as' => 'updateitem', 'uses' => 'WmenuController@updateitem'));
 });
-
 
 
 Route::group(['namespace' => 'Site'], function () {

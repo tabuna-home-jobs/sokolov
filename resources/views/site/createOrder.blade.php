@@ -3,7 +3,7 @@
 @section('content-account')
 
     <script type="text/javascript">
-        function delElem(elem){
+        function delElem(elem) {
 
             var countFiles = document.getElementById("fileselect").files;
 
@@ -65,7 +65,7 @@
                                         @if (App::getLocale() == 'ru') {{$value->name}} @else {{$value->eng_name}} @endif
                                     </label>
                                 </div>
-                        </div>
+                            </div>
 
 
                             @if(!empty(count(unserialize($value->goods->first()->attribute))))
@@ -164,7 +164,8 @@
                     <div class="checkbox pull-left">
                         <label>
                             <input type="checkbox" required><a
-                                    href="@if(App::getLocale()=='ru') /oferta/RussianRules.doc @else /oferta/EnglishRules.doc @endif" target="_blank"> {{trans('createOrder.I agree to the terms of the user agreement')}}</a>
+                                    href="@if(App::getLocale()=='ru') /oferta/RussianRules.doc @else /oferta/EnglishRules.doc @endif"
+                                    target="_blank"> {{trans('createOrder.I agree to the terms of the user agreement')}}</a>
                         </label>
                     </div>
 
@@ -195,9 +196,6 @@
                             $("#NewUploader").html() + myhtml
                     );
                 });
-
-
-
 
 
                 $(".select-disable").each(function () {

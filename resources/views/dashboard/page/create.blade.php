@@ -50,17 +50,14 @@
                         </div>
 
 
-
                         <div class="form-group">
                             <label>Категория</label>
-                            <select class="form-control w-md"   ui-jq="chosen" required name="lang">
+                            <select class="form-control w-md" ui-jq="chosen" required name="lang">
                                 <option disabled>Выберите язык</option>
                                 <option value="ru">Русский</option>
                                 <option value="en">Английский</option>
                             </select>
                         </div>
-
-
 
 
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -51,16 +51,14 @@
                         </div>
 
 
-
                         <div class="form-group">
                             <label>Категория</label>
-                            <select class="form-control w-md"   ui-jq="chosen" required name="lang">
+                            <select class="form-control w-md" ui-jq="chosen" required name="lang">
                                 <option disabled>Выберите язык</option>
                                 <option value="ru" @if($Page->lang == 'ru') selected @endif>Русский</option>
                                 <option value="en" @if($Page->lang == 'en') selected @endif>Английский</option>
                             </select>
                         </div>
-
 
 
                         <input type="hidden" name="_method" value="PUT">

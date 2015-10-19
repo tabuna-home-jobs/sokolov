@@ -31,7 +31,8 @@
 
                         <div class="btn-group m-r-sm">
 
-                            <form action="{{URL::route('dashboard.feedback.destroy',$Feedback->id)}}" method="post" class="pull-right">
+                            <form action="{{URL::route('dashboard.feedback.destroy',$Feedback->id)}}" method="post"
+                                  class="pull-right">
                                 <input type="hidden" name="_method" value="delete">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <button type="submit" class="btn btn-sm btn-default w-xxs w-auto-xs"><i

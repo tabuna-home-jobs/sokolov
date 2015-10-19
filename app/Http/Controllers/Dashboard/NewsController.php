@@ -7,10 +7,7 @@ use App\Http\Requests;
 use App\Http\Requests\NewsRequest;
 use App\Models\News;
 use Image;
-use Redirect;
-use Request;
 use Session;
-use Validator;
 
 
 class NewsController extends Controller
@@ -48,8 +45,7 @@ class NewsController extends Controller
             $request->all()
         );
 
-        if($request->hasFile('avatar'))
-        {
+        if ($request->hasFile('avatar')) {
             Image::make($request->file('avatar'))->resize(300, 200)->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
             $news->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
         }
@@ -62,7 +58,7 @@ class NewsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show($id)
@@ -73,18 +69,18 @@ class NewsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit(News $news)
     {
-        return view("dashboard/news/edit", ['news' => $news ]);
+        return view("dashboard/news/edit", ['news' => $news]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function update(News $news, NewsRequest $request)
@@ -93,8 +89,7 @@ class NewsController extends Controller
             $request->all()
         );
 
-        if($request->hasFile('avatar'))
-        {
+        if ($request->hasFile('avatar')) {
             Image::make($request->file('avatar'))->resize(300, 200)->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
             $news->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
         }
@@ -108,7 +103,7 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function destroy(News $news)

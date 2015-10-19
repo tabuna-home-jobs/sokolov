@@ -46,13 +46,15 @@
                             <div class="cell-inner">
 
 
-            <ul class="list-group">
-                @foreach($Orders as $order)
-                    <a href="{{URL::route('dashboard.order.show', $order->id)}}" class="list-group-item">{{$order->name}} <span class="pull-right">{{$order->created_at}}</span></a>
-                @endforeach
-            </ul>
+                                <ul class="list-group">
+                                    @foreach($Orders as $order)
+                                        <a href="{{URL::route('dashboard.order.show', $order->id)}}"
+                                           class="list-group-item">{{$order->name}} <span
+                                                    class="pull-right">{{$order->created_at}}</span></a>
+                                    @endforeach
+                                </ul>
 
-            {!! $Orders->appends(\Input::except('page'))->render() !!}
+                                {!! $Orders->appends(\Input::except('page'))->render() !!}
 
                             </div>
                         </div>

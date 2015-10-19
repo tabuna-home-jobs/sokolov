@@ -7,7 +7,8 @@
         <h1 class="m-n font-thin h3">Новая страница</h1>
     </div>
     <div class="wrapper-md">
-        <form class="row" role="form" action="{{URL::route('dashboard.news.update',$news->slug)}}" method="post" enctype="multipart/form-data">
+        <form class="row" role="form" action="{{URL::route('dashboard.news.update',$news->slug)}}" method="post"
+              enctype="multipart/form-data">
             <div class="col-sm-8">
                 <div class="panel panel-default">
                     <div class="panel-heading font-bold">Содержание</div>
@@ -28,11 +29,13 @@
 
                         <div class="form-group">
                             <label>Заголовок</label>
-                            <input class="form-control" type="text" maxlength="255" required name="title" value="{{$news->title or ''}}">
+                            <input class="form-control" type="text" maxlength="255" required name="title"
+                                   value="{{$news->title or ''}}">
                         </div>
                         <div class="form-group">
                             <label>Имя</label>
-                            <input class="form-control" type="text" maxlength="255" required name="name" value="{{$news->name or ''}}">
+                            <input class="form-control" type="text" maxlength="255" required name="name"
+                                   value="{{$news->name or ''}}">
                         </div>
 
 
@@ -61,27 +64,27 @@
 
                         <div class="form-group">
                             <label>Теги</label>
-                            <input ui-jq="tagsinput" ui-options="" class="form-control w-md" data-role="tagsinput" type="text" maxlength="255"
+                            <input ui-jq="tagsinput" ui-options="" class="form-control w-md" data-role="tagsinput"
+                                   type="text" maxlength="255"
                                    required name="tag" value="{{$news->tag or ''}}">
                         </div>
 
                         <div class="form-group">
                             <label>Описание</label>
 
-                            <textarea class="form-control" rows="7"  maxlength="255" required name="descript">{{$news->descript or ''}}</textarea>
+                            <textarea class="form-control" rows="7" maxlength="255" required
+                                      name="descript">{{$news->descript or ''}}</textarea>
                         </div>
-
 
 
                         <div class="form-group">
                             <label>Категория</label>
-                            <select class="form-control w-md"   ui-jq="chosen" required name="lang">
+                            <select class="form-control w-md" ui-jq="chosen" required name="lang">
                                 <option disabled>Выберите язык</option>
                                 <option value="ru" @if($news->lang == 'ru') selected @endif>Русский</option>
                                 <option value="en" @if($news->lang == 'en') selected @endif>Английский</option>
                             </select>
                         </div>
-
 
 
                         <input type="hidden" name="_method" value="PUT">
@@ -91,7 +94,7 @@
 
                     </div>
                 </div>
-                </div>
+            </div>
 
         </form>
     </div>

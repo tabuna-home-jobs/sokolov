@@ -131,8 +131,6 @@
                     @endif
 
 
-
-
                     <li class="text-right hidden visible-xs @if(App::getLocale() == 'en') active @endif"><a
                                 href="{{url('/language/en')}}">English</a></li>
                     <li class="text-right hidden visible-xs @if(App::getLocale() == 'ru') active @endif"><a
@@ -149,17 +147,18 @@
 
 
                     @if(Auth::check())
-                <a id="drop1" href="#" role="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
+                            <a id="drop1" href="#" role="button" class="btn btn-link dropdown-toggle"
+                               data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
 
-                    {{trans('main.panel')}}
+                                {{trans('main.panel')}}
 
-                    <span class="caret"></span>
-                </a>
+                                <span class="caret"></span>
+                            </a>
 
                         <ul class="dropdown-menu" aria-labelledby="drop1">
                             <li>
-                                <a  href="/auth/login">
+                                <a href="/auth/login">
                                     @if(!Auth::check())
                                         {{trans('main.sign')}}
                                     @else
@@ -173,8 +172,8 @@
                                     @endif
                                 </a>
                             </li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="/auth/logout/">{{trans('main.logout')}}</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/auth/logout/">{{trans('main.logout')}}</a></li>
                         </ul>
                         @endif
 
@@ -294,7 +293,6 @@
 </footer>
 
 
-
 <script src="{{asset('/build/js/app.js')}}" type="text/javascript"></script>
 
 <script src="/build/js/flipclock.min.js"></script>
@@ -308,20 +306,20 @@
         $('.carousel-inner div.item:first-child').addClass('active');
 
         /*
-        $(".fancybox-thumb-img-text").fancybox({
-            openEffect: 'elastic',
-            closeEffect: 'elastic',
+         $(".fancybox-thumb-img-text").fancybox({
+         openEffect: 'elastic',
+         closeEffect: 'elastic',
 
-            closeClick: false,
-            helpers: {
-                title: null,
-                overlay: null
-            }
-        });
+         closeClick: false,
+         helpers: {
+         title: null,
+         overlay: null
+         }
+         });
 
-        $(".fancybox-thumb-img-text").click(function () {
-            $(this).css('display', 'inherit');
-        });
+         $(".fancybox-thumb-img-text").click(function () {
+         $(this).css('display', 'inherit');
+         });
          */
 
 

@@ -7,7 +7,8 @@
         <h1 class="m-n font-thin h3">{{ $Goods->name or 'Новая Услуга' }}</h1>
     </div>
     <div class="wrapper-md">
-        <form class="row" role="form" action="{{URL::route('dashboard.goods.store')}}" method="post" class="row" enctype="multipart/form-data">
+        <form class="row" role="form" action="{{URL::route('dashboard.goods.store')}}" method="post" class="row"
+              enctype="multipart/form-data">
             <div class="col-sm-8">
                 <div class="panel panel-default">
                     <div class="panel-heading font-bold">Содержание</div>
@@ -33,11 +34,13 @@
 
                             <div class="form-group">
                                 <label>Заголовок</label>
-                                <input class="form-control" type="text" maxlength="255" required name="title" value="{{$Goods->title or ''}}">
+                                <input class="form-control" type="text" maxlength="255" required name="title"
+                                       value="{{$Goods->title or ''}}">
                             </div>
                             <div class="form-group">
                                 <label>Имя</label>
-                                <input class="form-control" type="text" maxlength="255" required name="name" value="{{$Goods->name or ''}}">
+                                <input class="form-control" type="text" maxlength="255" required name="name"
+                                       value="{{$Goods->name or ''}}">
                             </div>
                             <div class="form-group">
                                 <label>Теги</label>
@@ -46,7 +49,8 @@
                             </div>
                             <div class="form-group">
                                 <label>Описание</label>
-                                <input class="form-control" type="text" maxlength="255" required name="descript" value="{{$Goods->descript or ''}}">
+                                <input class="form-control" type="text" maxlength="255" required name="descript"
+                                       value="{{$Goods->descript or ''}}">
                             </div>
 
                             <div class="form-group">
@@ -66,9 +70,9 @@
                                                                                                            value="{{$Goods->avatar or ''}}"></span>
                                             <a href="#" class="btn btn-default fileinput-exists"
                                                data-dismiss="fileinput">Удалить</a>
-                                        </div>
                                     </div>
                                 </div>
+                            </div>
                             </div>
 
 
@@ -89,15 +93,15 @@
                                                                                                            value="{{$Goods->icon or ''}}"></span>
                                             <a href="#" class="btn btn-default fileinput-exists"
                                                data-dismiss="fileinput">Удалить</a>
-                                        </div>
                                     </div>
                                 </div>
+                            </div>
                             </div>
 
 
                             <div class="form-group">
                                 <label>Категория</label>
-                                <select class="form-control w-md"   ui-jq="chosen" required name="category">
+                                <select class="form-control w-md" ui-jq="chosen" required name="category">
                                     <option disabled>Выберите категорию</option>
 
                                     @foreach($Category as $cat)
@@ -106,9 +110,9 @@
                                         @if(isset($Goods->category_id))
                                             @if($Goods->category_id == $cat->id)
                                                 <option value="{{ $cat->id}}" selected>{{ $cat->name}}</option>
-                                            @else
-                                                <option value="{{ $cat->id}}">{{ $cat->name}}</option>
-                                            @endif
+                                        @else
+                                            <option value="{{ $cat->id}}">{{ $cat->name}}</option>
+                                        @endif
                                         @else
                                             <option value="{{ $cat->id}}">{{ $cat->name}}</option>
                                         @endif
@@ -132,30 +136,29 @@
                             </div>
 
 
-
                             <div class="form-group">
                                 <label>Цена</label>
+
                                 <div class="input-group">
-                                    <input class="form-control" type="number" maxlength="255" required name="price" value="{{$Goods->price or ''}}">
+                                    <input class="form-control" type="number" maxlength="255" required name="price"
+                                           value="{{$Goods->price or ''}}">
+
                                     <div class="input-group-addon">
                                         <i class="fa fa-rub"></i>
                                     </div>
-                                </div><!-- /.input group -->
+                            </div>
+                                <!-- /.input group -->
                             </div>
 
 
                             <div class="form-group">
                                 <label>Локализация</label>
-                                <select class="form-control w-md"   ui-jq="chosen" required name="lang">
+                                <select class="form-control w-md" ui-jq="chosen" required name="lang">
                                     <option disabled>Выберите язык</option>
                                     <option value="ru">Русский</option>
                                     <option value="en">Английский</option>
                                 </select>
                             </div>
-
-
-
-
 
 
                             <div id="GoodsAttr" class="text-center">
@@ -165,42 +168,50 @@
                                     @forelse(unserialize($Goods->attribute) as $key => $attr)
 
                                         @if($key % 2 == 0)
-                                            <div class="entry input-group row">
-                                                <div class="form-group col-md-6">
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <span class="glyphicon btn-remove glyphicon-minus"></span>
-                                                        </div>
-                                                        <input type="text" placeholder="Название" value="{{ $attr }}" name="fieldsAttr[]" pattern="^[а-яА-ЯёЁa-zA-Z0-9\s]+$" class="form-control">
-                                                    </div><!-- /.input group -->
-
-                                                </div>
-                                                @else
-
-                                                    <div class="form-group col-md-6">
-                                                        <input type="text" placeholder="Значение" value="{{ $attr }}" name="fieldsAttr[]" pattern="^[а-яА-ЯёЁa-zA-Z0-9\s]+$" class="form-control">
-                                                    </div>
-
-                                            </div>
-                                        @endif
-
-                                    @empty
-
                                         <div class="entry input-group row">
                                             <div class="form-group col-md-6">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
-                                                        <span class="glyphicon glyphicon-plus btn-add"></span>
+                                                        <span class="glyphicon btn-remove glyphicon-minus"></span>
                                                     </div>
-                                                    <input class="form-control" name="fieldsAttr[]" type="text" placeholder="Название" />
-                                                </div><!-- /.input group -->
+                                                    <input type="text" placeholder="Название" value="{{ $attr }}"
+                                                           name="fieldsAttr[]" pattern="^[а-яА-ЯёЁa-zA-Z0-9\s]+$"
+                                                           class="form-control">
+                                                </div>
+                                                <!-- /.input group -->
 
                                             </div>
+                                            @else
 
-                                            <div class="form-group col-md-6">
-                                                <input class="form-control" name="fieldsAttr[]" type="text" placeholder="Значение" />
-                                            </div>
+                                                <div class="form-group col-md-6">
+                                                    <input type="text" placeholder="Значение" value="{{ $attr }}"
+                                                           name="fieldsAttr[]" pattern="^[а-яА-ЯёЁa-zA-Z0-9\s]+$"
+                                                           class="form-control">
+                                                </div>
+
                                         </div>
+                                        @endif
+
+                                    @empty
+
+                                    <div class="entry input-group row">
+                                        <div class="form-group col-md-6">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-plus btn-add"></span>
+                                                </div>
+                                                <input class="form-control" name="fieldsAttr[]" type="text"
+                                                       placeholder="Название"/>
+                                            </div>
+                                            <!-- /.input group -->
+
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <input class="form-control" name="fieldsAttr[]" type="text"
+                                                   placeholder="Значение"/>
+                                        </div>
+                                    </div>
 
                                     @endforelse
                                 @else
@@ -210,24 +221,27 @@
                                                 <div class="input-group-addon">
                                                     <span class="glyphicon glyphicon-plus btn-add"></span>
                                                 </div>
-                                                <input class="form-control" name="fieldsAttr[]" type="text" placeholder="Название" />
-                                            </div><!-- /.input group -->
+                                                <input class="form-control" name="fieldsAttr[]" type="text"
+                                                       placeholder="Название"/>
+                                            </div>
+                                            <!-- /.input group -->
 
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                            <input class="form-control" name="fieldsAttr[]" type="text" placeholder="Значение" />
+                                            <input class="form-control" name="fieldsAttr[]" type="text"
+                                                   placeholder="Значение"/>
                                         </div>
                                     </div>
 
                                 @endif
-                            </div>
+                        </div>
 
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <button type="submit" class="btn btn-primary">Отправить</button>
 
 
-                        </div>
+                    </div>
                 </div>
             </div>
         </form>

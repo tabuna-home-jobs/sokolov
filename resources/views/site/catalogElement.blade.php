@@ -16,7 +16,6 @@
         {!! htmlBlock::getGoodSlider($Goods->block_id) !!}
 
 
-
         <div class="container blog-container">
 
 

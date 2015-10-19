@@ -21,7 +21,7 @@ class GoodsController extends Controller
     public function index()
     {
         $Goods = Goods::orderBy('id', 'desc')->paginate(15);
-        return view("dashboard/goods/goods",['Goods' => $Goods]);
+        return view("dashboard/goods/goods", ['Goods' => $Goods]);
     }
 
     /**
@@ -42,7 +42,7 @@ class GoodsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  Request $request
      * @return Response
      */
     public function store(GoodsRequest $request)
@@ -50,7 +50,8 @@ class GoodsController extends Controller
         $Goods = new Goods($request->all());
         $Goods->category_id = $request->category;
         if ($request->hasFile('avatar')) {
-            Image::make($request->file('avatar'))/*->resize(300, 200)*/->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
+            Image::make($request->file('avatar'))/*->resize(300, 200)*/
+            ->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
             $Goods->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
         }
 
@@ -62,7 +63,7 @@ class GoodsController extends Controller
         }
 
 
-        if(!is_null($request->fieldsAttr))
+        if (!is_null($request->fieldsAttr))
             $Goods->attribute = serialize(array_filter($request->fieldsAttr));
 
         $Goods->save();
@@ -74,7 +75,7 @@ class GoodsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show($id)
@@ -85,7 +86,7 @@ class GoodsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit($Goods)
@@ -105,8 +106,8 @@ class GoodsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  int  $id
+     * @param  Request $request
+     * @param  int $id
      * @return Response
      */
     public function update(GoodsRequest $request, $Goods)
@@ -116,7 +117,8 @@ class GoodsController extends Controller
         $Goods->fill($request->all());
         $Goods->category_id = $request->category;
         if ($request->hasFile('avatar')) {
-            Image::make($request->file('avatar'))/*->resize(300, 200)*/->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
+            Image::make($request->file('avatar'))/*->resize(300, 200)*/
+            ->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
             $Goods->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
         }
 
@@ -127,7 +129,7 @@ class GoodsController extends Controller
         }
 
 
-        if(!is_null($request->fieldsAttr))
+        if (!is_null($request->fieldsAttr))
             $Goods->attribute = serialize(array_filter($request->fieldsAttr));
 
         $Goods->save();
@@ -139,7 +141,7 @@ class GoodsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function destroy($Goods)

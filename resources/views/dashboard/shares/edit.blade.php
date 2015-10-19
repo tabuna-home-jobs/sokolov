@@ -28,11 +28,13 @@
 
                         <div class="form-group">
                             <label>Заголовок</label>
-                            <input class="form-control" type="text" maxlength="255" required name="title" value="{{$Shares->title or ''}}">
+                            <input class="form-control" type="text" maxlength="255" required name="title"
+                                   value="{{$Shares->title or ''}}">
                         </div>
                         <div class="form-group">
                             <label>Имя</label>
-                            <input class="form-control" type="text" maxlength="255" required name="name" value="{{$Shares->name or ''}}">
+                            <input class="form-control" type="text" maxlength="255" required name="name"
+                                   value="{{$Shares->name or ''}}">
                         </div>
 
 
@@ -61,21 +63,22 @@
 
                         <div class="form-group">
                             <label>Теги</label>
-                            <input ui-jq="tagsinput" ui-options="" class="form-control w-md" data-role="tagsinput" type="text" maxlength="255"
+                            <input ui-jq="tagsinput" ui-options="" class="form-control w-md" data-role="tagsinput"
+                                   type="text" maxlength="255"
                                    required name="tag" value="{{$Shares->tag or ''}}">
                         </div>
 
                         <div class="form-group">
                             <label>Описание</label>
 
-                            <textarea class="form-control" rows="7"  maxlength="255" required name="descript">{{$Shares->descript or ''}}</textarea>
+                            <textarea class="form-control" rows="7" maxlength="255" required
+                                      name="descript">{{$Shares->descript or ''}}</textarea>
                         </div>
-
 
 
                         <div class="form-group">
                             <label>Категория</label>
-                            <select class="form-control w-md"   ui-jq="chosen" required name="lang">
+                            <select class="form-control w-md" ui-jq="chosen" required name="lang">
                                 <option disabled>Выберите язык</option>
                                 <option value="ru" @if($Shares->lang == 'ru') selected @endif>Русский</option>
                                 <option value="en" @if($Shares->lang == 'en') selected @endif>Английский</option>
@@ -85,6 +88,7 @@
 
                         <div class="form-group">
                             <label>Дата начала</label>
+
                             <div class='input-group date' id='datetimepickerstart'>
                                 <input type='text' class="form-control" required name="start"
                                        value="{{$Shares->start or ''}}"/>
@@ -96,15 +100,15 @@
 
                         <div class="form-group">
                             <label>Дата окончания</label>
+
                             <div class='input-group date' id='datetimepickerend'>
-                                <input type='text' class="form-control" required name="end" value="{{$Shares->end or ''}}" />
+                                <input type='text' class="form-control" required name="end"
+                                       value="{{$Shares->end or ''}}"/>
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                             </div>
                         </div>
-
-
 
 
                         <input type="hidden" name="_method" value="PUT">

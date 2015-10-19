@@ -25,7 +25,7 @@ class QuestAnswerRequest extends Request
     {
         return [
             'fio' => 'required|max:255',
-            'questions' =>'required',
+            'questions' => 'required',
             'phone' => 'required|max:255',
             'email' => 'email|required|max:255',
         ];

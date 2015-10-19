@@ -62,7 +62,7 @@
                                             <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox"
-                                                    @if(isset($group->permissions[$route->getName()]))
+                                                           @if(isset($group->permissions[$route->getName()]))
                                                            checked
                                                            @endif
                                                            name="permissions[{{$route->getName()}}]" value="1">

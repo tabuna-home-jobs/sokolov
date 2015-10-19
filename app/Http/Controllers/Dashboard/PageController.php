@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\PageRequest;
 use App\Models\Page;
-use Redirect;
-use Request;
 use Session;
-use Validator;
 
 class PageController extends Controller
 {
@@ -54,7 +50,7 @@ class PageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show($id)
@@ -65,18 +61,18 @@ class PageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit(Page $page)
     {
-        return view("dashboard/page/edit", ['Page' => $page ]);
+        return view("dashboard/page/edit", ['Page' => $page]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function update(Page $page, PageRequest $request)
@@ -92,7 +88,7 @@ class PageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function destroy(Page $page)

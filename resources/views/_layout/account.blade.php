@@ -12,6 +12,7 @@
                         <div class="user-panel-sidebar">
 
                             <h5> {{trans('leftPanel.Hello')}}, {{Auth::user()->first_name}} </h5>
+
                             <div class="collapse-box">
                                 <h5 class="collapse-title"> {{trans('leftPanel.service')}} </h5>
 

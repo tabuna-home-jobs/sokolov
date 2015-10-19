@@ -5,7 +5,7 @@
 
     <div id="accordion" class="panel-group">
         <div class="panel panel-default">
-            <div class="panel-heading" role="tab" >
+            <div class="panel-heading" role="tab">
                 <h4 class="panel-title"><a
                             role="button" data-toggle="collapse" data-parent="#accordion"
                             href="#collapseB1" aria-expanded="false" aria-controls="collapseB1"
@@ -132,9 +132,9 @@
             </div>
         </div>
         <div class="panel panel-default">
-            <div class="panel-heading" role="tab" >
-                <h4 class="panel-title"><a  role="button" data-toggle="collapse" data-parent="#accordion"
-                                            href="#collapseB2" aria-expanded="false" aria-controls="collapseB2">
+            <div class="panel-heading" role="tab">
+                <h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion"
+                                           href="#collapseB2" aria-expanded="false" aria-controls="collapseB2">
                         {{trans('setting.Security')}} </a>
                 </h4>
             </div>
@@ -171,8 +171,6 @@
                 </div>
             </div>
         </div>
-
-
 
 
         <div class="panel panel-default">
@@ -234,11 +232,11 @@
                                 </div>
 
 
-
                                 <input type="hidden" name="_method" value="PUT">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                 <input type="hidden" class="form-control" name="type" value="notification">
+
                                 <div class="form-group">
                                     <div class="col-sm-offset-3 col-sm-9">
                                         <button type="submit"

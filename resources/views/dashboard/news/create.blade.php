@@ -7,7 +7,8 @@
         <h1 class="m-n font-thin h3">Новая страница</h1>
     </div>
     <div class="wrapper-md">
-        <form class="row" role="form" action="{{URL::route('dashboard.news.index')}}" method="post" enctype="multipart/form-data">
+        <form class="row" role="form" action="{{URL::route('dashboard.news.index')}}" method="post"
+              enctype="multipart/form-data">
             <div class="col-sm-8">
                 <div class="panel panel-default">
                     <div class="panel-heading font-bold">Содержание</div>
@@ -25,16 +26,14 @@
                     <div class="panel-body">
 
 
-
                         <div class="form-group">
                             <label>Заголовок</label>
-                            <input class="form-control" type="text" maxlength="255" required name="title" >
+                            <input class="form-control" type="text" maxlength="255" required name="title">
                         </div>
                         <div class="form-group">
                             <label>Имя</label>
-                            <input class="form-control" type="text" maxlength="255" required name="name" >
+                            <input class="form-control" type="text" maxlength="255" required name="name">
                         </div>
-
 
 
                         <div class="form-group">
@@ -60,23 +59,22 @@
                         </div>
 
 
-
                         <div class="form-group">
                             <label>Теги</label>
-                            <input ui-jq="tagsinput" ui-options="" class="form-control w-md" data-role="tagsinput" type="text" maxlength="255"
+                            <input ui-jq="tagsinput" ui-options="" class="form-control w-md" data-role="tagsinput"
+                                   type="text" maxlength="255"
                                    required name="tag">
                         </div>
 
                         <div class="form-group">
                             <label>Описание</label>
-                            <textarea class="form-control" rows="7"  maxlength="255" required name="descript"></textarea>
+                            <textarea class="form-control" rows="7" maxlength="255" required name="descript"></textarea>
                         </div>
-
 
 
                         <div class="form-group">
                             <label>Категория</label>
-                            <select class="form-control w-md"   ui-jq="chosen" required name="lang">
+                            <select class="form-control w-md" ui-jq="chosen" required name="lang">
                                 <option disabled>Выберите язык</option>
                                 <option value="ru">Русский</option>
                                 <option value="en">Английский</option>
@@ -90,7 +88,7 @@
 
                     </div>
                 </div>
-                </div>
+            </div>
         </form>
     </div>
 

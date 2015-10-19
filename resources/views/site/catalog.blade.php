@@ -49,8 +49,8 @@
 
                                     </div>
                                 </div>
-                            @endforeach
-                            <!--Вывод статей в слайд-->
+                                @endforeach
+                                        <!--Вывод статей в слайд-->
                         </div>
 
                     </div>
@@ -90,8 +90,8 @@
                         </figure>
 
                     </article>
-                @endforeach
-                <!--Вывод статей-->
+                    @endforeach
+                            <!--Вывод статей-->
             </div>
         </div>
 

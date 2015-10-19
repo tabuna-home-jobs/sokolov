@@ -8,7 +8,8 @@
         <h1 class="m-n font-thin h3">{{ $Goods->name or 'Новая Услуга' }}</h1>
     </div>
     <div class="wrapper-md">
-        <form class="row" role="form" action="{{URL::route('dashboard.goods.update', $Goods->slug)}}" method="post" class="row" enctype="multipart/form-data">
+        <form class="row" role="form" action="{{URL::route('dashboard.goods.update', $Goods->slug)}}" method="post"
+              class="row" enctype="multipart/form-data">
             <div class="col-sm-8">
                 <div class="panel panel-default">
                     <div class="panel-heading font-bold">Содержание</div>
@@ -93,9 +94,9 @@
                                                                                                            value="{{$Goods->icon or ''}}"></span>
                                             <a href="#" class="btn btn-default fileinput-exists"
                                                data-dismiss="fileinput">Удалить</a>
-                                        </div>
                                     </div>
                                 </div>
+                            </div>
                             </div>
 
 
@@ -230,7 +231,7 @@
                             @endif
                         </div>
 
-                         <input type="hidden" name="_method" value="PUT">
+                            <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <button type="submit" class="btn btn-primary">Отправить</button>
 

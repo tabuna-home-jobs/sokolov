@@ -26,7 +26,7 @@ class CommentsRequest extends Request
         return [
             'type' => 'required',
             'text' => 'required',
-            'beglouto' =>'required|integer',
+            'beglouto' => 'required|integer',
 
         ];
     }

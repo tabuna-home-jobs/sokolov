@@ -16,7 +16,6 @@
                     <div class="panel-body">
 
 
-
                         <div class="form-group">
                             <label>Имя</label>
                             <input class="form-control" type="text" maxlength="255" required name="name"
@@ -28,8 +27,6 @@
                             <input class="form-control" type="text" maxlength="255" required name="eng_name"
                                    value="{{$Category->eng_name or ''}}">
                         </div>
-
-
 
 
                         <input type="hidden" name="_method" value="PUT">

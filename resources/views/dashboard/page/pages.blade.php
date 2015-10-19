@@ -11,7 +11,7 @@
             <div class="panel-heading">
 
                 <a href="{{URL::route('dashboard.page.create')}}"
-                   class="btn btn-link btn-sm"><span class="fa fa-plus"></span>  Добавить новую запись </a>
+                   class="btn btn-link btn-sm"><span class="fa fa-plus"></span> Добавить новую запись </a>
 
             </div>
             <div class="table-responsive">

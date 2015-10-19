@@ -5,7 +5,6 @@ use App\Http\Requests;
 use App\Models\Menu;
 use App\Models\MenuItem;
 use Input;
-use Session;
 use View;
 
 class WmenuController extends Controller

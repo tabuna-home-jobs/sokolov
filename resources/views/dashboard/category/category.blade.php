@@ -10,7 +10,8 @@
         <div class="panel panel-default">
             <div class="panel-heading">
 
-                <a href="{{URL::route('dashboard.category.create')}}" class="btn btn-link btn-sm"><span class="fa fa-plus"></span> Добавить
+                <a href="{{URL::route('dashboard.category.create')}}" class="btn btn-link btn-sm"><span
+                            class="fa fa-plus"></span> Добавить
                     новую запись </a>
 
 

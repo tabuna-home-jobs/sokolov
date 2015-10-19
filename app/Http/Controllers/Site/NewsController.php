@@ -17,7 +17,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('site.newsList',[
+        return view('site.newsList', [
             'NewsList' => News::where('lang', App::getLocale())->orderBy('id', 'desc')->paginate(12)
         ]);
     }
@@ -35,7 +35,7 @@ class NewsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -46,12 +46,12 @@ class NewsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show(News $news)
     {
-        return view('site.news',[
+        return view('site.news', [
             'News' => $news,
             'NewsList' => News::whereRaw('lang = ? and id != ?', [App::getLocale(), $news->id])->orderBy('id', 'desc')->limit(5)->get()
         ]);
@@ -61,7 +61,7 @@ class NewsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit($id)
@@ -72,8 +72,8 @@ class NewsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  int  $id
+     * @param  Request $request
+     * @param  int $id
      * @return Response
      */
     public function update(Request $request, $id)
@@ -84,7 +84,7 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function destroy($id)
