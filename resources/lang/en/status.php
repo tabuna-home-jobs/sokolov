@@ -9,5 +9,5 @@ return [
     "На проверке" => "Upon verification",
     "На доработке" => "On completion",
     "Завершена" => "Completed",
-    "Обрабатывается" => "Processed",
+    "Обрабатывается" => "Waiting for invoice",
 ];

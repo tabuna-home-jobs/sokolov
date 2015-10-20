@@ -35,7 +35,7 @@ class OrderController extends Controller
 
             } elseif ($orderStatus == 'ocenka') {
 
-                $orderStatus = 'Обрабатывается';
+                $orderStatus = 'На оценке';
 
             } elseif ($orderStatus == 'canlcel') {
 
@@ -71,7 +71,7 @@ class OrderController extends Controller
         return view("dashboard/order/order", [
             'Orders' => $Orders,
             'CountPay' => Order::where('status', 'В работе')->count(),
-            'CountOcenka' => Order::where('status', 'Обрабатывается')->count(),
+            'CountOcenka' => Order::where('status', 'На оценке')->count(),
             'CountCanlcel' => Order::where('status', 'Отменён')->count(),
             'CountNotpay' => Order::where('status', 'Не оплачен')->count(),
             'CountDone' => Order::where('status', 'Готова')->count(),

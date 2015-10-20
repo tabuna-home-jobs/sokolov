@@ -2,6 +2,7 @@
 
 @section('content-account')
 
+
     <div class="panel panel-default">
         <div class="panel-heading">{{trans('payments.Invoices')}}</div>
 
@@ -15,7 +16,6 @@
                         <input type="hidden" name="shopId" value="{{Config::get('yandexMoney.shopId')}}">
                         <input type="hidden" name="scid" value="{{Config::get('yandexMoney.scid')}}">
                         <input type="hidden" name="CustomerNumber" size="64" value="{{Auth::user()->email}}">
-
                         <input type="hidden" name="orderSumCurrencyPaycash" value="840">
                         <input type="hidden" name="shopSumCurrencyPaycash" value="840">
 
@@ -27,25 +27,26 @@
 
                         <div class="form-group">
                             <label>{{trans('payments.Select order')}}</label>
-                            <select id="order" class="form-control" name="orderNumber" required>
-                                @foreach($order as $value)
-                                    <option data-price="{{$value->price_rub}}" value="{{$value->id}}">{{$value->name}}
-                                        ({{$value->price}} USD)
-                                    </option>
-                                @endforeach
-                            </select>
+                            <input class="form-control" disabled value="{{$order->name}}">
+
+                            <input type="hidden" id="order" class="form-control" name="orderNumber" readonly
+                                   value="{{$order->id}}" required>
                         </div>
 
 
                         <div class="form-group">
                             <label>{{trans('payments.Amount to be paid in rubles')}}</label>
-                            <input id="price" class="form-control" type=number name="sum" size="64" readonly
-                                   value="{{$order[0]->price_rub or 0}}">
+
+                            <input class="form-control" disabled value="{{$order->price}} USD">
+
+
+                            <input type="hidden" id="price" class="form-control" name="sum" size="64" readonly
+                                   value="{{$order->price_rub or 0}}">
                         </div>
 
 
-                        <div class="form-group">
-                            <button class="btn btn-default" type="submit">{{trans('payments.Checkout')}}</button>
+                        <div class="form-group text-center">
+                            <button class="btn btn-warning" type="submit">{{trans('payments.Checkout')}}</button>
                         </div>
                     </form>
                 </div>
@@ -53,15 +54,6 @@
         </div>
     </div>
 
-
-    <script>
-        window.onload = function () {
-
-            $('#order').on('change', function () {
-                $('#price').val($("option:selected", this).data('price'))
-            });
-        };
-    </script>
 
 
 

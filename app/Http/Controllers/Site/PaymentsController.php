@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Auth;
+use CurrencyRate;
 use Illuminate\Http\Request;
 
 class PaymentsController extends Controller
@@ -59,7 +60,19 @@ class PaymentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Auth::user()
+            ->getOrders()
+            ->Select('id', 'price', 'name', 'price_rub')
+            ->whereRaw('price > ? and sold = ?', ['0.01', 'false'])
+            ->findOrFail($id);
+
+        $order->price_rub = CurrencyRate::getOneRecord() * $order->price;
+        $order->save();
+
+
+        return view('site.paymentsCreate', [
+            'order' => $order
+        ]);
     }
 
     /**

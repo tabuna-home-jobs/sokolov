@@ -27,11 +27,6 @@
                                                 {{trans('leftPanel.orders')}}<span
                                                         class="badge pull-right">{{Auth::user()->getOrders()->where('status','!=','Завершена')->count()}}</span>
                                             </a></li>
-                                        <li><a class="{{Active::route(['payments.*'])}}"
-                                               href="{{route('payments.index')}}"><i
-                                                        class="fa fa-usd"></i> {{trans('leftPanel.invoice')}} </a>
-                                        </li>
-
 
                                         <li><a class="{{Active::route('setting.*')}}"
                                                href="{{URL::route('setting.index')}}"><i class="fa fa-cog"></i>

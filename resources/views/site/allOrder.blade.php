@@ -15,6 +15,7 @@
                 <th>@sortablelink ('price',trans("order.Total"))</th>
                 <th>@sortablelink ('name',trans("order.Title"))</th>
                 <th>@sortablelink ('status',trans("order.Status"))</th>
+                <th></th>
             </tr>
             </thead>
 
@@ -27,6 +28,14 @@
                     <td>{{ number_format($order->price,2)}}</td>
                     <td>{{$order->name}}</td>
                     <td>{{ trans('status.' . $order->status)}}</td>
+
+                    <th class="text-center">@if(!$order->sold)
+                            <a href="{{route('payments.show',$order->id)}}">{{trans('payments.Checkout')}}</a>
+                        @else
+                            <span class="fa fa-check text-success"></span>
+                        @endif
+                    </th>
+
                 </tr>
             @endforeach
 

@@ -67,7 +67,7 @@ class OrderController extends Controller
     {
         $newOrder = new Order([
             'user_id' => Auth::user()->id,
-            'status' => 'Обрабатывается',
+            'status' => 'На оценке',
             'name' => $request->name,
             'text' => $request->text,
             'izdanie' => $request->izdanie,
