@@ -1,6 +1,7 @@
 @extends('_layout/site')
 
 
+@section('title',trans('reviews.Customer Reviews'))
 
 
 

@@ -24,27 +24,30 @@
                                     <th>Количесво исполненых задач</th>
                                     <th>Объем исполненых задач</th>
                                     <th>Затраченное время</th>
-                                    <th>Средняя производительность в месяц</th>
+                                    <th>Средняя производительность в месяц (Обьём/час)</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($Editors as $key => $User)
-                                    <tr>
+
+                                    <tr class="raschet">
                                         <td>{{$User->first_name}}</td>
                                         <td>{{$User->last_name}}</td>
                                         <td>{{$User->getTask->count()}}</td>
                                         <td>{{$User->getTask->where('status','Завершена')->count()}}</td>
-                                        <td>{{$User->getTask->where('status','Завершена')->sum('countWork')}}</td>
+                                        <td class="count">{{$User->getTask->where('status','Завершена')->sum('countWork')}}</td>
                                         <td>{{SecsToH::get($User->getTask()->where('status','Завершена')->sum('spent'))}}
 
-                                        <td>{{SecsToH::get(
-                                        $User
+
+                                        <td class="sred">{{
+                                            $User
                                             ->getTask()
                                             ->where('created_at','>',$last->toDateTimeString())
                                             ->where('created_at','<',$to->toDateTimeString())
                                             ->where('status','Завершена')
-                                            ->sum('spent'))
-                                        }}
+                                            ->sum('spent')
+                                            /60 /60
+                                         }}</td>
 
                                     </tr>
                                 @endforeach
@@ -79,7 +82,34 @@
 
 
 
+    <script>
 
+        //Среднее за месяц
+
+        $(".raschet").each(function () {
+
+            var count = 0;
+
+            $("td", this).each(function () {
+
+                if ($(this).hasClass('count')) {
+                    count = $(this).html();
+                }
+                if ($(this).hasClass('sred')) {
+                    var result = (count / $(this).html()).toFixed(3);
+                    if (isNaN(result)) {
+                        result = '';
+                    }
+
+                    $(this).html(result);
+                }
+            });
+
+
+        });
+
+
+    </script>
 
 
 

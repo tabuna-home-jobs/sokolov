@@ -4,7 +4,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3 page-sidebar">
+            <div class="col-sm-2 page-sidebar">
                 <aside>
                     <div class="inner-box">
                         <div class="user-panel-sidebar">
@@ -48,7 +48,7 @@
                 </aside>
             </div>
 
-            <div class="col-sm-9 page-content">
+            <div class="col-sm-10 page-content">
                 <div class="inner-box">
 
 

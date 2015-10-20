@@ -75,7 +75,7 @@
                                         @for($i=0; $i < count(unserialize($value->goods->first()->attribute)); $i++ )
                                             @if(unserialize($value->goods->first()->attribute)[$i] == "Speed")
                                                 <option value="{{unserialize($value->goods->first()->attribute)[$i+1]}}">
-                                                    {{unserialize($value->goods->first()->attribute)[$i+1]}}
+                                                    {{trans('speed.' . unserialize($value->goods->first()->attribute)[$i+1] )}}
                                                 </option>
                                             @endif
                                         @endfor
@@ -103,7 +103,8 @@
                         <span class="input-group-addon btn btn-default btn-file"><span
                                     class="fileinput-new">{{trans('file.Select file')}}</span><span
                                     class="fileinput-exists">{{trans('file.Change')}}</span><input type="file"
-                                                                                                   name="files[]"></span>
+                                                                                                   name="files[]"
+                                                                                                   required></span>
                         <a href="#" class="input-group-addon btn btn-default fileinput-exists"
                            data-dismiss="fileinput">{{trans('file.Remove')}}</a>
                     </div>
@@ -187,7 +188,7 @@
 
                 var myhtml = '<div class="fileinput fileinput-new input-group" data-provides="fileinput">';
                 myhtml += '<div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>';
-                myhtml += '<span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">{{trans("file.Select file")}}</span><span class="fileinput-exists">{{trans("file.Change")}}</span><input type="file" name="files[]"></span>';
+                myhtml += '<span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">{{trans("file.Select file")}}</span><span class="fileinput-exists">{{trans("file.Change")}}</span><input type="file" required name="files[]"></span>';
                 myhtml += ' <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">{{trans("file.Remove")}}</a>';
                 myhtml += '</div>';
 

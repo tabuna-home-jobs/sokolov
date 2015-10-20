@@ -10,10 +10,11 @@
 
             <thead>
             <tr>
-                <th>{{trans("order.Order")}} #</th>
-                <th>{{trans("order.Order Date")}}</th>
-                <th>{{trans("order.Title")}}</th>
-                <th>{{trans("order.Status")}}</th>
+                <th>@sortablelink ('id',trans("order.Order")) #</th>
+                <th>@sortablelink ('created_at',trans("order.Order Date"))</th>
+                <th>@sortablelink ('price',trans("order.Total"))</th>
+                <th>@sortablelink ('name',trans("order.Title"))</th>
+                <th>@sortablelink ('status',trans("order.Status"))</th>
             </tr>
             </thead>
 
@@ -23,6 +24,7 @@
                 <tr>
                     <th scope="row"><a href="{{route('order.show',$order->id)}}">{{$order->id}}</a></th>
                     <td>{{ date("Y-m-d",$order->created_at->tz(Config::get('app.timezone'))->timestamp)}}</td>
+                    <td>{{ number_format($order->price,2)}}</td>
                     <td>{{$order->name}}</td>
                     <td>{{ trans('status.' . $order->status)}}</td>
                 </tr>
@@ -35,7 +37,7 @@
     </div>
 
 
-    {!! $Orders->render()!!}
+    {!! $Orders->appends(\Input::except('page'))->render()!!}
 
 
 @endsection

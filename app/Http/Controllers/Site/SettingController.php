@@ -29,7 +29,7 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $Country = Country::all();
+        $Country = Country::orderBy('name')->get();
         $Zone = Zone::orderBy('zone_name')->get();
 
 

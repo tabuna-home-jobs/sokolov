@@ -6,4 +6,5 @@ return [
     "Phone" => "Phone",
     "Message text" => "Message",
     "Send" => "Send",
+    'Contact Us' => 'Contact Us',
 ];

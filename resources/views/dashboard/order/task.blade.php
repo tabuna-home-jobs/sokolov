@@ -206,7 +206,7 @@
                 <div class="vbox">
                     <div class="wrapper b-b b-light">
                         <div class="font-thin h4">Комментарии</div>
-                        <small class="text-muted">к заказу</small>
+                        <small class="text-muted">к заказу <b>Редактору</b></small>
                     </div>
                     <div class="row-row">
                         <div class="cell">

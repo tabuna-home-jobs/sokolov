@@ -19,6 +19,7 @@ class StatInfoController extends Controller
     {
         return view('dashboard.user.StatInfo', [
             'Editors' => User::where('type', 'editor')
+                ->orderBy('id', 'Desc')
                 ->with('getTask')
                 ->paginate(10),
             'last' => new Carbon('last month'),

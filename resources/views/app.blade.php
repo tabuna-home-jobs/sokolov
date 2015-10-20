@@ -180,10 +180,11 @@
                             </a>
                         </li>
 
+
                         <li class="{{Active::route('dashboard.user.*')}}">
-                            <a href="{{route('dashboard.user.index')}}">
+                            <a href="{{URL::route('dashboard.user.index')}}">
                                 <i class="fa fa-users"></i>
-                                <span>Языки в заказе</span>
+                                <span>Пользователи</span>
                             </a>
                         </li>
 

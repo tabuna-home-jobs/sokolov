@@ -17,4 +17,5 @@ return [
     "Order Date" => "Order Date",
     "Title" => "Title",
     "Requested speed" => "Requested speed",
+    'Total' => 'Total (USD)'
 ];

@@ -5,4 +5,5 @@ return [
     "Send" => "Отправить",
     "Your image" => "Выберите свою фотографию",
     "Content" => "Содержание",
+    'Customer Reviews' => "Отзывы",
 ];

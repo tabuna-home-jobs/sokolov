@@ -66,7 +66,7 @@ class OrderController extends Controller
             $Orders = Order::select('id', 'name', 'created_at')
                 ->whereRaw('status = ?', [$orderStatus])
                 ->orderBy('id', 'desc')
-                ->simplePaginate(15);
+                ->paginate(15);
         }
         return view("dashboard/order/order", [
             'Orders' => $Orders,

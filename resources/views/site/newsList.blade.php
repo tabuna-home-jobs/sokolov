@@ -18,7 +18,7 @@
                 <hr>
 
                 <div class="blog-thumbnail">
-                    {{$News->created_at->diffForHumans()}}
+                    {{$News->created_at->toDateString()}}
                     <a href="{{URL::route('news.show',$News->slug)}}">
                         <img src="{{$News->avatar}}">
                     </a>

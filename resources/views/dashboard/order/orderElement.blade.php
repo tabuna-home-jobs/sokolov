@@ -388,9 +388,12 @@
                                                                        value="{{$SelectOrder->id}}">
                                                                 <input type="hidden" name="_token"
                                                                        value="{{ csrf_token() }}">
-                                                                <button type="submit" class="btn btn-success btn-block">
+
+                                                                <p class="text-center">
+                                                                    <button type="submit" class="btn btn-success">
                                                                     Создать
                                                                 </button>
+                                                                </p>
 
                                                             </form>
 
@@ -524,7 +527,7 @@
                 <div class="vbox">
                     <div class="wrapper b-b b-light">
                         <div class="font-thin h4">Комментарии</div>
-                        <small class="text-muted">к заказу</small>
+                        <small class="text-muted">к заказу <b>Клиента</b></small>
                     </div>
                     <div class="row-row">
                         <div class="cell">

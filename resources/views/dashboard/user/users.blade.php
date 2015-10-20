@@ -18,12 +18,12 @@
                                    role="grid" aria-describedby="DataTables_Table_0_info">
                                 <thead>
                                 <tr role="row">
-                                    <th>Имя</th>
-                                    <th>Фамилия</th>
-                                    <th>Титутл</th>
-                                    <th>Институт</th>
-                                    <th>Email</th>
-                                    <th>Телефон</th>
+                                    <th>@sortablelink ('fist_name', 'Имя')</th>
+                                    <th>@sortablelink ('last_name', 'Фамилия')</th>
+                                    <th>@sortablelink ('dignity', 'Титул')</th>
+                                    <th>@sortablelink ('institution', 'Институт')</th>
+                                    <th>@sortablelink ('email', 'Email')</th>
+                                    <th>@sortablelink ('phone', 'Телефон')</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -50,7 +50,7 @@
                             </small>
                         </div>
                         <div class="col-sm-6 text-right text-center-xs">
-                            {!! $Users->render() !!}
+                            {!! $Users->appends(\Input::except('page'))->render() !!}
                         </div>
                     </div>
 

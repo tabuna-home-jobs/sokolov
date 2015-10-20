@@ -20,6 +20,8 @@ class Order extends Model {
      */
     protected $sortable = [
         'id',
+        'name',
+        'price',
         'status',
         'created_at',
         'updated_at'

@@ -27,7 +27,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $Orders = Auth::user()->getOrders()->orderBy('id', 'Desc')->simplePaginate(15);
+        $Orders = Auth::user()->getOrders()->sortable()->orderBy('id', 'Desc')->simplePaginate(15);
         return view('site.allOrder', [
             'Orders' => $Orders,
         ]);

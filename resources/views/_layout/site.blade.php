@@ -254,7 +254,21 @@
                     </ul>
 
 
-                    <img src="/img/icon/social-icon.png" class="p-t-15">
+                    <div class="p-t-15">
+
+                        <a href="https://www.facebook.com/FalconScientificEditing" target="_blank"><img
+                                    src="/img/social/fb-icon.png"></a>
+                        <a href="https://twitter.com/FalconEditing" target="_blank"><img
+                                    src="/img/social/twitter-icon.png"></a>
+                        <a href="https://plus.google.com/b/115410796310646309979/115410796310646309979/about"
+                           target="_blank"><img src="/img/social/google-icon.png"></a>
+                        <a href="https://www.linkedin.com/company/falcon-scientific-editing" target="_blank"><img
+                                    src="/img/social/in-icon.png"></a>
+                        <a href="http://vk.com/falconediting" target="_blank"><img src="/img/social/vk-icon.png"></a>
+                        <a href="http://www.ok.ru/group/53590836838626" target="_blank"><img
+                                    src="/img/social/ok-icon.png"></a>
+
+                    </div>
 
 
                 </div>

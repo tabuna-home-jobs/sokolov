@@ -17,7 +17,7 @@
             <div class="col w lter b-r">
                 <div class="vbox">
                     <div class="wrapper b-b">
-                        <div class="font-thin h4">Заявки</div>
+                        <div class="font-thin h4">Заказы</div>
                     </div>
                     <div class="nav-tabs-alt">
                         <ul class="nav nav-tabs nav-justified">
@@ -37,7 +37,7 @@
                                 <a href="?status=pay">В работе <span class="badge">{{$CountPay}}</span></a>
                             </li>
                             <li>
-                                <a href="?status=done">Готова <span class="badge">{{$CountDone}}</span></a>
+                                <a href="?status=done">Готов <span class="badge">{{$CountDone}}</span></a>
                             </li>
                         </ul>
                     </div>
