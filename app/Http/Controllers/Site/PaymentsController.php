@@ -17,6 +17,7 @@ class PaymentsController extends Controller
      */
     public function index()
     {
+        return abort(404);
         $payments = Auth::user()->getPayments()->with('getOrder')->paginate(10);
         return view('site.listPayments', [
             'payments' => $payments,

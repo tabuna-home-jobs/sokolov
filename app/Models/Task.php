@@ -1,7 +1,7 @@
 <?php namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Kyslik\ColumnSortable\Sortable;
 
 /**
  * App\Models\Skills
@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
 
-
+    use Sortable;
     /**
      * The database table used by the model.
      *
@@ -36,6 +36,16 @@ class Task extends Model
         'pause',
         'payment'
     ];
+
+    protected $sortable = [
+        'id',
+        'name',
+        'workfinish',
+        'created_at',
+        'price',
+    ];
+
+
 
 
     protected $casts = [

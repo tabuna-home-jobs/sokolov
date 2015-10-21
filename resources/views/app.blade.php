@@ -165,6 +165,14 @@
                             </a>
                         </li>
 
+                        <li class="{{Active::route('dashboard.benefits.*')}}">
+                            <a href="{{URL::route('dashboard.benefits.index')}}">
+                                <i class="fa fa-dollar"></i>
+                                <span>Выплаты</span>
+                            </a>
+                        </li>
+
+
                         <li class="{{Active::route('dashboard.category.*')}}">
                             <a href="{{URL::route('dashboard.category.index')}}">
                                 <i class="fa fa-briefcase"></i>

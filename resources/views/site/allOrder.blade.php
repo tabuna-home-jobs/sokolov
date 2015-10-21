@@ -29,10 +29,13 @@
                     <td>{{$order->name}}</td>
                     <td>{{ trans('status.' . $order->status)}}</td>
 
-                    <th class="text-center">@if(!$order->sold)
+                    <th class="text-center">
+                        @if(!$order->sold && $order->status == 'Не оплачен')
                             <a href="{{route('payments.show',$order->id)}}">{{trans('payments.Checkout')}}</a>
-                        @else
+                        @elseif($order->sold)
                             <span class="fa fa-check text-success"></span>
+                        @else
+
                         @endif
                     </th>
 
