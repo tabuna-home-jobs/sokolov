@@ -25,24 +25,31 @@
                         <input name="cps_email" value="{{Auth::user()->email}}" type="hidden"/>
 
 
-                        <div class="form-group">
-                            <label>{{trans('payments.Select order')}}</label>
-                            <input class="form-control" disabled value="{{$order->name}}">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>{{trans('order.Order')}} #</th>
+                                <th>{{trans('order.Total price')}} (USD)</th>
+                                <th>{{trans('order.Title')}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">{{$order->id}}</th>
+                                <td>{{$order->price}}</td>
+                                <td>{{$order->name}}</td>
+                            </tr>
 
-                            <input type="hidden" id="order" class="form-control" name="orderNumber" readonly
-                                   value="{{$order->id}}" required>
-                        </div>
+                            </tbody>
+                        </table>
 
 
-                        <div class="form-group">
-                            <label>{{trans('payments.Amount to be paid in rubles')}}</label>
-
-                            <input class="form-control" disabled value="{{$order->price}} USD">
+                        <input type="hidden" id="order" class="form-control" name="orderNumber" readonly
+                               value="{{$order->id}}" required>
 
 
                             <input type="hidden" id="price" class="form-control" name="sum" size="64" readonly
                                    value="{{$order->price_rub or 0}}">
-                        </div>
 
 
                         <div class="form-group text-center">

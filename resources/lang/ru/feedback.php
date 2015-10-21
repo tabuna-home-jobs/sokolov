@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'Contact Us' => 'Конткты',
+    'Contact Us' => 'Контакты',
     "Write to us" => "Написать нам",
     "Full name" => "ФИО",
     "Phone" => "Телефон",

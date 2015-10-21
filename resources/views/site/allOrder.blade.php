@@ -15,7 +15,7 @@
                 <th>@sortablelink ('price',trans("order.Total"))</th>
                 <th>@sortablelink ('name',trans("order.Title"))</th>
                 <th>@sortablelink ('status',trans("order.Status"))</th>
-                <th></th>
+                <th>{{trans('order.Payment Status')}}</th>
             </tr>
             </thead>
 
@@ -32,9 +32,9 @@
                     <th class="text-center">
                         @if(!$order->sold && $order->status == 'Не оплачен')
                             <a class="btn btn-default btn-sm"
-                               href="{{route('payments.show',$order->id)}}">{{trans('payments.Checkout')}}</a>
+                               href="{{route('payments.show',$order->id)}}">{{trans('order.Pay')}}</a>
                         @elseif($order->sold)
-                            <span class="fa fa-check text-success"></span>
+                            {{trans('order.Paid')}}
                         @else
 
                         @endif

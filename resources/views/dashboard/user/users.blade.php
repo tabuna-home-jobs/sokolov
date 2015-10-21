@@ -18,7 +18,7 @@
                                    role="grid" aria-describedby="DataTables_Table_0_info">
                                 <thead>
                                 <tr role="row">
-                                    <th>@sortablelink ('fist_name', 'Имя')</th>
+                                    <th>@sortablelink ('first_name', 'Имя')</th>
                                     <th>@sortablelink ('last_name', 'Фамилия')</th>
                                     <th>@sortablelink ('dignity', 'Титул')</th>
                                     <th>@sortablelink ('institution', 'Институт')</th>

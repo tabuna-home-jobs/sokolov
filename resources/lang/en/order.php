@@ -17,5 +17,10 @@ return [
     "Order Date" => "Order Date",
     "Title" => "Title",
     "Requested speed" => "Requested speed",
-    'Total' => 'Total (USD)'
+    'Total' => 'Total (USD)',
+
+    'Payment Status' => 'Payment Status',
+    'Pay' => 'Pay',
+    'Paid' => 'Paid',
+
 ];

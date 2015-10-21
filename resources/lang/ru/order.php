@@ -17,5 +17,11 @@ return [
     "Order Date" => "Дата заказа",
     "Title" => "Название работы",
     "Requested speed" => "Скорость",
-    'Total' => 'Сумма (USD)'
+    'Total' => 'Сумма (USD)',
+
+
+    'Payment Status' => 'Статус оплаты',
+    'Pay' => 'Оплатить',
+    'Paid' => 'Оплачен',
+
 ];
