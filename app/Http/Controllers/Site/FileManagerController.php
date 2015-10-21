@@ -52,6 +52,7 @@ class FileManagerController extends Controller
     public function show($id)
     {
         $file = Files::where('type', 'order')->findOrFail($id);
+
         //Берём связь хз почему но передать как метод не удалось
         $OrderId = $file->beglouto;
         $order = Order::findOrFail($OrderId);

@@ -316,7 +316,7 @@
 
 
     $(document).ready(function () {
-        $("#loader-wrapper").remove();
+        $("#loader-wrapper").hide();
 
         $('.carousel-inner div.item:first-child').addClass('active');
 
@@ -336,9 +336,13 @@
          $(this).css('display', 'inherit');
          });
          */
-
-
     });
+
+    $("form").submit(function (event) {
+        $("#loader-wrapper").show();
+        //return event.preventDefault();
+    });
+
 
 
     $('.img-hover').hover(function () {

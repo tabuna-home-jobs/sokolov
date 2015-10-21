@@ -31,7 +31,8 @@
 
                     <th class="text-center">
                         @if(!$order->sold && $order->status == 'Не оплачен')
-                            <a href="{{route('payments.show',$order->id)}}">{{trans('payments.Checkout')}}</a>
+                            <a class="btn btn-default btn-sm"
+                               href="{{route('payments.show',$order->id)}}">{{trans('payments.Checkout')}}</a>
                         @elseif($order->sold)
                             <span class="fa fa-check text-success"></span>
                         @else

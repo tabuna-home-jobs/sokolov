@@ -45,29 +45,32 @@ class FileManagerController extends Controller
     {
         foreach ($request->file('files') as $file) {
 
-            $task = Auth::user()->getTask()->findOrFail($request->beglouto);
+            if (!is_null($file)) {
+                $task = Auth::user()->getTask()->findOrFail($request->beglouto);
 
-            if (!Storage::exists('/app/order/' . date("Y-m-d"))) {
-                Storage::makeDirectory('/app/order/' . date("Y-m-d"));
+
+                if (!Storage::exists('/app/order/' . date("Y-m-d"))) {
+                    Storage::makeDirectory('/app/order/' . date("Y-m-d"));
+                }
+
+                $file->move(storage_path() . '/app/order/' . date("Y-m-d"), Str::ascii(time() . '-' . $file->getClientOriginalName()));
+                $DBfile = new Files([
+                    'user_id' => Auth::user()->id,
+                    'original' => $file->getClientOriginalName(),
+                    'name' => date("Y-m-d") . '/' . Str::ascii(time() . '-' . $file->getClientOriginalName()),
+                    'type' => 'task',
+                    'beglouto' => $task->id,
+                    'finish' => true,
+                ]);
+                $DBfile->save();
+
+                $DBMeta = new FilesMeta([
+                    'files_id' => $DBfile->id,
+                    'user_id' => Auth::user()->id,
+                    'task_id' => $task->id,
+                ]);
+                $DBMeta->save();
             }
-
-            $file->move(storage_path() . '/app/order/' . date("Y-m-d"), Str::ascii(time() . '-' . $file->getClientOriginalName()));
-            $DBfile = new Files([
-                'user_id' => Auth::user()->id,
-                'original' => $file->getClientOriginalName(),
-                'name' => date("Y-m-d") . '/' . Str::ascii(time() . '-' . $file->getClientOriginalName()),
-                'type' => 'task',
-                'beglouto' => $task->id,
-                'finish' => true,
-            ]);
-            $DBfile->save();
-
-            $DBMeta = new FilesMeta([
-                'files_id' => $DBfile->id,
-                'user_id' => Auth::user()->id,
-                'task_id' => $task->id,
-            ]);
-            $DBMeta->save();
 
         }
 

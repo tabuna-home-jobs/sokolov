@@ -20,6 +20,8 @@ use Storage;
 
 class OrderController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -84,23 +86,24 @@ class OrderController extends Controller
                 'speed' => (isset($type['speed'])) ? $type['speed'] : '',
             ]);
         }
-
         foreach ($request->file('files') as $file) {
 
-            if (!Storage::exists('/app/order/' . date("Y-m-d"))) {
-                Storage::makeDirectory('/app/order/' . date("Y-m-d"));
-            }
+            if (!is_null($file)) {
+                if (!Storage::exists('/app/order/' . date("Y-m-d"))) {
+                    Storage::makeDirectory('/app/order/' . date("Y-m-d"));
+                }
 
-            $file->move(storage_path() . '/app/order/' . date("Y-m-d"), Str::ascii(time() . '-' . $file->getClientOriginalName()));
-            $DBfile = new Files([
-                'user_id' => Auth::user()->id,
-                'original' => $file->getClientOriginalName(),
-                'name' => date("Y-m-d") . '/' . Str::ascii(time() . '-' . $file->getClientOriginalName()),
-                'type' => 'order',
-                'beglouto' => $newOrder->id,
-                'finish' => false,
-            ]);
-            $DBfile->save();
+                $file->move(storage_path() . '/app/order/' . date("Y-m-d"), Str::ascii(time() . '-' . $file->getClientOriginalName()));
+                $DBfile = new Files([
+                    'user_id' => Auth::user()->id,
+                    'original' => $file->getClientOriginalName(),
+                    'name' => date("Y-m-d") . '/' . Str::ascii(time() . '-' . $file->getClientOriginalName()),
+                    'type' => 'order',
+                    'beglouto' => $newOrder->id,
+                    'finish' => false,
+                ]);
+                $DBfile->save();
+            }
         }
 
         event(new NewOrder($newOrder->id));
@@ -169,20 +172,22 @@ class OrderController extends Controller
     {
         foreach ($request->file('files') as $file) {
 
-            if (!Storage::exists('/app/order/' . date("Y-m-d"))) {
-                Storage::makeDirectory('/app/order/' . date("Y-m-d"));
-            }
+            if (!is_null($file)) {
+                if (!Storage::exists('/app/order/' . date("Y-m-d"))) {
+                    Storage::makeDirectory('/app/order/' . date("Y-m-d"));
+                }
 
-            $file->move(storage_path() . '/app/order/' . date("Y-m-d"), Str::ascii(time() . '-' . $file->getClientOriginalName()));
-            $DBfile = new Files([
-                'user_id' => Auth::user()->id,
-                'original' => $file->getClientOriginalName(),
-                'name' => date("Y-m-d") . '/' . Str::ascii(time() . '-' . $file->getClientOriginalName()),
-                'type' => 'order',
-                'beglouto' => $id,
-                'finish' => false,
-            ]);
-            $DBfile->save();
+                $file->move(storage_path() . '/app/order/' . date("Y-m-d"), Str::ascii(time() . '-' . $file->getClientOriginalName()));
+                $DBfile = new Files([
+                    'user_id' => Auth::user()->id,
+                    'original' => $file->getClientOriginalName(),
+                    'name' => date("Y-m-d") . '/' . Str::ascii(time() . '-' . $file->getClientOriginalName()),
+                    'type' => 'order',
+                    'beglouto' => $id,
+                    'finish' => false,
+                ]);
+                $DBfile->save();
+            }
         }
         Session::flash('good', 'Файлы успешно загружены');
         return redirect()->back();
