@@ -279,18 +279,25 @@
 
 
 
-    <div class="container-fluid">
-        <div class="row backgound-grey padding-container text-center">
-
-            <a href="/auth/login" type="button" class="btn btn-warning">{{trans('main.Order')}}</a>
-
-        </div>
-    </div>
 
 
 
 
     @if($NewsList->count())
+
+
+
+        <div class="container-fluid">
+            <div class="row backgound-grey padding-container text-center">
+
+                <a href="/auth/login" type="button" class="btn btn-warning">{{trans('main.Order')}}</a>
+
+            </div>
+        </div>
+
+
+
+
         <div class="container hidden-xs">
 
 

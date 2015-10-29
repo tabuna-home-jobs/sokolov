@@ -79,20 +79,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <a href="{{route('dashboard.feedback.index')}}"
-                                   class="block panel padder-v bg-warning item">
-                                    <span class="text-white font-thin h1 block">{{$noRead }} <i
-                                                class="fa fa-envelope-o"></i></span>
-                                    <span class="text-muted text-xs">Обратная связь</span>
 
-
-
-                <span class="bottom text-right w-full">
-                  <i class="fa fa-envelope-o text-muted m-r-sm"></i>
-                </span>
-                                </a>
-                            </div>
                             <div class="col-xs-6">
                                 <a href="{{route('dashboard.order.index')}}"
                                    class="block panel padder-v bg-success item">

@@ -3,14 +3,13 @@
 @section('content-account')
 
 
-
     <div class="panel panel-default">
         <div class="panel-heading">{{trans("order.Your Orders")}}</div>
         <table class="table">
 
             <thead>
             <tr>
-                <th>@sortablelink ('id',trans("order.Order")) #</th>
+                <th>@sortablelink ('id',#)</th>
                 <th>@sortablelink ('created_at',trans("order.Order Date"))</th>
                 <th>@sortablelink ('price',trans("order.Total"))</th>
                 <th>@sortablelink ('name',trans("order.Title"))</th>

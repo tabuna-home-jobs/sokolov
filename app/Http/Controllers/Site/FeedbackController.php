@@ -3,7 +3,8 @@
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\Site\FeedbackRequest;
-use App\Models\Feedback;
+use Config;
+use Mail;
 use Session;
 
 class FeedbackController extends Controller
@@ -36,13 +37,10 @@ class FeedbackController extends Controller
     public function store(FeedbackRequest $request)
     {
 
-        $new = new Feedback([
-            'fio' => $request->fio,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'content' => $request->message,
-        ]);
-        $new->save();
+        Mail::raw('Сообщение от ' . $request->fio . '\n' . $request->message . '\n' . 'Контактные данные:' . $request->email . '\n' . $request->phone, function ($message) {
+            $message->from(Config::get('link.email'));
+            $message->to(Config::get('link.email'))->cc(Config::get('link.email'));
+        });
 
         Session::flash('good', trans('alert.Thank you for writing, we will respond to you.'));
         return redirect()->back();

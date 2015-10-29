@@ -126,12 +126,6 @@
                         </li>
 
 
-                        <li class="{{Active::route('dashboard.feedback.*')}}">
-                            <a href="{{URL::route('dashboard.feedback.index')}}">
-                                <i class="glyphicon glyphicon-envelope icon"></i>
-                                <span class="font-bold">Почта</span>
-                            </a>
-                        </li>
 
 
                         <li class="{{Active::route('dashboard.news.*')}}">

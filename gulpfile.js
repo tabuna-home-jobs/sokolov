@@ -34,7 +34,9 @@ elixir(function (mix) {
  mix.copy('./vendor/bower_components/font-awesome/fonts/', 'public/build/fonts');
 
 
-
+ elixir(function (mix) {
+  mix.version(["public/build/css/app.css", "public/build/js/app.js"]);
+ });
 
 
 });

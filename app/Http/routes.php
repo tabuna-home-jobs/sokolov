@@ -43,7 +43,7 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'admin'], 'pr
     Route::resource('news', 'NewsController');
     Route::resource('shares', 'SharesController');
     Route::resource('', 'AdminController');
-    Route::resource('feedback', 'FeedbackController');
+    //Route::resource('feedback', 'FeedbackController');
     Route::resource('category', 'CategoryController');
     Route::resource('goods', 'GoodsController');
     Route::resource('order', 'OrderController');

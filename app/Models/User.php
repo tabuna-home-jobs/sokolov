@@ -38,7 +38,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         'institution',
         'utc',
         'email_notification',
-        'phone_notification'
+        'phone_notification',
+        'lang'
     ];
 
 
