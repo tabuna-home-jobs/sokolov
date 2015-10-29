@@ -40,6 +40,8 @@
     "slimscroll": "~1.3.3",
     "prism": "1.*",
     "jasny-bootstrap": "~3.1.3",
-    "fancybox": "~2.1.5"
+    "fancybox": "~2.1.5",
+    "roboto-slab-fontface": "*",
+    "roboto-fontface": "~0.4.3"
   }
 }

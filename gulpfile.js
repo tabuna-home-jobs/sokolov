@@ -20,6 +20,10 @@ elixir(function (mix) {
   "./vendor/bower_components/font-awesome/css/font-awesome.min.css",
   "./vendor/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css",
   //"./vendor/bower_components/fancybox/source/jquery.fancybox.css",
+
+  "./vendor/bower_components/roboto-fontface/css/roboto-fontface.css",
+  "./vendor/bower_components/roboto-slab-fontface/roboto-slab-fontface.css",
+
   "style.css",
  ], 'public/build/css/app.css');
 
@@ -30,8 +34,11 @@ elixir(function (mix) {
   //"./vendor/bower_components/fancybox/source/jquery.fancybox.js"
  ], 'public/build/js/app.js');
 
- mix.copy('./vendor/bower_components/bootstrap/dist/fonts/', 'public/build/fonts');
- mix.copy('./vendor/bower_components/font-awesome/fonts/', 'public/build/fonts');
+ mix.copy('./vendor/bower_components/bootstrap/dist/fonts/', 'public/build/build/fonts');
+ mix.copy('./vendor/bower_components/font-awesome/fonts/', 'public/build/build/fonts');
+
+ mix.copy('./vendor/bower_components/roboto-fontface/fonts/', 'public/build/build/fonts');
+ mix.copy('./vendor/bower_components/roboto-slab-fontface/fonts/', 'public/build/build/css/fonts');
 
 
  elixir(function (mix) {
