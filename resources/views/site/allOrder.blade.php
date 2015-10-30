@@ -9,12 +9,12 @@
 
             <thead>
             <tr>
-                <th>@sortablelink ('id',#)</th>
+                <th>@sortablelink ('id','#')</th>
                 <th>@sortablelink ('created_at',trans("order.Order Date"))</th>
                 <th>@sortablelink ('price',trans("order.Total"))</th>
                 <th>@sortablelink ('name',trans("order.Title"))</th>
                 <th>@sortablelink ('status',trans("order.Status"))</th>
-                <th>{{trans('order.Payment Status')}}</th>
+                <th>@sortablelink ('sold',trans('order.Payment Status'))</th>
             </tr>
             </thead>
 
@@ -28,7 +28,7 @@
                     <td>{{$order->name}}</td>
                     <td>{{ trans('status.' . $order->status)}}</td>
 
-                    <th class="text-center">
+                    <th>
                         @if(!$order->sold && $order->status == 'Не оплачен')
                             <a class="btn btn-default btn-sm"
                                href="{{route('payments.show',$order->id)}}">{{trans('order.Pay')}}</a>

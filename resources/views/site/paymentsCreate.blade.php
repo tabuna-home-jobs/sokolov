@@ -10,7 +10,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <form name="ShopForm" method="POST" class="col-xs-12"
-                          action="https://demomoney.yandex.ru/eshop.xml">
+                          action="https://money.yandex.ru/eshop.xml">
 
 
                         <input type="hidden" name="shopId" value="{{Config::get('yandexMoney.shopId')}}">
