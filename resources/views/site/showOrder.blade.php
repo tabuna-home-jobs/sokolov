@@ -180,7 +180,7 @@
                     <form action="{{route('review.store')}}" method="post" enctype="multipart/form-data">
 
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+                        <input type="hidden" name="order_id" value="{{$Order->id}}">
                         <div class="panel-body">
 
 
@@ -232,6 +232,7 @@
 
 
                         </div>
+
 
                         <p class="text-center">
                             <button class="btn btn-link" type="submit">{{trans('reviews.Send')}}</button>

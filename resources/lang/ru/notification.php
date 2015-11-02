@@ -12,4 +12,5 @@ return [
     'The customer has left a message regarding order #.' => 'Клиент оставил Вам комментарий к заказу # :id .',
     'A senior editor has left you a message regarding order #.' => 'Главный редактор оставил Вам комментарий к заказу # :id .',
     'The customer has left a review for order #.' => 'Клиент оставил отзыв к заказу # :id .',
+    'A senior editor has left you a message regarding task #.' => 'Главный редактор оставил Вам комментарий к задаче # :id .',
 ];

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Editor;
 
-use App\Events\Notification;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\Editor\ChanRequest;
@@ -53,7 +52,7 @@ class ChanController extends Controller
         $task->status = "В работе";
         $task->save();
 
-        event(new Notification($task->id));
+        //event(new Notification($task->id));
 
         Session::flash('good', trans('alert.You have successfully taken the task'));
         return redirect()->back();

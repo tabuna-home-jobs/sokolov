@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Site;
 
 use App;
-use App\Events\NewOrder;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Category;
@@ -106,7 +105,7 @@ class OrderController extends Controller
             }
         }
 
-        event(new NewOrder($newOrder->id));
+        // event(new NewOrder($newOrder->id));
         Session::flash('good', trans('alert.Thank you for writing, we will respond to you.'));
         return redirect()->back();
 

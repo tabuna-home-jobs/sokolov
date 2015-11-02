@@ -61,6 +61,15 @@ class OrderObserver
             });
         }
 
+        // Клиенту, после того, как готовый заказ возвращён клиенту главным редактором:
+        if ($model->status == 'Завершён' && $order != 'Завершён') {
+            SMS::send($this->user->phone, trans('notification.Order # has been completed and is ready for you to download.', ['id' => $model->id]));
+            Mail::raw(trans('notification.Order # has been completed and is ready for you to download.', ['id' => $model->id]), function ($message) {
+                $message->from($this->email);
+                $message->to($this->user->email)->cc($this->email);
+            });
+        }
+
 
     }
 
