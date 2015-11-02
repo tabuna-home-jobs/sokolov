@@ -27,7 +27,7 @@
                                             <div class="well m-t bg-light lt">
                                                 <div class="row">
                                                     <div class="col-xs-6">
-                                                        <strong>Заказ задачи: #{{$task->id}}</strong>
+                                                        <strong>Задача : #{{$task->id}}</strong>
                                                         <h4>Исполнитель:
 
                                                             @if(is_null($task->getUser))
@@ -40,6 +40,12 @@
 
                                                         <p>Улуга: {{$task->getGoods->name}}</p>
                                                     </div>
+
+                                                    <div class="col-xs-6 text-center">
+                                                        <h4><a href="{{route('dashboard.order.show',$task->order_id)}}">Заказ
+                                                                : # {{$task->order_id}}</a></h4>
+                                                    </div>
+
                                                 </div>
                                             </div>
 
