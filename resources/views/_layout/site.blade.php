@@ -18,9 +18,9 @@
     <meta name="twitter:image:src" content="@yield('avatar')"/>
     <meta name="robots" content="noindex">
 
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic,500italic,300italic&subset=latin,cyrillic'
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic,500italic,300italic&subset=latin,cyrillic'
           rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300&subset=latin,cyrillic' rel='stylesheet'
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300&subset=latin,cyrillic' rel='stylesheet'
           type='text/css'>
 
     <link rel="stylesheet" href="{{elixir('build/css/app.css')}}" type="text/css"/>
