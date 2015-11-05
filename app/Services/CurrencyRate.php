@@ -84,7 +84,7 @@ class CurrencyRate
         } while (!$this->validFreeDay($result));
 
 
-        return $result['Record']['Value'];
+        return floatval(str_replace(',', '.', $result['Record']['Value']));
     }
 
 

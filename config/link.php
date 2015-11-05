@@ -2,8 +2,6 @@
 
 
 return [
-
-
     'phone' => '89802665074',
-    'email' => 'contact@falconediting.com',
+    'email' => 'denis.a.sokolov@outlook.com',
 ];

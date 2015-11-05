@@ -4,6 +4,7 @@ namespace App\Observer;
 
 use App\Models\Order;
 use CurrencyRate;
+use App;
 
 class ConvertValueObserver
 {
