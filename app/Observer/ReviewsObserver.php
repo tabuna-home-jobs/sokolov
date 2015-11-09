@@ -6,8 +6,9 @@ use Config;
 use Mail;
 use SMS;
 use App;
+use Session;
 
-class OrderObserver
+class ReviewsObserver
 {
 
     protected $email;
@@ -36,8 +37,10 @@ class OrderObserver
         Mail::raw(trans('notification.The customer has left a review for order #.', ['id' => $model->order_id]), function ($message) use ($model) {
             $message->from($this->email, trans('notification.Your order # .', ['id' => $model->order_id]));
             $message->to($this->email);
+            $message->subject(trans('notification.Your order # .', ['id' => $model->order_id]));
         });
 
+        App::setLocale(Session::get('lang', 'en'));
     }
 
 

@@ -9,6 +9,7 @@ use Config;
 use Mail;
 use SMS;
 use App;
+use Session;
 
 class TaskObserver
 {
@@ -41,11 +42,13 @@ class TaskObserver
         if ($model->user_id) {
             SMS::send($this->user->phone, trans('notification.You have been assigned a new task #.', ['id' => $model->id]));
             Mail::raw(trans('notification.You have been assigned a new task #.', ['id' => $model->id]), function ($message) use ($model) {
-                $message->from($this->email, trans('notification.Your order # .', ['id' => $model->id]));
+                $message->from($this->email);
                 $message->to($this->user->email);
+                $message->subject(trans('notification.Your order # .', ['id' => $model->id]));
             });
         }
 
+        App::setLocale(Session::get('lang', 'en'));
 
     }
 
@@ -60,8 +63,9 @@ class TaskObserver
         if ($model->user_id && $task->user_id == 0) {
             SMS::send($this->phone, trans('notification.Order # has been paid and is waiting for an editor.', ['id' => $model->order_id]));
             Mail::raw(trans('notification.Order # has been paid and is waiting for an editor.', ['id' => $model->order_id]), function ($message) use ($model) {
-                $message->from($this->email, trans('notification.Your order # .', ['id' => $model->id]));
+                $message->from($this->email);
                 $message->to($this->email);
+                $message->subject(trans('notification.Your order # .', ['id' => $model->id]));
             });
         }
 
@@ -70,8 +74,9 @@ class TaskObserver
         if ($model->sold == 1 && $order->sold == 0) {
             SMS::send($this->phone, trans('notification.An editor has accepted order #.', ['id' => $model->id]));
             Mail::raw(trans('notification.An editor has accepted order #.', ['id' => $model->id]), function ($message) use ($model) {
-                $message->from($this->email, trans('notification.Your order # .', ['id' => $model->id]));
+                $message->from($this->email);
                 $message->to($this->email);
+                $message->subject(trans('notification.Your order # .', ['id' => $model->id]));
             });
         }
 
@@ -79,11 +84,13 @@ class TaskObserver
         if ($model->status == 'Завершён' && $order != 'Завершён') {
             SMS::send($this->user->phone, trans('notification.Order # has been completed and is ready for you to download.', ['id' => $model->id]));
             Mail::raw(trans('notification.Order # has been completed and is ready for you to download.', ['id' => $model->id]), function ($message) use ($model) {
-                $message->from($this->email, trans('notification.Your order # .', ['id' => $model->id]));
+                $message->from($this->email);
                 $message->to($this->user->email);
+                $message->subject(trans('notification.Your order # .', ['id' => $model->id]));
             });
         }
 
+        App::setLocale(Session::get('lang', 'en'));
 
     }
 

@@ -5,7 +5,7 @@ namespace App\Observer;
 use App\Models\Order;
 use CurrencyRate;
 use App;
-
+use Session;
 class ConvertValueObserver
 {
 
@@ -21,8 +21,7 @@ class ConvertValueObserver
             }
         }
 
-
-
+        App::setLocale(Session::get('lang', 'en'));
 
     }
 

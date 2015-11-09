@@ -2,14 +2,19 @@
 
 namespace App\Providers;
 
+use App\Models\Comments;
 use App\Models\Goods;
 use App\Models\News;
 use App\Models\Order;
 use App\Models\Page;
+use App\Models\Review;
 use App\Models\Shares;
-use App\Observer\ConvertValueObserver;
+use App\Models\Task;
+use App\Observer\CommentsObserver;
 use App\Observer\OrderObserver;
+use App\Observer\ReviewsObserver;
 use App\Observer\SlugGenerateObserver;
+use App\Observer\TaskObserver;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -46,11 +51,12 @@ class EventServiceProvider extends ServiceProvider
         News::observe(new SlugGenerateObserver);
         Shares::observe(new SlugGenerateObserver);
         Goods::observe(new SlugGenerateObserver);
-        Order::observe(new ConvertValueObserver);
+        //Order::observe(new ConvertValueObserver);
 
-
-
+        Review::observe(new ReviewsObserver);
         Order::observe(new OrderObserver);
+        Task::observe(new TaskObserver);
+        Comments::observe(new CommentsObserver);
 
     }
 }

@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://falconediting.com',
+    'url' => 'https://falconediting.com',
 
     /*
     |--------------------------------------------------------------------------
