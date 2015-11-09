@@ -65,11 +65,23 @@ class TaskObserver
             Mail::raw(trans('notification.Order # has been paid and is waiting for an editor.', ['id' => $model->order_id]), function ($message) use ($model) {
                 $message->from($this->email);
                 $message->to($this->email);
-                $message->subject(trans('notification.Your order # .', ['id' => $model->id]));
+                $message->subject(trans('notification.Your order # .', ['id' => $model->order_id]));
             });
         }
 
 
+        //Главному редактору, после того, как заказ был завершён исполнителем:
+        if ($model->status == "На проверке" && $task->status != 'На проверке') {
+            SMS::send($this->phone, trans('notification.Order # has been completed by an editor and is ready for quality control.', ['id' => $model->order_id]));
+            Mail::raw(trans('notification.Order # has been completed by an editor and is ready for quality control.', ['id' => $model->order_id]), function ($message) use ($model) {
+                $message->from($this->email);
+                $message->to($this->email);
+                $message->subject(trans('notification.Your order # .', ['id' => $model->order_id]));
+            });
+        }
+
+
+        /*
         // если он был оплачен
         if ($model->sold == 1 && $order->sold == 0) {
             SMS::send($this->phone, trans('notification.An editor has accepted order #.', ['id' => $model->id]));
@@ -89,6 +101,8 @@ class TaskObserver
                 $message->subject(trans('notification.Your order # .', ['id' => $model->id]));
             });
         }
+
+        */
 
         App::setLocale(Session::get('lang', 'en'));
 
