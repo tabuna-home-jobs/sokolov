@@ -150,8 +150,6 @@
                                         </div><!-- Item END--></td>
                                 </tr>
                             </table>
-                            <!-- padding -->
-                            <div style="height: 50px; line-height: 50px; font-size: 10px;"> </div>
                         </td>
                     </tr>
                     <!--header END-->
@@ -164,8 +162,6 @@
                             <table width="94%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <td align="center">
-                                        <!-- padding -->
-                                        <div style="height: 40px; line-height: 40px; font-size: 10px;"> </div>
 
                                         <div class="mob_100" style="float: left; display: inline-block; width: 100%;">
                                             <table class="mob_100" width="100%" border="0" cellspacing="0"
