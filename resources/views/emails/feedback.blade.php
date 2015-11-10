@@ -155,7 +155,7 @@
 
                     <!--content 2 -->
                     <tr>
-                        <td align="center" bgcolor="#ffffff"
+                        <td align="left" bgcolor="#ffffff"
                             style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #eff2f4;">
                             <table width="94%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
@@ -186,7 +186,7 @@
                                                         <div style="line-height: 21px;">
                                                             <font face="Arial, Helvetica, sans-serif" size="3"
                                                                   color="#98a7b9" style="font-size: 14px;">
-								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #98a7b9;">
+								<span style="padding: 10px;font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #98a7b9;">
 
                                     {!! nl2br(e($request['message'])) !!}
 
@@ -204,7 +204,7 @@
                                 </tr>
                                 <tr>
                                     <td><!-- padding -->
-                                        <div style="height: 40px; line-height: 80px; font-size: 10px;"> </div>
+                                        <div style="height: 80px; line-height: 80px; font-size: 10px;"> </div>
                                     </td>
                                 </tr>
                             </table>
@@ -230,7 +230,7 @@
                                         <font face="Arial, Helvetica, sans-serif" size="3" color="#96a5b5"
                                               style="font-size: 13px;">
 				<span style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #96a5b5;">
-					2015 © Falcon Editing. ALL Rights Reserved.
+					2015 ©  Falcon Scientific Editing. ALL Rights Reserved.
 				</span></font>
                                     </td>
                                 </tr>

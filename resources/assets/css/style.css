@@ -1411,7 +1411,7 @@ pre {
     padding-top: 15px;
 }
 
-.search-result {
+.search-container .block {
     display: inline-block;
     float: none;
     vertical-align: top;
