@@ -34,7 +34,7 @@
 
 
             @foreach($searchGoods as $search)
-                <article class="col-md-4 blog">
+                <article class="col-md-4 blog search-result">
 
                     <h4>
                         <a href="{{URL::route('catalog.show',$search->slug)}}">{{ str_limit($search->title,$limit = 20, $end = '...')}}</a>
