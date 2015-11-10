@@ -69,7 +69,7 @@ class IntisSMS
         curl_setopt($ch, CURLOPT_HEADER, FALSE);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'PHP Bot (http://etru.ru)');
+        curl_setopt($ch, CURLOPT_USERAGENT, 'PHP Bot (https://falconediting.com)');
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
         $data = curl_exec($ch);
@@ -108,7 +108,7 @@ class IntisSMS
         curl_setopt($ch, CURLOPT_HEADER, FALSE);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'PHP Bot (http://etru.ru)');
+        curl_setopt($ch, CURLOPT_USERAGENT, 'PHP Bot (https://falconediting.com)');
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
         $data = curl_exec($ch);
