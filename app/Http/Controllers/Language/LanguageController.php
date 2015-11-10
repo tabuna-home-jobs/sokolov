@@ -15,10 +15,13 @@ class LanguageController extends Controller
     {
         Session::put('lang', $lang);
 
+
+        /*
         if (Auth::check()) {
             Auth::user()->lang = $lang;
             Auth::user()->save();
         }
+        */
 
         App::setLocale($lang);
         return redirect("/");

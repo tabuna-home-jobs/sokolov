@@ -32,11 +32,12 @@ class Language
             Session::put('lang', $langRequest);
             App::setLocale($langRequest);
 
-
+            /*
             if (Auth::check()) {
                 Auth::user()->lang = $langRequest;
                 Auth::user()->save();
             }
+            */
 
 
         }
