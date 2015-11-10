@@ -3,13 +3,13 @@
 
 @section('content')
 
-    <div class="container blog-container">
+    <div class="container blog-container search-container">
 
 
         @if(!is_null($searchList) && !is_null($searchGoods))
 
             @foreach($searchList as $search)
-                <article class="col-md-4 blog">
+                <article class="col-md-4 blog search-result">
 
                     <h4>
                         <a href="{{URL::route('news.show',$search->slug)}}">{{ str_limit($search->title,$limit = 20, $end = '...')}}</a>

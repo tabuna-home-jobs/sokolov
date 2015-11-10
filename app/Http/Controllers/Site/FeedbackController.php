@@ -37,10 +37,21 @@ class FeedbackController extends Controller
     public function store(FeedbackRequest $request)
     {
 
-        Mail::raw('Сообщение от ' . $request->fio . '\n' . $request->message . '\n' . 'Контактные данные:' . $request->email . '\n' . $request->phone, function ($message) {
-            $message->from(Config::get('link.email'));
-            $message->to(Config::get('link.email'))->cc(Config::get('link.email'));
+        /*
+        Mail::raw('Сообщение от ' . $request->fio . '<br>' . $request->message . '<br>' . 'Контактные данные:' . $request->email . '<br>' . $request->phone, function ($message) {
+            $message->from(Config::get('link.email'))
+                    ->to(Config::get('link.email'))
+                    ->subject('Сообщение с Falcon Editing');
         });
+        */
+
+
+        Mail::send('emails.feedback', ['request' => $request->all()], function ($message) {
+            $message->from(Config::get('link.email'))
+                ->to(Config::get('link.email'))
+                ->subject('Сообщение с Falcon Editing');
+        });
+
 
         Session::flash('good', trans('alert.Thank you for writing, we will respond to you.'));
         return redirect()->back();

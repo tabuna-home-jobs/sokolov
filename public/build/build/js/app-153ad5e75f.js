@@ -5,7 +5,7 @@ if (!function (t, e) {
         } : e(t)
     }("undefined" != typeof window ? window : this, function (t, e) {
         function n(t) {
-            var e = "length"in t && t.length, n = Z.type(t);
+            var e = "length" in t && t.length, n = Z.type(t);
             return "function" === n || Z.isWindow(t) ? !1 : 1 === t.nodeType && e ? !0 : "array" === n || 0 === e || "number" == typeof e && e > 0 && e - 1 in t
         }
 
@@ -196,7 +196,7 @@ if (!function (t, e) {
                 h.always(function () {
                     a.unqueued--, Z.queue(t, "fx").length || a.empty.fire()
                 })
-            })), 1 === t.nodeType && ("height"in e || "width"in e) && (n.overflow = [f.overflow, f.overflowX, f.overflowY], c = Z.css(t, "display"), u = "none" === c ? vt.get(t, "olddisplay") || x(t.nodeName) : c, "inline" === u && "none" === Z.css(t, "float") && (f.display = "inline-block")), n.overflow && (f.overflow = "hidden", h.always(function () {
+            })), 1 === t.nodeType && ("height" in e || "width" in e) && (n.overflow = [f.overflow, f.overflowX, f.overflowY], c = Z.css(t, "display"), u = "none" === c ? vt.get(t, "olddisplay") || x(t.nodeName) : c, "inline" === u && "none" === Z.css(t, "float") && (f.display = "inline-block")), n.overflow && (f.overflow = "hidden", h.always(function () {
                 f.overflow = n.overflow[0], f.overflowX = n.overflow[1], f.overflowY = n.overflow[2]
             }));
             for (i in e)if (o = e[i], Gt.exec(o)) {
@@ -207,7 +207,7 @@ if (!function (t, e) {
                 p[i] = g && g[i] || Z.style(t, i)
             } else c = void 0;
             if (Z.isEmptyObject(p))"inline" === ("none" === c ? x(t.nodeName) : c) && (f.display = c); else {
-                g ? "hidden"in g && (d = g.hidden) : g = vt.access(t, "fxshow", {}), r && (g.hidden = !d), d ? Z(t).show() : h.done(function () {
+                g ? "hidden" in g && (d = g.hidden) : g = vt.access(t, "fxshow", {}), r && (g.hidden = !d), d ? Z(t).show() : h.done(function () {
                     Z(t).hide()
                 }), h.done(function () {
                     var e;
@@ -220,7 +220,7 @@ if (!function (t, e) {
 
         function I(t, e) {
             var n, i, o, r, s;
-            for (n in t)if (i = Z.camelCase(n), o = e[i], r = t[n], Z.isArray(r) && (o = r[1], r = t[n] = r[0]), n !== i && (t[i] = r, delete t[n]), s = Z.cssHooks[i], s && "expand"in s) {
+            for (n in t)if (i = Z.camelCase(n), o = e[i], r = t[n], Z.isArray(r) && (o = r[1], r = t[n] = r[0]), n !== i && (t[i] = r, delete t[n]), s = Z.cssHooks[i], s && "expand" in s) {
                 r = s.expand(r), delete t[i];
                 for (n in r)n in t || (t[n] = r[n], e[n] = o)
             } else e[i] = o
@@ -294,7 +294,7 @@ if (!function (t, e) {
                 l.unshift(o);
                 break
             }
-            if (l[0]in n)r = l[0]; else {
+            if (l[0] in n)r = l[0]; else {
                 for (o in n) {
                     if (!l[0] || t.converters[o + " " + l[0]]) {
                         r = o;
@@ -1283,7 +1283,7 @@ if (!function (t, e) {
             n.setAttribute("type", "radio"), n.setAttribute("checked", "checked"), n.setAttribute("name", "t"), e.appendChild(n), J.checkClone = e.cloneNode(!0).cloneNode(!0).lastChild.checked, e.innerHTML = "<textarea>x</textarea>", J.noCloneChecked = !!e.cloneNode(!0).lastChild.defaultValue
         }();
         var kt = "undefined";
-        J.focusinBubbles = "onfocusin"in t;
+        J.focusinBubbles = "onfocusin" in t;
         var Et = /^key/, St = /^(?:mouse|pointer|contextmenu)|click/, Nt = /^(?:focusinfocus|focusoutblur)$/, Dt = /^([^.]*)(?:\.(.+)|)$/;
         Z.event = {
             global: {},
@@ -1641,12 +1641,12 @@ if (!function (t, e) {
             style: function (t, e, n, i) {
                 if (t && 3 !== t.nodeType && 8 !== t.nodeType && t.style) {
                     var o, r, s, a = Z.camelCase(e), l = t.style;
-                    return e = Z.cssProps[a] || (Z.cssProps[a] = C(l, a)), s = Z.cssHooks[e] || Z.cssHooks[a], void 0 === n ? s && "get"in s && void 0 !== (o = s.get(t, !1, i)) ? o : l[e] : (r = typeof n, "string" === r && (o = Vt.exec(n)) && (n = (o[1] + 1) * o[2] + parseFloat(Z.css(t, e)), r = "number"), void(null != n && n === n && ("number" !== r || Z.cssNumber[a] || (n += "px"), J.clearCloneStyle || "" !== n || 0 !== e.indexOf("background") || (l[e] = "inherit"), s && "set"in s && void 0 === (n = s.set(t, n, i)) || (l[e] = n))))
+                    return e = Z.cssProps[a] || (Z.cssProps[a] = C(l, a)), s = Z.cssHooks[e] || Z.cssHooks[a], void 0 === n ? s && "get" in s && void 0 !== (o = s.get(t, !1, i)) ? o : l[e] : (r = typeof n, "string" === r && (o = Vt.exec(n)) && (n = (o[1] + 1) * o[2] + parseFloat(Z.css(t, e)), r = "number"), void(null != n && n === n && ("number" !== r || Z.cssNumber[a] || (n += "px"), J.clearCloneStyle || "" !== n || 0 !== e.indexOf("background") || (l[e] = "inherit"), s && "set" in s && void 0 === (n = s.set(t, n, i)) || (l[e] = n))))
                 }
             },
             css: function (t, e, n, i) {
                 var o, r, s, a = Z.camelCase(e);
-                return e = Z.cssProps[a] || (Z.cssProps[a] = C(t.style, a)), s = Z.cssHooks[e] || Z.cssHooks[a], s && "get"in s && (o = s.get(t, !0, n)), void 0 === o && (o = w(t, e, i)), "normal" === o && e in Xt && (o = Xt[e]), "" === n || n ? (r = parseFloat(o), n === !0 || Z.isNumeric(r) ? r || 0 : o) : o
+                return e = Z.cssProps[a] || (Z.cssProps[a] = C(t.style, a)), s = Z.cssHooks[e] || Z.cssHooks[a], s && "get" in s && (o = s.get(t, !0, n)), void 0 === o && (o = w(t, e, i)), "normal" === o && e in Xt && (o = Xt[e]), "" === n || n ? (r = parseFloat(o), n === !0 || Z.isNumeric(r) ? r || 0 : o) : o
             }
         }), Z.each(["height", "width"], function (t, e) {
             Z.cssHooks[e] = {
@@ -1821,7 +1821,7 @@ if (!function (t, e) {
         }), Z.extend({
             attr: function (t, e, n) {
                 var i, o, r = t.nodeType;
-                return t && 3 !== r && 8 !== r && 2 !== r ? typeof t.getAttribute === kt ? Z.prop(t, e, n) : (1 === r && Z.isXMLDoc(t) || (e = e.toLowerCase(), i = Z.attrHooks[e] || (Z.expr.match.bool.test(e) ? oe : ie)), void 0 === n ? i && "get"in i && null !== (o = i.get(t, e)) ? o : (o = Z.find.attr(t, e), null == o ? void 0 : o) : null !== n ? i && "set"in i && void 0 !== (o = i.set(t, n, e)) ? o : (t.setAttribute(e, n + ""), n) : void Z.removeAttr(t, e)) : void 0
+                return t && 3 !== r && 8 !== r && 2 !== r ? typeof t.getAttribute === kt ? Z.prop(t, e, n) : (1 === r && Z.isXMLDoc(t) || (e = e.toLowerCase(), i = Z.attrHooks[e] || (Z.expr.match.bool.test(e) ? oe : ie)), void 0 === n ? i && "get" in i && null !== (o = i.get(t, e)) ? o : (o = Z.find.attr(t, e), null == o ? void 0 : o) : null !== n ? i && "set" in i && void 0 !== (o = i.set(t, n, e)) ? o : (t.setAttribute(e, n + ""), n) : void Z.removeAttr(t, e)) : void 0
             }, removeAttr: function (t, e) {
                 var n, i, o = 0, r = e && e.match(ft);
                 if (r && 1 === t.nodeType)for (; n = r[o++];)i = Z.propFix[n] || n, Z.expr.match.bool.test(n) && (t[i] = !1), t.removeAttribute(n)
@@ -1858,7 +1858,7 @@ if (!function (t, e) {
         }), Z.extend({
             propFix: {"for": "htmlFor", "class": "className"}, prop: function (t, e, n) {
                 var i, o, r, s = t.nodeType;
-                return t && 3 !== s && 8 !== s && 2 !== s ? (r = 1 !== s || !Z.isXMLDoc(t), r && (e = Z.propFix[e] || e, o = Z.propHooks[e]), void 0 !== n ? o && "set"in o && void 0 !== (i = o.set(t, n, e)) ? i : t[e] = n : o && "get"in o && null !== (i = o.get(t, e)) ? i : t[e]) : void 0
+                return t && 3 !== s && 8 !== s && 2 !== s ? (r = 1 !== s || !Z.isXMLDoc(t), r && (e = Z.propFix[e] || e, o = Z.propHooks[e]), void 0 !== n ? o && "set" in o && void 0 !== (i = o.set(t, n, e)) ? i : t[e] = n : o && "get" in o && null !== (i = o.get(t, e)) ? i : t[e]) : void 0
             }, propHooks: {
                 tabIndex: {
                     get: function (t) {
@@ -1916,8 +1916,8 @@ if (!function (t, e) {
                     var o;
                     1 === this.nodeType && (o = i ? t.call(this, n, Z(this).val()) : t, null == o ? o = "" : "number" == typeof o ? o += "" : Z.isArray(o) && (o = Z.map(o, function (t) {
                         return null == t ? "" : t + ""
-                    })), e = Z.valHooks[this.type] || Z.valHooks[this.nodeName.toLowerCase()], e && "set"in e && void 0 !== e.set(this, o, "value") || (this.value = o))
-                })) : o ? (e = Z.valHooks[o.type] || Z.valHooks[o.nodeName.toLowerCase()], e && "get"in e && void 0 !== (n = e.get(o, "value")) ? n : (n = o.value, "string" == typeof n ? n.replace(le, "") : null == n ? "" : n)) : void 0
+                    })), e = Z.valHooks[this.type] || Z.valHooks[this.nodeName.toLowerCase()], e && "set" in e && void 0 !== e.set(this, o, "value") || (this.value = o))
+                })) : o ? (e = Z.valHooks[o.type] || Z.valHooks[o.nodeName.toLowerCase()], e && "get" in e && void 0 !== (n = e.get(o, "value")) ? n : (n = o.value, "string" == typeof n ? n.replace(le, "") : null == n ? "" : n)) : void 0
             }
         }), Z.extend({
             valHooks: {
@@ -2147,7 +2147,7 @@ if (!function (t, e) {
         var Ne = 0, De = {}, Ae = {0: 200, 1223: 204}, je = Z.ajaxSettings.xhr();
         t.attachEvent && t.attachEvent("onunload", function () {
             for (var t in De)De[t]()
-        }), J.cors = !!je && "withCredentials"in je, J.ajax = je = !!je, Z.ajaxTransport(function (t) {
+        }), J.cors = !!je && "withCredentials" in je, J.ajax = je = !!je, Z.ajaxTransport(function (t) {
             var e;
             return J.cors || je && !t.crossDomain ? {
                 send: function (n, i) {
@@ -2245,7 +2245,7 @@ if (!function (t, e) {
         Z.offset = {
             setOffset: function (t, e, n) {
                 var i, o, r, s, a, l, c, u = Z.css(t, "position"), h = Z(t), p = {};
-                "static" === u && (t.style.position = "relative"), a = h.offset(), r = Z.css(t, "top"), l = Z.css(t, "left"), c = ("absolute" === u || "fixed" === u) && (r + l).indexOf("auto") > -1, c ? (i = h.position(), s = i.top, o = i.left) : (s = parseFloat(r) || 0, o = parseFloat(l) || 0), Z.isFunction(e) && (e = e.call(t, n, a)), null != e.top && (p.top = e.top - a.top + s), null != e.left && (p.left = e.left - a.left + o), "using"in e ? e.using.call(t, p) : h.css(p)
+                "static" === u && (t.style.position = "relative"), a = h.offset(), r = Z.css(t, "top"), l = Z.css(t, "left"), c = ("absolute" === u || "fixed" === u) && (r + l).indexOf("auto") > -1, c ? (i = h.position(), s = i.top, o = i.left) : (s = parseFloat(r) || 0, o = parseFloat(l) || 0), Z.isFunction(e) && (e = e.call(t, n, a)), null != e.top && (p.top = e.top - a.top + s), null != e.left && (p.left = e.left - a.left + o), "using" in e ? e.using.call(t, p) : h.css(p)
             }
         }, Z.fn.extend({
             offset: function (t) {
@@ -2407,7 +2407,7 @@ if (+function (t) {
         }
 
         var n = function (e, n) {
-            this.$element = t(e), this.$indicators = this.$element.find(".carousel-indicators"), this.options = n, this.paused = null, this.sliding = null, this.interval = null, this.$active = null, this.$items = null, this.options.keyboard && this.$element.on("keydown.bs.carousel", t.proxy(this.keydown, this)), "hover" == this.options.pause && !("ontouchstart"in document.documentElement) && this.$element.on("mouseenter.bs.carousel", t.proxy(this.pause, this)).on("mouseleave.bs.carousel", t.proxy(this.cycle, this))
+            this.$element = t(e), this.$indicators = this.$element.find(".carousel-indicators"), this.options = n, this.paused = null, this.sliding = null, this.interval = null, this.$active = null, this.$items = null, this.options.keyboard && this.$element.on("keydown.bs.carousel", t.proxy(this.keydown, this)), "hover" == this.options.pause && !("ontouchstart" in document.documentElement) && this.$element.on("mouseenter.bs.carousel", t.proxy(this.pause, this)).on("mouseleave.bs.carousel", t.proxy(this.cycle, this))
         };
         n.VERSION = "3.3.5", n.TRANSITION_DURATION = 600, n.DEFAULTS = {
             interval: 5e3,
@@ -2584,7 +2584,7 @@ if (+function (t) {
             if (!o.is(".disabled, :disabled")) {
                 var r = e(o), s = r.hasClass("open");
                 if (n(), !s) {
-                    "ontouchstart"in document.documentElement && !r.closest(".navbar-nav").length && t(document.createElement("div")).addClass("dropdown-backdrop").insertAfter(t(this)).on("click", n);
+                    "ontouchstart" in document.documentElement && !r.closest(".navbar-nav").length && t(document.createElement("div")).addClass("dropdown-backdrop").insertAfter(t(this)).on("click", n);
                     var a = {relatedTarget: this};
                     if (r.trigger(i = t.Event("show.bs.dropdown", a)), i.isDefaultPrevented())return;
                     o.trigger("focus").attr("aria-expanded", "true"), r.toggleClass("open").trigger("shown.bs.dropdown", a)
@@ -2746,7 +2746,7 @@ if (+function (t) {
                     click: !1,
                     hover: !1,
                     focus: !1
-                }, this.$element[0]instanceof document.constructor && !this.options.selector)throw new Error("`selector` option must be specified when initializing " + this.type + " on the window.document object!");
+                }, this.$element[0] instanceof document.constructor && !this.options.selector)throw new Error("`selector` option must be specified when initializing " + this.type + " on the window.document object!");
             for (var o = this.options.trigger.split(" "), r = o.length; r--;) {
                 var s = o[r];
                 if ("click" == s)this.$element.on("click." + this.type, this.options.selector, t.proxy(this.toggle, this)); else if ("manual" != s) {

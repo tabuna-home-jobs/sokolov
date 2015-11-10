@@ -1410,3 +1410,10 @@ pre {
 .p-t-15 {
     padding-top: 15px;
 }
+
+.search-result {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+    width: 33%;
+}
