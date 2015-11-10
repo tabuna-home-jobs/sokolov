@@ -80,8 +80,6 @@
                        style="max-width: 680px; min-width: 300px;">
                     <tr>
                         <td>
-                            <!-- padding -->
-                            <div style="height: 80px; line-height: 80px; font-size: 10px;"> </div>
                         </td>
                     </tr>
                     <!--header -->
