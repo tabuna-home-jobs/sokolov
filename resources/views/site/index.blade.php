@@ -59,7 +59,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/tekhnicheskiy-perevod-nauchnykh-rukopisey')}}@else {{url("/catalog/translation-of-scientific-papers")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/tekhnicheskiy-perevod-nauchnykh-rukopisey')}}@else {{url("/catalog/translation-of-scientific-manuscripts")}} @endif">
                                     <img class="img-hover" src="/img/service-2.png"
                                          data-altimg="/img/service-2-hover.png">
 
@@ -80,7 +80,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/formatirovanie-nauchnykh-rukopisey')}}@else {{url("/catalog/formatting-scientific-papers")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/formatirovanie-nauchnykh-rukopisey')}}@else {{url("/catalog/formatting-of-scientific-manuscripts")}} @endif">
                                     <img class="img-hover" src="/img/service-3.png"
                                          data-altimg="/img/service-3-hover.png">
 

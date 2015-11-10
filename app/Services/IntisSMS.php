@@ -16,15 +16,15 @@ class IntisSMS
     /**
      * @var string Логин пользователя
      */
-    public static $login = 'tatu';
+    public static $login = 'falconediting';
     /**
      * @var string Ключ API
      */
-    public static $apikey = '1271a2420038d3f7451fe0db73a1db77f8c4e37d';
+    public static $apikey = 'd7bb6469f82c8469ccd2e356fb12e3914b2ca7c9';
     /**
      * @var string Идентификатор отправителя (одобренный)
      */
-    public static $sender = 'Octavian';
+    public static $sender = 'FalconEdit';
 
     /**
      * Метод инициализации
