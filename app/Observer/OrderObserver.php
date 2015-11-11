@@ -42,7 +42,7 @@ class OrderObserver
         Mail::raw(trans('notification.New order # is waiting for an invoice.', ['id' => $model->id]), function ($message) use ($model) {
             $message->from($this->email);
             $message->to($this->email);
-            $message->subject(trans('notification.Your order # .', ['id' => $model->id]));
+            $message->subject(trans('notification.New order # .', ['id' => $model->id]));
         });
 
         //Клиенту, после того как, заказ был сформирован клиентом:

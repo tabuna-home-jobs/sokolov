@@ -14,4 +14,5 @@ return [
     'The customer has left a review for order #.' => 'The customer has left a review for order # :id .',
     'A senior editor has left you a message regarding task #.' => 'A senior editor has left you a message regarding task # :id .',
     'Your order # .' => 'Your order # :id .',
+    'New order # .' => 'New order # :id .',
 ];

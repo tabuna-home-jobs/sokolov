@@ -23,7 +23,8 @@ class Language
         }
 
 
-        $lang = Session::get('lang', null);
+        $lang = Session::get('lang');
+
 
         if (!is_null($lang)) {
             App::setLocale($lang);

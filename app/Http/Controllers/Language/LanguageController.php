@@ -11,10 +11,10 @@ use Session;
 class LanguageController extends Controller
 {
 
+
     public function show($lang = 'en')
     {
         Session::put('lang', $lang);
-
 
         /*
         if (Auth::check()) {
