@@ -24,6 +24,9 @@
 
     <link rel="stylesheet" href="{{elixir('build/css/app.css')}}" type="text/css"/>
 
+    <meta name='yandex-verification' content='63ebe98ad59d0b4c'/>
+    <meta name="google-site-verification" content="fQ49WVkHhim6L6m0tdBt2o2g6onG49bX-ih_rmLXJNs"/>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -96,7 +99,8 @@
     <nav class="navbar navbar-default">
 
         <div class="navbar-header col-xs-12 col-md-6">
-            <a class="navbar-brand2" href="/"><img src="/img/logo.jpg" class="img-responsive"> </a>
+            <a class="navbar-brand2" href="/"><img src="/img/logo.jpg" class="img-responsive"
+                                                   alt="Falcon Scientific Editing"> </a>
             <button type="button" class="navbar-toggle collapsed but-menu-top" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
