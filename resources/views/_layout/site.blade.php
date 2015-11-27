@@ -269,7 +269,7 @@
                                     src="/img/social/fb-icon.png"></a>
                         <a href="https://twitter.com/FalconEditing" target="_blank"><img
                                     src="/img/social/twitter-icon.png"></a>
-                        <a href="https://plus.google.com/b/115410796310646309979/115410796310646309979/about"
+                        <a href="https://plus.google.com/u/0/115410796310646309979"
                            target="_blank"><img src="/img/social/google-icon.png"></a>
                         <a href="https://www.linkedin.com/company/falcon-scientific-editing" target="_blank"><img
                                     src="/img/social/in-icon.png"></a>
