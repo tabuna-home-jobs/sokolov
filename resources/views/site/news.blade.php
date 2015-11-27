@@ -4,7 +4,7 @@
 @section('title', $News->title)
 @section('description', $News->descript)
 @section('keywords', $News->tag)
-@section('avatar', $News->avatar)
+@section('avatar', Config::get('app.url').$News->avatar)
 
 
 

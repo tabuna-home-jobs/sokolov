@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{App::getLocale()}}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +16,8 @@
     <meta name="twitter:title" content="@yield('title')">
     <meta name="twitter:description" content="@yield('description')"/>
     <meta name="twitter:image:src" content="@yield('avatar')"/>
+    <meta name="language" content="{{App::getLocale()}}">
+
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic,500italic,300italic&subset=latin,cyrillic'
           rel='stylesheet' type='text/css'>

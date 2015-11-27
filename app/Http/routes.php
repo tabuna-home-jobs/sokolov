@@ -108,4 +108,5 @@ Route::group(['namespace' => 'Editor', 'middleware' => ['auth', 'editor'], 'pref
 });
 
 
+Route::get('sitemap.xml', 'Site\SiteMapController@index');
 

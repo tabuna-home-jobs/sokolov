@@ -2,7 +2,9 @@
 
 
 @section('title',$Goods->name)
-
+@section('description', $Goods->descript)
+@section('keywords', $Goods->tag)
+@section('avatar', Config::get('app.url').$Goods->avatar)
 
 
 @section('content')

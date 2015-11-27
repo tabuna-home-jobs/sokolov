@@ -149,7 +149,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Kyslik\ColumnSortable\ColumnSortableServiceProvider::class
+        Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
+        Roumen\Sitemap\SitemapServiceProvider::class,
     ],
 
     /*

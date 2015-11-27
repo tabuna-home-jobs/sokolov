@@ -13,7 +13,8 @@
         "yandex-money/yandex-money-sdk-php": "3.0.*",
         "nesbot/carbon": "^1.20",
         "kyslik/column-sortable": "~3.0.0",
-        "guzzlehttp/guzzle": "6.*"
+        "guzzlehttp/guzzle": "6.*",
+        "roumen/sitemap": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
