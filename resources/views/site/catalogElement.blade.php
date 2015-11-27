@@ -1,7 +1,7 @@
 @extends('_layout/site')
 
 
-@section('title',$Goods->name)
+@section('title',$Goods->title)
 @section('description', $Goods->descript)
 @section('keywords', $Goods->tag)
 @section('avatar', Config::get('app.url').$Goods->avatar)
