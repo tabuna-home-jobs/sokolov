@@ -7,16 +7,17 @@
     <title>@yield('title','Falcon Scientific Editing')</title>
     <link rel="icon" type="image/png" href="/img/logo-min.png"/>
 
-    <meta id="token" name="token" value="{{ csrf_token() }}">
-    <meta name="description" content="@yield('description')">
-    <meta name="keywords" content="@yield('keywords')">
-    <meta property="og:title" content="@yield('title')">
-    <meta property="og:description" content="@yield('description')">
-    <meta property="og:image" content="@yield('avatar')">
-    <meta name="twitter:title" content="@yield('title')">
+    <meta id="token" name="token" value="{{ csrf_token() }}"/>
+    <meta name="description" content="@yield('description')"/>
+    <meta name="keywords" content="@yield('keywords')"/>
+    <meta property="og:title" content="@yield('title')"/>
+    <meta property="og:description" content="@yield('description')"/>
+    <meta property="og:image" content="@yield('avatar', Config::get('app.url').'img/logo.jpg')"/>
+    <meta name="twitter:title" content="@yield('title')"/>
     <meta name="twitter:description" content="@yield('description')"/>
-    <meta name="twitter:image:src" content="@yield('avatar')"/>
-    <meta name="language" content="{{App::getLocale()}}">
+    <meta name="twitter:image:src" content="@yield('avatar',  Config::get('app.url').'img/logo.jpg')"/>
+    <meta name="language" content="{{App::getLocale()}}"/>
+    <meta property="og:locale" content="{{App::getLocale()}}"/>
 
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic,500italic,300italic&subset=latin,cyrillic'
