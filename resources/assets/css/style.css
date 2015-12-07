@@ -1219,7 +1219,9 @@ pre {
 }
 
 .padding-small {
-    padding: 20px;
+    vertical-align: middle;
+    height: 50px;
+    display: table-cell;
 }
 
 .a-mack {

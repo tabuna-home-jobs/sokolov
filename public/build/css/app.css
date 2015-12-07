@@ -560,6 +560,10 @@
     vertical-align: bottom
 }
 
+.padding-small, .vcenter, .why-work h1 span {
+    vertical-align: middle
+}
+
 .fileinput.input-group {
     display: table
 }
@@ -1166,7 +1170,6 @@ a {
     line-height: 36px;
     padding: 10px 20px;
     margin: 20px 0;
-    vertical-align: middle;
     background-size: 100% 100%
 }
 
@@ -1740,7 +1743,8 @@ pre {
 }
 
 .padding-small {
-    padding: 20px
+    height: 50px;
+    display: table-cell
 }
 
 .a-mack {
@@ -1880,7 +1884,6 @@ pre {
 
 .vcenter {
     display: inline-block;
-    vertical-align: middle;
     float: none
 }
 
