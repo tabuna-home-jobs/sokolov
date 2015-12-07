@@ -13,7 +13,7 @@
         <article class="col-md-8">
 
 
-            <h1>{{$Page->title}}</h1>
+            <h1>{{$Page->name}}</h1>
 
             <main class="blog-content">
 

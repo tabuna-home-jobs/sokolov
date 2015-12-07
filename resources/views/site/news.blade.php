@@ -17,7 +17,7 @@
         <article class="col-md-8">
 
 
-            <h1>{{$News->title}}</h1>
+            <h1>{{$News->name}}</h1>
             <hr>
             <h5 class="date">
                 <small>{{$News->created_at->toDateString()}}</small>

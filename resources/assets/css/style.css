@@ -488,7 +488,7 @@ a:active, a:hover , .btn{
     list-style-position: outside;
     list-style-type: none;
     min-height: 60px;
-    padding: 0px 0px 10px 64px;
+    padding: 0px 0px 5px 64px;
 }
 
 .text-about li span, .text-about li i {
@@ -1219,7 +1219,7 @@ pre {
 }
 
 .padding-small {
-    padding: 5px;
+    padding: 20px;
 }
 
 .a-mack {

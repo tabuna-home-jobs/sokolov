@@ -259,7 +259,10 @@
 
                     <li class="li-icons-5 row">
                         <span>5.</span>
-                        {{trans("main.If your research is not published - they never had. Many manuscripts are accepted for publication because of the poor quality of the English language. Our editors - experts in English. Our editors - scientific experts with many years of research and publications in prestigious scientific journals.")}}
+
+                        <div class="padding-small">
+                            {{trans("main.If your research is not published - they never had. Many manuscripts are accepted for publication because of the poor quality of the English language. Our editors - experts in English. Our editors - scientific experts with many years of research and publications in prestigious scientific journals.")}}
+                        </div>
                     </li>
 
                     <li class="li-icons-6 row">

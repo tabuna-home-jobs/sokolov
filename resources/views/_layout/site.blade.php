@@ -69,8 +69,7 @@
                     <b> +7(980)266-5074</b></a>
 
                 <a href="mailto:contact@falconediting.com"><img src="/img/icon/email-icon-300.png" class="icon-top">
-                    contact@falconediting
-                    .com</a>
+                    contact@falconediting.com</a>
 
                 <a href="skype:falconediting?call"><img src="/img/icon/skype-icon-300.png" class="icon-top">
                     falconediting</a>

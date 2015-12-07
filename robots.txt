@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: 
+Disallow: /storage/app/*
+Disallow: /sitemap.xml
+Host: https://falconediting.com
+Crawl-delay: 2
