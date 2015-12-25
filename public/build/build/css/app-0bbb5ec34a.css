@@ -10371,7 +10371,7 @@ a {
     list-style-position: outside;
     list-style-type: none;
     min-height: 60px;
-    padding: 0 0 10px 64px
+    padding: 0 0 5px 64px
 }
 
 .text-about li i, .text-about li span {
@@ -11045,7 +11045,7 @@ pre {
 }
 
 .padding-small {
-    padding: 5px
+    padding: 20px
 }
 
 .a-mack {
@@ -11232,4 +11232,5 @@ pre {
     vertical-align: top;
     width: 33%
 }
+
 /*# sourceMappingURL=app.css.map */

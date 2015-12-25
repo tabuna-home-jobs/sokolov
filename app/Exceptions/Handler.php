@@ -2,10 +2,12 @@
 
 namespace App\Exceptions;
 
+use App\Http\Controllers\Site\SiteMapController;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -28,6 +30,7 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $e)
     {
+
         return parent::report($e);
 
     }
@@ -46,6 +49,14 @@ class Handler extends ExceptionHandler
         {
             return abort(404);
         }
+
+
+        if($e instanceof NotFoundHttpException)
+        {
+            return SiteMapController::NotFound();
+        }
+
+
 
         return parent::render($request, $e);
     }

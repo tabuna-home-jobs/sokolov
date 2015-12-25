@@ -25,4 +25,26 @@ class Menu  extends Facade {
         ]);
     }
 
+    static function getLINoTemplate($NameMenu, $pref = "")
+    {
+        $menu = SiteMenu::where('name', $NameMenu)->first();
+        if (is_null($menu)) {
+            return false;
+        }
+
+        $element = $menu->getElement()
+            ->with('getParent')
+            ->where('depth', 0)
+            ->orderBy('sort', 'ASC')
+            ->get();
+
+
+        //dd($element);
+
+        return $element;
+
+    }
+
+
+
 }
