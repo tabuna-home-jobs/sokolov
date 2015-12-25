@@ -8,4 +8,5 @@ return [
     "Main" => "Main",
     "News" => "News",
     "Pages" => "Pages",
+    'Select the desired section of the sitemap that is located below' => 'Select the desired section of the sitemap that is located below'
 ];

@@ -8,4 +8,5 @@ return [
     "Main" => "Основное",
     "News" => "Новости",
     "Pages" => "Страницы",
+    'Select the desired section of the sitemap that is located below' => 'Выберите необходимый раздел из карты сайта, находящейся ниже'
 ];

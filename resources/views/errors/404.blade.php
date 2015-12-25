@@ -19,6 +19,8 @@
                                     class="glyphicon glyphicon-home"></span> {{trans('404.Take Me Home ')}} </a>
                     </div>
 
+                    <p>{{trans('404.Select the desired section of the sitemap that is located below')}}</p>
+
 
                     <div class="row text-left">
 
@@ -29,7 +31,23 @@
 
                             <h2>{{trans('404.Main')}}</h2>
                             @if(App::getLocale() == 'en')
-                                {!! Menu::getLINoTemplate('english-top-menu') !!}
+                                @foreach(Menu::getLINoTemplate('english-top-menu') as $menu)
+
+                                    @if($menu->getParent->count() > 0)
+                                        <li><a href="{{$menu->link}}"> {{$menu->label}}</a></li>
+                                        <ul>
+                                            @foreach($menu->getParent as $items)
+                                                <li><a href="{{$items->link}}"> {{$items->label}}</a></li>
+                                            @endforeach
+                                        </ul>
+
+                                    @else
+                                        <li><a href="{{$menu->link}}"> {{$menu->label}}</a></li>
+                                    @endif
+
+                                @endforeach
+
+
                             @else
                                 @foreach(Menu::getLINoTemplate('russian-top-menu') as $menu)
 
