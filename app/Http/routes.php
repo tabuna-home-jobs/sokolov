@@ -58,7 +58,7 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'admin'], 'pr
     Route::resource('statinfo', 'StatInfoController');
 
     Route::resource('benefits', BenefitsController::class);
-
+    Route::resource('seostatic', 'SeoSaticController');
 
     Route::get('/wmenuindex', array('as' => 'wmenuindex', 'uses' => 'WmenuController@wmenuindex'));
     Route::post('/addcustommenu', array('as' => 'addcustommenu', 'uses' => 'WmenuController@addcustommenu'));
@@ -109,4 +109,3 @@ Route::group(['namespace' => 'Editor', 'middleware' => ['auth', 'editor'], 'pref
 
 
 Route::get('sitemap.xml', 'Site\SiteMapController@index');
-

@@ -4,17 +4,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title','Falcon Scientific Editing')</title>
     <link rel="icon" type="image/png" href="/img/logo-min.png"/>
 
     <meta id="token" name="token" value="{{ csrf_token() }}"/>
+
+    @if(empty($meta = SEO::render()))
+        <title>@yield('title','Falcon Scientific Editing')</title>
     <meta name="description" content="@yield('description')"/>
     <meta name="keywords" content="@yield('keywords')"/>
     <meta property="og:title" content="@yield('title')"/>
     <meta property="og:description" content="@yield('description')"/>
-    <meta property="og:image" content="@yield('avatar', Config::get('app.url').'img/logo.jpg')"/>
     <meta name="twitter:title" content="@yield('title')"/>
     <meta name="twitter:description" content="@yield('description')"/>
+    @else
+        {!! $meta !!}
+    @endif
+
+    <meta property="og:image" content="@yield('avatar', Config::get('app.url').'img/logo.jpg')"/>
     <meta name="twitter:image:src" content="@yield('avatar',  Config::get('app.url').'img/logo.jpg')"/>
     <meta name="language" content="{{App::getLocale()}}"/>
     <meta property="og:locale" content="{{App::getLocale()}}"/>

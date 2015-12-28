@@ -198,6 +198,13 @@
                             </a>
                         </li>
 
+                        <li class="{{Active::route('dashboard.seostatic.*')}}">
+                            <a href="{{route('dashboard.seostatic.index')}}">
+                                <i class="fa fa-bar-chart"></i>
+                                <span>SEO</span>
+                            </a>
+                        </li>
+
 
                     </ul>
                 </nav>
