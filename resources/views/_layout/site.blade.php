@@ -8,7 +8,7 @@
 
     <meta id="token" name="token" value="{{ csrf_token() }}"/>
 
-    @if(empty($meta = SEO::render()))
+    @if(is_null($meta = SEO::render()))
         <title>@yield('title','Falcon Scientific Editing')</title>
     <meta name="description" content="@yield('description')"/>
     <meta name="keywords" content="@yield('keywords')"/>

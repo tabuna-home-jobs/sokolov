@@ -34,10 +34,18 @@ class SeoSaticController extends Controller
     public function edit($seoUrl)
     {
         $seoUrl = base64_decode($seoUrl);
-        $meta = SEO::where('route', $seoUrl)->first();
+        $meta = SEO::where('route', $seoUrl)
+            ->where('lang', 'ru')
+            ->first();
+        $metaEn = SEO::where('route', $seoUrl)
+            ->where('lang', 'en')
+            ->first();
+
+
         return view('dashboard.seo.edit', [
             'meta' => $meta,
-            'seoUrl' => $seoUrl
+            'seoUrl' => $seoUrl,
+            'metaEn' => $metaEn
         ]);
     }
 
@@ -51,16 +59,53 @@ class SeoSaticController extends Controller
     public function update(Request $request, $seoUrl)
     {
         $seoUrl = base64_decode($seoUrl);
-        $meta = SEO::where('route', $seoUrl)->first();
+
+        /*
+         * Русская
+         */
+        $meta = SEO::where('route', $seoUrl)
+            ->where('lang', 'ru')
+            ->first();
 
         if (is_null($meta)) {
             $attr = $request->all();
             $attr['route'] = $seoUrl;
             $attr['url'] = $seoUrl;
+            $attr['lang'] = 'ru';
             SEO::create($attr);
         } else {
-            $meta->fill($request->all())->save();
+            $attr = $request->all();
+            $meta->fill($attr)->save();
         }
+
+        /*
+        * Английская
+        */
+        $metaEn = SEO::where('route', $seoUrl)
+            ->where('lang', 'en')
+            ->first();
+
+        if (is_null($metaEn)) {
+            $attr['title'] = $request->input('title-en');
+            $attr['description'] = $request->input('description-en');
+            $attr['keywords'] = $request->input('keywords-en');
+            $attr['robots'] = $request->input('robots-en');
+            $attr['route'] = $seoUrl;
+            $attr['url'] = $seoUrl;
+            $attr['lang'] = 'en';
+            SEO::create($attr);
+        } else {
+            $attr['title'] = $request->input('title-en');
+            $attr['description'] = $request->input('description-en');
+            $attr['keywords'] = $request->input('keywords-en');
+            $attr['robots'] = $request->input('robots-en');
+            $attr['route'] = $seoUrl;
+            $attr['url'] = $seoUrl;
+            $attr['lang'] = 'en';
+            $metaEn->fill($attr)->save();
+        }
+
+
 
 
         Session::flash('good', 'Вы успешно добавили значения');

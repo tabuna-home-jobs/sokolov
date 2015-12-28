@@ -48,6 +48,45 @@
                     </div>
                 </div>
             </div>
+
+
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading font-bold">SEO информация</div>
+                    <div class="panel-body">
+
+
+                        <div class="form-group">
+                            <label>Заголовок</label>
+                            <input class="form-control" type="text" maxlength="255" required name="title-en"
+                                   value="{{$metaEn->title or ''}}">
+                        </div>
+                        <div class="form-group">
+                            <label>Теги</label>
+                            <input ui-jq="tagsinput" ui-options="" class="form-control w-md" data-role="tagsinput"
+                                   type="text" maxlength="255"
+                                   required name="keywords-en" value="{{$metaEn->keywords or ''}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Описание</label>
+
+                            <textarea class="form-control" rows="7" maxlength="255" required
+                                      name="description-en">{{$metaEn->description or ''}}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Робот</label>
+                            <input class="form-control" type="text" maxlength="255" name="robots-en"
+                                   value="{{$metaEn->robots or ''}}">
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
         </form>
     </div>
 
