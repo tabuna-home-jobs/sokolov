@@ -76,9 +76,11 @@ class CurrencyRate
         do {
             $result = $this->get();
 
+            /*
             if ($this->Attempts == 5) {
                 dd($this->Attempts, $this->date_req1, $this->date_req2, $result);
             }
+            */
 
 
         } while (!$this->validFreeDay($result));
