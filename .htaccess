@@ -1,6 +1,24 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$
+    RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+
+
+
+#в случае index.php:
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/
+RewriteRule ^index\.php$ https://falconediting.com/ [R=301,L]
+
+#в случае index.html:
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+RewriteRule ^index\.html$ https://falconediting.com/ [R=301,L]
+
+
+
+
+
     RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
 

@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="col-md-1 col-xs-12 vcenter">
-                        <img class="img-responsive img-center" src="{{$Goods->icon}}">
+                        <img class="img-responsive img-center" src="{{$Goods->icon}}" alt="{{$Goods->name}}">
                     </div>
                     <div class="col-md-8 col-xs-12 vcenter">
                         <h1> {{$Goods->name}}</h1>
@@ -68,7 +68,7 @@
     <div class="container-fluid">
 
         <p class="text-center">
-            <a href="/auth/login" type="button" class="btn btn-warning">{{trans('main.Order')}}</a>
+            <a href="/auth/login" class="btn btn-warning">{{trans('main.Order')}}</a>
         </p>
 
     </div>

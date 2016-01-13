@@ -2,5 +2,8 @@ User-agent: *
 Disallow: 
 Disallow: /storage/app/*
 Disallow: /sitemap.xml
+
+Disallow: /build/*
+Disallow: /auth/*
+Disallow: /password/*
 Host: https://falconediting.com
-Crawl-delay: 2

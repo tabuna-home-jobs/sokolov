@@ -11,7 +11,7 @@
             @foreach($Elements as $key => $element)
 
                 <div class="item  @if($key == 0) active @endif">
-                    <img src="{{$element->img}}">
+                    <img src="{{$element->img}}" alt="{{$element->title}}">
 
                     <div class="carousel-caption">
                         <h2>{{$element->title}}</h2>
@@ -21,7 +21,7 @@
                         </p>
 
                         <p>
-                            <a href="/auth/login" type="button" class="btn btn-warning">{{trans('main.Order')}}</a>
+                            <a href="/auth/login" class="btn btn-warning">{{trans('main.Order')}}</a>
                             <a href="{{$element->link}}" class="btn btn-primary">{{trans('main.Learn More')}}</a>
                         </p>
 

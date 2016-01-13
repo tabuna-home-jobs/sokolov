@@ -5,17 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="/img/logo-min.png"/>
-
-    <meta id="token" name="token" value="{{ csrf_token() }}"/>
+    <meta id="token" name="token" content="{{ csrf_token() }}" property="csrf_token"/>
 
     @if(is_null($meta = SEO::render()))
         <title>@yield('title','Falcon Scientific Editing')</title>
-    <meta name="description" content="@yield('description')"/>
-    <meta name="keywords" content="@yield('keywords')"/>
-    <meta property="og:title" content="@yield('title')"/>
-    <meta property="og:description" content="@yield('description')"/>
-    <meta name="twitter:title" content="@yield('title')"/>
-    <meta name="twitter:description" content="@yield('description')"/>
+        <meta name="description" content="@yield('description')"/>
+        <meta name="keywords" content="@yield('keywords')"/>
+        <meta property="og:title" content="@yield('title')"/>
+        <meta property="og:description" content="@yield('description')"/>
+        <meta name="twitter:title" content="@yield('title')"/>
+        <meta name="twitter:description" content="@yield('description')"/>
     @else
         {!! $meta !!}
     @endif
@@ -26,19 +25,21 @@
     <meta property="og:locale" content="{{App::getLocale()}}"/>
 
 
+    <link rel="stylesheet" href="{{elixir('build/css/app.css')}}" type="text/css"/>
+
+
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic,500italic,300italic&subset=latin,cyrillic'
           rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300&subset=latin,cyrillic' rel='stylesheet'
           type='text/css'>
 
-    <link rel="stylesheet" href="{{elixir('build/css/app.css')}}" type="text/css"/>
 
     <link rel="alternate" hreflang="en-us" href="{{url('/language/en')}}"/>
     <link rel="alternate" hreflang="ru-ru" href="{{url('/language/ru')}}"/>
 
     <meta name='yandex-verification' content='63ebe98ad59d0b4c'/>
     <meta name="google-site-verification" content="fQ49WVkHhim6L6m0tdBt2o2g6onG49bX-ih_rmLXJNs"/>
-    <meta name="baidu-site-verification" content="D4x671AWJV" />
+    <meta name="baidu-site-verification" content="D4x671AWJV"/>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -47,14 +48,14 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link rel="stylesheet" href="/build/css/flipclock.css">
+
 
 </head>
 <body>
 
 
 <div id="loader-wrapper">
-    <img id="loader-logo" src="/img/logo.png" class="img-responsive">
+    <img id="loader-logo" src="/img/logo.png" class="img-responsive" alt="loader">
 
     <div id="loader"></div>
 </div>
@@ -73,13 +74,14 @@
 
             <div class="icon-info-top navbar-form navbar-left hidden-xs">
 
-                <a href="skype:+79802665074?call"><img src="/img/icon/phone-icon-300.png" class="icon-top">
+                <a href="skype:+79802665074?call"><img src="/img/icon/phone-icon-300.png" class="icon-top" alt="Phone">
                     <b> +7(980)266-5074</b></a>
 
-                <a href="mailto:contact@falconediting.com"><img src="/img/icon/email-icon-300.png" class="icon-top">
+                <a href="mailto:contact@falconediting.com"><img src="/img/icon/email-icon-300.png" class="icon-top"
+                                                                alt="Email">
                     contact@falconediting.com</a>
 
-                <a href="skype:falconediting?call"><img src="/img/icon/skype-icon-300.png" class="icon-top">
+                <a href="skype:falconediting?call"><img src="/img/icon/skype-icon-300.png" class="icon-top" alt="Skype">
                     falconediting</a>
 
             </div>
@@ -88,7 +90,7 @@
 
         <div class="col-md-5 hidden-sm hidden-xs">
 
-            <form class="navbar-form navbar-right right-top-menu" role="search" action="{{URL::route('search.index')}}">
+            <form class="navbar-form navbar-right right-top-menu" action="{{URL::route('search.index')}}">
 
                 <div class="input-group">
 
@@ -133,44 +135,44 @@
 
 
 
-                    @if(!Auth::check())
-                        <li class="hidden-sm hidden-md hidden-lg">
-                            <a href="/auth/login">{{trans('main.sign')}}</a>
-                        </li>
-                    @else
-                        <li class="hidden-sm hidden-md hidden-lg">
-                            <a href="/auth/login"> {{trans('main.userhome')}}</a>
-                        </li>
-                        <li class="hidden-sm hidden-md hidden-lg">
-                            <a href="/auth/logout/">{{trans('main.logout')}}</a>
-                        </li>
-                    @endif
+                @if(!Auth::check())
+                    <li class="hidden-sm hidden-md hidden-lg">
+                        <a href="/auth/login">{{trans('main.sign')}}</a>
+                    </li>
+                @else
+                    <li class="hidden-sm hidden-md hidden-lg">
+                        <a href="/auth/login"> {{trans('main.userhome')}}</a>
+                    </li>
+                    <li class="hidden-sm hidden-md hidden-lg">
+                        <a href="/auth/logout/">{{trans('main.logout')}}</a>
+                    </li>
+                @endif
 
 
-                    <li class="text-right hidden visible-xs @if(App::getLocale() == 'en') active @endif"><a
-                                href="{{url('/language/en')}}">English</a></li>
-                    <li class="text-right hidden visible-xs @if(App::getLocale() == 'ru') active @endif"><a
-                                href="{{url('/language/ru')}}">Русский</a></li>
+                <li class="text-right hidden visible-xs @if(App::getLocale() == 'en') active @endif"><a
+                            href="{{url('/language/en')}}">English</a></li>
+                <li class="text-right hidden visible-xs @if(App::getLocale() == 'ru') active @endif"><a
+                            href="{{url('/language/ru')}}">Русский</a></li>
 
 
-                    @if(!Auth::check())
+                @if(!Auth::check())
                     <li class="login-a  hidden-sm hidden-xs"><a
                                 href="/auth/login">@if(!Auth::check()) {{trans('main.sign')}} @else
                                 {{trans('main.panel')}} @endif</a></li>
-                    @endif
+                @endif
 
-                    <li class="dropdown hidden-sm hidden-xs">
+                <li class="dropdown hidden-sm hidden-xs">
 
 
                     @if(Auth::check())
-                            <a id="drop1" href="#" role="button" class="btn btn-link dropdown-toggle"
-                               data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
+                        <a id="drop1" href="#" role="button" class="btn btn-link dropdown-toggle"
+                           data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
 
-                                {{trans('main.panel')}}
+                            {{trans('main.panel')}}
 
-                                <span class="caret"></span>
-                            </a>
+                            <span class="caret"></span>
+                        </a>
 
                         <ul class="dropdown-menu" aria-labelledby="drop1">
                             <li>
@@ -191,9 +193,9 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="/auth/logout/">{{trans('main.logout')}}</a></li>
                         </ul>
-                        @endif
+                    @endif
 
-                    </li>
+                </li>
 
 
             </ul>
@@ -253,36 +255,51 @@
                     </p>
 
 
-                    <img src="/img/logo-while.png" class="img-responsive">
+                    <img src="/img/logo-while.png" class="img-responsive" alt="Falcon Scientific Editing">
 
                 </div>
                 <div class="col-sm-3  col-xs-12">
                     <h4>{{trans('footer.contacts')}}</h4>
 
                     <ul class="menu-footer-contact">
-                        <li><a href="skype:+79802665074?call"> <img src="/img/icon/phone-icon-m.png">
+                        <li><a href="skype:+79802665074?call"> <img src="/img/icon/phone-icon-m.png" alt="Phone">
                                 +7(980)266-5074</a>
                         </li>
-                        <li><a href="mailto:contact@falconediting.com"><img src="/img/icon/email-icon-m.png">
+                        <li><a href="mailto:contact@falconediting.com"><img src="/img/icon/email-icon-m.png"
+                                                                            alt="Email">
                                 contact@falconediting.com</a></li>
-                        <li><a href="skype:falconediting?call"> <img src="/img/icon/skype-icon-m.png"> falconediting</a>
+                        <li><a href="skype:falconediting?call"> <img src="/img/icon/skype-icon-m.png" alt="Skype">
+                                falconediting</a>
                         </li>
                     </ul>
 
 
                     <div class="p-t-15">
 
-                        <a href="https://www.facebook.com/FalconScientificEditing" target="_blank"><img
-                                    src="/img/social/fb-icon.png"></a>
-                        <a href="https://twitter.com/FalconEditing" target="_blank"><img
-                                    src="/img/social/twitter-icon.png"></a>
-                        <a href="https://plus.google.com/u/0/115410796310646309979"
-                           target="_blank"><img src="/img/social/google-icon.png"></a>
-                        <a href="https://www.linkedin.com/company/falcon-scientific-editing" target="_blank"><img
-                                    src="/img/social/in-icon.png"></a>
-                        <a href="http://vk.com/falconediting" target="_blank"><img src="/img/social/vk-icon.png"></a>
-                        <a href="http://www.ok.ru/group/53590836838626" target="_blank"><img
-                                    src="/img/social/ok-icon.png"></a>
+                        <a href="https://www.facebook.com/FalconScientificEditing" target="_blank" rel="nofollow">
+                            <img src="/img/social/fb-icon.png" alt="Facebook">
+                        </a>
+
+                        <a href="https://twitter.com/FalconEditing" target="_blank" rel="nofollow">
+                            <img src="/img/social/twitter-icon.png" alt="Twitter">
+                        </a>
+
+                        <a href="https://plus.google.com/u/0/115410796310646309979" target="_blank" rel="nofollow">
+                            <img src="/img/social/google-icon.png" alt="Google Plus">
+                        </a>
+
+                        <a href="https://www.linkedin.com/company/falcon-scientific-editing" target="_blank"
+                           rel="nofollow">
+                            <img src="/img/social/in-icon.png" alt="Linkedin">
+                        </a>
+
+                        <a href="http://vk.com/falconediting" target="_blank" rel="nofollow">
+                            <img src="/img/social/vk-icon.png" alt="VK">
+                        </a>
+
+                        <a href="http://www.ok.ru/group/53590836838626" target="_blank" rel="nofollow">
+                            <img src="/img/social/ok-icon.png" alt="OK">
+                        </a>
 
                     </div>
 
@@ -302,7 +319,7 @@
                 </div>
                 <div class="col-sm-3  hidden-sm hidden-xs">
                     <h4 class="text-u-c m-b font-thin">{{trans('footer.payment')}}</h4>
-                    <img src="/img/pay.png" class="img-responsive">
+                    <img src="/img/pay.png" class="img-responsive" alt="{{trans('footer.payment')}}">
                 </div>
             </div>
         </div>
@@ -315,7 +332,8 @@
                 </div>
                 <div class="col-xs-6 text-right">
                     <p>{{trans('footer.octavian')}} <span class="text-right"><a
-                                    href="http://octavian48.ru" target="_blank"><img src="/img/octavian.png"></a></span>
+                                    href="http://octavian48.ru" target="_blank"><img src="/img/octavian.png"
+                                                                                     alt="{{trans('footer.octavian')}}"></a></span>
                     </p>
                 </div>
             </div>
@@ -342,8 +360,8 @@
          closeEffect: 'elastic',
 
          closeClick: false,
-         helpers: {
          title: null,
+         helpers: {
          overlay: null
          }
          });
@@ -358,7 +376,6 @@
         $("#loader-wrapper").show();
         //return event.preventDefault();
     });
-
 
 
     $('.img-hover').hover(function () {
@@ -381,7 +398,6 @@
         body.stop().animate({scrollTop: 0}, '100', 'swing', function () {
         });
     });
-
 
 
 </script>
@@ -435,6 +451,8 @@
 
 </script>
 
+
+<link rel="stylesheet" href="/build/css/flipclock.css">
 
 </body>
 </html>

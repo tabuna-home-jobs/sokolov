@@ -21,7 +21,7 @@
                             <img src="{{$element->img}}">
 
                             <div class="carousel-caption carousel-caption-element">
-                                <img src="/img/catalog/slider-logo.png">
+                                <img src="/img/catalog/slider-logo.png" alt="{{$element->title}}">
 
                                 <div class="carousel-caption-element-bg">
                                     <h2>{{$element->title}}</h2>

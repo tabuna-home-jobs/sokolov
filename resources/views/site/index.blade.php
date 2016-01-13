@@ -39,7 +39,7 @@
 
                                 <a href="@if(App::getLocale() == 'ru') {{url('/catalog/redaktirovanie-nauchnykh-rukopisey')}}@else {{url("/catalog/editing-of-scientific-manuscripts")}} @endif">
                                     <img class="img-hover" src="/img/service-1.png"
-                                         data-altimg="/img/service-1-hover.png">
+                                         data-altimg="/img/service-1-hover.png" alt="{{trans('main.Editing')}}">
 
                                     <h3>{{trans('main.Editing')}}</h3>
                                 </a>
@@ -61,7 +61,7 @@
 
                                 <a href="@if(App::getLocale() == 'ru') {{url('/catalog/tekhnicheskiy-perevod-nauchnykh-rukopisey')}}@else {{url("/catalog/translation-of-scientific-manuscripts")}} @endif">
                                     <img class="img-hover" src="/img/service-2.png"
-                                         data-altimg="/img/service-2-hover.png">
+                                         data-altimg="/img/service-2-hover.png"  alt="{{trans('main.Translation')}}">
 
                                     <h3>{{trans('main.Translation')}}</h3>
                                 </a>
@@ -82,7 +82,7 @@
 
                                 <a href="@if(App::getLocale() == 'ru') {{url('/catalog/formatirovanie-nauchnykh-rukopisey')}}@else {{url("/catalog/formatting-of-scientific-manuscripts")}} @endif">
                                     <img class="img-hover" src="/img/service-3.png"
-                                         data-altimg="/img/service-3-hover.png">
+                                         data-altimg="/img/service-3-hover.png" alt="{{trans('main.Format')}}">
 
                                     <h3>{{trans('main.Format')}}</h3>
                                 </a>
@@ -103,7 +103,7 @@
 
                                 <a href="@if(App::getLocale() == 'ru') {{url('/catalog/illyustrirovanie-nauchnykh-rukopisey')}}@else {{url("/catalog/illustration-of-scientific-manuscripts")}} @endif">
                                     <img class="img-hover" src="/img/service-4.png"
-                                         data-altimg="/img/service-4-hover.png">
+                                         data-altimg="/img/service-4-hover.png"  alt="{{trans('main.illustrating')}}">
 
                                     <h3>{{trans('main.illustrating')}}</h3>
                                 </a>
@@ -149,7 +149,7 @@
             </div>
 
             <div class="col-md-3">
-                <img class="img-responsive" src="/img/infografica-1.png">
+                <img class="img-responsive" src="/img/infografica-1.png" alt="{{trans('main.Order services')}}">
 
                 <p class="text-center">{{trans('main.Order services')}}</p>
 
@@ -157,7 +157,7 @@
             </div>
 
             <div class="col-md-3">
-                <img class="img-responsive" src="/img/infografica-2.png">
+                <img class="img-responsive" src="/img/infografica-2.png" alt="{{trans('main.To pay for services')}}">
 
                 <p class="text-center">{{trans('main.To pay for services')}}</p>
 
@@ -165,7 +165,7 @@
             </div>
 
             <div class="col-md-3">
-                <img class="img-responsive" src="/img/infografica-3.png">
+                <img class="img-responsive" src="/img/infografica-3.png" alt="{{trans('main.You get ready to work')}}">
 
                 <p class="text-center">{{trans('main.You get ready to work')}}</p>
 
@@ -181,19 +181,19 @@
             </div>
 
             <div class="col-md-3">
-                <img class="img-responsive" src="/img/infografica-4.png">
+                <img class="img-responsive" src="/img/infografica-4.png" alt="{{trans('main.We expect the price')}}">
 
                 <p class="text-center">{{trans('main.We expect the price')}}</p>
             </div>
 
             <div class="col-md-3">
-                <img class="img-responsive" src="/img/infografica-5.png">
+                <img class="img-responsive" src="/img/infografica-5.png" alt="{{trans('main.To provide services')}}">
 
                 <p class="text-center">{{trans('main.To provide services')}}</p>
             </div>
 
             <div class="col-md-3">
-                <img class="img-responsive" src="/img/infografica-6.png">
+                <img class="img-responsive" src="/img/infografica-6.png" alt="{{trans('main.Get Your review')}}">
 
                 <p class="text-center">{{trans('main.Get Your review')}}</p>
             </div>
@@ -218,11 +218,10 @@
             <span>{{trans('main.Advantages')}}</span>
         </p>
 
-        <ol class="text-about">
+        <ol class="text-about row">
 
 
-            <div class="row">
-                <ol>
+
                     <li class="li-icons-1 row"><span>1.</span>
 
 
@@ -273,10 +272,6 @@
                         </div>
                     </li>
 
-                </ol>
-            </div>
-
-
         </ol>
     </div>
 
@@ -293,7 +288,7 @@
         <div class="container-fluid">
             <div class="row backgound-grey padding-container text-center">
 
-                <a href="/auth/login" type="button" class="btn btn-warning">{{trans('main.Order')}}</a>
+                <a href="/auth/login" class="btn btn-warning">{{trans('main.Order')}}</a>
 
             </div>
         </div>
@@ -319,7 +314,7 @@
                     @foreach($NewsList as $news)
                         <div class="col-sm-6 col-md-3">
                             <div class="thumbnail">
-                                <img src="{{$news->avatar}}">
+                                <img src="{{$news->avatar}}" alt="{{$news->name}}">
 
                                 <div class="caption">
 
@@ -375,7 +370,7 @@
 
                                 <div class="reviews-div col-sm-6 col-md-3">
                                     <div class="text-center">
-                                        <img src="{{$reviews->avatar}}" class="img-circle">
+                                        <img src="{{$reviews->avatar}}" class="img-circle" alt="{{$reviews->name}}">
 
                                         <div class="caption">
                                             <h4>{{$reviews->name}}</h4>
@@ -426,7 +421,7 @@
         <span class="scroll-top pull-right glyphicon glyphicon-menu-up hidden-sm hidden-xs"></span>
 
         <p class="text-center">
-            <a href="/auth/login" type="button" class="btn btn-warning">{{trans('main.Order')}}</a>
+            <a href="/auth/login" class="btn btn-warning">{{trans('main.Order')}}</a>
         </p>
 
 

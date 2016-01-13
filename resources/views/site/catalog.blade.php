@@ -27,12 +27,12 @@
                             <!--Вывод статей в слайд-->
                             @foreach($goodsList as $key => $gList)
                                 <div class="item item-catalog">
-                                    <img src="{{$gList->avatar}}">
+                                    <img src="{{$gList->avatar}}"  alt="{{$gList->name}}">
 
                                     <div class="carousel-caption">
 
                                         <img src="/img/catalog/icon{{++$key}}.png"
-                                             class="icon-s-caption hidden-sm hidden-xs">
+                                             class="icon-s-caption hidden-sm hidden-xs" alt="{{$gList->name}}">
 
                                         <h2>{{$gList->name}}</h2>
 
@@ -41,7 +41,7 @@
                                         </div>
 
                                         <p class="m-top-10">
-                                            <a href="/auth/login" type="button"
+                                            <a href="/auth/login"
                                                class="btn btn-warning">{{trans('main.Order')}}</a>
                                             <a href="{{URL::route('catalog.show',$gList->slug)}}"
                                                class="btn btn-primary">{{trans('main.Learn More')}}</a>
@@ -71,10 +71,10 @@
 
                                 <a href="{{URL::route('catalog.show',$gList->slug)}}">
                                     <!--Выводится иконка прибавляется к ней просто индекс-->
-                                    <img src="/img/catalog/icon{{++$key}}.png" class="img-icon">
+                                    <img src="/img/catalog/icon{{++$key}}.png" class="img-icon"  alt="{{$gList->name}}">
 
                                     <div class="img-wrapper">
-                                        <img src="{{$gList->avatar}}" class="img-responsive-sliderback">
+                                        <img src="{{$gList->avatar}}" class="img-responsive-sliderback"  alt="{{$gList->name}}">
 
 
                                         <p class="catalog-img-text">
