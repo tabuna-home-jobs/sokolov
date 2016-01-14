@@ -300,6 +300,7 @@ a:active, a:hover , .btn{
     line-height: 16px;
     color: #fff;
     background-color: #f68d44 !important;
+    cursor: default;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -1419,3 +1420,4 @@ pre {
     vertical-align: top;
     width: 33%;
 }
+.auth-form{height: 360px;}

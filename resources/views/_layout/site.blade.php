@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="/img/logo-min.png"/>
     <meta id="token" name="token" content="{{ csrf_token() }}" property="csrf_token"/>
 
-    @if(is_null($meta = SEO::render()))
+    @if(is_null($meta = SEO::render()) || empty($meta = SEO::render()))
         <title>@yield('title','Falcon Scientific Editing')</title>
         <meta name="description" content="@yield('description')"/>
         <meta name="keywords" content="@yield('keywords')"/>

@@ -9,7 +9,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="col-xs-12 col-md-8">
 
-                <div class="well well-danger">
+                <div class="well well-danger auth-form">
                     <form class="p-t-40 p-b-5" role="form" method="POST" action="{{ url('/auth/login') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 

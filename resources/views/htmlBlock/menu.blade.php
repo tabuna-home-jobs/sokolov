@@ -9,7 +9,12 @@
         {{Active::path($li->link)}}
         @endif
                 '>
-            <a href='{{$li->link}}'> {{$pref}}  {{$li->label}}</a></li>
+            <a
+                    @if( empty(Active::path(substr($li->link,1))) && empty(Active::path($li->link)))
+                    href='{{$li->link}}'
+                    @endif
+
+            > {{$pref}}  {{$li->label}}</a></li>
     @else
 
 
@@ -23,7 +28,13 @@
         @endif
 
                 not-effec-open">
-            <a class="pull-left small-menu-element-left" href="{{$li->link}}">{{$li->label}}</a>
+            <a class="pull-left small-menu-element-left"
+
+               @if( empty(Active::path(substr($li->link,1))) && empty(Active::path($li->link)))
+                href="{{$li->link}}"
+               @endif
+
+            >{{$li->label}}</a>
             <a class="pull-left hidden-xs hidden-sm  dropdown-toggle" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false">
                 <span class="caret"></span>
