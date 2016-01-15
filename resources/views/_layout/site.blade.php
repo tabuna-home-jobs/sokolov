@@ -328,7 +328,7 @@
         <div class="container">
             <div class="row padder-v m-t">
                 <div class="col-xs-6">
-                    © 2015, Falcon Scientific Editing, {{trans('footer.Denis A. Sokolov')}}
+                    © 2015 - {{ date("Y")}}, Falcon Scientific Editing, {{trans('footer.Denis A. Sokolov')}}
                 </div>
                 <div class="col-xs-6 text-right">
                     <p>{{trans('footer.octavian')}} <span class="text-right"><a
