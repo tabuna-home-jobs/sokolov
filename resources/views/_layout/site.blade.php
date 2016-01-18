@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="/img/logo-min.png"/>
-    <meta id="token" name="token" content="{{ csrf_token() }}" property="csrf_token"/>
+   <!-- <meta id="token" name="token"   content="{{ csrf_token() }}" property="csrf_token"/>  -->
+    <meta id="token" property="csrf_token" content="{{ csrf_token() }}"/>
 
     @if(is_null($meta = SEO::render()) || empty($meta = SEO::render()))
         <title>@yield('title','Falcon Scientific Editing')</title>
@@ -19,10 +20,11 @@
         {!! $meta !!}
     @endif
 
-    <meta property="og:image" content="@yield('avatar', Config::get('app.url').'img/logo.jpg')"/>
-    <meta name="twitter:image:src" content="@yield('avatar',  Config::get('app.url').'img/logo.jpg')"/>
-    <meta name="language" content="{{App::getLocale()}}"/>
-    <meta property="og:locale" content="{{App::getLocale()}}"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="@yield('avatar', Config::get('app.url').'/img/logo.jpg')"/>
+    <meta name="twitter:image:src" content="@yield('avatar',  Config::get('app.url').'/img/logo.jpg')"/>
+    <!-- <meta name="language" content="{{App::getLocale()}}"/> -->
+    <!--  <meta property="og:locale" content="{{App::getLocale()}}"/> -->
 
 
     <link rel="stylesheet" href="{{elixir('build/css/app.css')}}" type="text/css"/>
