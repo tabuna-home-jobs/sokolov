@@ -229,7 +229,7 @@
                         <div class="col-sm-6 col-md-4">
                             <div class="service service-edit">
 
-                                <img src="/img/nadejno-1-hover.png" alt="{{trans('main.RELIABLE')}}">
+                                <img src="/img/guard-1-hover.png" alt="{{trans('main.RELIABLE')}}">
 
                                 <h3>{{trans("main.RELIABLE")}}</h3>
 
@@ -260,7 +260,7 @@
                         <div class="col-sm-6 col-md-4">
                             <div class="service service-edit">
 
-                                <img src="/img/guard-1-hover.png" alt="{{trans('main.CONVENIENTLY')}}">
+                                <img src="/img/nadejno-1-hover.png" alt="{{trans('main.CONVENIENTLY')}}">
 
                                 <h3>{{trans('main.CONVENIENTLY')}}</h3>
 
