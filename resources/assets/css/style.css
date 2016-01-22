@@ -385,9 +385,8 @@ a:active, a:hover , .btn{
     padding-bottom: 60px;
 }
 
-
-.container-service h1 {
-    padding: 60px 0px;
+.container-service h2 {
+    padding: 30px 0px;
 }
 
 .container-reviews .img-circle {
@@ -586,7 +585,11 @@ a:active, a:hover , .btn{
     padding: 20px 0;
 }
 
-.why-work h1 span{
+.why-work h3 {
+    margin: 40px 0;
+}
+
+.why-work h3 span {
     background: url("/img/whywork.png") repeat-x;
     color: white;
     font-family: Roboto Slab;
@@ -594,9 +597,7 @@ a:active, a:hover , .btn{
     font-weight: 700;
     line-height: 36px;
     padding: 10px 20px;
-    margin: 20px 0;
-    vertical-align: middle;
-    background-size: 100% 100%;
+    vertical-align: middle
 }
 
 
@@ -609,18 +610,19 @@ a:active, a:hover , .btn{
 }
 
 .why-work img{
-    width: 262px;
-    height: 262px;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
 }
 
 
 .why-work h2{
     margin-top: 5px;
     background: #f68d44;
-    width: 262px;
-    height: 262px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    padding: 85px 0;
+    padding: 55px 0;
 }
 
 
@@ -1421,3 +1423,10 @@ pre {
     width: 33%;
 }
 .auth-form{height: 360px;}
+
+.logo-text {
+    padding-left: 60px;
+    color: #2f8398;
+    font-size: 85%;
+    text-align: justify;
+}

@@ -67,6 +67,16 @@
                             <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                         </div>
 
+
+                        <div class="checkbox pull-left">
+                            <label>
+                                <input type="checkbox" required><a
+                                        href="@if(App::getLocale()=='ru') /oferta/RussianRules.doc @else /oferta/EnglishRules.doc @endif"
+                                        target="_blank"> {{trans('createOrder.I agree to the terms of the user agreement')}}</a>
+                            </label>
+                        </div>
+
+
                         <p class="text-center">
                             <button type="submit" class="btn btn-warning">{{trans('auth.Register')}}</button>
                         </p>

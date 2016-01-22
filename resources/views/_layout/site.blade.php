@@ -117,6 +117,10 @@
         <div class="navbar-header col-xs-12 col-md-6">
             <a class="navbar-brand2" href="/"><img src="/img/logo.jpg" class="img-responsive"
                                                    alt="Falcon Scientific Editing"> </a>
+
+            <h1 class="logo-text">
+                {{trans("main.text-logo")}}
+            </h1>
             <button type="button" class="navbar-toggle collapsed but-menu-top" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>

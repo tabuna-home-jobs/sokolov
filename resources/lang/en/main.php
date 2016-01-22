@@ -75,4 +75,23 @@ return [
 
 
     "Search" => "Search",
+
+
+    "lastSlider" => "We provide services for professors, doctoral students, graduate students and all people interested in science.",
+
+    "RELIABLE" => "RELIABLE",
+    "RESPONSIBLY" => "RESPONSIBLY",
+    "CONVENIENTLY" => "CONVENIENTLY",
+
+
+    "RELIABLE TEXT" => "Your text guaranteed protected from falling into the wrong hands.",
+    "RESPONSIBLY TEXT" => "We approach our work professionally, if your work is not accepted because of poor English - we will do everything necessary amendments FREE!",
+    "CONVENIENTLY TEXT" => "The final decision on this or that changes always for YOU",
+
+
+    "Your guarantees" => "Your guarantees",
+
+    "text-logo" => "Editing of scientific publications, technical translation from English into Russian, formatting and illustrate manuscripts scientists for scientists."
+
+
 ];

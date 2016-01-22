@@ -25,7 +25,11 @@
 
                 <div class="text-center">
 
-                    <h1 class="h1-slab">{{trans('main.Services')}}</h1>
+
+                    <h4 class="blog-container">{{trans('main.lastSlider')}}</h4>
+
+
+                    <h2 class="h1-slab">{{trans('main.Services')}}</h2>
 
                 </div>
 
@@ -37,7 +41,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/redaktirovanie-nauchnykh-rukopisey')}}@else {{url("/catalog/editing-of-scientific-manuscripts")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/redaktirovanie-nauchnykh-rabot')}}@else {{url("/catalog/editing-of-scientific-manuscripts")}} @endif">
                                     <img class="img-hover" src="/img/service-1.png"
                                          data-altimg="/img/service-1-hover.png" alt="{{trans('main.Editing')}}">
 
@@ -59,7 +63,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/tekhnicheskiy-perevod-nauchnykh-rukopisey')}}@else {{url("/catalog/translation-of-scientific-manuscripts")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/tekhnicheskiy-perevod-rabot-s-angliyskogo-na-russkiy')}}@else {{url("/catalog/translation-of-scientific-manuscripts")}} @endif">
                                     <img class="img-hover" src="/img/service-2.png"
                                          data-altimg="/img/service-2-hover.png"  alt="{{trans('main.Translation')}}">
 
@@ -80,7 +84,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/formatirovanie-nauchnykh-rukopisey')}}@else {{url("/catalog/formatting-of-scientific-manuscripts")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/formatirovanie-nauchnykh-rabot-i-rukopisey')}}@else {{url("/catalog/formatting-of-scientific-manuscripts")}} @endif">
                                     <img class="img-hover" src="/img/service-3.png"
                                          data-altimg="/img/service-3-hover.png" alt="{{trans('main.Format')}}">
 
@@ -137,7 +141,7 @@
 
         <div class="text-center">
 
-            <h1><span>{{trans('main.Work')}}</span></h1>
+            <h3><span>{{trans('main.Work')}}</span></h3>
 
         </div>
 
@@ -174,6 +178,7 @@
 
         </div>
 
+
         <div class="row">
 
             <div class="col-md-3 text-center">
@@ -206,6 +211,75 @@
 
 
 
+
+    <div class="container-fluid">
+        <div class="row backgound-grey">
+            <div class="container container-service">
+
+
+                <div class="text-center">
+                    <h2 class="h1-slab">{{trans('main.Your guarantees')}}</h2>
+                </div>
+
+
+                <div>
+                    <div class="row">
+
+
+                        <div class="col-sm-6 col-md-4">
+                            <div class="service service-edit">
+
+                                <img src="/img/nadejno-1-hover.png" alt="{{trans('main.RELIABLE')}}">
+
+                                <h3>{{trans("main.RELIABLE")}}</h3>
+
+
+                                <div class="caption">
+                                    <p>{{trans('main.RELIABLE TEXT')}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-6 col-md-4">
+                            <div class="service service-edit">
+
+                                <img src="/img/otvetst-1-hover.png" alt="{{trans('main.RESPONSIBLY')}}">
+
+                                <h3>{{trans('main.RESPONSIBLY')}}</h3>
+
+
+                                <div class="caption">
+                                    <p>{{trans('main.RESPONSIBLY TEXT')}}</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-6 col-md-4">
+                            <div class="service service-edit">
+
+                                <img src="/img/guard-1-hover.png" alt="{{trans('main.CONVENIENTLY')}}">
+
+                                <h3>{{trans('main.CONVENIENTLY')}}</h3>
+
+
+                                <div class="caption">
+                                    <p>{{trans('main.CONVENIENTLY TEXT')}}</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 
 
 
@@ -301,7 +375,7 @@
 
             <div class="text-center">
 
-                <h1 class="h1-slab">{{trans('main.News')}}</h1>
+                <h2 class="h1-slab">{{trans('main.News')}}</h2>
                 <a href="{{URL::route('news.index')}}" class="a-mack">{{trans('main.News-sub')}} <span
                             class="glyphicon glyphicon-arrow-right"></span></a>
 
@@ -355,7 +429,7 @@
 
                     <div class="text-center">
 
-                        <h1 class="h1-slab">{{trans('main.Reviews')}}</h1>
+                        <h2 class="h1-slab">{{trans('main.Reviews')}}</h2>
                         <a href="{{URL::route('review.index')}}" class="a-mack">{{trans('main.Reviews-sub')}} <span
                                     class="glyphicon glyphicon-arrow-right"></span></a>
 

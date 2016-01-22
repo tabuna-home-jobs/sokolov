@@ -151,7 +151,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
         Roumen\Sitemap\SitemapServiceProvider::class,
-        Orchid\SEO\Providers\SEOServiceProvider::class,
+        App\Services\orchid\seo\Providers\SEOServiceProvider::class,
+
     ],
 
     /*
@@ -210,7 +211,7 @@ return [
         'htmlBlock' => App\Facades\htmlBlock::class,
         "CurrencyRate" => App\Facades\CurrencyRateFacades::class,
         'SecsToH' => \App\Facades\SecsToH::class,
-        'SEO' => Orchid\SEO\Facades\SEOFacades::class,
+        'SEO' => App\Services\orchid\seo\Facades\SEOFacades::class,
 
 
     ],

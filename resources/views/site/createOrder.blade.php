@@ -162,15 +162,6 @@
                     </div>
 
 
-                    <div class="checkbox pull-left">
-                        <label>
-                            <input type="checkbox" required><a
-                                    href="@if(App::getLocale()=='ru') /oferta/RussianRules.doc @else /oferta/EnglishRules.doc @endif"
-                                    target="_blank"> {{trans('createOrder.I agree to the terms of the user agreement')}}</a>
-                        </label>
-                    </div>
-
-
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <button class="btn btn-warning pull-right" type="submit">{{trans('createOrder.Send')}}</button>
 
