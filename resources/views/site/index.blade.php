@@ -337,6 +337,7 @@
                             {{trans("main.If your research is not published - they never had. Many manuscripts are accepted for publication because of the poor quality of the English language. Our editors - experts in English. Our editors - scientific experts with many years of research and publications in prestigious scientific journals.")}}
                         </div>
                     </li>
+                    @if(App::getLocale() == 'ru')
 
                     <li class="li-icons-6 row">
                         <span>6.</span>
@@ -345,6 +346,8 @@
                             {{trans("main.We guarantee that your paper will not be rejected by the scientific journal of the poor quality of the English language. We re-edit your article - free of charge.")}}
                         </div>
                     </li>
+
+                        @endif
 
         </ol>
     </div>
