@@ -41,25 +41,25 @@ return [
     "We" => "We",
 
 
-    "Editing" => "Editing samples",
+    "Editing" => "Editing",
     "Correcting written
                              English scientific manuscripts
                              and elimination of grammar and
                              spelling mistakes" => "Highlight the uniqueness of your work with editing performed by English experts with advanced Ph.D. degrees",
 
 
-    "Translation" => "Translation samples",
+    "Translation" => "Translation",
     "We provide technical
                              translation from Russian into
                              English" => "Competent and prompt technical translations of scientific manuscripts and other documents from Russian to English",
 
-    "Format" => "Formatting samples",
+    "Format" => "Formatting",
 
 
     "Fit manuscripts under strict
                              foreign scientific standards
                              magazines" => "Identification and correction of formatting that does not meet the guidelines of your target journal",
-    "illustrating" => "Illustration samples",
+    "illustrating" => "Illustration",
     "Creation of scientific graphics
                              according to the illustrations
                              provided sketch or
@@ -77,7 +77,7 @@ return [
     "Search" => "Search",
 
 
-    "lastSlider" => "We provide language services for professors, postdoctoral researchers, graduate students and all interested in science people.",
+    "lastSlider" => "We provide language services for professors, postdoctoral scholars, graduate students and all researchers in the sciences, in the humanities and in business.",
 
     "RELIABLE" => "SECURITY",
     "RESPONSIBLY" => "RESPONSIBILITY",
@@ -86,7 +86,7 @@ return [
 
     "RELIABLE TEXT" => "All information you provide to us is 100% secure! Every member of our team signs a non-disclosure agreement!",
     "RESPONSIBLY TEXT" => "We guarantee that a paper edited by us will not be rejected because of poor English quality. If it is, we will re-edit the manuscript for FREE!",
-    "CONVENIENTLY TEXT" => "We track all changes we make to your document. It is easy for you to make the final decision on each correction!",
+    "CONVENIENTLY TEXT" => "We track all changes that we make to your document. It is easy for you to make the final decision on each correction!",
 
 
     "Your guarantees" => "Our guarantees",
