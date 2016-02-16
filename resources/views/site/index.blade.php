@@ -41,7 +41,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/redaktirovanie-nauchnykh-rabot')}}@else {{url("/catalog/editing-of-scientific-manuscripts")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/redaktirovanie-nauchnykh-rabot')}}@else {{url("/catalog/editing-of-scientific-papers")}} @endif">
                                     <img class="img-hover" src="/img/service-1.png"
                                          data-altimg="/img/service-1-hover.png" alt="{{trans('main.Editing')}}">
 
@@ -63,7 +63,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/tekhnicheskiy-perevod-rabot-s-angliyskogo-na-russkiy')}}@else {{url("/catalog/translation-of-scientific-manuscripts")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/tekhnicheskiy-perevod-rabot-s-russkogo-na-angliyskiy')}}@else {{url("/catalog/translation-services-from-russian-to-english")}} @endif">
                                     <img class="img-hover" src="/img/service-2.png"
                                          data-altimg="/img/service-2-hover.png"  alt="{{trans('main.Translation')}}">
 
@@ -84,7 +84,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/formatirovanie-nauchnykh-rabot-i-rukopisey')}}@else {{url("/catalog/formatting-of-scientific-manuscripts")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/formatirovanie-nauchnykh-rabot-i-rukopisey')}}@else {{url("/catalog/formatting-of-scientific-papers-and-manuscripts")}} @endif">
                                     <img class="img-hover" src="/img/service-3.png"
                                          data-altimg="/img/service-3-hover.png" alt="{{trans('main.Format')}}">
 
@@ -105,7 +105,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/illyustrirovanie-nauchnykh-rukopisey')}}@else {{url("/catalog/illustration-of-scientific-manuscripts")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/illyustrirovanie-nauchnykh-rukopisey')}}@else {{url("/catalog/illustration-services-for-scientific-manuscripts")}} @endif">
                                     <img class="img-hover" src="/img/service-4.png"
                                          data-altimg="/img/service-4-hover.png"  alt="{{trans('main.illustrating')}}">
 
