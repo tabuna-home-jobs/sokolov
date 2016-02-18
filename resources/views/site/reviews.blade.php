@@ -21,8 +21,11 @@
                     <div class="caption">
                         <h4>{{$reviews->name}}</h4>
 
-                            <span>{{$reviews->dolshnost}}
-                            </span>
+                        <p>{{$reviews->dolshnost}}</p>
+                        <p><i class="fa fa-university"></i> {{$reviews->institute}}</p>
+                        <p><i class="fa fa-map-marker"></i> {{$reviews->country}}</p>
+
+
 
 
                         <p class="date">
