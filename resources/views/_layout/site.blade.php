@@ -39,7 +39,7 @@
     <link rel="alternate" hreflang="en-us" href="{{url('/language/en')}}"/>
     <link rel="alternate" hreflang="ru-ru" href="{{url('/language/ru')}}"/>
 
-    <meta name='yandex-verification' content='63ebe98ad59d0b4c'/>
+    <meta name='yandex-verification' content='475490f46162a6e2' />
     <meta name="google-site-verification" content="fQ49WVkHhim6L6m0tdBt2o2g6onG49bX-ih_rmLXJNs"/>
     <meta name="baidu-site-verification" content="D4x671AWJV"/>
 
