@@ -91,6 +91,54 @@ Route::group(['namespace' => 'Site'], function () {
 });
 
 
+
+
+Route::group(['namespace' => 'Site', 'prefix' => 'ru', 'middleware' => 'Ru'], function () {
+    Route::resource('', 'IndexController');
+    Route::resource('page', 'PageController');
+    Route::resource('news', 'NewsController');
+    Route::resource('feedback', 'FeedbackController');
+    Route::resource('review', 'ReviewController');
+    Route::resource('search', 'SearchController');
+    Route::resource('catalog', 'CatalogController');
+
+
+    Route::group(['middleware' => ['auth', 'user']], function () {
+        Route::resource('home', 'HomeController');
+        //  Route::resource('setting', 'SettingController');
+        Route::resource('order', 'OrderController');
+        Route::resource('comments', 'CommentsController');
+        Route::resource('payments', 'PaymentsController');
+        Route::resource('filemanager', 'FileManagerController');
+    });
+});
+
+
+Route::group(['namespace' => 'Site', 'prefix' => 'en', 'middleware' => 'En'], function () {
+    Route::resource('', 'IndexController');
+    Route::resource('page', 'PageController');
+    Route::resource('news', 'NewsController');
+    Route::resource('feedback', 'FeedbackController');
+    Route::resource('review', 'ReviewController');
+    Route::resource('search', 'SearchController');
+    Route::resource('catalog', 'CatalogController');
+
+
+    Route::group(['middleware' => ['auth', 'user']], function () {
+        Route::resource('home', 'HomeController');
+        //  Route::resource('setting', 'SettingController');
+        Route::resource('order', 'OrderController');
+        Route::resource('comments', 'CommentsController');
+        Route::resource('payments', 'PaymentsController');
+        Route::resource('filemanager', 'FileManagerController');
+    });
+});
+
+
+
+
+
+
 Route::group(['middleware' => ['auth'], 'namespace' => 'Site'], function () {
 
     Route::resource('setting', 'SettingController');

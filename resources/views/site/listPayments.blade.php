@@ -8,7 +8,7 @@
         <div class="panel-heading">{{trans('payments.Invoices')}}
 
             <div class="pull-right">
-                <a href="{{route('payments.create')}}" class="btn btn-default  btn-xs">
+                <a href="{{route(App::getLocale().'.payments.create')}}" class="btn btn-default  btn-xs">
                     {{trans('payments.New payment')}}
                 </a>
             </div>

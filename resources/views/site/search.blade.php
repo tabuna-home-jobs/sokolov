@@ -12,19 +12,19 @@
                 <article class="col-md-4 blog search-result">
 
                     <h4>
-                        <a href="{{URL::route('news.show',$search->slug)}}">{{ str_limit($search->title,$limit = 20, $end = '...')}}</a>
+                        <a href="{{URL::route(App::getLocale().'.news.show',$search->slug)}}">{{ str_limit($search->title,$limit = 20, $end = '...')}}</a>
                     </h4>
                     <hr>
 
                     <div class="blog-thumbnail">
-                        <a href="{{URL::route('news.show',$search->slug)}}">
+                        <a href="{{URL::route(App::getLocale().'.news.show',$search->slug)}}">
                             <img src="{{$search->avatar}}">
                         </a>
                     </div>
 
                     <main class="blog-content text-justify">
                         {{
-                            str_limit(strip_tags($search->content), $limit = 250, $end = '...')
+                            str_limit(strip_tags($search->content), $limit = 200, $end = '...')
                         }}
 
                     </main>
@@ -37,19 +37,19 @@
                 <article class="col-md-4 blog search-result">
 
                     <h4>
-                        <a href="{{URL::route('catalog.show',$search->slug)}}">{{ str_limit($search->title,$limit = 20, $end = '...')}}</a>
+                        <a href="{{URL::route(App::getLocale().'.catalog.show',$search->slug)}}">{{ str_limit($search->title,$limit = 20, $end = '...')}}</a>
                     </h4>
                     <hr>
 
                     <div class="blog-thumbnail">
-                        <a href="{{URL::route('catalog.show',$search->slug)}}">
+                        <a href="{{URL::route(App::getLocale().'.catalog.show',$search->slug)}}">
                             <img src="{{$search->avatar}}">
                         </a>
                     </div>
 
                     <main class="blog-content text-justify">
                         {{
-                            str_limit(strip_tags($search->text), $limit = 250, $end = '...')
+                            str_limit(strip_tags($search->text), $limit = 200, $end = '...')
                         }}
 
                     </main>

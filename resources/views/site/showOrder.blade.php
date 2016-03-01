@@ -88,7 +88,7 @@
                     @endforeach
 
 
-                    <form action="{{URL::route('comments.store')}}" method="post">
+                    <form action="{{URL::route(App::getLocale().'.comments.store')}}" method="post">
                         <div class="form-group">
                             <label>{{trans("order.Send additional comments/questions")}}</label>
         <textarea class="form-control" rows="3" required name="text"
@@ -109,7 +109,7 @@
             <div role="tabpanel" class="tab-pane fade" id="oldfile" aria-labelledby="profile-tab">
 
 
-                <form action="{{route('order.update',$Order->id)}}" method="post" enctype="multipart/form-data">
+                <form action="{{route(App::getLocale().'.order.update',$Order->id)}}" method="post" enctype="multipart/form-data">
 
                     <hr>
 
@@ -147,7 +147,7 @@
                 <ul class="list-group">
                     <ul class="list-group">
                         @foreach($SelectRequestFile as $file)
-                            <a href="{{URL::route('filemanager.show', $file->id)}}"
+                            <a href="{{URL::route(App::getLocale().'.filemanager.show', $file->id)}}"
                                class="list-group-item"><i
                                         class="fa fa-file-o"></i> {{$file->original}}
                                 <small class="pull-right">{{$file->created_at->tz(Config::get('app.timezone'))}}</small>
@@ -162,7 +162,7 @@
                 <ul class="list-group">
                     <ul class="list-group">
                         @foreach($SelectGoodFile as $file)
-                            <a href="{{URL::route('filemanager.show', $file->id)}}"
+                            <a href="{{URL::route(App::getLocale().'.filemanager.show', $file->id)}}"
                                class="list-group-item"><i
                                         class="fa fa-file-o"></i> {{$file->original}}
                                 <small class="pull-right">{{$file->created_at->tz(Config::get('app.timezone'))}}</small>
@@ -177,7 +177,7 @@
                 <div role="tabpanel" class="tab-pane fade" id="reviews" aria-labelledby="reviews-tab">
 
 
-                    <form action="{{route('review.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route(App::getLocale().'.review.store')}}" method="post" enctype="multipart/form-data">
 
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="order_id" value="{{$Order->id}}">

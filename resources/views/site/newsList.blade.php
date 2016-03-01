@@ -13,13 +13,13 @@
             <article class="col-md-4 blog">
 
                 <h4>
-                    <a href="{{URL::route('news.show',$News->slug)}}">{{ str_limit($News->title,$limit = 20, $end = '...')}}</a>
+                    <a href="{{URL::route(App::getLocale().'.news.show',$News->slug)}}">{{ str_limit($News->title,$limit = 20, $end = '...')}}</a>
                 </h4>
                 <hr>
 
                 <div class="blog-thumbnail">
                     {{$News->created_at->toDateString()}}
-                    <a href="{{URL::route('news.show',$News->slug)}}">
+                    <a href="{{URL::route(App::getLocale().'.news.show',$News->slug)}}">
                         <img src="{{$News->avatar}}">
                     </a>
                 </div>

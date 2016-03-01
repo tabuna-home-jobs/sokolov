@@ -22,7 +22,7 @@
             <tbody>
             @foreach($Orders as $order)
                 <tr>
-                    <th scope="row"><a href="{{route('order.show',$order->id)}}">{{$order->id}}</a></th>
+                    <th scope="row"><a href="{{route(App::getLocale().'.order.show',$order->id)}}">{{$order->id}}</a></th>
                     <td>{{ date("Y-m-d",$order->created_at->tz(Config::get('app.timezone'))->timestamp)}}</td>
                     <td>{{ number_format($order->price,2)}}</td>
                     <td>{{$order->name}}</td>
@@ -31,7 +31,7 @@
                     <th>
                         @if(!$order->sold && $order->status == 'Не оплачен')
                             <a class="btn btn-default btn-sm"
-                               href="{{route('payments.show',$order->id)}}">{{trans('order.Pay')}}</a>
+                               href="{{route(App::getLocale().'.payments.show',$order->id)}}">{{trans('order.Pay')}}</a>
                         @elseif($order->sold)
                             {{trans('order.Paid')}}
                         @else

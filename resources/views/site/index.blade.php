@@ -41,7 +41,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/redaktirovanie-nauchnykh-rabot')}}@else {{url("/catalog/editing-of-scientific-papers")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/ru/catalog/redaktirovanie-nauchnykh-rabot')}}@else {{url("/en/catalog/editing-of-scientific-papers")}} @endif">
                                     <img class="img-hover" src="/img/service-1.png"
                                          data-altimg="/img/service-1-hover.png" alt="{{trans('main.Editing')}}">
 
@@ -63,7 +63,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/tekhnicheskiy-perevod-rabot-s-russkogo-na-angliyskiy')}}@else {{url("/catalog/translation-services-from-russian-to-english")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/ru/catalog/tekhnicheskiy-perevod-rabot-s-russkogo-na-angliyskiy')}}@else {{url("/en/catalog/translation-services-from-russian-to-english")}} @endif">
                                     <img class="img-hover" src="/img/service-2.png"
                                          data-altimg="/img/service-2-hover.png"  alt="{{trans('main.Translation')}}">
 
@@ -84,7 +84,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/formatirovanie-nauchnykh-rabot-i-rukopisey')}}@else {{url("/catalog/formatting-of-scientific-papers-and-manuscripts")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/ru/catalog/formatirovanie-nauchnykh-rabot-i-rukopisey')}}@else {{url("/en/catalog/formatting-of-scientific-papers-and-manuscripts")}} @endif">
                                     <img class="img-hover" src="/img/service-3.png"
                                          data-altimg="/img/service-3-hover.png" alt="{{trans('main.Format')}}">
 
@@ -105,7 +105,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/catalog/illyustrirovanie-nauchnykh-rukopisey')}}@else {{url("/catalog/illustration-services-for-scientific-manuscripts")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/ru/catalog/illyustrirovanie-nauchnykh-rukopisey')}}@else {{url("/en/catalog/illustration-services-for-scientific-manuscripts")}} @endif">
                                     <img class="img-hover" src="/img/service-4.png"
                                          data-altimg="/img/service-4-hover.png"  alt="{{trans('main.illustrating')}}">
 
@@ -379,7 +379,7 @@
             <div class="text-center">
 
                 <h2 class="h1-slab">{{trans('main.News')}}</h2>
-                <a href="{{URL::route('news.index')}}" class="a-mack">{{trans('main.News-sub')}} <span
+                <a href="{{URL::route(App::getLocale().'.news.index')}}" class="a-mack">{{trans('main.News-sub')}} <span
                             class="glyphicon glyphicon-arrow-right"></span></a>
 
             </div>
@@ -395,7 +395,7 @@
 
                                 <div class="caption">
 
-                                    <a href="{{URL::route('news.show',$news->slug)}}">
+                                    <a href="{{URL::route(App::getLocale().'.news.show',$news->slug)}}">
                                         <h4>{{$news->name}}</h4></a>
 
 
@@ -424,6 +424,8 @@
     @if($ReviewsList->count())
 
 
+
+
         <div class="container-fluid">
             <div class="row backgound-grey ">
 
@@ -433,7 +435,7 @@
                     <div class="text-center">
 
                         <h2 class="h1-slab">{{trans('main.Reviews')}}</h2>
-                        <a href="{{URL::route('review.index')}}" class="a-mack">{{trans('main.Reviews-sub')}} <span
+                        <a href="{{URL::route(App::getLocale().'.review.index')}}" class="a-mack">{{trans('main.Reviews-sub')}} <span
                                     class="glyphicon glyphicon-arrow-right"></span></a>
 
                     </div>
@@ -443,39 +445,55 @@
                         <div class="row">
 
 
-                            @foreach($ReviewsList as $reviews)
 
-                                <div class="reviews-div col-sm-6 col-md-3">
-                                    <div class="text-center">
-                                        <img src="{{$reviews->avatar}}" class="img-circle" alt="{{$reviews->name}}">
+        <div id="carousel-reviews" class="carousel slide slider-reviews" data-ride="carousel">
 
-                                        <div class="caption">
-                                            <h4>{{$reviews->name}}</h4>
-
-                                            <p class="p-no-m">{{$reviews->dolshnost}}</p>
-
-                                            <p class="p-no-m">{{$reviews->institute}}</p>
-
-                                            <p class="p-no-m">{{$reviews->country}}</p>
+            <div class="carousel-inner" role="listbox">
 
 
-                                            <p class="date">
-                                                {{$reviews->created_at->diffForHumans()}}
-                                            </p>
+                @foreach($ReviewsList as $key => $reviews)
+                <div class="item @if(!$key) active @endif">
+                    <div class="container">
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <img src="{{$reviews->avatar}}" class="img-circle" alt="{{$reviews->name}}">
+                        <h3>{{$reviews->name}}</h3>
 
 
-                                            <p class="text-justify reviews-text">
-                                                <i class="fa fa-quote-left fa-2x fa-pull-left"></i>
-                                                {{$reviews->comment}}
-                                                <i class="fa fa-quote-right fa-2x fa-pull-right"></i>
-                                            </p>
+                        </div>
+                            <ul class="fa-ul">
+                                <li><i class="fa-li fa fa-graduation-cap"></i>{{$reviews->dolshnost}}</li>
+                                <li><i class="fa-li fa fa-university"></i>{{$reviews->institute}}</li>
+                                <li><i class="fa-li fa  fa-map-marker"></i>{{$reviews->country}}</li>
+
+                            </ul>
 
 
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
+                    </div>
 
+                        <div class="col-md-8">
+
+                        <p class="text-justify">
+                            <i class="fa fa-quote-left fa-2x fa-pull-left"></i>
+                            {{$reviews->comment}}
+                            <i class="fa fa-quote-right fa-2x fa-pull-right"></i>
+                        </p>
+
+                    </div>
+                </div>
+                </div>
+                @endforeach
+
+            </div>
+
+            <ol class="carousel-indicators">
+
+                @foreach($ReviewsList as $key => $reviews)
+                <li data-target="#carousel-reviews" data-slide-to="{{$key}}" class="@if(!$key) active @endif"></li>
+                @endforeach
+            </ol>
+
+        </div>
 
                         </div>
 
@@ -487,6 +505,10 @@
 
             </div>
         </div>
+
+
+
+
 
     @endif
 

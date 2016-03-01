@@ -40,11 +40,14 @@ class FileManagerController extends Controller
     public function store(Request $request)
     {
         foreach ($request->file('files') as $file) {
-            $file->move(storage_path() . '/app/order/', Str::ascii(time() . '-' . $file->getClientOriginalName()));
+
+            $time = time();
+
+            $file->move(storage_path() . '/app/order/', Str::ascii($time . '-' . $file->getClientOriginalName()));
             $DBfile = new Files([
                 'user_id' => Auth::user()->id,
                 'original' => $file->getClientOriginalName(),
-                'name' => Str::ascii(time() . '-' . $file->getClientOriginalName()),
+                'name' => Str::ascii($time . '-' . $file->getClientOriginalName()),
                 'type' => $request->input('type'),
                 'beglouto' => $request->input('beglouto'),
                 'finish' => true,
@@ -64,7 +67,8 @@ class FileManagerController extends Controller
     public function show($id)
     {
         $file = Files::findOrFail($id);
-        return response()->download(storage_path() . '/app/order/' . $file->name);
+
+        return response()->download(storage_path() . '/app/order/' .  Str::ascii($file->name));
 
     }
 

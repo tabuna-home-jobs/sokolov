@@ -36,8 +36,8 @@
           type='text/css'>
 
 
-    <link rel="alternate" hreflang="en-us" href="{{url('/language/en')}}"/>
-    <link rel="alternate" hreflang="ru-ru" href="{{url('/language/ru')}}"/>
+    <link rel="alternate" hreflang="en-us" href="{{url('/en')}}"/>
+    <link rel="alternate" hreflang="ru-ru" href="{{url('/ru')}}"/>
 
     <meta name='yandex-verification' content='475490f46162a6e2' />
     <meta name="google-site-verification" content="fQ49WVkHhim6L6m0tdBt2o2g6onG49bX-ih_rmLXJNs"/>
@@ -92,7 +92,7 @@
 
         <div class="col-md-5 hidden-sm hidden-xs">
 
-            <form class="navbar-form navbar-right right-top-menu" action="{{URL::route('search.index')}}">
+            <form class="navbar-form navbar-right right-top-menu" action="{{URL::route(App::getLocale().'.search.index')}}">
 
                 <div class="input-group">
 
@@ -104,8 +104,8 @@
                     <input type="text" name="search" placeholder="{{trans('main.Search')}} ..." class="form-control">
                 </div>
 
-                <a href="{{url('/language/en')}}" class="@if(App::getLocale() == 'en') active @endif">English</a>
-                <a href="{{url('/language/ru')}}" class="@if(App::getLocale() == 'ru') active @endif">Русский</a>
+                <a href="{{url('/en')}}" class="@if(App::getLocale() == 'en') active @endif">English</a>
+                <a href="{{url('/ru')}}" class="@if(App::getLocale() == 'ru') active @endif">Русский</a>
             </form>
         </div>
 
@@ -156,9 +156,9 @@
 
 
                 <li class="text-right hidden visible-xs @if(App::getLocale() == 'en') active @endif"><a
-                            href="{{url('/language/en')}}">English</a></li>
+                            href="{{url('/en')}}">English</a></li>
                 <li class="text-right hidden visible-xs @if(App::getLocale() == 'ru') active @endif"><a
-                            href="{{url('/language/ru')}}">Русский</a></li>
+                            href="{{url('/ru')}}">Русский</a></li>
 
 
                 @if(!Auth::check())

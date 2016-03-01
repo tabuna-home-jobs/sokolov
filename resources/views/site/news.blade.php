@@ -43,7 +43,7 @@
 
 
                 @foreach($NewsList as $news)
-                    <a href="{{URL::route('news.show',$news->slug)}}">
+                    <a href="{{URL::route(App::getLocale().'.news.show',$news->slug)}}">
                         <h5>{{$news->name}}</h5>
                     </a>
 
@@ -52,7 +52,7 @@
                         <small>{{$news->created_at->toDateString()}}</small>
                     </h5>
 
-                    <a href="{{URL::route('news.show',$news->slug)}}">
+                    <a href="{{URL::route(App::getLocale().'.news.show',$news->slug)}}">
                         <img class="img-respinsive" src="{{$news->avatar}}">
                     </a>
                     <p>

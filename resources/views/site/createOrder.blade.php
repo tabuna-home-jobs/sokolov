@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    <form role="form" method="post" class="order" action="{{URL::route('order.store')}}" enctype="multipart/form-data">
+    <form role="form" method="post" class="order" action="{{URL::route(App::getLocale().'.order.store')}}" enctype="multipart/form-data">
         <div class="row setup-content" id="step-1">
             <div class="col-xs-12">
                 <div class="col-md-12">

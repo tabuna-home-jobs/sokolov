@@ -1430,3 +1430,55 @@ pre {
     font-size: 12pt;
     text-align: justify;
 }
+
+
+
+
+
+
+
+.h-0{
+    height: auto;
+}
+
+
+
+
+
+.slider-reviews{
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.slider-reviews img{
+    max-width: 150px;
+}
+
+
+
+.slider-reviews .carousel-inner .item, .slider-reviews .carousel-inner .item img, .slider-reviews .carousel-inner .item.active{
+    height: auto;
+
+}
+.slider-reviews .carousel-indicators{
+    background: inherit;
+    position: relative;
+}
+
+.slider-reviews .carousel-indicators .active{
+    color: #F89C42;
+    background: #F89C42;
+}
+
+.slider-reviews .carousel-indicators li{
+    border: 1px solid #F89C42;
+}
+
+.slider-reviews .carousel-control{
+    color: #000;
+}
+
+
+
+
+

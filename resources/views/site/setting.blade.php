@@ -187,7 +187,7 @@
                 <div class="panel-body">
 
 
-                    <form class="form-horizontal" action="{{URL::route('setting.update')}}"
+                    <form class="form-horizontal" action="{{URL::route(App::getLocale().'.setting.update')}}"
                           method="post">
 
                         <div class="col-sm-12">

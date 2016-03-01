@@ -33,6 +33,8 @@ class Kernel extends HttpKernel
         'user' => \App\Http\Middleware\UserRole::class,
         'editor' => \App\Http\Middleware\EditorRole::class,
         'admin' => \App\Http\Middleware\AdminRole::class,
+        'En' => \App\Http\Middleware\En::class,
+        'Ru' => \App\Http\Middleware\Ru::class
 
     ];
 }

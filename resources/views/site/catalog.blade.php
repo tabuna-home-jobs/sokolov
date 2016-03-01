@@ -43,7 +43,7 @@
                                         <p class="m-top-10">
                                             <a href="/auth/login"
                                                class="btn btn-warning">{{trans('main.Order')}}</a>
-                                            <a href="{{URL::route('catalog.show',$gList->slug)}}"
+                                            <a href="{{URL::route(App::getLocale().'.catalog.show',$gList->slug)}}"
                                                class="btn btn-primary">{{trans('main.Learn More')}}</a>
                                         </p>
 
@@ -69,7 +69,7 @@
                             <figcaption>
 
 
-                                <a href="{{URL::route('catalog.show',$gList->slug)}}">
+                                <a href="{{URL::route(App::getLocale().'.catalog.show',$gList->slug)}}">
                                     <!--Выводится иконка прибавляется к ней просто индекс-->
                                     <img src="/img/catalog/icon{{++$key}}.png" class="img-icon"  alt="{{$gList->name}}">
 
