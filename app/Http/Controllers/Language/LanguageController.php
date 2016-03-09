@@ -14,6 +14,13 @@ class LanguageController extends Controller
 
     public function show($lang = 'en')
     {
+
+        if($lang !="ru" || $lang !="en")
+        {
+            $lang = "en";
+        }
+
+
         Session::put('lang', $lang);
 
         /*

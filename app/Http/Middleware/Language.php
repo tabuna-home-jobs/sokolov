@@ -30,16 +30,14 @@ class Language
             App::setLocale($lang);
         } elseif (!is_null($request->server->get('HTTP_ACCEPT_LANGUAGE'))) {
             $langRequest = substr($request->server->get('HTTP_ACCEPT_LANGUAGE'), 0, 2);
+
+            if($langRequest !="ru" || $langRequest !="en")
+            {
+                $langRequest = "en";
+            }
+
             Session::put('lang', $langRequest);
             App::setLocale($langRequest);
-
-            /*
-            if (Auth::check()) {
-                Auth::user()->lang = $langRequest;
-                Auth::user()->save();
-            }
-            */
-
 
         }
 
