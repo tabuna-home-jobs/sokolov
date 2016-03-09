@@ -10,6 +10,7 @@ use App\Models\Page;
 use App\Models\Review;
 use App\Models\Shares;
 use App\Models\Task;
+use App\Models\Blog;
 use App\Observer\CommentsObserver;
 use App\Observer\OrderObserver;
 use App\Observer\ReviewsObserver;
@@ -49,6 +50,7 @@ class EventServiceProvider extends ServiceProvider
 
         Page::observe(new SlugGenerateObserver);
         News::observe(new SlugGenerateObserver);
+        Blog::observe(new SlugGenerateObserver);
         Shares::observe(new SlugGenerateObserver);
         Goods::observe(new SlugGenerateObserver);
         //Order::observe(new ConvertValueObserver);

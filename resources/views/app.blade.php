@@ -27,48 +27,6 @@
 <body>
 <div class="app app-header-fixed app-aside-fixed app-aside-dock app-aside-folded ">
 
-    <!-- header -->
-    <header id="header" class="app-header navbar" role="menu">
-        <!-- navbar header -->
-        <div class="navbar-header bg-dark">
-            <button class="pull-right visible-xs dk" ui-toggle="show" target=".navbar-collapse">
-                <i class="glyphicon glyphicon-cog"></i>
-            </button>
-            <button class="pull-right visible-xs" ui-toggle="off-screen" target=".app-aside" ui-scroll="app">
-                <i class="glyphicon glyphicon-align-justify"></i>
-            </button>
-            <!-- brand -->
-            <a href="{{URL::route('dashboard..index')}}" class="navbar-brand text-lt">
-                <i class="fa fa-language"></i>
-            </a>
-            <!-- / brand -->
-        </div>
-        <!-- / navbar header -->
-
-        <!-- navbar collapse -->
-        <div class="collapse pos-rlt navbar-collapse box-shadow bg-white-only">
-
-
-            <!-- nabar right -->
-            <ul class="nav navbar-nav navbar-right">
-
-
-                <li>
-                    <a href="/auth/logout">
-                        <span class="hidden-sm hidden-md"><i class="fa fa-sign-out"></i> </span>
-                        <span class="visible-xs-inline">Выйти</span>
-
-                    </a>
-                </li>
-
-
-            </ul>
-            <!-- / navbar right -->
-        </div>
-        <!-- / navbar collapse -->
-    </header>
-    <!-- / header -->
-
     <!-- aside -->
     <aside id="aside" class="app-aside hidden-xs bg-dark">
         <div class="aside-wrap">
@@ -100,6 +58,13 @@
                             <a href="{{URL::route('dashboard.news.index')}}">
                                 <i class="fa fa-newspaper-o icon"></i>
                                 <span>Новости</span>
+                            </a>
+                        </li>
+
+                        <li class="{{Active::route('dashboard.blog.*')}}">
+                            <a href="{{URL::route('dashboard.blog.index')}}">
+                                <i class="fa fa-pencil-square-o icon"></i>
+                                <span>Блог</span>
                             </a>
                         </li>
 
@@ -202,6 +167,15 @@
                             <a href="{{route('dashboard.seostatic.index')}}">
                                 <i class="fa fa-bar-chart"></i>
                                 <span>SEO</span>
+                            </a>
+                        </li>
+
+
+                        <li class="pull-right">
+                            <a href="/auth/logout">
+                                <span class="hidden-sm hidden-md"><i class="fa fa-sign-out"></i> </span>
+                                <span class="visible-xs-inline">Выйти</span>
+
                             </a>
                         </li>
 

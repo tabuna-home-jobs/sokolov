@@ -1,4 +1,4 @@
-/* 
+/*
 
 */
 
@@ -1394,13 +1394,12 @@ html {
     padding-bottom: 0;
   }
   .app-aside-dock.app-aside-fixed.app-header-fixed {
-    padding-top: 115px;
+    padding-top: 75px;
   }
   .app-aside-dock.app-aside-fixed .app-aside {
     position: fixed;
-    top: 50px;
     z-index: 1000;
-    width: 100%;
+    width: 100%!important;
   }
   .app-aside-dock .app-aside,
   .app-aside-dock .aside-wrap,
@@ -1426,6 +1425,7 @@ html {
   }
   .app-aside-dock .app-aside nav > .nav {
     float: left;
+    width: 100%;
   }
   .app-aside-dock .app-aside .hidden-folded,
   .app-aside-dock .app-aside .line,
@@ -5179,4 +5179,3 @@ a.text-#000000:hover {
 .light-font-table {
   font-size: 10pt;
 }
-

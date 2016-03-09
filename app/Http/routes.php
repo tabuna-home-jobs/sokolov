@@ -41,6 +41,7 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'admin'], 'pr
     Route::resource('editor', 'EditorUserController');
     Route::resource('page', 'PageController');
     Route::resource('news', 'NewsController');
+    Route::resource('blog', 'BlogController');
     Route::resource('shares', 'SharesController');
     Route::resource('', 'AdminController');
     //Route::resource('feedback', 'FeedbackController');
@@ -74,6 +75,8 @@ Route::group(['namespace' => 'Site'], function () {
     Route::resource('', 'IndexController');
     Route::resource('page', 'PageController');
     Route::resource('news', 'NewsController');
+
+    Route::resource('blog', 'BlogController');
     Route::resource('feedback', 'FeedbackController');
     Route::resource('review', 'ReviewController');
     Route::resource('search', 'SearchController');
@@ -97,6 +100,8 @@ Route::group(['namespace' => 'Site', 'prefix' => 'ru', 'middleware' => 'Ru'], fu
     Route::resource('', 'IndexController');
     Route::resource('page', 'PageController');
     Route::resource('news', 'NewsController');
+
+    Route::resource('blog', 'BlogController');
     Route::resource('feedback', 'FeedbackController');
     Route::resource('review', 'ReviewController');
     Route::resource('search', 'SearchController');
@@ -118,6 +123,8 @@ Route::group(['namespace' => 'Site', 'prefix' => 'en', 'middleware' => 'En'], fu
     Route::resource('', 'IndexController');
     Route::resource('page', 'PageController');
     Route::resource('news', 'NewsController');
+
+    Route::resource('blog', 'BlogController');
     Route::resource('feedback', 'FeedbackController');
     Route::resource('review', 'ReviewController');
     Route::resource('search', 'SearchController');
