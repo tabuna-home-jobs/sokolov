@@ -11,6 +11,7 @@ use App\Models\Review;
 use App\Models\Shares;
 use App\Models\Task;
 use App\Models\Blog;
+use App\Models\Work;
 use App\Observer\CommentsObserver;
 use App\Observer\OrderObserver;
 use App\Observer\ReviewsObserver;

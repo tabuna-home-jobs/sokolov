@@ -1479,6 +1479,46 @@ pre {
 }
 
 
+.finish-work{
+    background-color: #f8fbfb;
+    padding: 15px;
+}
 
 
+.finish-work  .title{
+    font-weight: 600;
+    text-align: center;
+    font-size: 12pt;
+}
+
+.finish-work .aftor{
+    color: #666969;
+}
+
+
+.finish-work .fa.fa-file-text-o{
+    color: #f3b263;
+    font-size: 56pt;
+}
+
+.finish-work time{
+    float: left;
+    padding: 10px;
+    color: #666969;
+}
+
+
+.finish-work .fa.fa-download{
+    font-size: 20pt;
+    float: right;
+    color: #f3b263;
+    padding: 10px;
+}
+
+.finish-work .fa.fa-eye{
+    font-size: 20pt;
+    color: #0aa2b1;
+    float: right;
+    padding: 10px;
+}
 

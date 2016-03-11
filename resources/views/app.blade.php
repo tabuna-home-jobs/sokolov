@@ -171,6 +171,14 @@
                         </li>
 
 
+                        <li class="{{Active::route('dashboard.work.*')}}">
+                            <a href="{{route('dashboard.work.index')}}">
+                                <i class="fa fa-trophy"></i>
+                                <span>Готовые работы</span>
+                            </a>
+                        </li>
+
+
                         <li class="pull-right">
                             <a href="/auth/logout">
                                 <span class="hidden-sm hidden-md"><i class="fa fa-sign-out"></i> </span>

@@ -55,6 +55,7 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'admin'], 'pr
     Route::resource('langorder', OrderLangController::class);
     Route::resource('block', 'BlockController');
     Route::resource('element', 'ElementController');
+    Route::resource('work', 'WorkController');
 
     Route::resource('statinfo', 'StatInfoController');
 
@@ -106,6 +107,7 @@ Route::group(['namespace' => 'Site', 'prefix' => 'ru', 'middleware' => 'Ru'], fu
     Route::resource('review', 'ReviewController');
     Route::resource('search', 'SearchController');
     Route::resource('catalog', 'CatalogController');
+    Route::resource('trophy', 'WorksController');
 
 
     Route::group(['middleware' => ['auth', 'user']], function () {
@@ -129,6 +131,7 @@ Route::group(['namespace' => 'Site', 'prefix' => 'en', 'middleware' => 'En'], fu
     Route::resource('review', 'ReviewController');
     Route::resource('search', 'SearchController');
     Route::resource('catalog', 'CatalogController');
+    Route::resource('trophy', 'WorksController');
 
 
     Route::group(['middleware' => ['auth', 'user']], function () {
