@@ -5,6 +5,7 @@ return [
     'Work' => 'How we work',
     'Advantages' => 'Our editors',
     'Order' => 'Order now',
+    'Blog' => 'Resources',
     'News' => 'News and Promotions',
     'News-sub' => 'All news and promotions',
     'Reviews' => 'Customer Reviews',

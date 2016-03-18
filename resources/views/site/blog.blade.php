@@ -1,7 +1,7 @@
 @extends('_layout/site')
 
 
-@section('title',trans('main.News'))
+
 @section('title', $Blog->title)
 @section('description', $Blog->descript)
 @section('keywords', $Blog->tag)

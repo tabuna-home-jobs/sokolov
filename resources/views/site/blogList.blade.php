@@ -1,7 +1,7 @@
 @extends('_layout/site')
 
 
-@section('title',trans('main.News'))
+@section('title',trans('main.Blog'))
 
 
 
@@ -11,15 +11,15 @@
 
 
 
-        <div class="col-sm-8 blog-main">
+        <div class="col-sm-12 blog-main">
 
 
             @foreach($BlogList as $post)
             <article class="blog-post">
                 <h2 class="blog-post-title">
-                    <a href="{{URL::route(App::getLocale().'.blog.show',$post->slug)}}">{{ str_limit($post->title,$limit = 20, $end = '...')}}</a>
+                    <a href="{{URL::route(App::getLocale().'.blog.show',$post->slug)}}">{{$post->title}}</a>
                 </h2>
-                <p class="blog-post-meta"> {{$post->created_at->toDateString()}}</p>
+                <p class="blog-post-meta"> {{--$post->created_at->toDateString() --}}</p>
 
                 @if(!is_null($post->avatar) && !empty($post->avatar))
                 <div class="blog-thumbnail col-md-2">
@@ -29,7 +29,7 @@
                 </div>
                 @endif
 
-                <main>
+                <main class="col-md-10">
                     {{ str_limit(strip_tags($post->content), $limit = 500, $end = '...')}}
                 </main>
 
@@ -37,6 +37,7 @@
                 <hr>
 
             </article>
+                <div class="clearfix"></div>
             @endforeach
 
 
@@ -46,7 +47,7 @@
 
         </div>
 
-
+        {{--
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
 
             @foreach($NewsList as $news)
@@ -72,7 +73,7 @@
 
 
         </div>
-
+        --}}
 
 
 
