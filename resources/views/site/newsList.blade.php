@@ -13,7 +13,7 @@
             <article class="col-md-4 blog">
 
                 <h4>
-                    <a href="{{URL::route(App::getLocale().'.news.show',$News->slug)}}">{{ $News->title}}</a>
+                    <a href="{{URL::route(App::getLocale().'.news.show',$News->slug)}}" title="{{$News->title}}">{{ str_limit($News->title,$limit = 20, $end = '...')}}</a>
                 </h4>
                 <hr>
 
