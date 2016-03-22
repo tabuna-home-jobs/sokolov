@@ -100,6 +100,13 @@
                             </a>
                         </li>
 
+                        <li class="{{Active::route('dashboard.examples.*')}}">
+                            <a href="{{URL::route('dashboard.examples.index')}}">
+                                <i class="fa fa-th"></i>
+                                <span>Примеры работ</span>
+                            </a>
+                        </li>
+
 
                         <li class="{{Active::route('dashboard.order.*')}}">
                             <a href="{{URL::route('dashboard.order.index')}}">

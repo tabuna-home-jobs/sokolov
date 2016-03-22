@@ -47,6 +47,7 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'admin'], 'pr
     //Route::resource('feedback', 'FeedbackController');
     Route::resource('category', 'CategoryController');
     Route::resource('goods', 'GoodsController');
+    Route::resource('examples', 'ExamplesController');
     Route::resource('order', 'OrderController');
     Route::resource('comments', 'CommentsController');
     Route::resource('filemanager', 'FileManagerController');

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Comments;
 use App\Models\Goods;
+use App\Models\Examples;
 use App\Models\News;
 use App\Models\Order;
 use App\Models\Page;
@@ -54,6 +55,7 @@ class EventServiceProvider extends ServiceProvider
         Blog::observe(new SlugGenerateObserver);
         Shares::observe(new SlugGenerateObserver);
         Goods::observe(new SlugGenerateObserver);
+        Examples::observe(new SlugGenerateObserver);
         //Order::observe(new ConvertValueObserver);
 
         Review::observe(new ReviewsObserver);
