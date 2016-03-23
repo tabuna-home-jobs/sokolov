@@ -1521,4 +1521,16 @@ pre {
     float: right;
     padding: 10px;
 }
-
+.avatar-examples{
+    padding: 20px;
+}
+.name-example a{
+    color:#000;
+    font-size: 14px;
+    text-decoration: none;
+}
+.avatar-examples .fa{
+    color: #f68d44;
+    font-size: 65px;
+    font-weight: bold;
+}

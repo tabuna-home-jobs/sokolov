@@ -24,6 +24,7 @@ class ExamplesController extends Controller
         //dd($goodslist);
         //$examplesList = Examples::where('lang', App::getLocale())->orderBy('id', 'asc')->limit(4)->get();
 
+
         return view('site.examples', [
             'goodslist' => $goodslist
         ]);
