@@ -100,9 +100,9 @@
 
 
                             <div class="form-group">
-                                <label>Категория</label>
+                                <label>Услуга</label>
                                 <select class="form-control w-md" ui-jq="chosen" required name="category">
-                                    <option disabled>Выберите категорию</option>
+                                    <option disabled>Выберите Услугу</option>
 
                                     @foreach($Category as $cat)
 

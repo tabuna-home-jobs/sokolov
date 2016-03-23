@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ExamplesRequest;
 use App\Models\Block;
-use App\Models\Category;
+use App\Models\Goods;
 use App\Models\Examples;
 use Image;
 use Request;
@@ -32,7 +32,7 @@ class ExamplesController extends Controller
     public function create()
     {
         $Blocks = Block::all();
-        $Category = Category::all();
+        $Category = Goods::all();
         return view("dashboard/examples/create", [
             'Category' => $Category,
             'Blocks' => $Blocks,
@@ -94,7 +94,7 @@ class ExamplesController extends Controller
         $Examples = Examples::where('slug', $Examples)->firstOrFail();
 
         $Blocks = Block::all();
-        $Category = Category::all();
+        $Category = Goods::all();
         return view("dashboard/examples/edit", [
             'Examples' => $Examples,
             'Category' => $Category,

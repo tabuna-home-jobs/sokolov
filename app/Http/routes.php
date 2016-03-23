@@ -83,6 +83,7 @@ Route::group(['namespace' => 'Site'], function () {
     Route::resource('review', 'ReviewController');
     Route::resource('search', 'SearchController');
     Route::resource('catalog', 'CatalogController');
+    Route::resource('examples', 'ExamplesController');
 
 
     Route::group(['middleware' => ['auth', 'user']], function () {
@@ -108,6 +109,7 @@ Route::group(['namespace' => 'Site', 'prefix' => 'ru', 'middleware' => 'Ru'], fu
     Route::resource('review', 'ReviewController');
     Route::resource('search', 'SearchController');
     Route::resource('catalog', 'CatalogController');
+    Route::resource('examples', 'ExamplesController');
     Route::resource('trophy', 'WorksController');
 
 
@@ -132,6 +134,7 @@ Route::group(['namespace' => 'Site', 'prefix' => 'en', 'middleware' => 'En'], fu
     Route::resource('review', 'ReviewController');
     Route::resource('search', 'SearchController');
     Route::resource('catalog', 'CatalogController');
+    Route::resource('examples', 'ExamplesController');
     Route::resource('trophy', 'WorksController');
 
 
