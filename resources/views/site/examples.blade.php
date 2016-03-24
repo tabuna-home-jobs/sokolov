@@ -33,7 +33,7 @@
                             <div class="date-exampl">{{$good->created_at}}</div>
                         </div>
                         <div class="col-xs-3 eye-link-examples text-right">
-                            <a href="{{$good->slug}}">
+                            <a href="{{$good->slug}}" id="gettext" data-expl_id="{{$good->id}}">
                                 <i class="fa fa-eye"></i>
                             </a>
                         </div>
@@ -47,10 +47,10 @@
                     <div id="mainSlider" class="slider">
                         <div id="leftCont" class="pagesldr">
                         </div>
-                        <div class="btnsldr slide_item" id="dragMe" style="left: 0;">
+                        <div class="btnsldr slide_item rus_text" id="dragMe" style="left: 0;">
                             Классический текст Классический текст Классический текст Классический текст Классический текст Классический текст Классический текст Классический текст
                         </div>
-                        <div id="rightCont" class="pagesldr" style="width: 53%;">
+                        <div id="rightCont" class="pagesldr eng_text" style="width: 53%;">
                             <div class="liquid">
                                 Classic text Classic text Classic text Classic text Classic text Classic text Classic text Classic text
                             </div>

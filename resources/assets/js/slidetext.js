@@ -2,6 +2,26 @@
 var isActive = false;
 $(document).ready(function(){
 
+    //Берём текст перевода
+    $("#gettext").click(function(){
+        var data = {};
+        data['id'] = $(this).attr('data-expl_id');
+        /*
+        $.ajax({
+            url: global.startUrl,
+            type: "POST",
+            data: JSON.stringify(data),
+            processData: false,
+            contentType: "application/json; charset=UTF-8",
+            success: function(json) {
+
+            }
+        });*/
+    });
+
+
+
+
     var width_wrapper = $("#dragMe").width();
     var height_blocks = $("#dragMe").height();
     $(".liquid").width(width_wrapper);
