@@ -20,8 +20,15 @@ class ExamplesController extends Controller
      */
     public function index()
     {
-        $goodslist = Goods::where('lang', App::getLocale())->orderBy('id', 'asc')->limit(4)->get();
-        //dd($goodslist);
+        //$goodslist = Goods::where('lang', App::getLocale())->orderBy('id', 'asc')->limit(4)->get();
+        $goodslist = Goods::where('lang', App::getLocale())
+
+                    //Берём такуеже статью на др языке, связь у нас по категории
+                    ->with(['lang' => function($query){
+                        $query->where('lang','<>', App::getLocale());
+                    }])
+                    ->orderBy('id', 'asc')->limit(4)->get();
+
         //$examplesList = Examples::where('lang', App::getLocale())->orderBy('id', 'asc')->limit(4)->get();
 
 

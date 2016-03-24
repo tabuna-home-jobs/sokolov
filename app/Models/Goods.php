@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-
 /**
  * App\Models\Goods
  *
@@ -17,6 +16,7 @@ class Goods extends Model {
      */
     protected $table = 'goods';
 
+    protected static $goods = Goods::class;
 
     protected $casts = [
         'attribute' => 'array',
@@ -32,6 +32,12 @@ class Goods extends Model {
     public function category()
     {
         return $this->belongsTo('App\Models\Category');
+    }
+
+    public function lang(){
+
+        return $this->hasOne(static::$goods, 'category_id','category_id');
+
     }
 
 

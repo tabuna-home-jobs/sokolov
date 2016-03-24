@@ -1525,12 +1525,39 @@ pre {
     padding: 20px;
 }
 .name-example a{
-    color:#000;
-    font-size: 14px;
+    color: #1c1c1c;
+    font-family: RobotoSlab;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21px;
     text-decoration: none;
 }
 .avatar-examples .fa{
-    color: #f68d44;
+    color: #f9a441;
     font-size: 65px;
     font-weight: bold;
 }
+.date_create_example{
+    color: #1c1c1c;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 21px;
+}
+.eye-link-examples{
+    padding-top: 5px;
+}
+.eye-link-examples .fa{
+    color: #0aa2b1;
+    font-size: 30px;
+}
+.example_bottom_blocks{
+    display: flex;
+}
+
+.date-exampl{
+    padding-top: 10px;
+}
+
+
+
