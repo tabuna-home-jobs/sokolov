@@ -18,7 +18,10 @@
                             <label>Имя</label>
                             <input class="form-control" type="text" maxlength="255" required name="name" value="{{$work->name or ''}}">
                         </div>
-
+                        <div class="form-group">
+                            <label>Автор</label>
+                            <input class="form-control" type="text" maxlength="255" required name="author" value="{{$work->author or ''}}">
+                        </div>
 
                         <div class="form-group">
                             <label>Принадлежность</label>

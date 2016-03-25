@@ -22,7 +22,7 @@
                     <p class="text-center"><i class="fa fa-file-text-o"></i></p>
 
                     <p class="title">{{$good->name}}</p>
-                    <span class="aftor">Автор: Ивановский Иван Иванович</span>
+                    <span class="aftor">Автор: {{$good->author}}</span>
 
                     <div>
                         <time>{{$good->created_at}}</time>

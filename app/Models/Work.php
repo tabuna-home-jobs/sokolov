@@ -14,7 +14,8 @@ class Work extends Model
         'name',
         'before',
         'after',
-        'lang'
+        'lang',
+        'author'
     ];
 
 }
