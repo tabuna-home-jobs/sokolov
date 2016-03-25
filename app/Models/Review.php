@@ -29,8 +29,7 @@ class Review extends Model
         'lang',
         'publish',
         'country',
-        'institute',
-        'order_id'
+        'institute'
     ];
 
 
