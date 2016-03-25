@@ -61,6 +61,11 @@ class WorksController extends Controller
 
     }
 
+    public function getExampleone($id){
+
+        return Work::where(['id' => $id])->first()->toJson();
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

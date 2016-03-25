@@ -84,7 +84,16 @@ class ExamplesController extends Controller
      */
     public function edit($id)
     {
-        //
+
+    }
+
+    public function getExampleone($id){
+
+        return Goods::where(['id' => $id])->with(['lang' => function($query){
+                        $query->where('lang','<>', App::getLocale());
+                    }])->first()->toJson();
+
+
     }
 
     /**
@@ -96,7 +105,7 @@ class ExamplesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

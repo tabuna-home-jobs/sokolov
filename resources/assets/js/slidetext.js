@@ -2,28 +2,45 @@
 var isActive = false;
 $(document).ready(function(){
 
+    var width_wrapper = $("#dragMe").width();
+    var height_blocks = $("#dragMe").height();
+
+
     //Берём текст перевода
-    $("#gettext").click(function(){
+    $("body").on('click', '.gettext', function(){
         var data = {};
         data['id'] = $(this).attr('data-expl_id');
-        /*
+
+        $('#collapse').on('hidden.bs.collapse', function () {
+            $(".collapse").collapse('show');
+        });
+
+
         $.ajax({
-            url: global.startUrl,
-            type: "POST",
-            data: JSON.stringify(data),
-            processData: false,
-            contentType: "application/json; charset=UTF-8",
+            url: "/examplegetone/exampleone/"+data['id'],
+            type: "GET",
+            headers: {
+                'X-CSRF-TOKEN': $('#token').attr('content')
+            },
             success: function(json) {
+                var data = JSON.parse(json);
+                $(".rus_text").html(data.before);
+                $(".eng_text .liquid").html(data.after);
+
+
+                var height_blocks = $("#dragMe").height();
+                $("#rightCont").height(height_blocks);
+                $(".leftCont").height(height_blocks);
+                $(".wrap-slide-text").height(height_blocks + 40);
+                $(".magic-border").height(height_blocks);
 
             }
-        });*/
+        });
+
     });
 
 
 
-
-    var width_wrapper = $("#dragMe").width();
-    var height_blocks = $("#dragMe").height();
     $(".liquid").width(width_wrapper);
     $("#rightCont").height(height_blocks);
     $(".leftCont").height(height_blocks);
@@ -213,7 +230,7 @@ $(function() {
     });
 
     $(".wrap-slide-text").on("mousemove", function(event){
-        var parentOffset = $(this).parent().offset();
+        var parentOffset = $(this).parent().parent().offset();
         x = event.pageX - parentOffset.left;
 
         //or $(this).offset(); if you really just want the current element's offset

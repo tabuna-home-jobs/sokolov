@@ -49,13 +49,9 @@ class RouteServiceProvider extends ServiceProvider
             return \App\Models\Goods::where('slug', $value)->firstOrFail();
         });
 
-        $router->bind('examples', function($value) {
-            return \App\Models\Goods::where('slug', $value)->firstOrFail();
-        });
         $router->bind('work', function($value) {
             return \App\Models\Work::findOrFail($value);
         });
-
 
 
         $router->bind('block', function ($value) {

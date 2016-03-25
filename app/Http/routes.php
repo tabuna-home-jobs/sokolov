@@ -74,6 +74,7 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'admin'], 'pr
 
 
 Route::group(['namespace' => 'Site'], function () {
+
     Route::resource('', 'IndexController');
     Route::resource('page', 'PageController');
     Route::resource('news', 'NewsController');
@@ -84,6 +85,8 @@ Route::group(['namespace' => 'Site'], function () {
     Route::resource('search', 'SearchController');
     Route::resource('catalog', 'CatalogController');
     Route::resource('examples', 'ExamplesController');
+
+    Route::controller('examplegetone', 'WorksController');
 
 
     Route::group(['middleware' => ['auth', 'user']], function () {
