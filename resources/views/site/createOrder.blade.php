@@ -172,7 +172,7 @@
 
 
     <script>
-        window.onload = function () {
+        window.onload = function() {
 
 
             $(document).ready(function () {

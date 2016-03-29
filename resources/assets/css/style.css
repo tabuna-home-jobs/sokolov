@@ -1482,6 +1482,8 @@ pre {
 .finish-work{
     background-color: #f8fbfb;
     padding: 15px;
+    margin: 0;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
 }
 
 
@@ -1559,5 +1561,15 @@ pre {
     padding-top: 10px;
 }
 
+.post-content{
+    padding: 15px 0;
+}
 
+.blog-post{
+    padding: 0 15px 20px 15px;
+}
+
+a.no-hover:hover, a.no-hover:active{
+    text-decoration: none;
+}
 

@@ -17,6 +17,7 @@
 //});
 
 
+
 Route::group(['namespace' => 'Payments', 'prefix' => 'payments'], function () {
     Route::resource('order', 'AvisoController');
     Route::resource('status', 'StatusController');

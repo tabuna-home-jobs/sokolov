@@ -10,7 +10,10 @@
     <div class="container blog-container">
 
 
-        <h2 class="text-center">Готовые работы </h2>
+
+        <div class="page-header text-center">
+            <h2 class="text-center">Примеры работ</h2>
+        </div>
 
 
 
@@ -18,16 +21,19 @@
 
              @foreach($Works as $key =>$good)
 
-                <div class="col-md-3 finish-work">
-                    <p class="text-center"><i class="fa fa-file-text-o"></i></p>
+                 @if($key < 4)
+                <div class="col-md-3">
+                    <div class="row finish-work">
+                        <p class="text-center"><i class="fa fa-file-text-o"></i></p>
 
-                    <p class="title">{{$good->name}}</p>
-                    <span class="aftor">Автор: {{$good->author}}</span>
+                        <p class="title">{{$good->name}}</p>
+                        <span class="aftor">Автор: {{$good->author}}</span>
 
-                    <div>
-                        <time>{{$good->created_at}}</time>
-                        <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false"><i class="fa fa-eye"></i></a>
-                        <a href="#"><i class="fa fa-download"></i></a>
+                        <div>
+                            <time>{{$good->created_at->toDateString()}}</time>
+                            <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false"><i class="fa fa-eye"></i></a>
+                            <!--<a href="#"><i class="fa fa-download"></i></a> -->
+                        </div>
                     </div>
 
                 </div>
@@ -35,9 +41,11 @@
                 @if(($key+1) % 4 == 0)
                     <div class="clearfix"></div>
                 @endif
+
+                @endif
             @endforeach
 
-            <div class="collapse col-xs-12 row in" id="collapse">
+            <div class="collapse col-xs-12  in" id="collapse">
                 <div class="wrap-slide-text col-sm-12 hidden-xs">
                     <div id="mainSlider" class="slider">
                         <div id="leftCont" class="pagesldr">
@@ -93,12 +101,47 @@
 
 
 
+                 @foreach($Works as $key =>$good)
+
+                     @if($key > 3)
+                         <div class="col-md-3">
+                             <div class="row finish-work">
+                             <p class="text-center"><i class="fa fa-file-text-o"></i></p>
+
+                             <p class="title">{{$good->name}}</p>
+                             <span class="aftor">Автор: {{$good->author}}</span>
+
+                             <div>
+                                 <time>{{$good->created_at->toDateString()}}</time>
+                                 <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false"><i class="fa fa-eye"></i></a>
+                                 <!--<a href="#"><i class="fa fa-download"></i></a> -->
+                             </div>
+                                 </div>
+
+
+                         </div>
+
+                         @if(($key+1) % 4 == 0)
+                             <div class="clearfix"></div>
+                         @endif
+
+                     @endif
+                 @endforeach
+
+
 
 
 
 
         </div>
 
+
+        <div class="row">
+
+            <div class="text-center">
+                {!! $Works->render() !!}
+            </div>
+            </div>
 
 
 

@@ -10,7 +10,7 @@ class Work extends Model
 
     protected $fillable = [
         'name',
-        'goods_id',
+        'category_id',
         'name',
         'before',
         'after',

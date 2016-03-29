@@ -21,6 +21,9 @@ class NewsRequest extends Request
      *
      * @return array
      */
+
+
+
     public function rules()
     {
         return [
@@ -30,7 +33,7 @@ class NewsRequest extends Request
             'content' => 'required',
             'tag' => 'max:255',
             'descript' => 'max:255',
-            'avatar' => 'mimes:jpeg,bmp,png'
+            'avatar' => 'mimes:jpeg,bmp,png',
         ];
     }
 

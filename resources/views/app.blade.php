@@ -100,13 +100,6 @@
                             </a>
                         </li>
 
-                        <li class="{{Active::route('dashboard.examples.*')}}">
-                            <a href="{{URL::route('dashboard.examples.index')}}">
-                                <i class="fa fa-th"></i>
-                                <span>Примеры работ</span>
-                            </a>
-                        </li>
-
 
                         <li class="{{Active::route('dashboard.order.*')}}">
                             <a href="{{URL::route('dashboard.order.index')}}">
@@ -188,8 +181,8 @@
 
                         <li class="pull-right">
                             <a href="/auth/logout">
-                                <span class="hidden-sm hidden-md"><i class="fa fa-sign-out"></i> </span>
-                                <span class="visible-xs-inline">Выйти</span>
+                                <i class="fa fa-sign-out"></i>
+                                <span>Выйти</span>
 
                             </a>
                         </li>
@@ -261,7 +254,5 @@
 <script src="{{asset('/dash/dist/js/moment-with-locales.js')}}" type="text/javascript"></script>
 <script src="{{asset('/dash/dist/js/ru-picker.js')}}" type="text/javascript"></script>
 <script src="{{asset('/dash/dist/js/bootstrap-datetimepicker.min.js')}}" type="text/javascript"></script>
-
-
 </body>
 </html>

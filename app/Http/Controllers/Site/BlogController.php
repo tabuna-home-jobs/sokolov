@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Models\Blog;
 use App\Models\News;
 use Illuminate\Http\Request;
-
+use Cache;
 class BlogController extends Controller
 {
     /**
@@ -16,21 +16,55 @@ class BlogController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $blog = Blog::all();
-        foreach($blog as $value)
+
+        if(!empty($request->input('tags')))
         {
-            $value->save();
+           $blogList =  Blog::where('lang', App::getLocale())
+               ->where('tag','LIKE','%'.$request->input('tags').'%')
+               ->orderBy('id', 'desc')
+               ->simplePaginate(5);
+        }
+        else
+        {
+            $blogList =  Blog::where('lang', App::getLocale())->orderBy('id', 'desc')->simplePaginate(5);
         }
 
 
-
         return view('site.blogList', [
-            'BlogList' => Blog::where('lang', App::getLocale())->orderBy('id', 'desc')->simplePaginate(5),
-            'NewsList' => News::whereRaw('lang = ?', [App::getLocale()])->orderBy('id', 'desc')->limit(3)->get()
+            'BlogList' => $blogList,
+            'NewsList' => News::whereRaw('lang = ?', [App::getLocale()])->orderBy('id', 'desc')->limit(3)->get(),
+            'TagList' => $this->blogTags()
         ]);
     }
+
+
+    /**
+     * @return mixed
+     */
+    public function blogTags(){
+
+        return $TagList = Cache::remember('blog-tags-'. App::getLocale(), 10, function()
+        {
+            $Tags = Blog::select('tag')
+                ->where('lang', App::getLocale())
+                ->get();
+
+            $TagList = '';
+            foreach($Tags as $tag)
+            {
+                $TagList .= $tag->tag . ",";
+            }
+            return $TagList = array_unique(array_filter(
+                (explode(',',$TagList)),
+                function($el){ return !empty($el);}
+            ));
+        });
+    }
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -63,7 +97,8 @@ class BlogController extends Controller
     {
         return view('site.blog', [
             'Blog' => $blog,
-            'NewsList' => News::whereRaw('lang = ?', [App::getLocale()])->orderBy('id', 'desc')->limit(5)->get()
+            'NewsList' => News::whereRaw('lang = ?', [App::getLocale()])->orderBy('id', 'desc')->limit(3)->get(),
+            'TagList' => $this->blogTags()
         ]);
 
     }

@@ -4,9 +4,9 @@
     @if(!isset($li->getParent[0]))
         <li class='{{$li->class}}
         @if(substr($li->link, 0,1) == '/')
-        {{ Active::path(substr($li->link,1))}}
+        {{ Active::path(substr($li->link,1) . '**')}}
         @else
-        {{Active::path($li->link)}}
+        {{Active::path($li->link ."/**")}}
         @endif
                 '>
             <a
@@ -31,8 +31,8 @@
             <a class="pull-left small-menu-element-left"
 
                @if( empty(Active::path(substr($li->link,1))) && empty(Active::path($li->link)))
-                href="{{$li->link}}"
-               @endif
+               href="{{$li->link}}"
+                    @endif
 
             >{{$li->label}}</a>
             <a class="pull-left hidden-xs hidden-sm  dropdown-toggle" data-toggle="dropdown"

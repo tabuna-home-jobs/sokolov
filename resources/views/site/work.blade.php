@@ -10,8 +10,10 @@
     <div class="container blog-container">
 
 
-        <h2 class="text-center">Готовые работы </h2>
-        <br>
+
+        <div class="page-header text-center">
+            <h2 class="text-center">Примеры работ</h2>
+        </div>
 
 
         <div class="row">
@@ -21,11 +23,7 @@
                     <article class="col-md-3 col-xs-12 block-img-catalog-z">
 
                         <figure>
-
-
                             <figcaption>
-
-
                                 <a href="{{URL::route(App::getLocale().'.trophy.show',$gList->category_id)}}">
                                     <!--Выводится иконка прибавляется к ней просто индекс-->
                                     <img src="/img/catalog/icon{{++$key}}.png" class="img-icon"  alt="{{$gList->name}}">
@@ -37,11 +35,8 @@
                                         <p>
 
                                     </div>
-
-
                                 </a>
                             </figcaption>
-
                         </figure>
 
                     </article>

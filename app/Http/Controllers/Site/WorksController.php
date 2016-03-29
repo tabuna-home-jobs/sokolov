@@ -53,7 +53,9 @@ class WorksController extends Controller
      */
     public function show($id)
     {
-        $Works = Work::where('category_id',$id)->get();
+        $Works = Work::where('category_id',$id)
+            ->where('lang', App::getLocale())
+            ->simplePaginate(8);
         return view('site.works',[
             'Works' => $Works
         ]);

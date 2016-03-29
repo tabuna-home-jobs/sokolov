@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\News;
 use Illuminate\Http\Request;
+use Cache;
 
 class NewsController extends Controller
 {
@@ -15,12 +16,50 @@ class NewsController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+        if(!empty($request->input('tags')))
+        {
+            $NewsList =  News::where('lang', App::getLocale())
+                ->where('tag','LIKE','%'.$request->input('tags').'%')
+                ->orderBy('id', 'desc')
+                ->paginate(12);
+        }
+        else
+        {
+            $NewsList =  News::where('lang', App::getLocale())->orderBy('id', 'desc')->paginate(12);
+        }
+
         return view('site.newsList', [
-            'NewsList' => News::where('lang', App::getLocale())->orderBy('id', 'desc')->paginate(12)
+            'NewsList' => $NewsList,
+            'NewsTags' => $this->newsTags(),
         ]);
     }
+
+    /**
+     * @return mixed
+     */
+    public function newsTags(){
+
+        return $TagList = Cache::remember('news-tags-'. App::getLocale(), 10, function()
+        {
+            $Tags = News::select('tag')
+                ->where('lang', App::getLocale())
+                ->get();
+
+            $TagList = '';
+            foreach($Tags as $tag)
+            {
+                $TagList .= $tag->tag . ",";
+            }
+            return $TagList = array_unique(array_filter(
+                (explode(',',$TagList)),
+                function($el){ return !empty($el);}
+            ));
+        });
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -53,7 +92,7 @@ class NewsController extends Controller
     {
         return view('site.news', [
             'News' => $news,
-            'NewsList' => News::whereRaw('lang = ? and id != ?', [App::getLocale(), $news->id])->orderBy('id', 'desc')->limit(5)->get()
+            'NewsList' => News::whereRaw('lang = ? and id != ?', [App::getLocale(), $news->id])->orderBy('id', 'desc')->limit(3)->get()
         ]);
 
     }

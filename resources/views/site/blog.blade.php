@@ -38,19 +38,27 @@
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
 
+            <div class="page-header">
+                <h4>Теги</h4>
+            </div>
+            <div>
+                @foreach($TagList as $tag)
+                    <a href="{{URL::route(App::getLocale().'.blog.index',['tags' => $tag])}}" class="no-hover">
+                        <span class="label label-default">{{$tag}}</span>
+                    </a>
+                @endforeach
+            </div>
+
+            <div class="page-header">
+                <h4>Новости</h4>
+            </div>
             @foreach($NewsList as $news)
                 <a href="{{URL::route(App::getLocale().'.news.show',$news->slug)}}">
                     <h5>{{$news->name}}</h5>
                 </a>
-
-                <hr>
                 <h5 class="date">
                     <small>{{$news->created_at->toDateString()}}</small>
                 </h5>
-
-                <a href="{{URL::route(App::getLocale().'.news.show',$news->slug)}}">
-                    <img class="img-respinsive" src="{{$news->avatar}}">
-                </a>
                 <p>
                     {{
                         str_limit(strip_tags($news->content), $limit = 100, $end = '...')

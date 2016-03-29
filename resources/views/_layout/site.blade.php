@@ -29,6 +29,7 @@
 
     <link rel="stylesheet" href="{{elixir('build/css/app.css')}}" type="text/css"/>
 
+    <script src="{{elixir('build/js/app.js')}}" type="text/javascript"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic,500italic,300italic&subset=latin,cyrillic'
           rel='stylesheet' type='text/css'>
@@ -282,28 +283,28 @@
 
                     <div class="p-t-15">
 
-                        <a href="https://www.facebook.com/FalconScientificEditing" target="_blank" rel="nofollow">
+                        <a href="https://www.facebook.com/FalconScientificEditing" target="_blank" class="no-hover" rel="nofollow">
                             <img src="/img/social/fb-icon.png" alt="Facebook">
                         </a>
 
-                        <a href="https://twitter.com/FalconEditing" target="_blank" rel="nofollow">
+                        <a href="https://twitter.com/FalconEditing" target="_blank" class="no-hover" rel="nofollow">
                             <img src="/img/social/twitter-icon.png" alt="Twitter">
                         </a>
 
-                        <a href="https://plus.google.com/u/0/115410796310646309979" target="_blank" rel="nofollow">
+                        <a href="https://plus.google.com/u/0/115410796310646309979" target="_blank" class="no-hover"  rel="nofollow">
                             <img src="/img/social/google-icon.png" alt="Google Plus">
                         </a>
 
-                        <a href="https://www.linkedin.com/company/falcon-scientific-editing" target="_blank"
+                        <a href="https://www.linkedin.com/company/falcon-scientific-editing" class="no-hover" target="_blank"
                            rel="nofollow">
                             <img src="/img/social/in-icon.png" alt="Linkedin">
                         </a>
 
-                        <a href="http://vk.com/falconediting" target="_blank" rel="nofollow">
+                        <a href="http://vk.com/falconediting" target="_blank" class="no-hover" rel="nofollow">
                             <img src="/img/social/vk-icon.png" alt="VK">
                         </a>
 
-                        <a href="http://www.ok.ru/group/53590836838626" target="_blank" rel="nofollow">
+                        <a href="http://www.ok.ru/group/53590836838626" target="_blank" class="no-hover" rel="nofollow">
                             <img src="/img/social/ok-icon.png" alt="OK">
                         </a>
 
@@ -348,7 +349,6 @@
 </footer>
 
 
-<script src="{{elixir('build/js/app.js')}}" type="text/javascript"></script>
 
 <script src="/build/js/flipclock.min.js"></script>
 
