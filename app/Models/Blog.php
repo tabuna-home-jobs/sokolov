@@ -20,7 +20,7 @@ class Blog extends Model {
      *
      * @var array
      */
-    protected $fillable = ['title', 'name', 'content', 'avatar', 'datetime', 'tag', 'descript','lang'];
+    protected $fillable = ['title', 'name', 'content', 'avatar', 'datetime', 'tag', 'descript','lang','author'];
 
 
 

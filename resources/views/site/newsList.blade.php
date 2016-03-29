@@ -10,7 +10,13 @@
     <div class="container blog-container">
 
 
+
         <div class="col-md-8">
+
+            <div class="page-header">
+                <h4>{{trans('content.News')}}</h4>
+            </div>
+
 
         @foreach($NewsList as $News)
 
@@ -29,7 +35,7 @@
                         <div class="col-md-12 post-header-line">
 
                             @if(!empty($News->author))
-                                <i class="fa fa-user"></i> <a href="#"> Bhaumik</a> |
+                                <i class="fa fa-user"></i> {{$News->author}} |
                             @endif
 
                             <i class="fa fa-calendar"></i> {{$News->created_at->toDateString()}} |
@@ -38,7 +44,7 @@
                                 <i class="fa fa-tags"></i>
                                 Tags :
                                 @foreach(explode(',',$News->tag) as $tag)
-                                    <a href="#" class="no-hover"><span class="label label-default">{{$tag}}</span></a>
+                                    <a href="{{URL::route(App::getLocale().'.news.index',['tags' => $tag])}}" class="no-hover"><span class="label label-default">{{$tag}}</span></a>
                                 @endforeach
                             @endif
 

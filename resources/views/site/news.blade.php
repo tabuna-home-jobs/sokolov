@@ -16,12 +16,14 @@
 
         <article class="col-md-8">
 
+            <div class="page-header">
+                <h1>{{$News->name}}</h1>
+                @if(!empty($News->author))
+                    <i class="fa fa-user"></i> {{$News->author}} &nbsp; | &nbsp;
+                @endif
+                <small><i class="fa fa-calendar"></i> {{$News->created_at->toDateString()}} </small>
+            </div>
 
-            <h1>{{$News->name}}</h1>
-            <hr>
-            <h5 class="date">
-                <small>{{$News->created_at->toDateString()}}</small>
-            </h5>
             <div class="blog-thumbnail">
                 <img src="{{$News->avatar}}">
             </div>
@@ -31,6 +33,18 @@
                 {!! $News->content !!}
 
             </main>
+
+            <hr>
+
+
+            @if(!empty($News->tag))
+              <small class="">  <i class="fa fa-tags"></i>
+                Tags :
+                @foreach(explode(',',$News->tag) as $tag)
+                    <a href="{{URL::route(App::getLocale().'.news.index',['tags' => $tag])}}" class="no-hover"><span class="label label-default">{{$tag}}</span></a>
+                @endforeach
+                </small>
+            @endif
 
         </article>
 

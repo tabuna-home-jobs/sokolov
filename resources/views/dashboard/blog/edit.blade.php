@@ -38,6 +38,12 @@
                                    value="{{$blog->name or ''}}">
                         </div>
 
+                        <div class="form-group">
+                            <label>Автор</label>
+                            <input class="form-control" type="text" maxlength="255" required name="author" value="{{$blog->author or ''}}">
+                        </div>
+
+
 
                         <div class="form-group">
                             <label>Миниатюра</label>

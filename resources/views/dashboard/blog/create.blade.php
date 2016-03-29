@@ -35,6 +35,11 @@
                             <input class="form-control" type="text" maxlength="255" required name="name">
                         </div>
 
+                        <div class="form-group">
+                            <label>Автор</label>
+                            <input class="form-control" type="text" maxlength="255" required name="author">
+                        </div>
+
 
                         <div class="form-group">
                             <label>Миниатюра</label>

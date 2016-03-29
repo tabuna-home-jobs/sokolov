@@ -18,10 +18,17 @@
 
 
             <article class="blog-post">
-                <h2 class="blog-post-title">
-                    {{$Blog->name}}
-                </h2>
-                <p class="blog-post-meta"> {{$Blog->created_at->toDateString()}}</p>
+
+
+                <div class="page-header">
+                    <h1>{{$Blog->name}}</h1>
+
+                    @if(!empty($Blog->author))
+                        <i class="fa fa-user"></i> {{$Blog->author}} |
+                    @endif
+                    <small><i class="fa fa-calendar"></i> {{$Blog->created_at->toDateString()}} </small>
+                </div>
+
 
                 <main>
                     {!! $Blog->content !!}
@@ -29,6 +36,16 @@
 
 
                 <hr>
+
+
+                @if(!empty($Blog->tag))
+                    <small class="">  <i class="fa fa-tags"></i>
+                        Tags :
+                        @foreach(explode(',',$Blog->tag) as $tag)
+                            <a href="{{URL::route(App::getLocale().'.blog.index',['tags' => $tag])}}" class="no-hover"><span class="label label-default">{{$tag}}</span></a>
+                        @endforeach
+                    </small>
+                @endif
 
             </article>
 

@@ -10,9 +10,11 @@
     <div class="container blog-container">
 
 
-
         <div class="col-md-8 blog-main">
 
+            <div class="page-header">
+                <h4>{{trans('content.Resources')}}</h4>
+            </div>
 
             @foreach($BlogList as $post)
             <article class="row blog-post">
