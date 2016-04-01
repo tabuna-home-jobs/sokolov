@@ -51,44 +51,25 @@
                         <div id="leftCont" class="pagesldr">
                         </div>
                         <div class="btnsldr slide_item rus_text" id="dragMe" style="left: 0;">
-                            Многообразие задач и функций редактирования, осуществляемого в практике печати, издательского дела, кино, радиовещания и телевидения, обусловило
-                            необходимость различать несколько видов самого процесса редактирования. В частности, выделяют научное (или специальное), литературное,
-                            художественное, техническое редактирование, каждое из которых имеет присущие только ему специфические черты, цели и задачи.
 
-                            В начальные периоды книгопечатания обязанности редактора выполнял типограф. Роль редактора возросла с 18 в., особенно с развитием периодических
-                            изданий. Позже редактирование становится неотъемлемым этапом подготовки научных и литературных публикаций. Наиболее сложный и деликатный вид
-                            редакторской работы — редактор художественных произведений. На этапе редактирования возможно осуществление прямой или скрытой политической,
-                            морально-этической, эстетической и прочей цензуры, в связи с чем возрастают требования к нравственным качествам редактора. Строгая редактура
-                            считается признаком хорошего издания.
 
-                            Многообразие задач и функций редактирования, осуществляемого в практике печати, издательского дела, кино, радиовещания и телевидения, обусловило
-                            необходимость различать несколько видов самого процесса редактирования. В частности, выделяют научное (или специальное), литературное,
-                            художественное, техническое редактирование, каждое из которых имеет присущие только ему специфические черты, цели и задачи. В начальные периоды
-                            книгопечатания обязанности редактора выполнял типограф. Роль редактора возросла с 18 в., особенно с развитием периодических изданий. Позже
-                            редактирование становится неотъемлемым этапом подготовки научных и литературных публикаций. Наиболее сложный и деликатный вид редакторской
-                            работы — редактор художественных произведений.
+                            <div class="well-lg">
+                                Для использования этой функции просмотра, пожалуйста, нажмите,
+                                удерживайте и горизонтально перетащите оранжевый овал слева
+                                направо или наоборот.
+                            </div>
 
                         </div>
                         <div id="rightCont" class="pagesldr eng_text" style="width: 53%;">
                             <div class="liquid">
-                                The variety of tasks and editing functions are implemented in practice, printing, publishing, cinema, radio and television, has caused
-                                the need to distinguish between several types of the editing process. In particular, isolated scientific (or special), literary,
-                                artistic, technical editing, each of which is unique to his specific features, aims and objectives.
 
-                                In the initial period of printing Acting Editor perform printer. The role of the editor has increased from 18 in., Especially with the development of periodic
-                                publications. Later editing is an essential step in the preparation of scientific and literary publications. The most complex and delicate appearance
-                                editorial work - editor of works of art. At the editing stage may exercise directly or indirectly political,
-                                moral and ethical, aesthetic and other censorship, and therefore increase the requirements for moral qualities editor. Strict splicing
-                                It considered a sign of a good publication.
 
-                                The variety of tasks and editing functions are implemented in practice, printing, publishing, cinema, radio and television, has caused
-                                the need to distinguish between several types of the editing process. In particular, isolated scientific (or special), literary,
-                                artistic, technical editing, each of which is unique to his specific features, aims and objectives. In the initial period
-                                Acting editor of printing performed typographer. The role of the editor has increased from 18 in., Especially with the development of periodicals. Later
-                                editing is an essential step in the preparation of scientific and literary publications. The most complex and delicate kind of editorial
-                                work - editor of works of art. At the editing stage may exercise directly or indirectly a political, moral and
-                                ethical, aesthetic and other censorship, and therefore increase the requirements for moral qualities editor. Strict splicing considered
-                                a sign of good publications.
+                                <div class="well-lg">
+                                    To use this viewing feature, please press, hold
+                                    and horizontally drag the orange oval from
+                                    left to right or vice versa.
+
+                                    </div>
                             </div>
                         </div>
                         <div class="magic-border">

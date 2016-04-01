@@ -56,6 +56,13 @@
                              spelling mistakes')}}</p>
 
                                 </div>
+
+                                <a href="/{{App::getLocale() ."/trophy/4"}}" class="small">
+                                    {{trans('job.title')}}
+                                </a>
+
+
+
                             </div>
                         </div>
 
@@ -77,6 +84,13 @@
                              English')}}</p>
 
                                 </div>
+
+
+                                <a href="/{{App::getLocale() ."/trophy/5"}}" class="small">
+                                    {{trans('job.title')}}
+                                </a>
+
+
                             </div>
                         </div>
 
@@ -98,6 +112,12 @@
                              magazines')}}</p>
 
                                 </div>
+
+
+                                <a href="/{{App::getLocale() ."/trophy/6"}}" class="small">
+                                    {{trans('job.title')}}
+                                </a>
+
                             </div>
                         </div>
 
@@ -110,6 +130,9 @@
                                          data-altimg="/img/service-4-hover.png"  alt="{{trans('main.illustrating')}}">
 
                                     <h3>{{trans('main.illustrating')}}</h3>
+
+
+
                                 </a>
 
 
@@ -120,6 +143,12 @@
                              description')}}</p>
 
                                 </div>
+
+
+                                <a href="/{{App::getLocale() ."/trophy/7"}}" class="small">
+                                    {{trans('job.title')}}
+                                </a>
+
                             </div>
                         </div>
 
