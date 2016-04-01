@@ -12,7 +12,7 @@
 
 
         <div class="page-header text-center">
-            <h2 class="text-center">Примеры работ</h2>
+            <h2 class="text-center">{{trans('job.title')}}</h2>
         </div>
 
 
