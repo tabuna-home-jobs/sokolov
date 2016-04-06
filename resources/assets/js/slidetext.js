@@ -115,9 +115,6 @@ $(document).ready(function(){
 
 
 
-
-
-
 //smartresize
 var $event = $.event,
     dispatchMethod = $.event.handle ? 'handle' : 'dispatch',
@@ -208,15 +205,13 @@ $(function() {
     } });
 
     win.smartresize(function(){
-
         width = win.width();
         height = win.height();
         winRatio = parseInt(height)/parseInt(width);
         wRatio = width/imgW,
             hRatio = height/imgH;
         calcSlideOffset();
-
-    })
+    });
 
 
     $("body").on("mousedown", "#dragMe, .magic-border", function(event){
@@ -235,7 +230,16 @@ $(function() {
 
         //or $(this).offset(); if you really just want the current element's offset
         //var relX = event.pageX - parentOffset.left;
-        position = Math.round(100/(width/x)) + "%";
+
+        if(Math.round(100/(width/x)) > 99)
+        {
+            position = 100 + "%";
+        }
+        else
+        {
+            position = Math.round(100/(width/x)) + "%";
+        }
+
     });
 
 

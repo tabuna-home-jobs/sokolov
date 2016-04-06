@@ -23,7 +23,7 @@ return [
     "first name" => "First name",
     "Repeat password" => "Repeat password",
     "To login" => "Log In",
-    "Change password" => "Change password",
+    "Change password" => "Click here to reset",
     "Phone" => "Phone number",
 
 
