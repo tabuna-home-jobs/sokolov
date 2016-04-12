@@ -67,7 +67,7 @@ class PaymentsController extends Controller
             ->whereRaw('price > ? and sold = ?', ['0.01', 'false'])
             ->findOrFail($id);
 
-        $order->price_rub = CurrencyRate::getOneRecord() * $order->price;
+        $order->price_rub =  number_format(round(  CurrencyRate::getOneRecord() * $order->price));
         $order->save();
 
 
