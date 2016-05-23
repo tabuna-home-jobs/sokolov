@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace app\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use Illuminate\Http\Request;
 use SEO;
 use Session;
@@ -18,17 +17,17 @@ class SeoSaticController extends Controller
     public function index()
     {
         $routes = SEO::staticGetRoute();
+
         return view('dashboard.seo.index', [
-            'routes' => $routes
+            'routes' => $routes,
         ]);
-
     }
-
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($seoUrl)
@@ -41,19 +40,19 @@ class SeoSaticController extends Controller
             ->where('lang', 'en')
             ->first();
 
-
         return view('dashboard.seo.edit', [
             'meta' => $meta,
             'seoUrl' => $seoUrl,
-            'metaEn' => $metaEn
+            'metaEn' => $metaEn,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $seoUrl)
@@ -105,11 +104,8 @@ class SeoSaticController extends Controller
             $metaEn->fill($attr)->save();
         }
 
-
-
-
         Session::flash('good', 'Вы успешно добавили значения');
+
         return redirect()->back();
     }
-
 }

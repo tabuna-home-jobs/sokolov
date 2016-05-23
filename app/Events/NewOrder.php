@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Events;
-
+namespace app\Events;
 
 use Illuminate\Queue\SerializesModels;
 
@@ -13,8 +12,6 @@ class NewOrder extends Event
 
     /**
      * Create a new event instance.
-     *
-     * @return void
      */
     public function __construct($id)
     {

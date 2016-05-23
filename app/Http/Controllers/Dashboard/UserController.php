@@ -1,7 +1,8 @@
-<?php namespace App\Http\Controllers\Dashboard;
+<?php
+
+namespace app\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Http\Requests\Admin\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
@@ -10,7 +11,6 @@ use Session;
 
 class UserController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +19,7 @@ class UserController extends Controller
     public function index()
     {
         $Users = User::where('type', 'users')->sortable()->paginate(15);
+
         return view('dashboard/user/users', ['Users' => $Users]);
     }
 
@@ -44,7 +45,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
@@ -54,14 +55,13 @@ class UserController extends Controller
         $groups = Sentry::findAllGroups();
         $thisgroup = $User->getGroups();
 
-
         return view('dashboard/user/usersEdit', ['user' => $User, 'groups' => $groups, 'thisgroup' => $thisgroup]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
@@ -73,25 +73,25 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
     public function update(UserUpdateRequest $request)
     {
-
         $user = Auth::user();
         $user->email = $request->email;
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->save();
+
         return redirect()->route('dashboard.user.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return Response
      */
@@ -111,5 +111,4 @@ class UserController extends Controller
             echo 'User was not found.';
         }
     }
-
 }

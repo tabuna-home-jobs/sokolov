@@ -1,16 +1,14 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 /**
- * App\Models\Skills
- *
+ * App\Models\Skills.
  */
 class Skills extends Model
 {
-
-
     /**
      * The database table used by the model.
      *
@@ -28,7 +26,6 @@ class Skills extends Model
         'category_id',
     ];
 
-
     public function getUser()
     {
         return $this->belongsTo('App\Models\User', 'user_id');
@@ -38,6 +35,4 @@ class Skills extends Model
     {
         return $this->belongsTo('App\Models\Category', 'category_id');
     }
-
-
 }

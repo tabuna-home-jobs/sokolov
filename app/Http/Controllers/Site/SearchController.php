@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace app\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Models\Goods;
 use App\Models\News;
 use Request;
@@ -19,26 +18,25 @@ class SearchController extends Controller
     {
         $search = Request::input('search');
 
-        $searchList = News::where('content', 'LIKE', '%' . $search . '%')
-            ->whereOr('title', 'LIKE', '%' . $search . '%')
-            ->whereOr('descript', 'LIKE', '%' . $search . '%')
+        $searchList = News::where('content', 'LIKE', '%'.$search.'%')
+            ->whereOr('title', 'LIKE', '%'.$search.'%')
+            ->whereOr('descript', 'LIKE', '%'.$search.'%')
             ->orderBy('id', 'desc')
             ->limit(10)
             ->get();
 
         $searchGoods = Goods::
-        where('text', 'LIKE', '%' . $search . '%')
-            ->whereOr('title', 'LIKE', '%' . $search . '%')
-            ->whereOr('descript', 'LIKE', '%' . $search . '%')
+        where('text', 'LIKE', '%'.$search.'%')
+            ->whereOr('title', 'LIKE', '%'.$search.'%')
+            ->whereOr('descript', 'LIKE', '%'.$search.'%')
             ->orderBy('id', 'desc')
             ->limit(10)
             ->get();
 
         return view('site.search', [
             'searchList' => $searchList,
-            'searchGoods' => $searchGoods
+            'searchGoods' => $searchGoods,
         ]);
-
     }
 
     /**
@@ -54,7 +52,8 @@ class SearchController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
@@ -65,7 +64,8 @@ class SearchController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -76,7 +76,8 @@ class SearchController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
@@ -87,8 +88,9 @@ class SearchController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(Request $request, $id)
@@ -99,7 +101,8 @@ class SearchController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)

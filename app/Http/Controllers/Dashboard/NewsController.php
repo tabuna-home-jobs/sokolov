@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace app\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Http\Requests\NewsRequest;
 use App\Models\News;
 use Image;
 use Session;
-
 
 class NewsController extends Controller
 {
@@ -20,7 +18,8 @@ class NewsController extends Controller
     public function index()
     {
         $NewsList = News::orderBy('id', 'desc')->paginate(15);
-        return view("dashboard/news/news", ['NewsList' => $NewsList]);
+
+        return view('dashboard/news/news', ['NewsList' => $NewsList]);
     }
 
     /**
@@ -30,7 +29,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view("dashboard/news/create");
+        return view('dashboard/news/create');
     }
 
     /**
@@ -40,25 +39,26 @@ class NewsController extends Controller
      */
     public function store(NewsRequest $request)
     {
-
         $news = new News(
             $request->all()
         );
 
         if ($request->hasFile('avatar')) {
-            Image::make($request->file('avatar'))->resize(300, 200)->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
-            $news->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
+            Image::make($request->file('avatar'))->resize(300, 200)->save('upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension());
+            $news->avatar = '/upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension();
         }
         $news->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
+
         return redirect()->route('dashboard.news.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -69,18 +69,20 @@ class NewsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit(News $news)
     {
-        return view("dashboard/news/edit", ['news' => $news]);
+        return view('dashboard/news/edit', ['news' => $news]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function update(News $news, NewsRequest $request)
@@ -90,26 +92,29 @@ class NewsController extends Controller
         );
 
         if ($request->hasFile('avatar')) {
-            Image::make($request->file('avatar'))->resize(300, 200)->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
-            $news->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
+            Image::make($request->file('avatar'))->resize(300, 200)->save('upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension());
+            $news->avatar = '/upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension();
         }
 
         $news->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
+
         return redirect()->route('dashboard.news.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy(News $news)
     {
         $news->delete();
         Session::flash('good', 'Вы успешно удалили значения');
+
         return redirect()->route('dashboard.news.index');
     }
 }

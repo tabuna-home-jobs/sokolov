@@ -1,20 +1,16 @@
-<?php namespace App\Models;
+<?php
 
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 /**
- * App\Models\Menu
- *
+ * App\Models\Menu.
  */
-class Menu extends Model {
-
-
-
+class Menu extends Model
+{
     public function getElement()
     {
         return $this->hasMany('App\Models\MenuItem', 'menu');
     }
-
 }

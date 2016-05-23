@@ -151,12 +151,13 @@
                     <div class="form-group">
                         <label class="control-label"> {{trans('createOrder.For what language translation needs')}}</label>
                         <select name="langOrder_id" required class="form-control">
+                            <option disabled selected>
+                                {{trans('createOrder.For what language translation needs')}}
+                            </option>
                             @foreach($langTrans as $key => $value)
-
                                 <option value="{{$value}}">
                                     {{$key}}
                                 </option>
-
                             @endforeach
                         </select>
                     </div>

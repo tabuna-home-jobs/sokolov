@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace app\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Models\Files;
 use Auth;
 use Illuminate\Http\Request;
@@ -34,20 +33,20 @@ class FileManagerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
     {
         foreach ($request->file('files') as $file) {
-
             $time = time();
 
-            $file->move(storage_path() . '/app/order/', Str::ascii($time . '-' . $file->getClientOriginalName()));
+            $file->move(storage_path().'/app/order/', Str::ascii($time.'-'.$file->getClientOriginalName()));
             $DBfile = new Files([
                 'user_id' => Auth::user()->id,
                 'original' => $file->getClientOriginalName(),
-                'name' => Str::ascii($time . '-' . $file->getClientOriginalName()),
+                'name' => Str::ascii($time.'-'.$file->getClientOriginalName()),
                 'type' => $request->input('type'),
                 'beglouto' => $request->input('beglouto'),
                 'finish' => true,
@@ -61,21 +60,22 @@ class FileManagerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
     {
         $file = Files::findOrFail($id);
 
-        return response()->download(storage_path() . '/app/order/' .  Str::ascii($file->name));
-
+        return response()->download(storage_path().'/app/order/'.Str::ascii($file->name));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
@@ -86,8 +86,9 @@ class FileManagerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(Request $request, $id)
@@ -98,7 +99,8 @@ class FileManagerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)

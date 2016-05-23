@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Requests\Editor;
+namespace app\Http\Requests\Editor;
 
 use App\Http\Requests\Request;
 use Auth;
-
 
 class ChanRequest extends Request
 {
@@ -26,7 +25,7 @@ class ChanRequest extends Request
     public function rules()
     {
         return [
-            'task_id' => 'required|integer|exists:task,id'
+            'task_id' => 'required|integer|exists:task,id',
         ];
     }
 }

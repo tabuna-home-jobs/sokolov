@@ -750,8 +750,8 @@ body {
 
 .app-content-full {
   position: absolute;
-  top: 115px;
-  bottom: 50px;
+  top: 0px;
+  bottom: 0px;
   width: auto !important;
   height: auto;
   padding: 0 !important;

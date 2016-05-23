@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,6 +27,4 @@ class Country extends Model
     {
         return $this->hasMany('App\Models\User');
     }
-
-
 }

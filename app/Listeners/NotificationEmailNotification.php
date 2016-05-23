@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Listeners;
+namespace app\Listeners;
 
 use App\Events\NewOrder;
 use App\Events\Notification;
@@ -12,8 +12,6 @@ class NotificationEmailNotification
 {
     /**
      * Create the event listener.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -23,12 +21,11 @@ class NotificationEmailNotification
     /**
      * Handle the event.
      *
-     * @param  NewOrder $event
-     * @return void
+     * @param NewOrder $event
      */
     public function handle(Notification $event)
     {
-        Mail::raw('Задача #' . $event->id . ' была взята в работу', function ($message) {
+        Mail::raw('Задача #'.$event->id.' была взята в работу', function ($message) {
             $message->from(Config::get('link.email'));
             $message->to(Config::get('link.email'))->cc(Config::get('link.email'));
         });
@@ -36,14 +33,10 @@ class NotificationEmailNotification
         $Task = Task::findOrFail($event->id);
         $User = $Task->getUser()->select('email_notification', 'email')->first();
         if ($User->email_notification) {
-
-            Mail::raw('Задача #' . $event->id . ' была взята в работу', function ($message) use ($User) {
+            Mail::raw('Задача #'.$event->id.' была взята в работу', function ($message) use ($User) {
                 $message->from(Config::get('link.email'));
                 $message->to($User->email)->cc($User->email);
             });
-
         }
-
-
     }
 }

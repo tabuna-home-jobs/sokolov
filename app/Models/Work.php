@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +15,6 @@ class Work extends Model
         'before',
         'after',
         'lang',
-        'author'
+        'author',
     ];
-
 }

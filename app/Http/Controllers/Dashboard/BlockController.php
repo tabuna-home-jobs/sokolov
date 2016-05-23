@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace app\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Models\Block;
 use Illuminate\Http\Request;
 use Session;
@@ -20,7 +19,7 @@ class BlockController extends Controller
         $Blocks = Block::paginate(15);
 
         return view('dashboard.block.index', [
-            'Blocks' => $Blocks
+            'Blocks' => $Blocks,
         ]);
     }
 
@@ -37,20 +36,23 @@ class BlockController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
     {
         Block::create($request->all());
         Session::flash('good', 'Вы успешно создали блок');
+
         return redirect()->route('dashboard.block.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -60,20 +62,22 @@ class BlockController extends Controller
 
     /**
      * @param $block
+     *
      * @return \Illuminate\View\View
      */
     public function edit($block)
     {
-        return view("dashboard/block/edit", [
-            'block' => $block
+        return view('dashboard/block/edit', [
+            'block' => $block,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(Request $request, $block)
@@ -81,19 +85,22 @@ class BlockController extends Controller
         $block->fill($request->all());
         $block->save();
         Session::flash('good', 'Вы успешно изменили значения');
+
         return redirect()->route('dashboard.block.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($block)
     {
         $block->delete('cascade');
         Session::flash('good', 'Вы успешно удалили значения');
+
         return redirect()->route('dashboard.block.index');
     }
 }

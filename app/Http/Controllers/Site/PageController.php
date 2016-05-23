@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace app\Http\Controllers\Site;
 
 use App;
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Models\News;
 use App\Models\Page;
 use Illuminate\Http\Request;
@@ -34,18 +33,19 @@ class PageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
     {
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show(Page $page)
@@ -54,15 +54,15 @@ class PageController extends Controller
 
         return view('site.page', [
             'Page' => $page,
-            'NewsList' => $news
+            'NewsList' => $news,
         ]);
-
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
@@ -73,8 +73,9 @@ class PageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(Request $request, $id)
@@ -85,7 +86,8 @@ class PageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)

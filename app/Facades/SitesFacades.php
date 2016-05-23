@@ -1,18 +1,18 @@
 <?php
-namespace App\Facades;
+
+namespace app\Facades;
+
 use Illuminate\Support\Facades\Facade;
 
-
-class SitesFacades extends Facade {
-
+class SitesFacades extends Facade
+{
     /**
      * Получить зарегистрированное имя компонента.
      *
      * @return string
      */
-    protected static function getFacadeAccessor() {
+    protected static function getFacadeAccessor()
+    {
         return  'App\Services\Sites';
     }
 }
-
-?>

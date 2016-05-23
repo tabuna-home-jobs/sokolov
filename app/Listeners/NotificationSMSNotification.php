@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Listeners;
+namespace app\Listeners;
 
 use App\Events\NewOrder;
 use App\Events\Notification;
@@ -12,8 +12,6 @@ class NotificationSMSNotification
 {
     /**
      * Create the event listener.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -23,18 +21,16 @@ class NotificationSMSNotification
     /**
      * Handle the event.
      *
-     * @param  NewOrder $event
-     * @return void
+     * @param NewOrder $event
      */
     public function handle(Notification $event)
     {
-
-        SMS::send(Config::get('link.phone'), 'Задача #' . $event->id . ' выла взята в работу');
+        SMS::send(Config::get('link.phone'), 'Задача #'.$event->id.' выла взята в работу');
 
         $Task = Task::findOrFail($event->id);
         $User = $Task->getUser()->select('phone_notification', 'phone')->first();
         if ($User->phone_notification) {
-            SMS::send($User->phone, 'Задача #' . $event->id . ' выла взята в работу');
+            SMS::send($User->phone, 'Задача #'.$event->id.' выла взята в работу');
         }
     }
 }

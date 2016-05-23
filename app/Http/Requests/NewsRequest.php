@@ -1,11 +1,11 @@
-<?php namespace App\Http\Requests;
+<?php
 
+namespace app\Http\Requests;
 
 use Auth;
 
 class NewsRequest extends Request
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -21,9 +21,6 @@ class NewsRequest extends Request
      *
      * @return array
      */
-
-
-
     public function rules()
     {
         return [
@@ -36,5 +33,4 @@ class NewsRequest extends Request
             'avatar' => 'mimes:jpeg,bmp,png',
         ];
     }
-
 }

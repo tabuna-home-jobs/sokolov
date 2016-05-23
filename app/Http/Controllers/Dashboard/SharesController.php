@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace app\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SharesRequest;
@@ -8,10 +8,8 @@ use App\Models\Shares;
 use Image;
 use Session;
 
-
 class SharesController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +18,8 @@ class SharesController extends Controller
     public function index()
     {
         $SharesList = Shares::orderBy('id', 'desc')->paginate(15);
-        return view("dashboard/shares/shares", ['SharesList' => $SharesList]);
+
+        return view('dashboard/shares/shares', ['SharesList' => $SharesList]);
     }
 
     /**
@@ -30,7 +29,7 @@ class SharesController extends Controller
      */
     public function create()
     {
-        return view("dashboard/shares/create");
+        return view('dashboard/shares/create');
     }
 
     /**
@@ -45,20 +44,22 @@ class SharesController extends Controller
         );
 
         if ($request->hasFile('avatar')) {
-            Image::make($request->file('avatar'))->resize(300, 200)->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
-            $shares->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
+            Image::make($request->file('avatar'))->resize(300, 200)->save('upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension());
+            $shares->avatar = '/upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension();
         }
         $shares->save();
 
         //Флеш сообщение
         Session::flash('good', 'Вы успешно добавили значения');
+
         return redirect()->route('dashboard.shares.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -69,49 +70,52 @@ class SharesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit(Shares $shares)
     {
-        return view("dashboard/shares/edit", ['Shares' => $shares]);
+        return view('dashboard/shares/edit', ['Shares' => $shares]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function update(Shares $shares, SharesRequest $request)
     {
-
         $shares->fill(
             $request->all()
         );
 
-
         if ($request->hasFile('avatar')) {
-            Image::make($request->file('avatar'))->resize(300, 200)->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
-            $shares->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
+            Image::make($request->file('avatar'))->resize(300, 200)->save('upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension());
+            $shares->avatar = '/upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension();
         }
 
         $shares->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
+
         return redirect()->route('{local}.dashboard.shares.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy(Shares $shares)
     {
         $shares->delete();
         Session::flash('good', 'Вы успешно удалили значения');
+
         return redirect()->route('dashboard.shares.index');
     }
 }

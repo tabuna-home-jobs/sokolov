@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Observer;
+namespace app\Observer;
 
 use App\Models\Order;
 use App\Models\User;
@@ -13,7 +13,6 @@ use CurrencyRate;
 
 class OrderObserver
 {
-
     protected $email;
 
     protected $phone;
@@ -31,7 +30,6 @@ class OrderObserver
            */
         App::setLocale('en');
     }
-
 
     public function created($model)
     {
@@ -53,16 +51,13 @@ class OrderObserver
             $message->subject(trans('notification.Your order # .', ['id' => $model->id]));
         });
 
-
         App::setLocale(Session::get('lang', 'en'));
     }
-
 
     public function updated($model)
     {
         $order = Order::find($model->id);
         $this->user = User::find($model->user_id);
-
 
         // если он был оплачен
         if ($model->sold == 1 && $order->sold == 0) {
@@ -85,9 +80,7 @@ class OrderObserver
         }
 
         App::setLocale(Session::get('lang', 'en'));
-
     }
-
 
     public function saving($model)
     {
@@ -102,11 +95,5 @@ class OrderObserver
         }
 
         App::setLocale(Session::get('lang', 'en'));
-
     }
-
-
 }
-
-
-?>

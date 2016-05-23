@@ -1,10 +1,11 @@
-<?php namespace App\Http\Requests;
+<?php
+
+namespace app\Http\Requests;
 
 use Auth;
 
 class MenuRequest extends Request
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -28,5 +29,4 @@ class MenuRequest extends Request
             'type' => 'required|max:255',
         ];
     }
-
 }

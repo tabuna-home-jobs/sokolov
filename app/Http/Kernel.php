@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http;
+namespace app\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -18,7 +18,7 @@ class Kernel extends HttpKernel
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         //  \App\Http\Middleware\VerifyCsrfToken::class,
-        \App\Http\Middleware\Language::class
+        \App\Http\Middleware\Language::class,
     ];
 
     /**
@@ -34,7 +34,7 @@ class Kernel extends HttpKernel
         'editor' => \App\Http\Middleware\EditorRole::class,
         'admin' => \App\Http\Middleware\AdminRole::class,
         'En' => \App\Http\Middleware\En::class,
-        'Ru' => \App\Http\Middleware\Ru::class
+        'Ru' => \App\Http\Middleware\Ru::class,
 
     ];
 }

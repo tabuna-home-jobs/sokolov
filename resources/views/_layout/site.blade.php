@@ -29,6 +29,7 @@
 
     <link rel="stylesheet" href="{{elixir('build/css/app.css')}}" type="text/css"/>
 
+
     <script src="{{elixir('build/js/app.js')}}" type="text/javascript"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic,500italic,300italic&subset=latin,cyrillic'
@@ -58,8 +59,7 @@
 
 
 <div id="loader-wrapper">
-    <img id="loader-logo" src="/img/logo.png" class="img-responsive" alt="loader">
-
+        <img id="loader-logo" src="/img/logo.png" class="img-responsive" alt="loader">
     <div id="loader"></div>
 </div>
 
@@ -105,8 +105,12 @@
                     <input type="text" name="search" placeholder="{{trans('main.Search')}} ..." class="form-control">
                 </div>
 
-                <a href="{{url('/en')}}" class="@if(App::getLocale() == 'en') active @endif">English</a>
-                <a href="{{url('/ru')}}" class="@if(App::getLocale() == 'ru') active @endif">Русский</a>
+                <a href="{{url('/en')}}" class="flag @if(App::getLocale() == 'en') active @endif">
+                    <img src="/img/lang/eng.png" height="20px">
+                </a>
+                <a href="{{url('/ru')}}" class="flag @if(App::getLocale() == 'ru') active @endif">
+                    <img src="/img/lang/rus.png" height="20px">
+                </a>
             </form>
         </div>
 
@@ -116,8 +120,9 @@
     <nav class="navbar navbar-default">
 
         <div class="navbar-header col-xs-12 col-md-6">
-            <a class="navbar-brand2" href="/"><img src="/img/logo.jpg" class="img-responsive"
-                                                   alt="Falcon Scientific Editing"> </a>
+            <a class="navbar-brand2" href="/">
+                <img src="/img/logo_{{App::getLocale()}}.png" class="img-responsive" alt="Falcon Scientific Editing">
+            </a>
 
             <h1 class="logo-text">
                 {{trans("main.text-logo")}}
@@ -262,7 +267,7 @@
                     </p>
 
 
-                    <img src="/img/logo-while.png" class="img-responsive" alt="Falcon Scientific Editing">
+                    <img src="/img/shield.png" class="img-responsive" alt="Falcon Scientific Editing">
 
                 </div>
                 <div class="col-sm-3  col-xs-12">
@@ -335,7 +340,7 @@
         <div class="container">
             <div class="row padder-v m-t">
                 <div class="col-xs-6">
-                    © 2015 - {{ date("Y")}}, Falcon Scientific Editing, {{trans('footer.Denis A. Sokolov')}}
+                    © 2015 - {{ date("Y")}}, Falcon Scientific Editing
                 </div>
                 <div class="col-xs-6 text-right">
                     <p>{{trans('footer.octavian')}} <span class="text-right"><a

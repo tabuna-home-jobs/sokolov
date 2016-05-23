@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Dashboard;
+namespace app\Http\Requests\Dashboard;
 
 use App\Http\Requests\Request;
 use Auth;
@@ -30,7 +30,7 @@ class EditorUserRequest extends Request
             'phone' => 'required|max:255',
             'email' => 'required|email|max:255',
             'password' => 'sometimes|confirmed|min:6',
-            'password_confirmation' => 'sometimes'
+            'password_confirmation' => 'sometimes',
         ];
     }
 }

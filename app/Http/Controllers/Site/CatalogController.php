@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace app\Http\Controllers\Site;
 
 use App;
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Models\Goods;
 use Illuminate\Http\Request;
 
@@ -14,16 +13,14 @@ class CatalogController extends Controller
      * Display a listing of the resource.
      *
      * @return Response
-     * $goodsList получает список товаров по текущей локале и отдаёт представлению
-     *
+     *                  $goodsList получает список товаров по текущей локале и отдаёт представлению
      */
     public function index()
     {
-
         $goodsList = Goods::where('lang', App::getLocale())->orderBy('id', 'asc')->limit(4)->get();
 
         return view('site.catalog', [
-            'goodsList' => $goodsList
+            'goodsList' => $goodsList,
         ]);
     }
 
@@ -40,7 +37,8 @@ class CatalogController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
@@ -51,13 +49,13 @@ class CatalogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show(Goods $goods)
     {
         $good = Goods::whereRaw('lang = ? and id = ?', [App::getLocale(), $goods->id])->firstOrFail();
-
 
         $prev = Goods::select('slug')->whereRaw('lang = ? and id != ? and id > ?', [App::getLocale(), $goods->id, $good->id])->orderBy('id', 'ASC')->first();
 
@@ -70,7 +68,6 @@ class CatalogController extends Controller
             $next = Goods::select('slug')->whereRaw('lang = ? and id != ? and id > ?', [App::getLocale(), $goods->id, $good->id])->orderBy('id', 'Desc')->limit(1)->first();
         }
 
-
         return view('site.catalogElement', [
             'Goods' => $good,
             'next' => $next,
@@ -81,7 +78,8 @@ class CatalogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
@@ -92,8 +90,9 @@ class CatalogController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(Request $request, $id)
@@ -104,7 +103,8 @@ class CatalogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Listeners;
+namespace app\Listeners;
 
 use App\Events\NewOrder;
 use App\Models\Order;
@@ -11,36 +11,30 @@ class NotificationEmailOrder
 {
     /**
      * Create the event listener.
-     *
-     * @return void
      */
     public function __construct()
     {
-
     }
 
     /**
      * Handle the event.
      *
-     * @param  NewOrder $event
-     * @return void
+     * @param NewOrder $event
      */
     public function handle(NewOrder $event)
     {
-        Mail::raw('Новый заказ #' . $event->id . ' ожидает рассмотрения', function ($message) {
+        Mail::raw('Новый заказ #'.$event->id.' ожидает рассмотрения', function ($message) {
             $message->from(Config::get('link.email'));
             $message->to(Config::get('link.email'))->cc(Config::get('link.email'));
         });
 
-
         $Order = Order::findOrFail($event->id);
         $User = $Order->getUser()->select('email_notification', 'email')->first();
         if ($User->email_notification) {
-            Mail::raw('Ваш заказ #' . $event->id . ' ожидает рассмотрения', function ($message) use ($User) {
+            Mail::raw('Ваш заказ #'.$event->id.' ожидает рассмотрения', function ($message) use ($User) {
                 $message->from(Config::get('link.email'));
                 $message->to($User->email)->cc($User->email);
             });
         }
-
     }
 }

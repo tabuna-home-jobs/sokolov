@@ -1,7 +1,8 @@
-<?php namespace App\Http\Controllers\Site;
+<?php
+
+namespace app\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Http\Requests\Site\FeedbackRequest;
 use Config;
 use Mail;
@@ -9,7 +10,6 @@ use Session;
 
 class FeedbackController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -45,22 +45,22 @@ class FeedbackController extends Controller
         });
         */
 
-
         Mail::send('emails.feedback', ['request' => $request->all()], function ($message) {
             $message->from(Config::get('link.email'))
                 ->to(Config::get('link.email'))
                 ->subject('Сообщение с Falcon Editing');
         });
 
-
         Session::flash('good', trans('alert.Thank you for writing, we will respond to you.'));
+
         return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -71,7 +71,8 @@ class FeedbackController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
@@ -82,7 +83,8 @@ class FeedbackController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function update($id)
@@ -93,12 +95,12 @@ class FeedbackController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)
     {
         //
     }
-
 }

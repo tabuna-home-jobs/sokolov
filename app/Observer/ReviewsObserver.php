@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Observer;
+namespace app\Observer;
 
 use Config;
 use Mail;
@@ -10,7 +10,6 @@ use Session;
 
 class ReviewsObserver
 {
-
     protected $email;
 
     protected $phone;
@@ -29,7 +28,6 @@ class ReviewsObserver
         App::setLocale('en');
     }
 
-
     public function created($model)
     {
         // Главному редактору, после того, как клиент оставил отзыв к заказу:
@@ -42,9 +40,4 @@ class ReviewsObserver
 
         App::setLocale(Session::get('lang', 'en'));
     }
-
-
 }
-
-
-?>

@@ -64,7 +64,7 @@
 
                                                 <div class="input-group">
                                                     <input class="form-control" type="number"
-                                                           value="{{$task->getOrder->price}}" maxlength="255"
+                                                           value="{{$task->getOrder->price}}" maxlength="255" step="0.01"
                                                            min="0"
                                                            required
                                                            name="price">

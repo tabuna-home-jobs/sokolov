@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace app\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Image;
@@ -19,7 +18,8 @@ class ReviewController extends Controller
     public function index()
     {
         $Review = Review::orderBy('id', 'desc')->paginate(15);
-        return view("dashboard/reviews/reviews", ['ReviewsList' => $Review]);
+
+        return view('dashboard/reviews/reviews', ['ReviewsList' => $Review]);
     }
 
     /**
@@ -29,13 +29,14 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        return view("dashboard/reviews/create");
+        return view('dashboard/reviews/create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
@@ -45,19 +46,21 @@ class ReviewController extends Controller
         );
 
         if ($request->hasFile('avatar')) {
-            Image::make($request->file('avatar'))->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
-            $Review->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
+            Image::make($request->file('avatar'))->save('upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension());
+            $Review->avatar = '/upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension();
         }
         $Review->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
+
         return redirect()->route('dashboard.review.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -68,46 +71,49 @@ class ReviewController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
     {
         $Reviews = Review::findOrFail($id);
-        return view("dashboard/reviews/edit", ['Reviews' => $Reviews]);
+
+        return view('dashboard/reviews/edit', ['Reviews' => $Reviews]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(Request $request, $id)
     {
         $Review = Review::findOrFail($id);
 
-
         $Review->fill(
             $request->all()
         );
 
         if ($request->hasFile('avatar')) {
-            Image::make($request->file('avatar'))->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
-            $Review->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
+            Image::make($request->file('avatar'))->save('upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension());
+            $Review->avatar = '/upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension();
         }
         $Review->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
-        return redirect()->route('dashboard.review.index');
 
+        return redirect()->route('dashboard.review.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)
@@ -115,6 +121,7 @@ class ReviewController extends Controller
         $Feedback = Review::find($id);
         $Feedback->delete();
         Session::flash('good', 'Вы успешно удалили значения');
+
         return redirect()->route('dashboard.review.index');
     }
 }

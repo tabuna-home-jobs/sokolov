@@ -1,21 +1,20 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Payments
- *
+ * App\Models\Payments.
  */
 class Payments extends Model
 {
-
     /**
      * The database table used by the model.
      *
      * @var string
      */
     protected $table = 'payments';
-
 
     /**
      * The attributes that are mass assignable.

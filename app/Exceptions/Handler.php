@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace app\Exceptions;
 
 use App\Http\Controllers\Site\SiteMapController;
 use Exception;
@@ -25,38 +25,30 @@ class Handler extends ExceptionHandler
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
-     * @param  \Exception  $e
-     * @return void
+     * @param \Exception $e
      */
     public function report(Exception $e)
     {
-
         return parent::report($e);
-
     }
 
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $e
+     * @param \Illuminate\Http\Request $request
+     * @param \Exception               $e
+     *
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $e)
     {
-
-        if ($e instanceof ModelNotFoundException)
-        {
+        if ($e instanceof ModelNotFoundException) {
             return abort(404);
         }
 
-
-        if($e instanceof NotFoundHttpException)
-        {
+        if ($e instanceof NotFoundHttpException) {
             return SiteMapController::NotFound();
         }
-
-
 
         return parent::render($request, $e);
     }

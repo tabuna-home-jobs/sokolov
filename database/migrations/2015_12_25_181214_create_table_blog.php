@@ -5,16 +5,12 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateTableBlog extends Migration
 {
-
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
-      Schema::create('blog', function(Blueprint $table)
-      {
+        Schema::create('blog', function (Blueprint $table) {
               $table->increments('id');
               $table->string('title');
               $table->string('name');
@@ -31,12 +27,9 @@ class CreateTableBlog extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {
         Schema::drop('blog');
     }
-
 }

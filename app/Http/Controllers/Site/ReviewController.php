@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace app\Http\Controllers\Site;
 
 use App;
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Image;
@@ -25,7 +24,7 @@ class ReviewController extends Controller
             ->paginate(10);
 
         return view('site.reviews', [
-            'ReviewList' => $ReviewList
+            'ReviewList' => $ReviewList,
         ]);
     }
 
@@ -42,31 +41,33 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
     {
-
         $Review = new Review(
             $request->all()
         );
         $Review->publish = 0;
 
         if ($request->hasFile('avatar')) {
-            Image::make($request->file('avatar'))->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
-            $Review->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
+            Image::make($request->file('avatar'))->save('upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension());
+            $Review->avatar = '/upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension();
         }
         $Review->save();
 
         Session::flash('good', trans('alert.You have successfully left a review'));
+
         return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -77,7 +78,8 @@ class ReviewController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
@@ -88,8 +90,9 @@ class ReviewController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(Request $request, $id)
@@ -100,7 +103,8 @@ class ReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)

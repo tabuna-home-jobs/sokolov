@@ -30,9 +30,8 @@
                         <span class="aftor">Автор: {{$good->author}}</span>
 
                         <div>
-                            <time>{{$good->created_at->toDateString()}}</time>
                             <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false"><i class="fa fa-eye"></i></a>
-                            <!--<a href="#"><i class="fa fa-download"></i></a> -->
+                            <a href="#"><i class="fa fa-download"></i></a>
                         </div>
                     </div>
 

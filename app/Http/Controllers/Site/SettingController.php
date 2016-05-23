@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace app\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Models\Country;
 use App\Models\Zone;
 use Auth;
@@ -12,15 +11,12 @@ use Session;
 
 class SettingController extends Controller
 {
-
-
     private $user;
 
     public function __construct()
     {
         $this->user = Auth::user();
     }
-
 
     /**
      * Display a listing of the resource.
@@ -32,19 +28,19 @@ class SettingController extends Controller
         $Country = Country::orderBy('name')->get();
         $Zone = Zone::orderBy('zone_name')->get();
 
-
-        if (Auth::user()->checkRole('editor'))
+        if (Auth::user()->checkRole('editor')) {
             return view('editor.setting', [
                 'User' => $this->user,
                 'Country' => $Country,
-                'Zone' => $Zone
+                'Zone' => $Zone,
             ]);
-        else
+        } else {
             return view('site.setting', [
                 'User' => $this->user,
                 'Country' => $Country,
-                'Zone' => $Zone
+                'Zone' => $Zone,
             ]);
+        }
     }
 
     /**
@@ -60,7 +56,8 @@ class SettingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
@@ -71,7 +68,8 @@ class SettingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -82,7 +80,8 @@ class SettingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
@@ -93,31 +92,26 @@ class SettingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(Request $request, $id)
     {
-
         if ($request->type == 'personal') {
-
             $this->validate($request, [
                 'email' => 'required|email|confirmed',
             ]);
 
-
             $data = $request->all();
 
-            if (empty($data['phone']))
+            if (empty($data['phone'])) {
                 $data['phone'] = null;
-
+            }
 
             $this->user->fill($data)->save();
-
         } elseif ($request->type == 'password') {
-
-
             $this->validate($request, [
                 'password' => 'required|max:255|confirmed',
             ]);
@@ -129,16 +123,16 @@ class SettingController extends Controller
             $this->user->save();
         }
 
-
         Session::flash('good', trans('alert.You have successfully changed values'));
-        return redirect()->back();
 
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)

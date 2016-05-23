@@ -81,11 +81,11 @@
                                                         <h4>{{$SelectUser->first_name}} {{$SelectUser->last_name}}</h4>
 
                                                         <p>
-                                                            <span class="glyphicon glyphicon-earphone"> Телефон: 031-432-678 </span>
+                                                            <span class="glyphicon glyphicon-earphone"> Телефон: {{$SelectUser->phone}}</span>
                                                         </p>
 
                                                         <p>
-                                                            <span class="glyphicon glyphicon-envelope"> Email:{{$SelectUser->email}}</span>
+                                                            <span class="glyphicon glyphicon-envelope"> Email: {{$SelectUser->email}}</span>
                                                         </p>
 
                                                     </div>
@@ -133,7 +133,7 @@
 
                                                 <div class="input-group">
                                                     <input class="form-control" type="number"
-                                                           value="{{$SelectOrder->price}}" maxlength="255" min="0"
+                                                           value="{{$SelectOrder->price}}" maxlength="255" min="0" step="0.01"
                                                            required
                                                            name="price"
                                                            value="">

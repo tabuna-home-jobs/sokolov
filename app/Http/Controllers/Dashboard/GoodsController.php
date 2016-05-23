@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace app\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GoodsRequest;
@@ -21,7 +21,8 @@ class GoodsController extends Controller
     public function index()
     {
         $Goods = Goods::orderBy('id', 'desc')->paginate(15);
-        return view("dashboard/goods/goods", ['Goods' => $Goods]);
+
+        return view('dashboard/goods/goods', ['Goods' => $Goods]);
     }
 
     /**
@@ -33,7 +34,8 @@ class GoodsController extends Controller
     {
         $Blocks = Block::all();
         $Category = Category::all();
-        return view("dashboard/goods/create", [
+
+        return view('dashboard/goods/create', [
             'Category' => $Category,
             'Blocks' => $Blocks,
         ]);
@@ -42,7 +44,8 @@ class GoodsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(GoodsRequest $request)
@@ -51,31 +54,32 @@ class GoodsController extends Controller
         $Goods->category_id = $request->category;
         if ($request->hasFile('avatar')) {
             Image::make($request->file('avatar'))/*->resize(300, 200)*/
-            ->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
-            $Goods->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
+            ->save('upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension());
+            $Goods->avatar = '/upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension();
         }
-
 
         if ($request->hasFile('icon')) {
             Image::make($request->file('icon'))/*->resize(300, 200)*/
-            ->save('upload/' . time() . '.' . $request->file('icon')->getClientOriginalExtension());
-            $Goods->icon = '/upload/' . time() . '.' . $request->file('icon')->getClientOriginalExtension();
+            ->save('upload/'.time().'.'.$request->file('icon')->getClientOriginalExtension());
+            $Goods->icon = '/upload/'.time().'.'.$request->file('icon')->getClientOriginalExtension();
         }
 
-
-        if (!is_null($request->fieldsAttr))
+        if (!is_null($request->fieldsAttr)) {
             $Goods->attribute = serialize(array_filter($request->fieldsAttr));
+        }
 
         $Goods->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
+
         return redirect()->route('dashboard.goods.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -86,7 +90,8 @@ class GoodsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($Goods)
@@ -95,19 +100,20 @@ class GoodsController extends Controller
 
         $Blocks = Block::all();
         $Category = Category::all();
-        return view("dashboard/goods/edit", [
+
+        return view('dashboard/goods/edit', [
             'Goods' => $Goods,
             'Category' => $Category,
-            'Blocks' => $Blocks
+            'Blocks' => $Blocks,
         ]);
-
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(GoodsRequest $request, $Goods)
@@ -118,30 +124,32 @@ class GoodsController extends Controller
         $Goods->category_id = $request->category;
         if ($request->hasFile('avatar')) {
             Image::make($request->file('avatar'))/*->resize(300, 200)*/
-            ->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
-            $Goods->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
+            ->save('upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension());
+            $Goods->avatar = '/upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension();
         }
 
         if ($request->hasFile('icon')) {
             Image::make($request->file('icon'))/*->resize(300, 200)*/
-            ->save('upload/' . time() . '.' . $request->file('icon')->getClientOriginalExtension());
-            $Goods->icon = '/upload/' . time() . '.' . $request->file('icon')->getClientOriginalExtension();
+            ->save('upload/'.time().'.'.$request->file('icon')->getClientOriginalExtension());
+            $Goods->icon = '/upload/'.time().'.'.$request->file('icon')->getClientOriginalExtension();
         }
 
-
-        if (!is_null($request->fieldsAttr))
+        if (!is_null($request->fieldsAttr)) {
             $Goods->attribute = serialize(array_filter($request->fieldsAttr));
+        }
 
         $Goods->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
+
         return redirect()->route('dashboard.goods.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($Goods)
@@ -149,6 +157,7 @@ class GoodsController extends Controller
         $Goods = Goods::where('slug', $Goods)->firstOrFail();
         $Goods->delete('cascade');
         Session::flash('good', 'Вы успешно удалили значения');
+
         return redirect()->route('dashboard.goods.index');
     }
 }

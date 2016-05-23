@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace app\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -24,13 +24,10 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-
-    protected $redirectPath = "/auth/login";
+    protected $redirectPath = '/auth/login';
 
     /**
      * Create a new authentication controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -40,15 +37,17 @@ class AuthController extends Controller
     public function getRegister()
     {
         $Zone = Zone::orderBy('zone_name')->get();
+
         return view('auth.register', [
-            'Zone' => $Zone
+            'Zone' => $Zone,
         ]);
     }
 
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -64,7 +63,8 @@ class AuthController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return User
      */
     protected function create(array $data)
@@ -82,6 +82,4 @@ class AuthController extends Controller
 
         return $user;
     }
-
-
 }

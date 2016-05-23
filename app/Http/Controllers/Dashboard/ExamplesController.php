@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace app\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ExamplesRequest;
@@ -21,7 +21,8 @@ class ExamplesController extends Controller
     public function index()
     {
         $Examples = Examples::orderBy('id', 'desc')->paginate(15);
-        return view("dashboard/examples/examples", ['Examples' => $Examples]);
+
+        return view('dashboard/examples/examples', ['Examples' => $Examples]);
     }
 
     /**
@@ -33,7 +34,8 @@ class ExamplesController extends Controller
     {
         $Blocks = Block::all();
         $Category = Goods::all();
-        return view("dashboard/examples/create", [
+
+        return view('dashboard/examples/create', [
             'Category' => $Category,
             'Blocks' => $Blocks,
         ]);
@@ -42,7 +44,8 @@ class ExamplesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(ExamplesRequest $request)
@@ -51,31 +54,32 @@ class ExamplesController extends Controller
         $Examples->category_id = $request->category;
         if ($request->hasFile('avatar')) {
             Image::make($request->file('avatar'))/*->resize(300, 200)*/
-            ->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
-            $Examples->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
+            ->save('upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension());
+            $Examples->avatar = '/upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension();
         }
-
 
         if ($request->hasFile('icon')) {
             Image::make($request->file('icon'))/*->resize(300, 200)*/
-            ->save('upload/' . time() . '.' . $request->file('icon')->getClientOriginalExtension());
-            $Examples->icon = '/upload/' . time() . '.' . $request->file('icon')->getClientOriginalExtension();
+            ->save('upload/'.time().'.'.$request->file('icon')->getClientOriginalExtension());
+            $Examples->icon = '/upload/'.time().'.'.$request->file('icon')->getClientOriginalExtension();
         }
 
-
-        if (!is_null($request->fieldsAttr))
+        if (!is_null($request->fieldsAttr)) {
             $Examples->attribute = serialize(array_filter($request->fieldsAttr));
+        }
 
         $Examples->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
+
         return redirect()->route('dashboard.examples.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -86,7 +90,8 @@ class ExamplesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($Examples)
@@ -95,19 +100,20 @@ class ExamplesController extends Controller
 
         $Blocks = Block::all();
         $Category = Goods::all();
-        return view("dashboard/examples/edit", [
+
+        return view('dashboard/examples/edit', [
             'Examples' => $Examples,
             'Category' => $Category,
-            'Blocks' => $Blocks
+            'Blocks' => $Blocks,
         ]);
-
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(ExamplesRequest $request, $Examples)
@@ -118,37 +124,40 @@ class ExamplesController extends Controller
         $Examples->category_id = $request->category;
         if ($request->hasFile('avatar')) {
             Image::make($request->file('avatar'))/*->resize(300, 200)*/
-            ->save('upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension());
-            $Examples->avatar = '/upload/' . time() . '.' . $request->file('avatar')->getClientOriginalExtension();
+            ->save('upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension());
+            $Examples->avatar = '/upload/'.time().'.'.$request->file('avatar')->getClientOriginalExtension();
         }
 
         if ($request->hasFile('icon')) {
             Image::make($request->file('icon'))/*->resize(300, 200)*/
-            ->save('upload/' . time() . '.' . $request->file('icon')->getClientOriginalExtension());
-            $Examples->icon = '/upload/' . time() . '.' . $request->file('icon')->getClientOriginalExtension();
+            ->save('upload/'.time().'.'.$request->file('icon')->getClientOriginalExtension());
+            $Examples->icon = '/upload/'.time().'.'.$request->file('icon')->getClientOriginalExtension();
         }
 
-
-        if (!is_null($request->fieldsAttr))
+        if (!is_null($request->fieldsAttr)) {
             $Examples->attribute = serialize(array_filter($request->fieldsAttr));
+        }
 
         $Examples->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
+
         return redirect()->route('dashboard.examples.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
-    public function destroy( $Examples)
+    public function destroy($Examples)
     {
         $Examples = Examples::where('slug',  $Examples)->firstOrFail();
         $Examples->delete('cascade');
         Session::flash('good', 'Вы успешно удалили значения');
+
         return redirect()->route('dashboard.examples.index');
     }
 }

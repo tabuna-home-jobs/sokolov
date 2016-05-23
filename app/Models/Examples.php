@@ -1,22 +1,22 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 /**
- * App\Models\Goods
+ * App\Models\Goods.
  *
  * @property-read \App\Models\Category $category
  */
-class Examples extends Model {
-
+class Examples extends Model
+{
     /**
      * The database table used by the model.
      *
      * @var string
      */
     protected $table = 'examples';
-
 
     protected $casts = [
         'attribute' => 'array',
@@ -33,7 +33,4 @@ class Examples extends Model {
     {
         return $this->belongsTo('App\Models\Goods');
     }
-
-
-
 }

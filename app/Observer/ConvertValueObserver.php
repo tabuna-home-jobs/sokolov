@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Observer;
+namespace app\Observer;
 
 use App\Models\Order;
 use CurrencyRate;
 use App;
 use Session;
+
 class ConvertValueObserver
 {
-
     public function saving($model)
     {
         $order = Order::find($model->id);
@@ -22,11 +22,5 @@ class ConvertValueObserver
         }
 
         App::setLocale(Session::get('lang', 'en'));
-
     }
-
-
 }
-
-
-?>

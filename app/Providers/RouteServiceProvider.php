@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace app\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
@@ -19,8 +19,7 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
-     * @return void
+     * @param \Illuminate\Routing\Router $router
      */
     public function boot(Router $router)
     {
@@ -28,45 +27,42 @@ class RouteServiceProvider extends ServiceProvider
 
         parent::boot($router);
 
-        $router->bind('page', function($value) {
+        $router->bind('page', function ($value) {
                 return \App\Models\Page::where('slug', $value)->firstOrFail();
         });
-        $router->bind('news', function($value) {
+        $router->bind('news', function ($value) {
                 return \App\Models\News::where('slug', $value)->firstOrFail();
         });
 
-        $router->bind('blog', function($value) {
+        $router->bind('blog', function ($value) {
                 return \App\Models\Blog::where('slug', $value)->firstOrFail();
         });
 
-        $router->bind('shares', function($value) {
+        $router->bind('shares', function ($value) {
             return \App\Models\Shares::where('slug', $value)->firstOrFail();
         });
 
-        $router->bind('category', function($value) {
+        $router->bind('category', function ($value) {
             return \App\Models\Category::find($value);
         });
 
-        $router->bind('catalog', function($value) {
+        $router->bind('catalog', function ($value) {
             return \App\Models\Goods::where('slug', $value)->firstOrFail();
         });
 
-        $router->bind('work', function($value) {
+        $router->bind('work', function ($value) {
             return \App\Models\Work::findOrFail($value);
         });
-
 
         $router->bind('block', function ($value) {
             return \App\Models\Block::find($value)->firstOrFail();
         });
-
     }
 
     /**
      * Define the routes for the application.
      *
-     * @param  \Illuminate\Routing\Router  $router
-     * @return void
+     * @param \Illuminate\Routing\Router $router
      */
     public function map(Router $router)
     {

@@ -1,4 +1,6 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -8,12 +10,10 @@ use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 
 /**
- * App\Models\User
- *
+ * App\Models\User.
  */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-
     use Authenticatable, CanResetPassword, Sortable;
 
     /**
@@ -39,9 +39,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         'utc',
         'email_notification',
         'phone_notification',
-        'lang'
+        'lang',
     ];
-
 
     protected $sortable = [
         'first_name',
@@ -52,7 +51,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         'institution',
     ];
 
-
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -60,32 +58,30 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     protected $hidden = ['password', 'remember_token', 'id', 'role', 'type'];
 
-
     public function getOrders()
     {
         return $this->hasMany('App\Models\Order', 'user_id');
     }
-
 
     public function getPayments()
     {
         return $this->hasMany('App\Models\Payments', 'users_id');
     }
 
-
     public function addRole($role)
     {
         $thisRole = unserialize($this->role);
         if (is_array($thisRole)) {
-            if (!in_array($role, $thisRole))
+            if (!in_array($role, $thisRole)) {
                 array_push($thisRole, $role);
+            }
             $this->role = serialize($thisRole);
         } else {
             $this->role = serialize([$role]);
         }
+
         return $this;
     }
-
 
     public function removeRole($role)
     {
@@ -95,20 +91,20 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             unset($thisRole[$key]);
             $this->role = serialize($thisRole);
         }
+
         return $this;
     }
-
 
     public function checkRole($role)
     {
         $thisRole = unserialize($this->role);
         $thisRole = array_dot($thisRole);
 
-        if (array_search($role, $thisRole) !== false)
+        if (array_search($role, $thisRole) !== false) {
             return true;
-
-        else
+        } else {
             return false;
+        }
     }
 
     public function getRole()
@@ -116,12 +112,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return unserialize($this->role);
     }
 
-
     public function getSkills()
     {
         return $this->hasMany('App\Models\Skills');
     }
-
 
     public function getTask()
     {
@@ -132,5 +126,4 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->belongsTo('App\Models\Country', 'country_id');
     }
-
 }

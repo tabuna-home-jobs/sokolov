@@ -19,6 +19,7 @@ elixir(function (mix) {
   "./vendor/bower_components/bootstrap/dist/css/bootstrap.min.css",
   "./vendor/bower_components/font-awesome/css/font-awesome.min.css",
   "./vendor/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css",
+  "./vendor/bower_components/sweetalert/dist/sweetalert.css",
   //"./vendor/bower_components/fancybox/source/jquery.fancybox.css",
   /*
   "./vendor/bower_components/roboto-fontface/css/roboto-fontface.css",
@@ -32,6 +33,7 @@ elixir(function (mix) {
   "./vendor/bower_components/jquery/dist/jquery.min.js",
   "./vendor/bower_components/bootstrap/dist/js/bootstrap.min.js",
   "./vendor/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js",
+  "./vendor/bower_components/sweetalert/dist/sweetalert.min.js",
   //"./vendor/bower_components/fancybox/source/jquery.fancybox.js"
   "slidetext-lib.js",
   "slidetext.js"

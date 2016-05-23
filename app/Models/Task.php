@@ -1,15 +1,15 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 
 /**
- * App\Models\Skills
- *
+ * App\Models\Skills.
  */
 class Task extends Model
 {
-
     use Sortable;
     /**
      * The database table used by the model.
@@ -34,7 +34,7 @@ class Task extends Model
         'status',
         'spent',
         'pause',
-        'payment'
+        'payment',
     ];
 
     protected $sortable = [
@@ -44,9 +44,6 @@ class Task extends Model
         'created_at',
         'price',
     ];
-
-
-
 
     protected $casts = [
         'payment' => 'boolean',
@@ -73,6 +70,4 @@ class Task extends Model
     {
         return $this->hasMany('App\Models\FilesMeta');
     }
-
-
 }

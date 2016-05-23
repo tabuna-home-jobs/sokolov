@@ -1,13 +1,14 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Comments
- *
+ * App\Models\Comments.
  */
-class Comments extends Model {
-
+class Comments extends Model
+{
     /**
      * The database table used by the model.
      *
@@ -22,18 +23,8 @@ class Comments extends Model {
      */
     protected $fillable = ['user_id', 'text', 'type', 'beglouto'];
 
-
     public function getUser()
     {
         return $this->belongsTo('App\Models\User', 'user_id');
     }
-
-
-
-
-
-
-
-
-
 }

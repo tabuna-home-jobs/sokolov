@@ -1,19 +1,21 @@
-<?php namespace App\Services\orchid\seo\Traits;
+<?php
+
+namespace app\Services\orchid\seo\Traits;
 
 use Route;
 use App;
 
 trait SeoTrait
 {
-
     /**
      * @param null $id
      */
     public function render($id = null)
     {
         $meta = collect($this->generate($id));
+
         return view('seo::meta', [
-            'SeoMetaTags' => $meta
+            'SeoMetaTags' => $meta,
         ])->render();
     }
 
@@ -22,11 +24,7 @@ trait SeoTrait
      */
     public function generate($id = null)
     {
-
-
         if (is_null($id)) {
-
-
             if (is_null(Route::current())) {
                 return [
                     'title' => [],
@@ -43,7 +41,6 @@ trait SeoTrait
         } else {
             $meta = $this->find('story_id', $id);
         }
-
 
         if (is_null($meta)) {
             return [
@@ -69,7 +66,6 @@ trait SeoTrait
         }
 
         return $meta;
-
     }
 
     /**
@@ -99,6 +95,4 @@ trait SeoTrait
 
         return $allowGetRoutes;
     }
-
-
 }

@@ -25,7 +25,7 @@
 
 </head>
 <body>
-<div class="app app-header-fixed app-aside-fixed app-aside-dock app-aside-folded ">
+<div class="app">
 
     <!-- aside -->
     <aside id="aside" class="app-aside hidden-xs bg-dark">
@@ -93,7 +93,7 @@
 
 
 
-                        <li class="{{Active::route('dashboard.news.*')}}">
+                        <li class="{{Active::route('dashboard.goods.*')}}">
                             <a href="{{URL::route('dashboard.goods.index')}}">
                                 <i class="fa fa-stethoscope"></i>
                                 <span>Услуги</span>
@@ -179,14 +179,14 @@
                         </li>
 
 
-                        <li class="pull-right">
-                            <a href="/auth/logout">
+                        <li class="line dk"></li>
+
+                        <li>
+                            <a href="{{url('/auth/logout')}}">
                                 <i class="fa fa-sign-out"></i>
                                 <span>Выйти</span>
-
                             </a>
                         </li>
-
 
                     </ul>
                 </nav>

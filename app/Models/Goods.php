@@ -1,14 +1,16 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Goods
+ * App\Models\Goods.
  *
  * @property-read \App\Models\Category $category
  */
-class Goods extends Model {
-
+class Goods extends Model
+{
     /**
      * The database table used by the model.
      *
@@ -16,7 +18,7 @@ class Goods extends Model {
      */
     protected $table = 'goods';
 
-    protected static $goods = Goods::class;
+    protected static $goods = self::class;
 
     protected $casts = [
         'attribute' => 'array',
@@ -34,12 +36,8 @@ class Goods extends Model {
         return $this->belongsTo('App\Models\Category');
     }
 
-    public function lang(){
-
-        return $this->hasOne(static::$goods, 'category_id','category_id');
-
+    public function lang()
+    {
+        return $this->hasOne(static::$goods, 'category_id', 'category_id');
     }
-
-
-
 }

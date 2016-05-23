@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace app\Http\Controllers\Site;
 
 use App;
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Models\News;
 use App\Models\Page;
 use App\Models\Goods;
@@ -13,16 +12,14 @@ use URL;
 
 class SiteMapController extends Controller
 {
-
     public $URL;
-
 
     public function __construct()
     {
         $this->URL = Config::get('app.url');
     }
 
-    static function NotFound()
+    public static function NotFound()
     {
         $URL = Config::get('app.url');
 
@@ -30,28 +27,26 @@ class SiteMapController extends Controller
 
         $main->push([
             'name' => 'Главная',
-            'url' => URL::to($URL . '/')
+            'url' => URL::to($URL.'/'),
         ])->push([
             'name' => 'Каталог',
-            'url' => URL::to($URL . '/catalog')
+            'url' => URL::to($URL.'/catalog'),
         ])->push([
             'name' => 'Отзывы',
-            'url' => URL::to($URL . '/review')
+            'url' => URL::to($URL.'/review'),
         ])->push([
             'name' => 'Обратная связь',
-            'url' => URL::to($URL . '/feedback')
+            'url' => URL::to($URL.'/feedback'),
         ]);
-
 
         $posts = Page::where('lang', App::getLocale())->orderBy('created_at', 'desc')->get();
         $postCollect = collect();
         foreach ($posts as $post) {
             $postCollect->push([
                 'name' => $post->name,
-                'url' => URL::to($URL ."/". $post->lang .  '/page/' . $post->slug)
+                'url' => URL::to($URL.'/'.$post->lang.'/page/'.$post->slug),
             ]);
         }
-
 
         /*
         $goods = Goods::where('lang', App::getLocale())->orderBy('created_at', 'desc')->get();
@@ -64,19 +59,14 @@ class SiteMapController extends Controller
         }
         */
 
-
-
-
-
         $news = News::where('lang', App::getLocale())->orderBy('created_at', 'desc')->get();
         $newsCollect = collect();
         foreach ($news as $new) {
             $newsCollect->push([
                 'name' => $new->name,
-                'url' => URL::to($URL ."/". $new->lang .  '/page/' . $new->slug)
+                'url' => URL::to($URL.'/'.$new->lang.'/page/'.$new->slug),
             ]);
         }
-
 
         return response()->view('errors.404', [
             'main' => $main,
@@ -84,8 +74,6 @@ class SiteMapController extends Controller
             'pages' => $postCollect,
             //'goods' => $goodsCollect
         ]);
-
-
     }
 
     /**
@@ -95,46 +83,36 @@ class SiteMapController extends Controller
      */
     public function index()
     {
-
-        $sitemap = App::make("sitemap");
+        $sitemap = App::make('sitemap');
         $sitemap->setCache('laravel.sitemap', 3600);
 
         if (!$sitemap->isCached()) {
+            $sitemap->add(URL::to($this->URL.'/en'), date('c', time()), '1.0', 'daily');
+            $sitemap->add(URL::to($this->URL.'/en/catalog'), date('c', time()), '1.0', 'daily');
+            $sitemap->add(URL::to($this->URL.'/en/review'), date('c', time()), '1.0', 'daily');
+            $sitemap->add(URL::to($this->URL.'/en/feedback'), date('c', time()), '1.0', 'daily');
 
-
-
-
-            $sitemap->add(URL::to($this->URL . '/en'), date('c', time()), '1.0', 'daily');
-            $sitemap->add(URL::to($this->URL . '/en/catalog'), date('c', time()), '1.0', 'daily');
-            $sitemap->add(URL::to($this->URL . '/en/review'), date('c', time()), '1.0', 'daily');
-            $sitemap->add(URL::to($this->URL . '/en/feedback'), date('c', time()), '1.0', 'daily');
-
-            $sitemap->add(URL::to($this->URL . '/ru'), date('c', time()), '1.0', 'daily');
-            $sitemap->add(URL::to($this->URL . '/ru/catalog'), date('c', time()), '1.0', 'daily');
-            $sitemap->add(URL::to($this->URL . '/ru/review'), date('c', time()), '1.0', 'daily');
-            $sitemap->add(URL::to($this->URL . '/ru/feedback'), date('c', time()), '1.0', 'daily');
-
+            $sitemap->add(URL::to($this->URL.'/ru'), date('c', time()), '1.0', 'daily');
+            $sitemap->add(URL::to($this->URL.'/ru/catalog'), date('c', time()), '1.0', 'daily');
+            $sitemap->add(URL::to($this->URL.'/ru/review'), date('c', time()), '1.0', 'daily');
+            $sitemap->add(URL::to($this->URL.'/ru/feedback'), date('c', time()), '1.0', 'daily');
 
             $goods = Goods::orderBy('created_at', 'desc')->get();
             foreach ($goods as $good) {
-                $sitemap->add($this->URL . "/". $good->lang .'/catalog/' . $good->slug, $good->updated_at);
+                $sitemap->add($this->URL.'/'.$good->lang.'/catalog/'.$good->slug, $good->updated_at);
             }
 
             $posts = Page::orderBy('created_at', 'desc')->get();
             foreach ($posts as $post) {
-                $sitemap->add($this->URL . "/". $post->lang .'/page/' . $post->slug, $post->updated_at);
+                $sitemap->add($this->URL.'/'.$post->lang.'/page/'.$post->slug, $post->updated_at);
             }
 
             $news = News::orderBy('created_at', 'desc')->get();
             foreach ($news as $new) {
-                $sitemap->add($this->URL . "/". $new->lang . '/news/' . $new->slug, $new->updated_at);
+                $sitemap->add($this->URL.'/'.$new->lang.'/news/'.$new->slug, $new->updated_at);
             }
-
         }
 
         return $sitemap->render('xml');
-
     }
-
-
 }

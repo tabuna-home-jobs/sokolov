@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace app\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use Auth;
 use CurrencyRate;
 use Illuminate\Http\Request;
@@ -19,6 +18,7 @@ class PaymentsController extends Controller
     {
         return abort(404);
         $payments = Auth::user()->getPayments()->with('getOrder')->paginate(10);
+
         return view('site.listPayments', [
             'payments' => $payments,
         ]);
@@ -38,14 +38,15 @@ class PaymentsController extends Controller
             ->get();
 
         return view('site.paymentsCreate', [
-            'order' => $order
+            'order' => $order,
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
@@ -56,7 +57,8 @@ class PaymentsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -67,19 +69,19 @@ class PaymentsController extends Controller
             ->whereRaw('price > ? and sold = ?', ['0.01', 'false'])
             ->findOrFail($id);
 
-        $order->price_rub =  round(CurrencyRate::getOneRecord() * $order->price,2);
+        $order->price_rub = round(CurrencyRate::getOneRecord() * $order->price, 2);
         $order->save();
 
-
         return view('site.paymentsCreate', [
-            'order' => $order
+            'order' => $order,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
@@ -90,8 +92,9 @@ class PaymentsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(Request $request, $id)
@@ -102,7 +105,8 @@ class PaymentsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)

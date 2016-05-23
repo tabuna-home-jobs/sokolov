@@ -1,16 +1,14 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 /**
- * App\Models\Skills
- *
+ * App\Models\Skills.
  */
 class Zone extends Model
 {
-
-
     /**
      * The database table used by the model.
      *
@@ -26,8 +24,6 @@ class Zone extends Model
     protected $fillable = [
         'zone_id',
         'country_code',
-        'zone_name'
+        'zone_name',
     ];
-
-
 }

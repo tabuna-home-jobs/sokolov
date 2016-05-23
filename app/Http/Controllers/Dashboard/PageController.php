@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace app\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Http\Requests\PageRequest;
 use App\Models\Page;
 use Session;
@@ -18,7 +17,8 @@ class PageController extends Controller
     public function index()
     {
         $PageList = Page::orderBy('id', 'desc')->paginate(15);
-        return view("dashboard/page/pages", ['PageList' => $PageList]);
+
+        return view('dashboard/page/pages', ['PageList' => $PageList]);
     }
 
     /**
@@ -28,7 +28,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view("dashboard/page/create");
+        return view('dashboard/page/create');
     }
 
     /**
@@ -44,13 +44,15 @@ class PageController extends Controller
         $page->save();
 
         Session::flash('good', 'Вы успешно добавили значения');
+
         return redirect()->route('dashboard.page.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -61,18 +63,20 @@ class PageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit(Page $page)
     {
-        return view("dashboard/page/edit", ['Page' => $page]);
+        return view('dashboard/page/edit', ['Page' => $page]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function update(Page $page, PageRequest $request)
@@ -82,19 +86,22 @@ class PageController extends Controller
         )->save();
 
         Session::flash('good', 'Вы успешно изменили значения');
+
         return redirect()->route('dashboard.page.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy(Page $page)
     {
         $page->delete();
         Session::flash('good', 'Вы успешно удалили значения');
+
         return redirect()->route('dashboard.page.index');
     }
 }

@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Editor;
+namespace app\Http\Controllers\Editor;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Models\Files;
 use App\Models\FilesMeta;
 use Auth;
@@ -11,7 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Session;
 use Storage;
-
 
 class FileManagerController extends Controller
 {
@@ -38,26 +36,25 @@ class FileManagerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
     {
         foreach ($request->file('files') as $file) {
-
             if (!is_null($file)) {
                 $task = Auth::user()->getTask()->findOrFail($request->beglouto);
 
-
-                if (!Storage::exists('/app/order/' . date("Y-m-d"))) {
-                    Storage::makeDirectory('/app/order/' . date("Y-m-d"));
+                if (!Storage::exists('/app/order/'.date('Y-m-d'))) {
+                    Storage::makeDirectory('/app/order/'.date('Y-m-d'));
                 }
 
-                $file->move(storage_path() . '/app/order/' . date("Y-m-d"), Str::ascii(time() . '-' . $file->getClientOriginalName()));
+                $file->move(storage_path().'/app/order/'.date('Y-m-d'), Str::ascii(time().'-'.$file->getClientOriginalName()));
                 $DBfile = new Files([
                     'user_id' => Auth::user()->id,
                     'original' => $file->getClientOriginalName(),
-                    'name' => date("Y-m-d") . '/' . Str::ascii(time() . '-' . $file->getClientOriginalName()),
+                    'name' => date('Y-m-d').'/'.Str::ascii(time().'-'.$file->getClientOriginalName()),
                     'type' => 'task',
                     'beglouto' => $task->id,
                     'finish' => true,
@@ -71,18 +68,18 @@ class FileManagerController extends Controller
                 ]);
                 $DBMeta->save();
             }
-
         }
 
         Session::flash('good', trans('trans.You have successfully added a comment'));
-        return redirect()->back();
 
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -93,7 +90,8 @@ class FileManagerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
@@ -104,8 +102,9 @@ class FileManagerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(Request $request, $id)
@@ -116,7 +115,8 @@ class FileManagerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)

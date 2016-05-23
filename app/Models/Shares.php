@@ -1,13 +1,14 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Shares
- *
+ * App\Models\Shares.
  */
-class Shares extends Model {
-
+class Shares extends Model
+{
     /**
      * The database table used by the model.
      *
@@ -30,10 +31,6 @@ class Shares extends Model {
         'tag',
         'descript',
         'lang',
-        'slug'
+        'slug',
     ];
-
-
-
-
 }

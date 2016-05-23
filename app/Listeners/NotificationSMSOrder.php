@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Listeners;
+namespace app\Listeners;
 
 use App\Events\NewOrder;
 use App\Models\Order;
@@ -11,29 +11,24 @@ class NotificationSMSOrder
 {
     /**
      * Create the event listener.
-     *
-     * @return void
      */
     public function __construct()
     {
-
     }
 
     /**
      * Handle the event.
      *
-     * @param  NewOrder $event
-     * @return void
+     * @param NewOrder $event
      */
     public function handle(NewOrder $event)
     {
-        SMS::send(Config::get('link.phone'), 'Новый заказ #' . $event->id . ' ожидает рассмотрения');
+        SMS::send(Config::get('link.phone'), 'Новый заказ #'.$event->id.' ожидает рассмотрения');
 
         $Order = Order::findOrFail($event->id);
         $User = $Order->getUser()->select('phone_notification', 'phone')->first();
         if ($User->phone_notification) {
-            SMS::send($User->phone, 'Ваш заказ #' . $event->id . ' ожидает рассмотрения');
+            SMS::send($User->phone, 'Ваш заказ #'.$event->id.' ожидает рассмотрения');
         }
-
     }
 }

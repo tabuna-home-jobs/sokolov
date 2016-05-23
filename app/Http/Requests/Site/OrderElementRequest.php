@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Site;
+namespace app\Http\Requests\Site;
 
 use App\Http\Requests\Request;
 use Auth;

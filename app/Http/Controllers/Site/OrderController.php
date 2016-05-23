@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace app\Http\Controllers\Site;
 
 use App;
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Models\Category;
 use App\Models\Comments;
 use App\Models\Files;
@@ -19,8 +18,6 @@ use Storage;
 
 class OrderController extends Controller
 {
-
-
     /**
      * Display a listing of the resource.
      *
@@ -29,6 +26,7 @@ class OrderController extends Controller
     public function index()
     {
         $Orders = Auth::user()->getOrders()->sortable()->orderBy('id', 'Desc')->simplePaginate(15);
+
         return view('site.allOrder', [
             'Orders' => $Orders,
         ]);
@@ -50,18 +48,19 @@ class OrderController extends Controller
             $langTrans = LangOrder::lists('id', 'eng_name');
         }
 
-
         $type = Category::with('goods')->get();
+
         return view('site.createOrder', [
             'type' => $type,
-            'langTrans' => $langTrans
+            'langTrans' => $langTrans,
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
@@ -72,13 +71,12 @@ class OrderController extends Controller
             'name' => $request->name,
             'text' => $request->text,
             'izdanie' => $request->izdanie,
-            'LangOrder_id' => $request->langOrder_id
+            'LangOrder_id' => $request->langOrder_id,
         ]);
 
         $newOrder->save();
 
         foreach ($request->type as $type) {
-
             MetaOrder::create([
                 'order_id' => $newOrder->id,
                 'category_id' => $type['id'],
@@ -86,17 +84,16 @@ class OrderController extends Controller
             ]);
         }
         foreach ($request->file('files') as $file) {
-
             if (!is_null($file)) {
-                if (!Storage::exists('/app/order/' . date("Y-m-d"))) {
-                    Storage::makeDirectory('/app/order/' . date("Y-m-d"));
+                if (!Storage::exists('/app/order/'.date('Y-m-d'))) {
+                    Storage::makeDirectory('/app/order/'.date('Y-m-d'));
                 }
 
-                $file->move(storage_path() . '/app/order/' . date("Y-m-d"), Str::ascii(time() . '-' . $file->getClientOriginalName()));
+                $file->move(storage_path().'/app/order/'.date('Y-m-d'), Str::ascii(time().'-'.$file->getClientOriginalName()));
                 $DBfile = new Files([
                     'user_id' => Auth::user()->id,
                     'original' => $file->getClientOriginalName(),
-                    'name' => date("Y-m-d") . '/' . Str::ascii(time() . '-' . $file->getClientOriginalName()),
+                    'name' => date('Y-m-d').'/'.Str::ascii(time().'-'.$file->getClientOriginalName()),
                     'type' => 'order',
                     'beglouto' => $newOrder->id,
                     'finish' => false,
@@ -107,14 +104,15 @@ class OrderController extends Controller
 
         // event(new NewOrder($newOrder->id));
         Session::flash('good', trans('alert.Thank you for writing, we will respond to you.'));
-        return redirect()->back();
 
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -122,11 +120,9 @@ class OrderController extends Controller
         $Order = Auth::User()->getOrders()->findOrFail($id);
         $SelectComments = Comments::whereRaw('type = ? and beglouto = ?', ['order', $id])->get();
 
-
         $OrderMeta = $Order->getGoods()->get();
 
         $collectionGoods = [];
-
 
         foreach ($OrderMeta as $value) {
             $value->category->speed = $value->speed;
@@ -146,13 +142,13 @@ class OrderController extends Controller
             'SelectRequestFile' => $SelectRequestFile,
             'collectionGoods' => $collectionGoods,
         ]);
-
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
@@ -163,24 +159,24 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(Request $request, $id)
     {
         foreach ($request->file('files') as $file) {
-
             if (!is_null($file)) {
-                if (!Storage::exists('/app/order/' . date("Y-m-d"))) {
-                    Storage::makeDirectory('/app/order/' . date("Y-m-d"));
+                if (!Storage::exists('/app/order/'.date('Y-m-d'))) {
+                    Storage::makeDirectory('/app/order/'.date('Y-m-d'));
                 }
 
-                $file->move(storage_path() . '/app/order/' . date("Y-m-d"), Str::ascii(time() . '-' . $file->getClientOriginalName()));
+                $file->move(storage_path().'/app/order/'.date('Y-m-d'), Str::ascii(time().'-'.$file->getClientOriginalName()));
                 $DBfile = new Files([
                     'user_id' => Auth::user()->id,
                     'original' => $file->getClientOriginalName(),
-                    'name' => date("Y-m-d") . '/' . Str::ascii(time() . '-' . $file->getClientOriginalName()),
+                    'name' => date('Y-m-d').'/'.Str::ascii(time().'-'.$file->getClientOriginalName()),
                     'type' => 'order',
                     'beglouto' => $id,
                     'finish' => false,
@@ -189,13 +185,15 @@ class OrderController extends Controller
             }
         }
         Session::flash('good', 'Файлы успешно загружены');
+
         return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)

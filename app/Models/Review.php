@@ -1,14 +1,14 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Review
- *
+ * App\Models\Review.
  */
 class Review extends Model
 {
-
     /**
      * The database table used by the model.
      *
@@ -29,8 +29,6 @@ class Review extends Model
         'lang',
         'publish',
         'country',
-        'institute'
+        'institute',
     ];
-
-
 }

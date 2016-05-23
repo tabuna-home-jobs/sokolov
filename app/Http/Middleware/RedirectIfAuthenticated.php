@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace app\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
@@ -17,8 +17,7 @@ class RedirectIfAuthenticated
     /**
      * Create a new filter instance.
      *
-     * @param  Guard $auth
-     * @return void
+     * @param Guard $auth
      */
     public function __construct(Guard $auth)
     {
@@ -28,22 +27,21 @@ class RedirectIfAuthenticated
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
-
         if ($this->auth->check()) {
-
-            if ($this->auth->user()->checkRole('admin'))
+            if ($this->auth->user()->checkRole('admin')) {
                 return redirect('/dashboard');
-            elseif ($this->auth->user()->checkRole('editor'))
+            } elseif ($this->auth->user()->checkRole('editor')) {
                 return redirect('/editor/chan');
-            else
+            } else {
                 return redirect('/order');
-
+            }
         }
 
         return $next($request);

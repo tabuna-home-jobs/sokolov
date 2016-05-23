@@ -1,4 +1,6 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -6,17 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 
 /**
- * App\Models\Order
+ * App\Models\Order.
  *
  * @property-read \App\Models\Category $category
  */
-class Order extends Model {
-
+class Order extends Model
+{
     use Authenticatable, CanResetPassword, Sortable;
 
     /**
      * @var array
-     * Поля по которым будем сортировать
+     *            Поля по которым будем сортировать
      */
     protected $sortable = [
         'id',
@@ -25,7 +27,7 @@ class Order extends Model {
         'status',
         'created_at',
         'updated_at',
-        'sold'
+        'sold',
     ];
 
     /**
@@ -34,7 +36,6 @@ class Order extends Model {
      * @var string
      */
     protected $table = 'order';
-
 
     /**
      * The attributes that are mass assignable.
@@ -60,9 +61,7 @@ class Order extends Model {
         'sold' => 'boolean',
     ];
 
-
     protected $dates = ['created_at', 'updated_at', 'disabled_at', 'workfinish'];
-
 
     public function getUser()
     {
@@ -88,7 +87,4 @@ class Order extends Model {
     {
         return $this->hasMany('App\Models\Task');
     }
-
-
-
 }

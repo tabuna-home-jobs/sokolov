@@ -1,8 +1,9 @@
-<?php namespace App\Http\Requests;
+<?php
+
+namespace app\Http\Requests;
 
 class CategoryRequest extends Request
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -25,5 +26,4 @@ class CategoryRequest extends Request
             'eng_name' => 'required|max:255',
         ];
     }
-
 }

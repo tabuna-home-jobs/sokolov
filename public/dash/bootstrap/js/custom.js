@@ -82,10 +82,20 @@ $(document).ready(function(){
                 language: 'ru',
                 selector: "textarea.textareaedit",
                 extended_valid_elements: "img[class=img-responsive|!src|border:0|alt|title|width|height|style]",
-                plugins: "image,code,link,preview,hr,media,responsivefilemanager",
-                toolbar: "styleselect | fontsizeselect   | bullist numlist outdent indent | link image media  | preview code | more  ",
-                menu: "false",
-                statusbar: false,
+                plugins: [
+                    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                    'searchreplace wordcount visualblocks visualchars code ',
+                    'insertdatetime media nonbreaking save table contextmenu directionality',
+                    'emoticons template paste textcolor colorpicker textpattern imagetools'
+                ],
+                toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print  media | forecolor backcolor',
+                image_advtab: true,
+                //plugins: "image,code,link,preview,hr,media,link image", //responsivefilemanager
+               // toolbar: "styleselect | fontsizeselect   | bullist numlist outdent indent | link image media, file_browser_callback: RoxyFileBrowser  | preview code | more ",
+                //menu: "true",
+                statusbar: true,
+                file_browser_callback: RoxyFileBrowser
+                /*
                 setup: function (editor) {
                     editor.addButton('more', {
                         text: 'Превью',
@@ -94,11 +104,42 @@ $(document).ready(function(){
                         }
                     });
                 },
+                */
 
-                external_filemanager_path: "/dash/filemanager/",
-                filemanager_title: "Файловый менеджер",
-                external_plugins: {"filemanager": "/dash/filemanager/plugin.min.js"}
+                //external_filemanager_path: "/dash/filemanager/",
+                //filemanager_title: "Файловый менеджер",
+                //external_plugins: {"filemanager": "/dash/filemanager/plugin.min.js"}
             });
+
+
+
+        function RoxyFileBrowser(field_name, url, type, win) {
+            var roxyFileman = '/dash/fileman/index.html';
+            if (roxyFileman.indexOf("?") < 0) {
+                roxyFileman += "?type=" + type;
+            }
+            else {
+                roxyFileman += "&type=" + type;
+            }
+            roxyFileman += '&input=' + field_name + '&value=' + win.document.getElementById(field_name).value;
+            if(tinyMCE.activeEditor.settings.language){
+                roxyFileman += '&langCode=' + tinyMCE.activeEditor.settings.language;
+            }
+            tinyMCE.activeEditor.windowManager.open({
+                file: roxyFileman,
+                title: 'Roxy Fileman',
+                width: 850,
+                height: 650,
+                resizable: "yes",
+                plugins: "media",
+                inline: "yes",
+                close_previous: "no"
+            }, {     window: win,     input: field_name    });
+            return false;
+        }
+
+
+
     });
 
 

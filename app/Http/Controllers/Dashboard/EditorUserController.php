@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace app\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Http\Requests\Dashboard\EditorUserRequest;
 use App\Models\Category;
 use App\Models\Skills;
@@ -21,10 +20,10 @@ class EditorUserController extends Controller
     public function index()
     {
         $Editors = User::where('type', 'editor')->paginate(15);
-        return view("dashboard/editor/index", [
+
+        return view('dashboard/editor/index', [
             'Editors' => $Editors,
         ]);
-
     }
 
     /**
@@ -35,15 +34,17 @@ class EditorUserController extends Controller
     public function create()
     {
         $skills = Category::all();
-        return view("dashboard/editor/create", [
-            'Skills' => $skills
+
+        return view('dashboard/editor/create', [
+            'Skills' => $skills,
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(EditorUserRequest $request)
@@ -53,7 +54,7 @@ class EditorUserController extends Controller
             'last_name' => $request->last_name,
             'email' => $request->email,
             'phone' => $request->phone,
-            'type' => 'editor,'
+            'type' => 'editor,',
         ]);
         $user->type = 'editor';
         $user->password = bcrypt($request->password);
@@ -67,14 +68,15 @@ class EditorUserController extends Controller
 
         $user->getSkills()->saveMany($skills);
         Session::flash('good', 'Вы успешно добавили редактора');
-        return redirect()->route('dashboard.editor.index');
 
+        return redirect()->route('dashboard.editor.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -85,7 +87,8 @@ class EditorUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
@@ -102,9 +105,8 @@ class EditorUserController extends Controller
                     $MegaArray = array_add($MegaArray, $value->id, [
                         'id' => $value->id,
                         'name' => $value->name,
-                        'select' => true
+                        'select' => true,
                     ]);
-
                 }
             }
         }
@@ -123,17 +125,18 @@ class EditorUserController extends Controller
         }
 */
 
-        return view("dashboard/editor/edit", [
+        return view('dashboard/editor/edit', [
             'User' => $user,
-            'Skills' => $MegaArray
+            'Skills' => $MegaArray,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(EditorUserRequest $request, $id)
@@ -141,18 +144,18 @@ class EditorUserController extends Controller
         $user = User::findOrFail($id);
         Skills::where('user_id', $user->id)->delete();
 
-
         $user->fill([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
             'phone' => $request->phone,
-            'type' => 'editor,'
+            'type' => 'editor,',
         ]);
         $user->type = 'editor';
 
-        if (!empty($request->password))
+        if (!empty($request->password)) {
             $user->password = bcrypt($request->password);
+        }
 
         $user->save();
 
@@ -163,14 +166,15 @@ class EditorUserController extends Controller
 
         $user->getSkills()->saveMany($skills);
         Session::flash('good', 'Вы успешно изменили редактора');
-        return redirect()->route('dashboard.editor.index');
 
+        return redirect()->route('dashboard.editor.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)
@@ -178,6 +182,7 @@ class EditorUserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
         Session::flash('good', 'Вы успешно удалили редактора');
+
         return redirect()->route('dashboard.editor.index');
     }
 }

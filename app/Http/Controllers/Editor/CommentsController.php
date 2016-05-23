@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Editor;
+namespace app\Http\Controllers\Editor;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Models\Comments;
 use Auth;
 use Illuminate\Http\Request;
@@ -34,23 +33,26 @@ class CommentsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
     {
         $comments = new Comments($request->all());
         $comments->user_id = Auth::user()->id;
-        $comments->type = "task";
+        $comments->type = 'task';
         $comments->save();
         Session::flash('good', trans('alert.You have successfully added a comment'));
+
         return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -61,7 +63,8 @@ class CommentsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
@@ -72,8 +75,9 @@ class CommentsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(Request $request, $id)
@@ -84,7 +88,8 @@ class CommentsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)

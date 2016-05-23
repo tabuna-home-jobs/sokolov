@@ -16,10 +16,10 @@ return [
     'Comments' => 'Comments',
     'Available files' => 'Available files',
     'Ready files' => 'Ready files',
-    "Select files" => "Select files",
-    "Move the files you want to upload" => "Move the files you want to upload",
-    "Files" => "Files",
-    "Send" => "Send",
-    "Download the required documents" => "Download the required documents",
-    'Write a comment' => 'Write a comment'
+    'Select files' => 'Select files',
+    'Move the files you want to upload' => 'Move the files you want to upload',
+    'Files' => 'Files',
+    'Send' => 'Send',
+    'Download the required documents' => 'Download the required documents',
+    'Write a comment' => 'Write a comment',
 ];

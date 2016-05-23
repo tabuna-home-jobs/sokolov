@@ -1,4 +1,6 @@
-<?php namespace App\Services\orchid\seo\Models;
+<?php
+
+namespace app\Services\orchid\seo\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Services\orchid\seo\Traits\SeoTrait;
@@ -28,6 +30,4 @@ class SEO extends Model
         'custom' => 'array',
         'image' => 'array',
     ];
-
-
 }

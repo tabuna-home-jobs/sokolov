@@ -42,7 +42,7 @@
 
                             @if(!empty($News->tag))
                                 <i class="fa fa-tags"></i>
-                                Tags :
+                                    {{trans('content.Tags')}} :
                                 @foreach(explode(',',$News->tag) as $tag)
                                     <a href="{{URL::route(App::getLocale().'.news.index',['tags' => $tag])}}" class="no-hover"><span class="label label-default">{{$tag}}</span></a>
                                 @endforeach
@@ -61,7 +61,7 @@
                         </div>
                         <div class="col-md-9">
 
-                            {!! str_limit(strip_tags($News->content), $limit = 500, $end = '...') !!}
+                            {!! str_limit_words(strip_tags($News->content), $limit = 500, $end = '...') !!}
 
                             <p class="text-right"><a href="{{URL::route(App::getLocale().'.news.show',$News->slug)}}"> Read more <i class="fa fa-angle-double-right"></i> </a></p>
                         </div>
@@ -86,7 +86,7 @@
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
 
             <div class="page-header">
-                <h4>Теги</h4>
+                <h4>{{trans('content.Tags')}}</h4>
             </div>
             <div>
                 @foreach($NewsTags as $tag)

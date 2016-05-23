@@ -1,13 +1,14 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Feedback
- *
+ * App\Models\Feedback.
  */
-class Feedback extends Model {
-
+class Feedback extends Model
+{
     /**
      * The database table used by the model.
      *
@@ -21,5 +22,4 @@ class Feedback extends Model {
      * @var array
      */
     protected $fillable = ['fio', 'phone', 'email', 'content'];
-
 }

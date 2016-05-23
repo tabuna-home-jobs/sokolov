@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace app\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Models\Files;
 use App\Models\FilesMeta;
 use App\Models\Order;
@@ -35,7 +34,8 @@ class FileManagerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param Request $request
+     *
      * @return Response
      */
     public function store(Request $request)
@@ -46,7 +46,8 @@ class FileManagerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($id)
@@ -60,23 +61,22 @@ class FileManagerController extends Controller
         // Береём мета данные о расшаривание документа
         $filesMeta = FilesMeta::whereRaw('files_id = ? and user_id = ?', [$file->id, Auth::user()->id])->first();
 
-
         if ($file->user_id == Auth::user()->id ||
             $order->user_id == Auth::user()->id ||
             $order->userword_id == Auth::user()->id ||
             !is_null($filesMeta)
         ) {
-            return response()->download(storage_path() . '/app/order/' . $file->name);
+            return response()->download(storage_path().'/app/order/'.$file->name);
         } else {
             abort(404);
         }
-
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
@@ -87,8 +87,9 @@ class FileManagerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request $request
-     * @param  int $id
+     * @param Request $request
+     * @param int     $id
+     *
      * @return Response
      */
     public function update(Request $request, $id)
@@ -99,7 +100,8 @@ class FileManagerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($id)

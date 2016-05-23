@@ -1,8 +1,9 @@
-<?php namespace App\Http\Requests;
+<?php
+
+namespace app\Http\Requests;
 
 class ExamplesRequest extends Request
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -30,8 +31,7 @@ class ExamplesRequest extends Request
             'descript' => 'max:255',
             'avatar' => 'mimes:jpeg,bmp,png',
             'icon' => 'mimes:jpeg,bmp,png',
-            'category' => 'integer'
+            'category' => 'integer',
         ];
     }
-
 }

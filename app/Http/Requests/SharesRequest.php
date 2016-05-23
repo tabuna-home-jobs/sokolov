@@ -1,10 +1,11 @@
-<?php namespace App\Http\Requests;
+<?php
+
+namespace app\Http\Requests;
 
 use Auth;
 
 class SharesRequest extends Request
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -32,5 +33,4 @@ class SharesRequest extends Request
             'lang' => 'required',
         ];
     }
-
 }

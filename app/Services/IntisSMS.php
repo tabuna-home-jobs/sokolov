@@ -3,13 +3,12 @@
  * Created by PhpStorm.
  * User: joker
  * Date: 22.10.14
- * Time: 11:29
+ * Time: 11:29.
  *
  * Класс для работы с IntisSMS
  */
 
-namespace App\Services;
-
+namespace app\Services;
 
 class IntisSMS
 {
@@ -27,15 +26,15 @@ class IntisSMS
     public static $sender = 'FalconEdit';
 
     /**
-     * Метод инициализации
+     * Метод инициализации.
      */
-    function init()
+    public function init()
     {
         parent::init();
     }
 
     /**
-     * Проверка баланса
+     * Проверка баланса.
      *
      * @return mixed
      */
@@ -44,20 +43,20 @@ class IntisSMS
         $params = array(
             'timestamp' => $this->timestamp(),
             'login' => self::$login,
-            'return' => 'json'
+            'return' => 'json',
         );
 
         $sign = $this->signature($params);
 
         $params['signature'] = $sign;
 
-        $arr = json_decode($this->request('https://new.sms16.ru/get/balance.php', $params), TRUE);
+        $arr = json_decode($this->request('https://new.sms16.ru/get/balance.php', $params), true);
 
         return $arr['money'];
     }
 
     /**
-     * Запрашивает метку времени
+     * Запрашивает метку времени.
      *
      * @return mixed Метка времени
      */
@@ -65,13 +64,13 @@ class IntisSMS
     {
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, "https://new.sms16.ru/get/timestamp.php");
-        curl_setopt($ch, CURLOPT_HEADER, FALSE);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_URL, 'https://new.sms16.ru/get/timestamp.php');
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
         curl_setopt($ch, CURLOPT_USERAGENT, 'PHP Bot (https://falconediting.com)');
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         $data = curl_exec($ch);
         curl_close($ch);
 
@@ -79,7 +78,7 @@ class IntisSMS
     }
 
     /**
-     * Формирование подписи
+     * Формирование подписи.
      *
      * @param $params Параметры запроса
      *
@@ -89,11 +88,12 @@ class IntisSMS
     {
         ksort($params);
         reset($params);
-        return md5(implode($params) . self::$apikey);
+
+        return md5(implode($params).self::$apikey);
     }
 
     /**
-     * Запрос по HTTPS
+     * Запрос по HTTPS.
      *
      * @param $url  Ссылка
      * @param $body Тело запроса
@@ -104,13 +104,13 @@ class IntisSMS
     {
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, $url . '?' . http_build_query($body));
-        curl_setopt($ch, CURLOPT_HEADER, FALSE);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_URL, $url.'?'.http_build_query($body));
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
         curl_setopt($ch, CURLOPT_USERAGENT, 'PHP Bot (https://falconediting.com)');
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         $data = curl_exec($ch);
         curl_close($ch);
 
@@ -118,7 +118,7 @@ class IntisSMS
     }
 
     /**
-     * Отправка сообщения
+     * Отправка сообщения.
      *
      * @param $number Номер
      * @param $text   Текст
@@ -127,22 +127,20 @@ class IntisSMS
      */
     public function send($number, $text)
     {
-
         $params = array(
             'login' => self::$login,
             'phone' => $number,
             'text' => $text,
             'sender' => self::$sender,
             'timestamp' => self::timestamp(),
-            'return' => 'json'
+            'return' => 'json',
         );
 
         $sign = self::signature($params);
 
         $params['signature'] = $sign;
 
-
-        $res = json_decode(self::request('https://new.sms16.ru/get/send.php', $params), TRUE);
+        $res = json_decode(self::request('https://new.sms16.ru/get/send.php', $params), true);
 
         //$res = $res[$number]['id_sms'];
 
@@ -150,7 +148,7 @@ class IntisSMS
     }
 
     /**
-     * Запрос статуса сообщения
+     * Запрос статуса сообщения.
      *
      * @param $id ID сообщения
      *
@@ -161,26 +159,25 @@ class IntisSMS
         $params = array(
             'login' => $this->login,
             'timestamp' => $this->timestamp(),
-            'state' => $id
+            'state' => $id,
         );
 
         $sign = $this->signature($params);
 
         $params['signature'] = $sign;
 
-        $res = json_decode($this->request('https://new.sms16.ru/get/status.php', $params), TRUE);
+        $res = json_decode($this->request('https://new.sms16.ru/get/status.php', $params), true);
 
         return $res[$id];
     }
 
-    public  function statistic($data = null)
+    public function statistic($data = null)
     {
-
         $params = array(
             'timestamp' => $this->timestamp(),
             'login' => self::$login,
             'return' => 'json',
-            'month' =>  ($data == null) ? date("Y-m") : $data
+            'month' => ($data == null) ? date('Y-m') : $data,
         );
 
         //dd($params);
@@ -188,13 +185,8 @@ class IntisSMS
 
         $params['signature'] = $sign;
 
-        $arr = json_decode($this->request('https://new.sms16.ru/get/stat_by_month.php', $params), TRUE);
+        $arr = json_decode($this->request('https://new.sms16.ru/get/stat_by_month.php', $params), true);
 
         return $arr;
     }
-
-
-
 }
-
-?>

@@ -11,20 +11,16 @@
 |
 */
 
-
 //Route::post('/payments/order', function () {
 //    return 'Hello World';
 //});
-
-
 
 Route::group(['namespace' => 'Payments', 'prefix' => 'payments'], function () {
     Route::resource('order', 'AvisoController');
     Route::resource('status', 'StatusController');
 });
 
-
-/**
+/*
  * Авторизация, регистрация, востановление пароля
  */
 Route::controllers([
@@ -33,7 +29,7 @@ Route::controllers([
 ]);
 Route::resource('language', 'Language\LanguageController');
 
-/**
+/*
  * Администратор
  */
 Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'admin'], 'prefix' => 'dashboard'], function () {
@@ -73,7 +69,6 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'admin'], 'pr
     Route::post('/updateitem', array('as' => 'updateitem', 'uses' => 'WmenuController@updateitem'));
 });
 
-
 Route::group(['namespace' => 'Site'], function () {
 
     Route::resource('', 'IndexController');
@@ -89,7 +84,6 @@ Route::group(['namespace' => 'Site'], function () {
 
     Route::controller('examplegetone', 'WorksController');
 
-
     Route::group(['middleware' => ['auth', 'user']], function () {
         Route::resource('home', 'HomeController');
         //  Route::resource('setting', 'SettingController');
@@ -99,9 +93,6 @@ Route::group(['namespace' => 'Site'], function () {
         Route::resource('filemanager', 'FileManagerController');
     });
 });
-
-
-
 
 Route::group(['namespace' => 'Site', 'prefix' => 'ru', 'middleware' => 'Ru'], function () {
     Route::resource('', 'IndexController');
@@ -114,8 +105,7 @@ Route::group(['namespace' => 'Site', 'prefix' => 'ru', 'middleware' => 'Ru'], fu
     Route::resource('search', 'SearchController');
     Route::resource('catalog', 'CatalogController');
     Route::resource('examples', 'ExamplesController');
-    Route::resource('trophy', 'WorksController');
-
+    Route::resource('samples', 'WorksController');
 
     Route::group(['middleware' => ['auth', 'user']], function () {
         Route::resource('home', 'HomeController');
@@ -126,7 +116,6 @@ Route::group(['namespace' => 'Site', 'prefix' => 'ru', 'middleware' => 'Ru'], fu
         Route::resource('filemanager', 'FileManagerController');
     });
 });
-
 
 Route::group(['namespace' => 'Site', 'prefix' => 'en', 'middleware' => 'En'], function () {
     Route::resource('', 'IndexController');
@@ -139,8 +128,7 @@ Route::group(['namespace' => 'Site', 'prefix' => 'en', 'middleware' => 'En'], fu
     Route::resource('search', 'SearchController');
     Route::resource('catalog', 'CatalogController');
     Route::resource('examples', 'ExamplesController');
-    Route::resource('trophy', 'WorksController');
-
+    Route::resource('samples', 'WorksController');
 
     Route::group(['middleware' => ['auth', 'user']], function () {
         Route::resource('home', 'HomeController');
@@ -152,16 +140,10 @@ Route::group(['namespace' => 'Site', 'prefix' => 'en', 'middleware' => 'En'], fu
     });
 });
 
-
-
-
-
-
 Route::group(['middleware' => ['auth'], 'namespace' => 'Site'], function () {
 
     Route::resource('setting', 'SettingController');
 });
-
 
 Route::group(['namespace' => 'Editor', 'middleware' => ['auth', 'editor'], 'prefix' => 'editor'], function () {
     Route::resource('', 'IndexController');
@@ -172,6 +154,5 @@ Route::group(['namespace' => 'Editor', 'middleware' => ['auth', 'editor'], 'pref
 
     Route::resource('payments', 'PaymentsController');
 });
-
 
 Route::get('sitemap.xml', 'Site\SiteMapController@index');

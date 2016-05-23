@@ -1,8 +1,9 @@
-<?php namespace App\Http\Requests;
+<?php
 
-class FeedBackSend extends Request
+namespace app\Http\Requests;
+
+class FeedBackSendRequests extends Request
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,5 +25,4 @@ class FeedBackSend extends Request
             'id' => 'integer',
         ];
     }
-
 }

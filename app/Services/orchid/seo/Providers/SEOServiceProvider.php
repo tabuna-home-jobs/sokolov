@@ -1,10 +1,11 @@
-<?php namespace App\Services\orchid\seo\Providers;
+<?php
+
+namespace app\Services\orchid\seo\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
 class SEOServiceProvider extends ServiceProvider
 {
-
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -14,25 +15,20 @@ class SEOServiceProvider extends ServiceProvider
 
     /**
      * Boot the application events.
-     *
-     * @return void
      */
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../Resources/views' => base_path('resources/views/vendor/seo'),
+            __DIR__.'/../Resources/views' => base_path('resources/views/vendor/seo'),
             //    __DIR__ . '/../Models/SEO.php' => app_path('/Models/SEO.php'),
-            __DIR__ . '/../Database/Migrations/' => database_path('migrations'),
+            __DIR__.'/../Database/Migrations/' => database_path('migrations'),
         ]);
 
-        $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'seo');
-
+        $this->loadViewsFrom(__DIR__.'/../Resources/views', 'seo');
     }
 
     /**
      * Register the service provider.
-     *
-     * @return void
      */
     public function register()
     {
@@ -55,6 +51,4 @@ class SEOServiceProvider extends ServiceProvider
         return [];
         //   return ['seo'];
     }
-
-
 }

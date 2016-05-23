@@ -24,7 +24,7 @@
 
                         <figure>
                             <figcaption>
-                                <a href="{{URL::route(App::getLocale().'.trophy.show',$gList->category_id)}}">
+                                <a href="{{URL::route(App::getLocale().'.samples.show',$gList->category_id)}}">
                                     <!--Выводится иконка прибавляется к ней просто индекс-->
                                     <img src="/img/catalog/icon{{++$key}}.png" class="img-icon"  alt="{{$gList->name}}">
                                     <div class="img-wrapper">

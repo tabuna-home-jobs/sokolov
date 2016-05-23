@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace app\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FeedBackSend;
@@ -18,13 +18,14 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        if (!Request::input('noread'))
+        if (!Request::input('noread')) {
             $Feedback = Feedback::orderBy('id', 'desc')->simplePaginate(15);
-        else
+        } else {
             $Feedback = Feedback::whereRead(false)->orderBy('id', 'desc')->simplePaginate(15);
+        }
         //$Feedback = Feedback::whereRaw('read = ?', [false])->orderBy('id', 'desc')->simplePaginate(15);
 
-        return view("dashboard/feedback/feedback", ['Feedback' => $Feedback]);
+        return view('dashboard/feedback/feedback', ['Feedback' => $Feedback]);
     }
 
     /**
@@ -35,7 +36,8 @@ class FeedbackController extends Controller
     public function create($Email = null)
     {
         $Feedback = Feedback::whereRaw('id = ?', [$Email])->first();
-        return view("dashboard/feedback/send", ['Feedback' => $Feedback]);
+
+        return view('dashboard/feedback/send', ['Feedback' => $Feedback]);
     }
 
     /**
@@ -45,18 +47,19 @@ class FeedbackController extends Controller
      */
     public function store(FeedBackSend $request)
     {
-
         Mail::raw($request->contentmess, function ($message) use ($request) {
             $message->to($request->email);
         });
         Session::flash('good', 'Вы успешно отправили письмо');
+
         return redirect()->route('dashboard.feedback.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function show($Feedback)
@@ -64,13 +67,15 @@ class FeedbackController extends Controller
         $Feedback = Feedback::find($Feedback);
         $Feedback->read = true;
         $Feedback->save();
-        return view("dashboard/feedback/view", ['Feedback' => $Feedback]);
+
+        return view('dashboard/feedback/view', ['Feedback' => $Feedback]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function edit($id)
@@ -81,7 +86,8 @@ class FeedbackController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function update($id)
@@ -92,7 +98,8 @@ class FeedbackController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return Response
      */
     public function destroy($Feedback = null)
@@ -100,6 +107,7 @@ class FeedbackController extends Controller
         $Feedback = Feedback::find($Feedback);
         $Feedback->delete();
         Session::flash('good', 'Вы успешно удалили значения');
+
         return redirect()->route('dashboard.feedback.index');
     }
 }

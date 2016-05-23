@@ -31,7 +31,7 @@
                 @endif
 
                 <main class="col-md-10">
-                    {{ str_limit(strip_tags($post->content), $limit = 500, $end = '...')}}
+                    {{ str_limit_words(strip_tags($post->content), $limit = 500, $end = '...')}}
                 </main>
 
 
@@ -52,7 +52,7 @@
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
 
             <div class="page-header">
-            <h4>Теги</h4>
+            <h4>{{trans('content.Tags')}}</h4>
             </div>
             <div>
                 @foreach($TagList as $tag)
@@ -63,7 +63,7 @@
             </div>
 
             <div class="page-header">
-            <h4>Новости</h4>
+            <h4>{{trans('content.News')}}</h4>
                 </div>
             @foreach($NewsList as $news)
                 <a href="{{URL::route(App::getLocale().'.news.show',$news->slug)}}">
@@ -74,7 +74,7 @@
                 </h5>
                 <p>
                     {{
-                        str_limit(strip_tags($news->content), $limit = 100, $end = '...')
+                        str_limit_words(strip_tags($news->content), $limit = 100, $end = '...')
                     }}
                 </p>
                 <hr>

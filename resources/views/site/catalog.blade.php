@@ -37,7 +37,7 @@
                                         <h2>{{$gList->name}}</h2>
 
                                         <div class="text-slider-bg">
-                                            {{str_limit(strip_tags($gList->text),150,'...')}}
+                                            {{str_limit_words(strip_tags($gList->text),150,'...')}}
                                         </div>
 
                                         <p class="m-top-10">

@@ -1,11 +1,11 @@
-<?php namespace App\Http\Requests;
+<?php
+
+namespace app\Http\Requests;
 
 use Sentry;
 
-
 class ReviewsRequest extends Request
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -29,5 +29,4 @@ class ReviewsRequest extends Request
             'status' => 'required|boolean',
         ];
     }
-
 }

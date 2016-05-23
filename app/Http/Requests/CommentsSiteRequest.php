@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace app\Http\Requests;
 
 use App\Models\Order;
 use Auth;
@@ -17,6 +17,7 @@ class CommentsSiteRequest extends Request
 
         //Проверям может ли пользователь комментировать запись
         $Order = Order::select('user_id', 'userwork_id')->findOrFail($this->beglouto);
+
         return $Order->user_id == Auth::user()->id || $Order->userwork_id == Auth::user()->id;
     }
 

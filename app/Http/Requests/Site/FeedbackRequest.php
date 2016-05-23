@@ -1,10 +1,11 @@
-<?php namespace App\Http\Requests\Site;
+<?php
+
+namespace app\Http\Requests\Site;
 
 use App\Http\Requests\Request;
 
 class FeedbackRequest extends Request
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -29,5 +30,4 @@ class FeedbackRequest extends Request
             'message' => 'required',
         ];
     }
-
 }

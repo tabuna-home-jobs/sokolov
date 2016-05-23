@@ -54,9 +54,87 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 
 
+    <div class="container-fluid">
+        <div class="row backgound-grey">
+            <div class="container why-work hidden-sm hidden-xs">
+
+
+                <div class="text-center">
+
+                    <h3><span>{{trans('main.Work')}}</span></h3>
+
+                </div>
+
+                <div class="row">
+
+
+                    <div class="col-md-3  text-center">
+                        <h2><span>{{trans('main.You')}}:</span></h2>
+                    </div>
+
+                    <div class="col-md-3">
+                        <img class="img-responsive" src="/img/infografica-1.png" alt="{{trans('main.Order services')}}">
+
+                        <p class="text-center">{{trans('main.Order services')}}</p>
+
+                        <p class="text-center"><span class="glyphicon glyphicon-arrow-down"></span></p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <img class="img-responsive" src="/img/infografica-2.png" alt="{{trans('main.To pay for services')}}">
+
+                        <p class="text-center">{{trans('main.To pay for services')}}</p>
+
+                        <p class="text-center"><span class="glyphicon glyphicon-arrow-down"></span></p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <img class="img-responsive" src="/img/infografica-3.png" alt="{{trans('main.You get ready to work')}}">
+
+                        <p class="text-center">{{trans('main.You get ready to work')}}</p>
+
+                        <p class="text-center"><span class="glyphicon glyphicon-arrow-down"></span></p>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-3 text-center">
+                        <h2><span>{{trans('main.We')}}:</span></h2>
+                    </div>
+
+                    <div class="col-md-3">
+                        <img class="img-responsive" src="/img/infografica-4.png" alt="{{trans('main.We expect the price')}}">
+
+                        <p class="text-center">{{trans('main.We expect the price')}}</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <img class="img-responsive" src="/img/infografica-5.png" alt="{{trans('main.To provide services')}}">
+
+                        <p class="text-center">{{trans('main.To provide services')}}</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <img class="img-responsive" src="/img/infografica-6.png" alt="{{trans('main.Get Your review')}}">
+
+                        <p class="text-center">{{trans('main.Get Your review')}}</p>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 
 
 

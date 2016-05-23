@@ -1,10 +1,11 @@
-<?php namespace App\Http\Requests;
+<?php
+
+namespace app\Http\Requests;
 
 use Auth;
 
 class MenuChildRequest extends Request
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -31,5 +32,4 @@ class MenuChildRequest extends Request
 
         ];
     }
-
 }

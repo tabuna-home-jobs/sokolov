@@ -8,6 +8,7 @@ body {
     color: #1c1c1c;
     font-family: 'Roboto', sans-serif !important;
     margin-bottom: 350px;
+    font-size: 12pt;
 }
 
 
@@ -472,7 +473,7 @@ a:active, a:hover , .btn{
 
 
 .reviews-list > .row {
-    padding: 60px 0;
+    padding: 60px 0 0 0;
 }
 
 .array-top .glyphicon {
@@ -1425,7 +1426,6 @@ pre {
 .auth-form{height: 360px;}
 
 .logo-text {
-    padding-left: 60px;
     color: #2f8398;
     font-size: 12pt;
     text-align: justify;
@@ -1573,3 +1573,19 @@ a.no-hover:hover, a.no-hover:active{
     text-decoration: none;
 }
 
+.v-center{
+    display: flex;
+    align-items: center;
+}
+
+.flag{
+    background: inherit!important;
+    opacity: 0.5;
+}
+.flag.active{
+    opacity: 1;
+}
+
+.flag:hover,.flag:active,.flag:after{
+    text-decoration: none!important;
+}

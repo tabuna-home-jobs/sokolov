@@ -1,14 +1,14 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class LangOrder
- * @package App\Models
+ * Class LangOrder.
  */
 class LangOrder extends Model
 {
-
     /**
      * The database table used by the model.
      *
@@ -23,15 +23,13 @@ class LangOrder extends Model
      */
     protected $fillable = ['name', 'eng_name'];
 
-
     /**
      * Связь категории с товаром
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function getOrder()
     {
         return $this->hasMany(Order::class);
     }
-
-
 }

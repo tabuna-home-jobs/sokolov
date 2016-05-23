@@ -6,15 +6,15 @@ return [
     Spec columns
     */
     'columns' => [
-        'numeric_columns'  => [
+        'numeric_columns' => [
             'rows' => ['created_at', 'updated_at', 'level', 'id'],
-            'class' => 'fa fa-sort-numeric'
+            'class' => 'fa fa-sort-numeric',
         ],
-        'amount_columns'   => [
+        'amount_columns' => [
             'rows' => ['price'],
-            'class' => 'fa fa-sort-amount'
+            'class' => 'fa fa-sort-amount',
         ],
-        'alpha_columns'    => [
+        'alpha_columns' => [
             'rows' => ['name', 'description', 'email', 'slug'],
             'class' => 'fa fa-sort-alpha',
         ],
@@ -28,6 +28,6 @@ return [
     /*
     Icon that shows when generating sortable link while column is not sorted.
     */
-    'sortable_icon'    => 'fa fa-sort'
+    'sortable_icon' => 'fa fa-sort',
 
 ];

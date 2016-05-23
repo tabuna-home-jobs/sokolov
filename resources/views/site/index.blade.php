@@ -35,7 +35,7 @@
 
 
                 <div class="bs-example" data-example-id="thumbnails-with-custom-content">
-                    <div class="row">
+                    <div class="row v-center">
 
 
                         <div class="col-sm-6 col-md-3">
@@ -57,7 +57,7 @@
 
                                 </div>
 
-                                <a href="/{{App::getLocale() ."/trophy/4"}}" class="small">
+                                <a href="/{{App::getLocale() ."/samples/4"}}" class="small">
                                     {{trans('job.title')}}
                                 </a>
 
@@ -86,7 +86,7 @@
                                 </div>
 
 
-                                <a href="/{{App::getLocale() ."/trophy/5"}}" class="small">
+                                <a href="/{{App::getLocale() ."/samples/5"}}" class="small">
                                     {{trans('job.title')}}
                                 </a>
 
@@ -114,7 +114,7 @@
                                 </div>
 
 
-                                <a href="/{{App::getLocale() ."/trophy/6"}}" class="small">
+                                <a href="/{{App::getLocale() ."/samples/6"}}" class="small">
                                     {{trans('job.title')}}
                                 </a>
 
@@ -145,7 +145,7 @@
                                 </div>
 
 
-                                <a href="/{{App::getLocale() ."/trophy/7"}}" class="small">
+                                <a href="/{{App::getLocale() ."/samples/7"}}" class="small">
                                     {{trans('job.title')}}
                                 </a>
 
@@ -164,79 +164,6 @@
 
 
 
-
-    <div class="container why-work hidden-sm hidden-xs">
-
-
-        <div class="text-center">
-
-            <h3><span>{{trans('main.Work')}}</span></h3>
-
-        </div>
-
-        <div class="row">
-
-
-            <div class="col-md-3  text-center">
-                <h2><span>{{trans('main.You')}}:</span></h2>
-            </div>
-
-            <div class="col-md-3">
-                <img class="img-responsive" src="/img/infografica-1.png" alt="{{trans('main.Order services')}}">
-
-                <p class="text-center">{{trans('main.Order services')}}</p>
-
-                <p class="text-center"><span class="glyphicon glyphicon-arrow-down"></span></p>
-            </div>
-
-            <div class="col-md-3">
-                <img class="img-responsive" src="/img/infografica-2.png" alt="{{trans('main.To pay for services')}}">
-
-                <p class="text-center">{{trans('main.To pay for services')}}</p>
-
-                <p class="text-center"><span class="glyphicon glyphicon-arrow-down"></span></p>
-            </div>
-
-            <div class="col-md-3">
-                <img class="img-responsive" src="/img/infografica-3.png" alt="{{trans('main.You get ready to work')}}">
-
-                <p class="text-center">{{trans('main.You get ready to work')}}</p>
-
-                <p class="text-center"><span class="glyphicon glyphicon-arrow-down"></span></p>
-            </div>
-
-        </div>
-
-
-        <div class="row">
-
-            <div class="col-md-3 text-center">
-                <h2><span>{{trans('main.We')}}:</span></h2>
-            </div>
-
-            <div class="col-md-3">
-                <img class="img-responsive" src="/img/infografica-4.png" alt="{{trans('main.We expect the price')}}">
-
-                <p class="text-center">{{trans('main.We expect the price')}}</p>
-            </div>
-
-            <div class="col-md-3">
-                <img class="img-responsive" src="/img/infografica-5.png" alt="{{trans('main.To provide services')}}">
-
-                <p class="text-center">{{trans('main.To provide services')}}</p>
-            </div>
-
-            <div class="col-md-3">
-                <img class="img-responsive" src="/img/infografica-6.png" alt="{{trans('main.Get Your review')}}">
-
-                <p class="text-center">{{trans('main.Get Your review')}}</p>
-            </div>
-
-
-        </div>
-
-
-    </div>
 
 
 
@@ -387,6 +314,114 @@
 
 
 
+    @if($ReviewsList->count())
+
+
+
+
+        <div class="container-fluid">
+            <div class="row backgound-grey ">
+
+                <div class="container container-reviews hidden-sm hidden-xs">
+
+
+                    <div class="text-center">
+
+                        <h2 class="h1-slab">{{trans('main.Reviews')}}</h2>
+                        <a href="{{URL::route(App::getLocale().'.review.index')}}" class="a-mack">{{trans('main.Reviews-sub')}} </a>
+
+                    </div>
+
+
+                    <div class="reviews-list">
+                        <div class="row">
+
+
+
+                            <div id="carousel-reviews" class="carousel slide slider-reviews" data-ride="carousel">
+
+                                <div class="carousel-inner" role="listbox">
+
+
+                                    @foreach($ReviewsList as $key => $reviews)
+                                        <div class="item @if(!$key) active @endif">
+                                            <div class="container">
+                                                <div class="col-md-6 col-md-offset-3 text-center">
+                                                    <div class="text-center">
+                                                        @if(!is_null($reviews->avatar))
+                                                        <img src="{{$reviews->avatar}}" class="img-circle" alt="{{$reviews->name}}">
+                                                        @endif
+                                                        <h3>{{$reviews->name}}</h3>
+
+
+                                                    </div>
+                                                    <ul class="fa-ul">
+                                                        <li>{{$reviews->dolshnost}}</li>
+                                                        <li>{{$reviews->institute}}</li>
+                                                        <li>{{$reviews->country}}</li>
+
+                                                    </ul>
+
+
+                                                </div>
+
+                                                <div class="col-md-12">
+
+                                                    <p class="text-justify">
+                                                        <i class="fa fa-quote-left fa-2x fa-pull-left"></i>
+                                                        {{$reviews->comment}}
+                                                        <i class="fa fa-quote-right fa-2x fa-pull-right"></i>
+                                                    </p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                </div>
+
+                                <ol class="carousel-indicators">
+
+                                    @foreach($ReviewsList as $key => $reviews)
+                                        <li data-target="#carousel-reviews" data-slide-to="{{$key}}" class="@if(!$key) active @endif"></li>
+                                    @endforeach
+                                </ol>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+    @endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @if($NewsList->count())
 
 
@@ -405,11 +440,59 @@
         <div class="container hidden-xs">
 
 
+
+
+
+            <div class="col-md-6">
+                <div class="text-center">
+
+                    <h2 class="h1-slab">{{trans('main.Blog')}}</h2>
+                    <a href="{{URL::route(App::getLocale().'.blog.index')}}" class="a-mack">Все записи блога</a>
+
+                </div>
+
+
+                <div class="news-list">
+                    <div class="row">
+
+                        @foreach($BlogsList as $blog)
+                            <div class="col-sm-6 col-md-6">
+                                <div class="thumbnail">
+                                    <img src="{{$blog->avatar}}" alt="{{$blog->name}}">
+
+                                    <div class="caption">
+
+                                        <a href="{{URL::route(App::getLocale().'.blog.show',$blog->slug)}}">
+                                            <h4>{{$blog->name}}</h4></a>
+
+
+                                        <p> {{
+                                str_limit_words(strip_tags($blog->content), $limit = 100, $end = '...')
+                            }}
+                                        </p>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+        <div class="col-md-6">
             <div class="text-center">
 
                 <h2 class="h1-slab">{{trans('main.News')}}</h2>
-                <a href="{{URL::route(App::getLocale().'.news.index')}}" class="a-mack">{{trans('main.News-sub')}} <span
-                            class="glyphicon glyphicon-arrow-right"></span></a>
+                <a href="{{URL::route(App::getLocale().'.news.index')}}" class="a-mack">{{trans('main.News-sub')}}</a>
 
             </div>
 
@@ -418,7 +501,7 @@
                 <div class="row">
 
                     @foreach($NewsList as $news)
-                        <div class="col-sm-6 col-md-3">
+                        <div class="col-sm-6 col-md-6">
                             <div class="thumbnail">
                                 <img src="{{$news->avatar}}" alt="{{$news->name}}">
 
@@ -429,12 +512,10 @@
 
 
                                     <p> {{
-                                str_limit(strip_tags($news->content), $limit = 100, $end = '...')
+                                str_limit_words(strip_tags($news->content), $limit = 100, $end = '...')
                             }}
                                     </p>
 
-                                    <p><span class="label label-default"> {{$news->created_at->diffForHumans()}}</span>
-                                    </p>
 
                                 </div>
                             </div>
@@ -444,116 +525,13 @@
 
                 </div>
             </div>
+        </div>
 
 
         </div>
     @endif
 
 
-    @if($ReviewsList->count())
-
-
-
-
-        <div class="container-fluid">
-            <div class="row backgound-grey ">
-
-                <div class="container container-reviews hidden-sm hidden-xs">
-
-
-                    <div class="text-center">
-
-                        <h2 class="h1-slab">{{trans('main.Reviews')}}</h2>
-                        <a href="{{URL::route(App::getLocale().'.review.index')}}" class="a-mack">{{trans('main.Reviews-sub')}} <span
-                                    class="glyphicon glyphicon-arrow-right"></span></a>
-
-                    </div>
-
-
-                    <div class="reviews-list">
-                        <div class="row">
-
-
-
-        <div id="carousel-reviews" class="carousel slide slider-reviews" data-ride="carousel">
-
-            <div class="carousel-inner" role="listbox">
-
-
-                @foreach($ReviewsList as $key => $reviews)
-                <div class="item @if(!$key) active @endif">
-                    <div class="container">
-                    <div class="col-md-4">
-                        <div class="text-center">
-                            <img src="{{$reviews->avatar}}" class="img-circle" alt="{{$reviews->name}}">
-                        <h3>{{$reviews->name}}</h3>
-
-
-                        </div>
-                            <ul class="fa-ul">
-                                <li><i class="fa-li fa fa-graduation-cap"></i>{{$reviews->dolshnost}}</li>
-                                <li><i class="fa-li fa fa-university"></i>{{$reviews->institute}}</li>
-                                <li><i class="fa-li fa  fa-map-marker"></i>{{$reviews->country}}</li>
-
-                            </ul>
-
-
-                    </div>
-
-                        <div class="col-md-8">
-
-                        <p class="text-justify">
-                            <i class="fa fa-quote-left fa-2x fa-pull-left"></i>
-                            {{$reviews->comment}}
-                            <i class="fa fa-quote-right fa-2x fa-pull-right"></i>
-                        </p>
-
-                    </div>
-                </div>
-                </div>
-                @endforeach
-
-            </div>
-
-            <ol class="carousel-indicators">
-
-                @foreach($ReviewsList as $key => $reviews)
-                <li data-target="#carousel-reviews" data-slide-to="{{$key}}" class="@if(!$key) active @endif"></li>
-                @endforeach
-            </ol>
-
-        </div>
-
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-
-            </div>
-        </div>
-
-
-
-
-
-    @endif
-
-    <div class="container-fluid array-top hidden-sm hidden-xs padding-container">
-
-
-        <span class="scroll-top pull-left glyphicon glyphicon-menu-up hidden-sm hidden-xs"></span>
-
-        <span class="scroll-top pull-right glyphicon glyphicon-menu-up hidden-sm hidden-xs"></span>
-
-        <p class="text-center">
-            <a href="/auth/login" class="btn btn-warning">{{trans('main.Order')}}</a>
-        </p>
-
-
-    </div>
 
 
 

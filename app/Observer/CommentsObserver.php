@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Observer;
+namespace app\Observer;
 
 use App\Models\User;
 use Config;
@@ -8,9 +8,9 @@ use Mail;
 use SMS;
 use App;
 use Session;
+
 class CommentsObserver
 {
-
     protected $email;
 
     protected $phone;
@@ -28,13 +28,10 @@ class CommentsObserver
          *
          */
         App::setLocale('en');
-
     }
-
 
     public function created($model)
     {
-
         if ($model->type == 'order') {
             $this->user = User::find($model->user_id);
 
@@ -54,7 +51,6 @@ class CommentsObserver
                     $message->to($this->user->email);
                     $message->subject(trans('notification.Your order # .', ['id' => $model->beglouto]));
                 });
-
             }
         } elseif ($model->type == 'task') {
             $this->user = User::find($model->user_id);
@@ -66,18 +62,9 @@ class CommentsObserver
                     $message->to($this->user->email);
                     $message->subject(trans('notification.Your order # .', ['id' => $model->beglouto]));
                 });
-
             }
         }
 
-
         App::setLocale(Session::get('lang', 'en'));
-
-
     }
-
-
 }
-
-
-?>

@@ -8,7 +8,7 @@ class Test extends TestCase
     protected $faker;
 
     /**
-     * Setup faker
+     * Setup faker.
      */
     public function setUp()
     {
@@ -17,7 +17,7 @@ class Test extends TestCase
     }
 
     /**
-     * My test implementation
+     * My test implementation.
      */
     public function testAllianceIsGorgeous()
     {

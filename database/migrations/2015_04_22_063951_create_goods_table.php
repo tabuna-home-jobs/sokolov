@@ -3,17 +3,14 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGoodsTable extends Migration {
-
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-        Schema::create('goods', function(Blueprint $table)
-        {
+class CreateGoodsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        Schema::create('goods', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->string('name');
@@ -29,16 +26,13 @@ class CreateGoodsTable extends Migration {
             $table->timestamps();
             $table->softDeletes();
         });
-	}
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
+    /**
+     * Reverse the migrations.
+     */
+    public function down()
+    {
         Schema::drop('goods');
-	}
-
+    }
 }

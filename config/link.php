@@ -3,5 +3,6 @@
 
 return [
     'phone' => '89802665074',
-    'email' => 'denis.a.sokolov@outlook.com',
+    'email' => 'falconediting@yandex.ru',
+    //'email' => 'denis.a.sokolov@outlook.com',
 ];

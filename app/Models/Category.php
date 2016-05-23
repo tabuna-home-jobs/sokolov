@@ -1,14 +1,16 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Category
+ * App\Models\Category.
  *
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Goods[] $goods
  */
-class Category extends Model {
-
+class Category extends Model
+{
     /**
      * The database table used by the model.
      *
@@ -23,22 +25,13 @@ class Category extends Model {
      */
     protected $fillable = ['name', 'eng_name'];
 
-
-
-
     /**
      * Связь категории с товаром
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function goods()
     {
-       return $this->hasMany('App\Models\Goods');
+        return $this->hasMany('App\Models\Goods');
     }
-
-
-
-
-
-
-
 }

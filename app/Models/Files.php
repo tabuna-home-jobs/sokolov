@@ -1,14 +1,14 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Files
- *
+ * App\Models\Files.
  */
 class Files extends Model
 {
-
     /**
      * The database table used by the model.
      *
@@ -23,11 +23,8 @@ class Files extends Model
      */
     protected $fillable = ['user_id', 'name', 'type', 'beglouto', 'finish', 'original'];
 
-
     public function getMeta()
     {
         return $this->hasMany('App\Models\FilesMeta');
     }
-
-
 }

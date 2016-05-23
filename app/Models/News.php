@@ -1,13 +1,14 @@
-<?php namespace App\Models;
+<?php
+
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\News
- *
+ * App\Models\News.
  */
-class News extends Model {
-
+class News extends Model
+{
     /**
      * The database table used by the model.
      *
@@ -20,10 +21,5 @@ class News extends Model {
      *
      * @var array
      */
-    protected $fillable = ['title', 'name', 'content', 'avatar', 'datetime', 'tag', 'descript','lang'];
-
-
-
-
-
+    protected $fillable = ['title', 'name', 'content', 'avatar', 'datetime', 'tag', 'descript', 'lang'];
 }

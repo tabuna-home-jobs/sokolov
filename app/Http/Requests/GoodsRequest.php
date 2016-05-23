@@ -1,8 +1,9 @@
-<?php namespace App\Http\Requests;
+<?php
+
+namespace app\Http\Requests;
 
 class GoodsRequest extends Request
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -31,8 +32,7 @@ class GoodsRequest extends Request
             'avatar' => 'mimes:jpeg,bmp,png',
             'icon' => 'mimes:jpeg,bmp,png',
             'price' => 'integer',
-            'category' => 'integer'
+            'category' => 'integer',
         ];
     }
-
 }
