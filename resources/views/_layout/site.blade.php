@@ -360,8 +360,13 @@
 <script>
 
 
-    $(document).ready(function () {
+    window.onload = function() {
         $("#loader-wrapper").hide();
+    }
+
+
+
+    $(document).ready(function () {
 
         $('.carousel-inner div.item:first-child').addClass('active');
 

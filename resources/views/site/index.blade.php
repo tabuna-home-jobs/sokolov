@@ -185,7 +185,10 @@
                         <div class="col-sm-6 col-md-4">
                             <div class="service service-edit">
 
-                                <img src="/img/guard-1-hover.png" alt="{{trans('main.RELIABLE')}}">
+                                <img src="/img/guard-1.png"
+                                     class="img-hover"
+                                     data-altimg="/img/guard-1-hover.png"
+                                     alt="{{trans('main.RELIABLE')}}">
 
                                 <h3>{{trans("main.RELIABLE")}}</h3>
 
@@ -200,7 +203,10 @@
                         <div class="col-sm-6 col-md-4">
                             <div class="service service-edit">
 
-                                <img src="/img/otvetst-1-hover.png" alt="{{trans('main.RESPONSIBLY')}}">
+                                <img src="/img/otvetst-1.png"
+                                     class="img-hover"
+                                     data-altimg="/img/otvetst-1-hover.png"
+                                     alt="{{trans('main.RESPONSIBLY')}}">
 
                                 <h3>{{trans('main.RESPONSIBLY')}}</h3>
 
@@ -216,7 +222,10 @@
                         <div class="col-sm-6 col-md-4">
                             <div class="service service-edit">
 
-                                <img src="/img/nadejno-1-hover.png" alt="{{trans('main.CONVENIENTLY')}}">
+                                <img src="/img/nadejno-1.png"
+                                     class="img-hover"
+                                     data-altimg="/img/nadejno-1-hover.png"
+                                     alt="{{trans('main.CONVENIENTLY')}}">
 
                                 <h3>{{trans('main.CONVENIENTLY')}}</h3>
 
