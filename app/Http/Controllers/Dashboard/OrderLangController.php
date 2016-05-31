@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\LangOrder;
@@ -105,8 +105,8 @@ class OrderLangController extends Controller
     {
         $OrderLang = LangOrder::findOrFail($id);
         $OrderLang->delete('cascade');
-        Session::flash('good', 'Вы успешно удалили значение и связанные с ним данные');
-
-        return redirect()->back();
+        return response(200);
+        //Session::flash('good', 'Вы успешно удалили значение и связанные с ним данные');
+        //return redirect()->back();
     }
 }

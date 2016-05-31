@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Services\orchid\seo\Models;
+namespace App\Services\orchid\seo\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Services\orchid\seo\Traits\SeoTrait;

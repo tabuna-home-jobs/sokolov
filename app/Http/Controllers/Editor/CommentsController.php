@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Editor;
+namespace App\Http\Controllers\Editor;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comments;

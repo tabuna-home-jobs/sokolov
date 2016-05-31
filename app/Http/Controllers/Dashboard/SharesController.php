@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SharesRequest;
@@ -114,8 +114,8 @@ class SharesController extends Controller
     public function destroy(Shares $shares)
     {
         $shares->delete();
-        Session::flash('good', 'Вы успешно удалили значения');
-
-        return redirect()->route('dashboard.shares.index');
+        return response(200);
+        //Session::flash('good', 'Вы успешно удалили значения');
+        //return redirect()->route('dashboard.shares.index');
     }
 }

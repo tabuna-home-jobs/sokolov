@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Block;
@@ -130,8 +130,8 @@ class ElementController extends Controller
     {
         $Element = Element::findOrFail($id);
         $Element->delete();
-        Session::flash('good', 'Вы успешно удалили значение');
-
-        return redirect()->back();
+        return response(200);
+        //Session::flash('good', 'Вы успешно удалили значение');
+        //return redirect()->back();
     }
 }

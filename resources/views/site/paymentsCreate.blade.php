@@ -35,7 +35,7 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <th scope="row">{{$order->id}}</th>
+                                <th scope="row">{{$order->act}}</th>
                                 <td>{{$order->price}}</td>
                                 <td>{{$order->name}}</td>
                             </tr>

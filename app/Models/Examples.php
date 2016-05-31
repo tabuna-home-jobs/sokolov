@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,6 +29,9 @@ class Examples extends Model
      */
     protected $fillable = ['title', 'name', 'content', 'avatar', 'text', 'price', 'category_id', 'tag', 'descript', 'attribute', 'lang', 'slug', 'block_id'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function category()
     {
         return $this->belongsTo('App\Models\Goods');

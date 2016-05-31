@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Block;
@@ -99,8 +99,8 @@ class BlockController extends Controller
     public function destroy($block)
     {
         $block->delete('cascade');
-        Session::flash('good', 'Вы успешно удалили значения');
-
-        return redirect()->route('dashboard.block.index');
+        return response(200);
+        //Session::flash('good', 'Вы успешно удалили значения');
+        //return redirect()->route('dashboard.block.index');
     }
 }

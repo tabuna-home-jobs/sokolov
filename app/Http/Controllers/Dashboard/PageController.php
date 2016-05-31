@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PageRequest;
@@ -100,8 +100,8 @@ class PageController extends Controller
     public function destroy(Page $page)
     {
         $page->delete();
-        Session::flash('good', 'Вы успешно удалили значения');
-
-        return redirect()->route('dashboard.page.index');
+        return response(200);
+        //      Session::flash('good', 'Вы успешно удалили значения');
+//        return redirect()->route('dashboard.page.index');
     }
 }

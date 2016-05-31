@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Providers;
+namespace App\Providers;
 
 use App\Models\Comments;
 use App\Models\Goods;
@@ -37,6 +37,11 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\NotificationSMSNotification',
             'App\Listeners\NotificationEmailNotification',
         ],
+
+        'App\Events\RegisterUser' =>[
+          'App\Listeners\EmailWellcome',
+        ],
+
     ];
 
     /**
@@ -55,7 +60,6 @@ class EventServiceProvider extends ServiceProvider
         Goods::observe(new SlugGenerateObserver());
         Examples::observe(new SlugGenerateObserver());
         //Order::observe(new ConvertValueObserver);
-
         Review::observe(new ReviewsObserver());
         Order::observe(new OrderObserver());
         Task::observe(new TaskObserver());

@@ -24,7 +24,6 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Миниатюра</th>
                                     <th>Имя</th>
                                     <th>Услуга</th>
                                     <th>Управление</th>
@@ -34,21 +33,16 @@
                                 @forelse ($Examples as $example)
                                     <tr>
                                         <td>{{ $example->id }}</td>
-                                        <td><img src="{{ $example->avatar }}" class="img-responsive" width="100px"
-                                                 height="50px"></td>
                                         <td>{{ $example->name }}</td>
                                         <td>{{ $example->category()->first()->name }}</td>
                                         <td class="pull-right">
                                             <a href="{{URL::route('dashboard.examples.edit',  $example->slug)}}"
                                                class="btn btn-primary"><span class="fa fa-edit"></span> </a>
 
-                                            <form action="{{URL::route('dashboard.examples.destroy',$example->slug)}}"
-                                                  method="post" class="pull-right">
-                                                <input type="hidden" name="_method" value="delete">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <button type="submit" class="btn btn-danger"><span
-                                                            class="fa fa-trash-o"></span></button>
-                                            </form>
+
+                                            <a href="#" class="btn btn-danger delete" data-url="{{URL::route('dashboard.examples.destroy',$example->slug)}}">
+                                                <span class="fa fa-trash-o"></span>
+                                            </a>
 
 
                                         </td>

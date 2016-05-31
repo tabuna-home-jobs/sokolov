@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,15 +20,27 @@ class MenuItem extends Model
         'depth',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function getParent()
     {
         return $this->hasMany(self::class, 'parent');
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function getsons($id)
     {
         return $this->where('parent', $id)->get();
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function getall($id)
     {
         return $this->where('menu', $id)->orderBy('sort', 'asc')->get();

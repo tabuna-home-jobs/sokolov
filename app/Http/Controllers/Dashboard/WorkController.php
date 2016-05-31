@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 use App\Models\Work;
@@ -112,8 +112,9 @@ class WorkController extends Controller
     public function destroy(Work $work)
     {
         $work->delete();
-        Session::flash('good', 'Вы успешно удалили значения');
+        return response(200);
+        //Session::flash('good', 'Вы успешно удалили значения');
 
-        return redirect()->route('dashboard.work.index');
+        //return redirect()->route('dashboard.work.index');
     }
 }

@@ -22,7 +22,7 @@
             <tbody>
             @foreach($Orders as $order)
                 <tr>
-                    <th scope="row"><a href="{{route(App::getLocale().'.order.show',$order->id)}}">{{$order->id}}</a></th>
+                    <th scope="row"><a href="{{route(App::getLocale().'.order.show',$order->id)}}">{{$order->act}}</a></th>
                     <td>{{ date("Y-m-d",$order->created_at->tz(Config::get('app.timezone'))->timestamp)}}</td>
                     <td>{{ number_format($order->price,2)}}</td>
                     <td>{{$order->name}}</td>

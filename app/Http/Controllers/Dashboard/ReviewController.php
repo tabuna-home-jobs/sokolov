@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Review;
@@ -120,8 +120,8 @@ class ReviewController extends Controller
     {
         $Feedback = Review::find($id);
         $Feedback->delete();
-        Session::flash('good', 'Вы успешно удалили значения');
-
-        return redirect()->route('dashboard.review.index');
+        return response(200);
+        //      Session::flash('good', 'Вы успешно удалили значения');
+//        return redirect()->route('dashboard.review.index');
     }
 }

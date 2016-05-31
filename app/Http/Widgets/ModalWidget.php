@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Widgets;
+namespace App\Http\Widgets;
 
 use App\Services\Widget\Widget;
 

@@ -36,7 +36,14 @@
                                         <td>{{$User->getTask->count()}}</td>
                                         <td>{{$User->getTask->where('status','Завершена')->count()}}</td>
                                         <td class="count">{{$User->getTask->where('status','Завершена')->sum('countWork')}}</td>
-                                        <td>{{SecsToH::get($User->getTask()->where('status','Завершена')->sum('spent'))}}
+                                        <td>
+                                            @if($spent = $User->getTask()->where('status','Завершена')->sum('spent'))
+                                            {{SecsToH::get($spent)}}
+                                            @else
+                                            0
+                                            @endif
+
+                                        </td>
 
 
                                         <td class="sred">{{

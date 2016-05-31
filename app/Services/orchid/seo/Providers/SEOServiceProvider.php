@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Services\orchid\seo\Providers;
+namespace App\Services\orchid\seo\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

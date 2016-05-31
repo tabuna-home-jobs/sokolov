@@ -34,6 +34,7 @@ elixir(function (mix) {
   "./vendor/bower_components/bootstrap/dist/js/bootstrap.min.js",
   "./vendor/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js",
   "./vendor/bower_components/sweetalert/dist/sweetalert.min.js",
+  "./vendor/bower_components/jquery.cookie/jquery.cookie.js",
   //"./vendor/bower_components/fancybox/source/jquery.fancybox.js"
   "slidetext-lib.js",
   "slidetext.js"

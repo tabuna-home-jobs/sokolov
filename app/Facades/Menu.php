@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Facades;
+namespace App\Facades;
 
 use App\Models\Menu as SiteMenu;
 use Illuminate\Support\Facades\Facade;

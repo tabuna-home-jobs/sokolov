@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GoodsRequest;
@@ -156,8 +156,8 @@ class GoodsController extends Controller
     {
         $Goods = Goods::where('slug', $Goods)->firstOrFail();
         $Goods->delete('cascade');
-        Session::flash('good', 'Вы успешно удалили значения');
-
-        return redirect()->route('dashboard.goods.index');
+        return response(200);
+        //Session::flash('good', 'Вы успешно удалили значения');
+        //return redirect()->route('dashboard.goods.index');
     }
 }

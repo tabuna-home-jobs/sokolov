@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,8 +18,14 @@ class Goods extends Model
      */
     protected $table = 'goods';
 
+    /**
+     * @var
+     */
     protected static $goods = self::class;
 
+    /**
+     * @var array
+     */
     protected $casts = [
         'attribute' => 'array',
     ];
@@ -31,11 +37,17 @@ class Goods extends Model
      */
     protected $fillable = ['title', 'name', 'content', 'avatar', 'text', 'price', 'category_id', 'tag', 'descript', 'price', 'attribute', 'lang', 'slug', 'block_id'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function category()
     {
         return $this->belongsTo('App\Models\Category');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function lang()
     {
         return $this->hasOne(static::$goods, 'category_id', 'category_id');

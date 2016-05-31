@@ -8,7 +8,7 @@
  * Класс для работы с IntisSMS
  */
 
-namespace app\Services;
+namespace App\Services;
 
 class IntisSMS
 {

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="/img/logo-min.png"/>
-   <!-- <meta id="token" name="token"   content="{{ csrf_token() }}" property="csrf_token"/>  -->
+    <!-- <meta id="token" name="token"   content="{{ csrf_token() }}" property="csrf_token"/>  -->
     <meta id="token" property="csrf_token" content="{{ csrf_token() }}"/>
 
     @if(is_null($meta = SEO::render()) || empty($meta = SEO::render()))
@@ -20,7 +20,7 @@
         {!! $meta !!}
     @endif
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="website"/>
     <meta property="og:image" content="@yield('avatar', Config::get('app.url').'/img/logo.jpg')"/>
     <meta name="twitter:image:src" content="@yield('avatar',  Config::get('app.url').'/img/logo.jpg')"/>
     <!-- <meta name="language" content="{{App::getLocale()}}"/> -->
@@ -28,8 +28,6 @@
 
 
     <link rel="stylesheet" href="{{elixir('build/css/app.css')}}" type="text/css"/>
-
-
     <script src="{{elixir('build/js/app.js')}}" type="text/javascript"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic,500italic,300italic&subset=latin,cyrillic'
@@ -41,7 +39,7 @@
     <link rel="alternate" hreflang="en-us" href="{{url('/en')}}"/>
     <link rel="alternate" hreflang="ru-ru" href="{{url('/ru')}}"/>
 
-    <meta name='yandex-verification' content='475490f46162a6e2' />
+    <meta name='yandex-verification' content='475490f46162a6e2'/>
     <meta name="google-site-verification" content="fQ49WVkHhim6L6m0tdBt2o2g6onG49bX-ih_rmLXJNs"/>
     <meta name="baidu-site-verification" content="D4x671AWJV"/>
 
@@ -59,7 +57,8 @@
 
 
 <div id="loader-wrapper">
-        <img id="loader-logo" src="/img/logo.png" class="img-responsive" alt="loader">
+    <img id="loader-logo" src="/img/logo.png" class="img-responsive" alt="loader">
+
     <div id="loader"></div>
 </div>
 
@@ -93,7 +92,8 @@
 
         <div class="col-md-5 hidden-sm hidden-xs">
 
-            <form class="navbar-form navbar-right right-top-menu" action="{{URL::route(App::getLocale().'.search.index')}}">
+            <form class="navbar-form navbar-right right-top-menu"
+                  action="{{URL::route(App::getLocale().'.search.index')}}">
 
                 <div class="input-group">
 
@@ -217,34 +217,28 @@
     </nav>
 
 
-    @if(Session::has('good'))
-        <div class="container-alert">
-            <div class="alert alert-success alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <i class="icon fa fa-check"></i> {{Session::get('good')}}
-            </div>
-        </div>
-    @elseif(Session::has('bad'))
-        <div class="container-alert">
-            <div class="alert alert-danger alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <i class="icon fa fa-ban"></i> {{Session::get('bad')}}
-            </div>
-        </div>
+    @if (count($errors) > 0)
+        <script>
+            swal({
+                title: "{{trans('alert.Error')}}",
+                text: "<ul class='w-xxl block-center'>@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>",
+                html: true,
+                type: "warning",
+            });
+        </script>
     @endif
 
 
-    @if (count($errors) > 0)
-        <div class="container-alert">
-            <div class="alert alert-danger alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
+
+
+    @if (Session::has('good'))
+        <script>
+            swal("{{trans('alert.Success')}}", "{{Session::get('good')}}", "success")
+        </script>
+    @elseif(Session::has('bad'))
+        <script>
+            swal("{{trans('alert.Error')}}", " {{Session::get('bad')}}", "warning")
+        </script>
     @endif
 
 
@@ -288,7 +282,8 @@
 
                     <div class="p-t-15">
 
-                        <a href="https://www.facebook.com/FalconScientificEditing" target="_blank" class="no-hover" rel="nofollow">
+                        <a href="https://www.facebook.com/FalconScientificEditing" target="_blank" class="no-hover"
+                           rel="nofollow">
                             <img src="/img/social/fb-icon.png" alt="Facebook">
                         </a>
 
@@ -296,11 +291,13 @@
                             <img src="/img/social/twitter-icon.png" alt="Twitter">
                         </a>
 
-                        <a href="https://plus.google.com/u/0/115410796310646309979" target="_blank" class="no-hover"  rel="nofollow">
+                        <a href="https://plus.google.com/u/0/115410796310646309979" target="_blank" class="no-hover"
+                           rel="nofollow">
                             <img src="/img/social/google-icon.png" alt="Google Plus">
                         </a>
 
-                        <a href="https://www.linkedin.com/company/falcon-scientific-editing" class="no-hover" target="_blank"
+                        <a href="https://www.linkedin.com/company/falcon-scientific-editing" class="no-hover"
+                           target="_blank"
                            rel="nofollow">
                             <img src="/img/social/in-icon.png" alt="Linkedin">
                         </a>
@@ -354,43 +351,77 @@
 </footer>
 
 
+<div class="b-panel-subscribe col-sm-12 hidden-xs">
+    <div class="col-md-8 col-sm-offset-2">
+
+
+        <div class="subscribe-block">
+            <div class="col-md-6 v-center">
+                <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
+                <span> Еженедельная рассылка</span>
+            </div>
+
+            <div class="col-md-5">
+                <form method="post" action="/subscribe" id="subscribe">
+                    <input type="email" name="email" placeholder="Почта" required>
+                    <button type="submit">Подписаться</button>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="col-sm-1 text-right">
+        <a href="#" id="subscribe-close"><i class="fa fa-times" aria-hidden="true"></i></a>
+    </div>
+
+
+</div>
+
 
 <script src="/build/js/flipclock.min.js"></script>
 
 <script>
 
 
-    window.onload = function() {
+    window.onload = function () {
         $("#loader-wrapper").hide();
-    }
-
+    };
 
 
     $(document).ready(function () {
+        if ($.cookie('subscribe') != 'subscribe') {
+            $('.b-panel-subscribe').show();
+        }
 
+        $('#subscribe').submit(function () {
+            $.cookie('subscribe', 'subscribe', {
+                expires: 7,
+                path: '/'
+            });
+        });
+
+
+        $('#subscribe-close').click(function () {
+            $('.b-panel-subscribe').hide();
+            $.cookie('subscribe', 'subscribe', {
+                expires: 7,
+                path: '/'
+            });
+        });
+
+
+    });
+
+
+    $(document).ready(function () {
         $('.carousel-inner div.item:first-child').addClass('active');
-
-        /*
-         $(".fancybox-thumb-img-text").fancybox({
-         openEffect: 'elastic',
-         closeEffect: 'elastic',
-
-         closeClick: false,
-         title: null,
-         helpers: {
-         overlay: null
-         }
-         });
-
-         $(".fancybox-thumb-img-text").click(function () {
-         $(this).css('display', 'inherit');
-         });
-         */
     });
 
     $("form").submit(function (event) {
-        $("#loader-wrapper").show();
-        //return event.preventDefault();
+        $("#loader-wrapper").show('slow');
     });
 
 

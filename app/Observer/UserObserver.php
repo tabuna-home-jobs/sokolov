@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Observer;
+namespace App\Observer;
 
 use App\Models\User;
 use Config;

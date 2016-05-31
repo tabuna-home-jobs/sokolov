@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Observer;
+namespace App\Observer;
 
 use App\Models\Order;
 use App\Models\User;
@@ -31,10 +31,14 @@ class OrderObserver
         App::setLocale('en');
     }
 
+
     public function created($model)
     {
-        $this->user = User::find($model->user_id);
 
+        $model->act = hash('crc32b',$model->id);
+        $model->save();
+
+        $this->user = User::find($model->user_id);
         //Главному редактору, после того, как заказ был сформирован клиентом:
         SMS::send($this->phone, trans('notification.New order # is waiting for an invoice.', ['id' => $model->id]));
         Mail::raw(trans('notification.New order # is waiting for an invoice.', ['id' => $model->id]), function ($message) use ($model) {
@@ -52,6 +56,7 @@ class OrderObserver
         });
 
         App::setLocale(Session::get('lang', 'en'));
+        return $model;
     }
 
     public function updated($model)

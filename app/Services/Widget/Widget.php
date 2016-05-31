@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Services\Widget;
+namespace App\Services\Widget;
 
 use Cache;
 use Config;

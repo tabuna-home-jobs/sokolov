@@ -119,7 +119,7 @@ a:active, a:hover , .btn{
     bottom: 0;
     width: 100%;
     /* Set the fixed height of the footer here */
-    height: 350px;
+    min-height: 350px;
 }
 
 #footer a {
@@ -1589,3 +1589,113 @@ a.no-hover:hover, a.no-hover:active{
 .flag:hover,.flag:active,.flag:after{
     text-decoration: none!important;
 }
+
+
+
+.sweet-alert{
+    border-radius: 0;
+}
+
+.sweet-alert button{
+    background-color: #f28130!important;
+    transition: 230ms!important;
+}
+.sweet-alert button:hover{
+    color: #fff;
+    background-color: #ec971f!important;
+    border-color: #d58512!important;
+}
+
+.sub-page-content{
+    display: block;
+    margin: 15px 0;
+}
+
+
+.no-resize{
+    resize:none;
+}
+
+
+
+
+
+
+
+/*
+ * Подписка
+ */
+
+
+.b-panel-subscribe {
+    display: none;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background: #ffebeb;
+    color: #000;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+    border-top: 1px solid #dee5e7;
+    font-size: 1vm;
+    transition: visibility 0.3s, opacity 0.5s linear;
+}
+
+.b-panel-subscribe i.fa{
+    font-size: 2vm;
+}
+
+.b-panel-subscribe span{
+    padding: 0 10px;
+    font-size: 1vm;
+}
+
+.b-panel-subscribe input[type=email] {
+    -webkit-appearance: none;
+    outline: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    padding: 0 28px;
+    border-radius: 40px;
+    border: 1px solid transparent;
+    background: #fff;
+    color: #000;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    font-size: 1vm;
+}
+
+.b-panel-subscribe button {
+    -webkit-appearance: none;
+    outline: 0;
+    /*width: 155px;*/
+    width: 50%;
+    height: 40px;
+    background: #2f8398;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 0 40px 40px 0;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    top:30%;
+    bottom:30%;
+    position: absolute;
+    line-height: 0;
+    font-size: 1vm;
+}
+
+
+.subscribe-block{
+    max-width: 800px;
+    display: block;
+    margin: auto;
+}
+
+/*
+ * !Подписка
+ */

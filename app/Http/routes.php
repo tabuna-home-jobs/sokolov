@@ -140,8 +140,16 @@ Route::group(['namespace' => 'Site', 'prefix' => 'en', 'middleware' => 'En'], fu
     });
 });
 
-Route::group(['middleware' => ['auth'], 'namespace' => 'Site'], function () {
 
+Route::group(['middleware' => ['auth'], 'prefix' => 'en', 'namespace' => 'Site'], function () {
+    Route::resource('setting', 'SettingController');
+});
+
+Route::group(['middleware' => ['auth'], 'prefix' => 'ru', 'namespace' => 'Site'], function () {
+    Route::resource('setting', 'SettingController');
+});
+
+Route::group(['middleware' => ['auth'],'namespace' => 'Site'], function () {
     Route::resource('setting', 'SettingController');
 });
 
@@ -156,3 +164,5 @@ Route::group(['namespace' => 'Editor', 'middleware' => ['auth', 'editor'], 'pref
 });
 
 Route::get('sitemap.xml', 'Site\SiteMapController@index');
+
+Route::resource('subscribe', 'Site\SubscribeController@store');

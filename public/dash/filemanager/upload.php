@@ -175,7 +175,8 @@ if (!empty($_FILES)) {
         response(trans('Error_extension').AddErrorLocation(), 406)->send();
         exit();
     }
-} else {// no files to upload
+} else {
+    // no files to upload
     response(trans('no file').AddErrorLocation(), 405)->send();
     exit();
 }

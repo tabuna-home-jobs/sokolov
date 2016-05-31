@@ -11,7 +11,7 @@
     </script>
 
     <div class="panel panel-default">
-        <div class="panel-heading">{{trans("order.Order")}} # {{$Order->id}}</div>
+        <div class="panel-heading">{{trans("order.Order")}} # {{$Order->act}}</div>
 
 
         <div class="panel-body">
@@ -56,7 +56,13 @@
             <li class="list-group-item">{{trans("order.Status")}}: <p
                         class="pull-right">{{ trans('status.' . $Order->status)}}</p></li>
             <li class="list-group-item">{{trans("order.Order completion date and time")}}: <p
-                        class="pull-right">{{$Order->workfinish->tz(Config::get('app.timezone'))}}</p></li>
+                        class="pull-right">
+                    @if($Order->workfinish->year < 0)
+                        -
+                    @else
+                    {{$Order->workfinish->tz(Config::get('app.timezone'))->toDateString()}}
+                    @endif
+                </p></li>
             <li class="list-group-item">{{trans("order.Total price")}}: <p class="pull-right">{{$Order->price}} USD</p>
             </li>
         </ul>

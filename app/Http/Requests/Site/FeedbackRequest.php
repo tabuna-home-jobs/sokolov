@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Requests\Site;
+namespace App\Http\Requests\Site;
 
 use App\Http\Requests\Request;
 
@@ -28,6 +28,7 @@ class FeedbackRequest extends Request
             'phone' => 'required',
             'email' => 'email|required',
             'message' => 'required',
+            'upload' => 'sometimes',
         ];
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Facades;
+namespace App\Facades;
 
 use App\Services\IntisSMS;
 use Illuminate\Support\Facades\Facade;

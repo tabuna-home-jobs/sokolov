@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Site;
+namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Site\FeedbackRequest;
@@ -36,19 +36,17 @@ class FeedbackController extends Controller
      */
     public function store(FeedbackRequest $request)
     {
-
-        /*
-        Mail::raw('Сообщение от ' . $request->fio . '<br>' . $request->message . '<br>' . 'Контактные данные:' . $request->email . '<br>' . $request->phone, function ($message) {
-            $message->from(Config::get('link.email'))
-                    ->to(Config::get('link.email'))
-                    ->subject('Сообщение с Falcon Editing');
-        });
-        */
-
-        Mail::send('emails.feedback', ['request' => $request->all()], function ($message) {
+        Mail::send('emails.feedback', ['request' => $request->all()], function ($message) use ($request) {
             $message->from(Config::get('link.email'))
                 ->to(Config::get('link.email'))
                 ->subject('Сообщение с Falcon Editing');
+
+            if (!is_null($request->file('upload'))) {
+                $message->attach($request->file('upload'), [
+                    'as' => $request->file('upload')->getClientOriginalName(),
+                    'mime' => $request->file('upload')->getMimeType(),
+                ]);
+            }
         });
 
         Session::flash('good', trans('alert.Thank you for writing, we will respond to you.'));

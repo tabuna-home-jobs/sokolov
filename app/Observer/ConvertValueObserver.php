@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Observer;
+namespace App\Observer;
 
 use App\Models\Order;
 use CurrencyRate;

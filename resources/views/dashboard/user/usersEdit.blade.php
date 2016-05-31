@@ -113,7 +113,6 @@
                                                                         @endif
                                                                         >
                                                                 {{$value->name}}
-                                                                </label>
                                                             </div>
 
                                                         @endforeach

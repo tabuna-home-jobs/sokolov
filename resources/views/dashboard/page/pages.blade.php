@@ -42,13 +42,14 @@
                                             <a href="{{URL::route('dashboard.page.edit', $Page->slug)}}"
                                                class="btn btn-primary"><span class="fa fa-edit"></span> </a>
 
-                                            <form action="{{URL::route('dashboard.page.destroy' ,$Page->slug)}}"
-                                                  method="post" class="pull-right">
-                                                <input type="hidden" name="_method" value="delete">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <button type="submit" class="btn btn-danger"><span
-                                                            class="fa fa-trash-o"></span></button>
-                                            </form>
+
+
+                                            <a href="#" class="btn btn-danger delete" data-url="{{URL::route('dashboard.page.destroy',$Page->slug)}}">
+                                                <span class="fa fa-trash-o"></span>
+                                            </a>
+
+
+
                                         </td>
                                     </tr>
                                 @endforeach

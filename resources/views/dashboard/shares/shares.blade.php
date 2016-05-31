@@ -44,13 +44,11 @@
                                             <a href="{{URL::route('dashboard.shares.edit', $Share->slug)}}"
                                                class="btn btn-primary"><span class="fa fa-edit"></span> </a>
 
-                                            <form action="{{URL::route('dashboard.shares.destroy',$Share->slug)}}"
-                                                  method="post" class="pull-right">
-                                                <input type="hidden" name="_method" value="delete">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <button type="submit" class="btn btn-danger"><span
-                                                            class="fa fa-trash-o"></span></button>
-                                            </form>
+
+                                            <a href="#" class="btn btn-danger delete" data-url="{{URL::route('dashboard.shares.destroy',$Share->slug)}}">
+                                                <span class="fa fa-trash-o"></span>
+                                            </a>
+
                                         </td>
                                     </tr>
                                 @endforeach

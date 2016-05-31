@@ -1,12 +1,16 @@
 <?php
 
-namespace app\Facades;
+namespace App\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 class SecsToH extends Facade
 {
-    public static function get($secs)
+    /**
+     * @param int $secs
+     * @return string
+     */
+    public static function get(int $secs)
     {
         $units = array(
             'week' => 7 * 24 * 3600,

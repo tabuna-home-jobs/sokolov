@@ -2,6 +2,9 @@
 
 return [
 
+    'Success' => 'Success',
+    'Error' => 'Error',
+
     'You have successfully added a comment' => 'You have successfully added a comment',
     'Thank you for writing, we will respond to you.' => 'Thank you for contacting us. We will respond to you soon.',
     'You have successfully changed values' => 'You have successfully changed the values',

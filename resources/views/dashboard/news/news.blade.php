@@ -23,7 +23,6 @@
                                 <thead>
                                 <tr role="row">
                                     <th>#</th>
-                                    <th>Миниатюра</th>
                                     <th>Имя</th>
                                     <th>Заголовок</th>
                                     <th>Последнее редактирование</th>
@@ -35,21 +34,26 @@
                                 @foreach ($NewsList as $News)
                                     <tr>
                                         <td>{{ $News->id }}</td>
-                                        <td><img src="{{ $News->avatar }}" width="100px" height="50px"></td>
                                         <td>{{ $News->name }}</td>
                                         <td>{{ $News->title }}</td>
                                         <td>{{ $News->updated_at }}</td>
                                         <td class="pull-right">
-                                            <a href="{{URL::route('dashboard.news.edit',$News->slug)}}"
-                                               class="btn btn-primary"><span class="fa fa-edit"></span> </a>
 
-                                            <form action="{{URL::route('dashboard.news.destroy',$News->slug)}}"
-                                                  method="post" class="pull-right">
-                                                <input type="hidden" name="_method" value="delete">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <button type="submit" class="btn btn-danger"><span
-                                                            class="fa fa-trash-o"></span></button>
-                                            </form>
+
+
+
+
+
+
+
+                                            <a href="{{URL::route('dashboard.news.edit',$News->slug)}}"
+                                               class="btn btn-primary"><span class="fa fa-edit"></span></a>
+
+                                            <a href="#" class="btn btn-danger delete" data-url="{{URL::route('dashboard.news.destroy',$News->slug)}}">
+                                                <span class="fa fa-trash-o"></span>
+                                            </a>
+
+
                                         </td>
                                     </tr>
                                 @endforeach

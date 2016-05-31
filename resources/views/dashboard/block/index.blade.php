@@ -42,13 +42,11 @@
                                             <a href="{{URL::route('dashboard.block.edit', $block->id)}}"
                                                class="btn btn-primary"><span class="fa fa-edit"></span> </a>
 
-                                            <form action="{{URL::route('dashboard.block.destroy',$block->id)}}"
-                                                  method="post" class="pull-right">
-                                                <input type="hidden" name="_method" value="delete">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <button type="submit" class="btn btn-danger"><span
-                                                            class="fa fa-trash-o"></span></button>
-                                            </form>
+
+                                            <a href="#" class="btn btn-danger delete" data-url="{{URL::route('dashboard.block.destroy',$block->slug)}}">
+                                                <span class="fa fa-trash-o"></span>
+                                            </a>
+
 
 
                                         </td>

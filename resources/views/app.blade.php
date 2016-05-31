@@ -18,6 +18,7 @@
     <link href="{{ asset('/dash/bootstrap/css/jasny-bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('/dash/bootstrap/css/custom.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('/dash/dist/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/dash/plugins/sweetalert/dist/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
 
 
     <script src="/dash/bower_components/jquery/dist/jquery.min.js"></script>
@@ -91,8 +92,6 @@
                         </li>
 
 
-
-
                         <li class="{{Active::route('dashboard.goods.*')}}">
                             <a href="{{URL::route('dashboard.goods.index')}}">
                                 <i class="fa fa-stethoscope"></i>
@@ -117,12 +116,14 @@
                         </li>
 
 
+                        {{--
                         <li class="{{Active::route('dashboard.statinfo.*')}}">
                             <a href="{{URL::route('dashboard.statinfo.index')}}">
                                 <i class="fa fa-sitemap"></i>
                                 <span>Учёт</span>
                             </a>
                         </li>
+                        --}}
 
                         <li class="{{Active::route('dashboard.benefits.*')}}">
                             <a href="{{URL::route('dashboard.benefits.index')}}">
@@ -248,6 +249,9 @@
 <script src="/dash/js/ui-jp.js"></script>
 <script src="/dash/js/ui-nav.js"></script>
 <script src="/dash/js/ui-toggle.js"></script>
+
+
+<script src="{{asset('/dash/plugins/sweetalert/dist/sweetalert.min.js') }}" type="text/javascript"></script>
 <script src="{{asset('/dash/bootstrap/js/custom.js')}}" type="text/javascript"></script>
 <script src="{{asset('/dash/plugins/tinymce/tinymce.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('/dash/bootstrap/js/jasny-bootstrap.min.js')}}" type="text/javascript"></script>

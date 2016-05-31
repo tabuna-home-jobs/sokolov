@@ -23,7 +23,6 @@
                                 <thead>
                                 <tr role="row">
                                     <th>#</th>
-                                    <th>Миниатюра</th>
                                     <th>Имя</th>
                                     <th>Заголовок</th>
                                     <th>Последнее редактирование</th>
@@ -35,11 +34,6 @@
                                 @foreach ($blog as $blogItem)
                                     <tr>
                                         <td>{{ $blogItem->id }}</td>
-                                        <td>
-                                          @if(!empty($blogItem->avatar))
-                                          <img src="{{ $blogItem->avatar }}" width="100px" height="50px">
-                                          @endif
-                                        </td>
                                         <td>{{ $blogItem->name }}</td>
                                         <td>{{ $blogItem->title }}</td>
                                         <td>{{ $blogItem->updated_at }}</td>
@@ -47,13 +41,11 @@
                                             <a href="{{URL::route('dashboard.blog.edit',$blogItem->slug)}}"
                                                class="btn btn-primary"><span class="fa fa-edit"></span> </a>
 
-                                            <form action="{{URL::route('dashboard.blog.destroy',$blogItem->slug)}}"
-                                                  method="post" class="pull-right">
-                                                <input type="hidden" name="_method" value="delete">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <button type="submit" class="btn btn-danger"><span
-                                                            class="fa fa-trash-o"></span></button>
-                                            </form>
+
+                                            <a href="#" class="btn btn-danger delete" data-url="{{URL::route('dashboard.blog.destroy',$blogItem->slug)}}">
+                                                <span class="fa fa-trash-o"></span>
+                                            </a>
+
                                         </td>
                                     </tr>
                                 @endforeach

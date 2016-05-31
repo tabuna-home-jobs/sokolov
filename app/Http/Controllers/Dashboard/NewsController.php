@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewsRequest;
@@ -113,8 +113,8 @@ class NewsController extends Controller
     public function destroy(News $news)
     {
         $news->delete();
-        Session::flash('good', 'Вы успешно удалили значения');
-
-        return redirect()->route('dashboard.news.index');
+        //Session::flash('good', 'Вы успешно удалили значения');
+        //return redirect()->route('dashboard.news.index');
+        return response(200);
     }
 }

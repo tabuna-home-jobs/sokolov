@@ -12,56 +12,11 @@
 
         <div class="row">
 
-            <div class="col-md-6 hidden-sm hidden-xs">
 
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                    <div class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators carousel-indicators-catalog">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
-                        </ol>
-                        <div class="carousel-inner" role="listbox">
-
-                            <!--Вывод статей в слайд-->
-                            @foreach($goodsList as $key => $gList)
-                                <div class="item item-catalog">
-                                    <img src="{{$gList->avatar}}"  alt="{{$gList->name}}">
-
-                                    <div class="carousel-caption">
-
-                                        <img src="/img/catalog/icon{{++$key}}.png"
-                                             class="icon-s-caption hidden-sm hidden-xs" alt="{{$gList->name}}">
-
-                                        <h2>{{$gList->name}}</h2>
-
-                                        <div class="text-slider-bg">
-                                            {{str_limit_words(strip_tags($gList->text),150,'...')}}
-                                        </div>
-
-                                        <p class="m-top-10">
-                                            <a href="/auth/login"
-                                               class="btn btn-warning">{{trans('main.Order')}}</a>
-                                            <a href="{{URL::route(App::getLocale().'.catalog.show',$gList->slug)}}"
-                                               class="btn btn-primary">{{trans('main.Learn More')}}</a>
-                                        </p>
-
-                                    </div>
-                                </div>
-                                @endforeach
-                                        <!--Вывод статей в слайд-->
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-md-6 col-xs-12">
+            <div class="col-xs-12">
                 <!--Вывод статей-->
                 @foreach($goodsList as $key => $gList)
-                    <article class="col-md-6 col-xs-12 block-img-catalog-z">
+                    <article class="col-md-3 col-sm-6 col-xs-12 block-img-catalog-z">
 
                         <figure>
 

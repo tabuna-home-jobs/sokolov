@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Observer;
+namespace App\Observer;
 
 class SlugGenerateObserver
 {

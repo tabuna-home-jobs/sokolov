@@ -24,7 +24,6 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Миниатюра</th>
                                     <th>Имя</th>
                                     <th>Категория</th>
                                     <th>Управление</th>
@@ -34,21 +33,18 @@
                                 @forelse ($Goods as $good)
                                     <tr>
                                         <td>{{ $good->id }}</td>
-                                        <td><img src="{{ $good->avatar }}" class="img-responsive" width="100px"
-                                                 height="50px"></td>
                                         <td>{{ $good->name }}</td>
                                         <td>{{ $good->category()->first()->name }}</td>
                                         <td class="pull-right">
                                             <a href="{{URL::route('dashboard.goods.edit',  $good->slug)}}"
                                                class="btn btn-primary"><span class="fa fa-edit"></span> </a>
 
-                                            <form action="{{URL::route('dashboard.goods.destroy',$good->slug)}}"
-                                                  method="post" class="pull-right">
-                                                <input type="hidden" name="_method" value="delete">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <button type="submit" class="btn btn-danger"><span
-                                                            class="fa fa-trash-o"></span></button>
-                                            </form>
+
+                                            <a href="#" class="btn btn-danger delete" data-url="{{URL::route('dashboard.goods.destroy',$good->slug)}}">
+                                                <span class="fa fa-trash-o"></span>
+                                            </a>
+
+
 
 
                                         </td>

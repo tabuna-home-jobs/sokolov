@@ -29,7 +29,7 @@
             <tbody>
             @foreach($payments as $order)
                 <tr>
-                    <th scope="row">{{$order->id}}</th>
+                    <th scope="row">{{$order->act}}</th>
                     <td>{{$order->sum}}</td>
                     <td>{{$order->getOrder->name}}</td>
                     <td>{{$order->created_at}}</td>

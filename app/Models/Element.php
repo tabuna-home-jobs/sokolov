@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,6 +23,9 @@ class Element extends Model
      */
     protected $fillable = ['title', 'desc', 'img', 'link', 'block_id', 'lang'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function getBlock()
     {
         return $this->belongsTo('App\Models\Block');

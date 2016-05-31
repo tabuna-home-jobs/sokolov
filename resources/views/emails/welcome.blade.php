@@ -90,7 +90,7 @@ Licensed under MIT
                                     <tr><td align="center" valign="top" class="mob_center">
                                         <a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
                                             <font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-                                                <img src="/img/logo.jpg" width="300"  alt="Falcon Scientific Editing" border="0" style="display: block;" /></font></a>
+                                                <img src="https://falconediting.com/img/logo.jpg" width="300"  alt="Falcon Scientific Editing" border="0" style="display: block;" /></font></a>
                                     </td></tr>
                                 </table>
                             </td></tr>
@@ -110,7 +110,7 @@ Licensed under MIT
                         <div style="line-height: 44px;">
                             <font face="Arial, Helvetica, sans-serif" size="5" color="#57697e" style="font-size: 34px;">
 					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 26px; color: #57697e;">
-						Вы успешно<br> зарегистрировались!
+						{{trans('email.wellcome')}}
 					</span></font>
                         </div>
                         <!-- padding --><div style="height: 40px; font-size: 10px;">
@@ -123,7 +123,10 @@ Licensed under MIT
                             <font face="Arial, Helvetica, sans-serif" size="4" color="#57697e" style="font-size: 15px;">
 					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
 
-                    Равным образом постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки новых предложений. Не следует, однако забывать, что новая модель организационной деятельности позволяет оценить значение соответствующий условий активизации. Задача организации, в особенности же постоянный количественный рост и сфера нашей активности способствует подготовки и реализации модели развития.
+
+
+
+						{!! trans('email.body') !!}
 
 
                     </span></font>
@@ -148,14 +151,14 @@ Licensed under MIT
                                     <div style="line-height: 14px;">
                                         <font face="Arial, Helvetica, sans-serif" size="3" color="#4db3a4" style="font-size: 14px;">
                                             <strong style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #4db3a4;">
-                                                <a href="#1" target="_blank" style="color: #4db3a4; text-decoration: none;">НАДЕЖНО</a>
+                                                <a href="#1" target="_blank" style="color: #4db3a4; text-decoration: none;">	{{trans('main.RELIABLE')}}</a>
                                             </strong></font>
                                     </div>
                                     <!-- padding --><div style="height: 18px; line-height: 18px; font-size: 10px;"> </div>
                                     <div style="line-height: 21px;">
                                         <font face="Arial, Helvetica, sans-serif" size="3" color="#98a7b9" style="font-size: 14px;">
 								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #98a7b9;">
-									Ваш текст защищен от попадания в чужие руки.
+								{{trans('main.RELIABLE TEXT')}}
 								</span></font>
                                     </div>
                                 </td></tr>
@@ -168,14 +171,14 @@ Licensed under MIT
                                     <div style="line-height: 14px;">
                                         <font face="Arial, Helvetica, sans-serif" size="3" color="#4db3a4" style="font-size: 14px;">
                                             <strong style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #4db3a4;">
-                                                <a href="#2" target="_blank" style="color: #4db3a4; text-decoration: none;">ОТВЕТСТВЕННО</a>
+                                                <a href="#2" target="_blank" style="color: #4db3a4; text-decoration: none;">{{trans('main.CONVENIENTLY')}}</a>
                                             </strong></font>
                                     </div>
                                     <!-- padding --><div style="height: 18px; line-height: 18px; font-size: 10px;"> </div>
                                     <div style="line-height: 21px;">
                                         <font face="Arial, Helvetica, sans-serif" size="3" color="#98a7b9" style="font-size: 14px;">
 								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #98a7b9;">
-								Мы подходим к своей работе c уверенностью и профессионализмом!
+							{{trans('main.CONVENIENTLY TEXT')}}
 								</span></font>
                                     </div>
                                 </td></tr>
@@ -188,14 +191,14 @@ Licensed under MIT
                                     <div style="line-height: 14px;">
                                         <font face="Arial, Helvetica, sans-serif" size="3" color="#4db3a4" style="font-size: 14px;">
                                             <strong style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #4db3a4;">
-                                                <a href="#3" target="_blank" style="color: #4db3a4; text-decoration: none;">УДОБНО</a>
+                                                <a href="#3" target="_blank" style="color: #4db3a4; text-decoration: none;">{{trans('main.RESPONSIBLY')}}</a>
                                             </strong></font>
                                     </div>
                                     <!-- padding --><div style="height: 18px; line-height: 18px; font-size: 10px;"> </div>
                                     <div style="line-height: 21px;">
                                         <font face="Arial, Helvetica, sans-serif" size="3" color="#98a7b9" style="font-size: 14px;">
 								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #98a7b9;">
-									Окончательное решение всегда за ВАМИ
+									{{trans('main.RESPONSIBLY TEXT')}}
 								</span></font>
                                     </div>
                                 </td></tr>
@@ -217,11 +220,11 @@ Licensed under MIT
                                 <td align="center" valign="middle" style="font-size: 12px; line-height: 22px;">
                                     <font face="Tahoma, Arial, Helvetica, sans-serif" size="2" color="#282f37" style="font-size: 12px;">
                             <span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #5b9bd1;">
-		              <a href="#PRODUCTS" target="_blank" style="color: #5b9bd1; text-decoration: none; padding: 0 15px;">О нас</a>
-		              <a href="#FEATURES" target="_blank" style="color: #5b9bd1; text-decoration: none; padding: 0 15px;">Услуги</a>
-		              <a href="#LAYOUTS" target="_blank" style="color: #5b9bd1; text-decoration: none; padding: 0 15px;">Новости</a>
-		              <a href="#SUPPORT" target="_blank" style="color: #5b9bd1; text-decoration: none; padding: 0 15px;">Отзывы</a>
-		              <a href="#DISCOVER" target="_blank" style="color: #5b9bd1; text-decoration: none; padding: 0 15px;">Контакты</a>
+		              <a href="https://falconediting.com/en/page/about-our-company" target="_blank" style="color: #5b9bd1; text-decoration: none; padding: 0 15px;">About</a>
+		              <a href="https://falconediting.com/en/catalog" target="_blank" style="color: #5b9bd1; text-decoration: none; padding: 0 15px;">Services</a>
+		              <a href="https://falconediting.com/en/news" target="_blank" style="color: #5b9bd1; text-decoration: none; padding: 0 15px;">News</a>
+		              <a href="https://falconediting.com/en/review" target="_blank" style="color: #5b9bd1; text-decoration: none; padding: 0 15px;">Reviews</a>
+		              <a href="https://falconediting.com/en/feedback" target="_blank" style="color: #5b9bd1; text-decoration: none; padding: 0 15px;">Contact</a>
               </span></font>
                                 </td>
                             </tr>

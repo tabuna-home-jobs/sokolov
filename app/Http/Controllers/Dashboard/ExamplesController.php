@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ExamplesRequest;
@@ -156,8 +156,8 @@ class ExamplesController extends Controller
     {
         $Examples = Examples::where('slug',  $Examples)->firstOrFail();
         $Examples->delete('cascade');
-        Session::flash('good', 'Вы успешно удалили значения');
-
-        return redirect()->route('dashboard.examples.index');
+        return response(200);
+        //Session::flash('good', 'Вы успешно удалили значения');
+        //return redirect()->route('dashboard.examples.index');
     }
 }

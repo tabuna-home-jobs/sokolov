@@ -2,6 +2,9 @@
 
 return [
 
+    'Success' => 'Успех',
+    'Error' => 'Ошибка',
+
     'You have successfully added a comment' => 'Вы успешно добавили комментарий',
     'Thank you for writing, we will respond to you.' => 'Спасибо, что написали. Мы обязательно ответим вам.',
     'You have successfully changed values' => 'Вы успешно изменили значения',

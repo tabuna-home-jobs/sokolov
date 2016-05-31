@@ -1,7 +1,8 @@
 <?php
 
-namespace app\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth;
 
+use App\Events\RegisterUser;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Zone;
@@ -80,6 +81,7 @@ class AuthController extends Controller
         $user->addRole('user');
         $user->save();
 
+        event(new RegisterUser($user));
         return $user;
     }
 }

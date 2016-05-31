@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Services\orchid\seo\Traits;
+namespace App\Services\orchid\seo\Traits;
 
 use Route;
 use App;
