@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Files;
+use App\Models\FilesMeta;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Storage;
 
 class FileManagerController extends Controller
 {
@@ -105,6 +107,10 @@ class FileManagerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $file = Files::findOrFail($id);
+        Storage::delete('/order/'.Str::ascii($file->name));
+        $file->delete();
+        FilesMeta::where('files_id',$id)->delete();
+        return response(200);
     }
 }

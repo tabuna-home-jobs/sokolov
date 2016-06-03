@@ -185,13 +185,14 @@
                         <div class="col-sm-6 col-md-4">
                             <div class="service service-edit">
 
+                                <a href="@if(App::getLocale() == 'ru') {{url('/ru/page/garantii')}}@else {{url("/en/page/guarantees")}} @endif">
                                 <img src="/img/guard-1.png"
                                      class="img-hover"
                                      data-altimg="/img/guard-1-hover.png"
                                      alt="{{trans('main.RELIABLE')}}">
 
                                 <h3>{{trans("main.RELIABLE")}}</h3>
-
+                                </a>
 
                                 <div class="caption">
                                     <p>{{trans('main.RELIABLE TEXT')}}</p>
@@ -203,12 +204,15 @@
                         <div class="col-sm-6 col-md-4">
                             <div class="service service-edit">
 
+                                <a href="@if(App::getLocale() == 'ru') {{url('/ru/page/garantii')}}@else {{url("/en/page/guarantees")}} @endif">
+
                                 <img src="/img/otvetst-1.png"
                                      class="img-hover"
                                      data-altimg="/img/otvetst-1-hover.png"
                                      alt="{{trans('main.RESPONSIBLY')}}">
 
                                 <h3>{{trans('main.RESPONSIBLY')}}</h3>
+                                    </a>
 
 
                                 <div class="caption">
@@ -222,13 +226,15 @@
                         <div class="col-sm-6 col-md-4">
                             <div class="service service-edit">
 
+                                <a href="@if(App::getLocale() == 'ru') {{url('/ru/page/garantii')}}@else {{url("/en/page/guarantees")}} @endif">
+
                                 <img src="/img/nadejno-1.png"
                                      class="img-hover"
                                      data-altimg="/img/nadejno-1-hover.png"
                                      alt="{{trans('main.CONVENIENTLY')}}">
 
                                 <h3>{{trans('main.CONVENIENTLY')}}</h3>
-
+                                </a>
 
                                 <div class="caption">
                                     <p>{{trans('main.CONVENIENTLY TEXT')}}</p>
@@ -376,7 +382,7 @@
 
                                                 <div class="col-md-12">
 
-                                                    <p class="text-justify">
+                                                    <p class="text-justify reviews-font">
                                                         <i class="fa fa-quote-left fa-2x fa-pull-left"></i>
                                                         {{$reviews->comment}}
                                                         <i class="fa fa-quote-right fa-2x fa-pull-right"></i>
@@ -438,7 +444,7 @@
         <div class="container-fluid">
             <div class="row backgound-grey padding-container text-center">
 
-                <a href="/auth/login" class="btn btn-warning">{{trans('main.Order')}}</a>
+                <a href="/auth/login" class="btn btn-warning btn-big">{{trans('main.Order')}}</a>
 
             </div>
         </div>

@@ -459,11 +459,23 @@
                                                     <ul class="list-group">
                                                         <ul class="list-group">
                                                             @foreach($SelectRequestFile as $file)
+
+                                                                <li class="list-group-item v-center">
+
+                                                                    <div class="col-md-1">
+                                                                    <a href="#" class="btn btn-link delete" data-url="{{URL::route('dashboard.filemanager.destroy',$file->id)}}">
+                                                                        <span class="fa fa-trash-o"></span>
+                                                                    </a>
+                                                                        </div>
+
+                                                                    <div class="col-md-11">
                                                                 <a href="{{URL::route('dashboard.filemanager.show', $file->id)}}"
-                                                                   class="list-group-item"><i
+                                                                   class=""><i
                                                                             class="fa fa-file-o"></i> {{$file->original}}
                                                                     <small class="pull-right">{{$file->created_at}}</small>
                                                                 </a>
+                                                                        </div>
+                                                                </li>
                                                             @endforeach
                                                         </ul>
                                                     </ul>
@@ -494,11 +506,26 @@
                                                     <ul class="list-group">
                                                         <ul class="list-group">
                                                             @foreach($SelectGoodFile as $file)
-                                                                <a href="{{URL::route('dashboard.filemanager.show', $file->id)}}"
-                                                                   class="list-group-item"><i
-                                                                            class="fa fa-file-o"></i> {{$file->original}}
-                                                                    <small class="pull-right">{{$file->created_at}}</small>
-                                                                </a>
+
+
+
+                                                                <li class="list-group-item v-center">
+
+                                                                    <div class="col-md-1">
+                                                                        <a href="#" class="btn btn-link delete" data-url="{{URL::route('dashboard.filemanager.destroy',$file->id)}}">
+                                                                            <span class="fa fa-trash-o"></span>
+                                                                        </a>
+                                                                    </div>
+
+                                                                    <div class="col-md-11">
+                                                                        <a href="{{URL::route('dashboard.filemanager.show', $file->id)}}"
+                                                                           class=""><i
+                                                                                    class="fa fa-file-o"></i> {{$file->original}}
+                                                                            <small class="pull-right">{{$file->created_at}}</small>
+                                                                        </a>
+                                                                    </div>
+                                                                </li>
+
                                                             @endforeach
                                                         </ul>
                                                     </ul>

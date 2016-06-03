@@ -26,3 +26,7 @@ html{background-color:#f0f3f4}body{font-family:"Source Sans Pro","Helvetica Neue
     font-size: 10pt;
 }
 
+.v-center{
+    display: flex;
+    align-items: center;
+}

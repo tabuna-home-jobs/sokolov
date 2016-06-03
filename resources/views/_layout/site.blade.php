@@ -499,6 +499,8 @@
 </script>
 
 
+@widget('modals')
+
 <link rel="stylesheet" href="/build/css/flipclock.css">
 
 </body>

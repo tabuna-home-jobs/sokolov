@@ -5179,3 +5179,8 @@ a.text-#000000:hover {
 .light-font-table {
   font-size: 10pt;
 }
+
+.v-center{
+  display: flex;
+  align-items: center;
+}

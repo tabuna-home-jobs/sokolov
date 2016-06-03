@@ -7,6 +7,9 @@ use App\Models\Work;
 use App\Http\Controllers\Controller;
 use Session;
 use App\Models\Category;
+use Image;
+use Validator;
+use Storage;
 
 class WorkController extends Controller
 {
@@ -45,11 +48,32 @@ class WorkController extends Controller
      */
     public function store(Request $request)
     {
-        $blog = new Work($request->all());
-        $blog->save();
+        $work = new Work($request->all());
 
+
+        foreach($request->files as $key => $files) {
+            $time = time();
+
+            $v = Validator::make([$key=> $files], [
+                $key => 'mimes:jpeg,bmp,png',
+            ]);
+
+            if(!$v->fails()){
+                Image::make($request->file($key))->save('upload/work/'.$key .'/'.$time.'.'.$request->file($key)->getClientOriginalExtension());
+                $work->$key = '/upload/work/'.$key .'/'.$time.'.'.$request->file($key)->getClientOriginalExtension();
+            }
+            else{
+                $work->$key->move( 'upload/work/'.$key .'/',
+                    $time.'.'.$request->file($key)->getClientOriginalExtension()
+                );
+                $work->$key = '/upload/work/'.$key .'/'.$time.'.'.$request->file($key)->getClientOriginalExtension();
+            }
+
+        }
+
+
+        $work->save();
         Session::flash('good', 'Вы успешно изменили значения');
-
         return redirect()->route('dashboard.work.index');
     }
 
@@ -95,6 +119,30 @@ class WorkController extends Controller
         $work->fill(
             $request->all()
         );
+
+        foreach($request->files as $key => $files) {
+            $time = time();
+
+            $v = Validator::make([$key=> $files], [
+                $key => 'mimes:jpeg,bmp,png',
+            ]);
+
+            if(!$v->fails()){
+                Image::make($request->file($key))->save('upload/work/'.$key .'/'.$time.'.'.$request->file($key)->getClientOriginalExtension());
+                $work->$key = '/upload/work/'.$key .'/'.$time.'.'.$request->file($key)->getClientOriginalExtension();
+            }
+            else{
+                $work->$key->move( 'upload/work/'.$key .'/',
+                    $time.'.'.$request->file($key)->getClientOriginalExtension()
+                );
+                $work->$key = '/upload/work/'.$key .'/'.$time.'.'.$request->file($key)->getClientOriginalExtension();
+            }
+
+        }
+
+
+
+
         $work->save();
 
         Session::flash('good', 'Вы успешно изменили значения');

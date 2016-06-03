@@ -225,12 +225,13 @@ $(document).ready(function () {
         }
 
         swal({
-            title: "Are you sure?",
-            text: "You will not be able to recover this imaginary file!",
+            title: "Вы уверены?",
+            text: "Эта запись будет на всегда удалена!",
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Yes, delete it!",
+            confirmButtonText: "Да, далить её!",
+            cancelButtonText: "Нет, я передумал!",
             closeOnConfirm: false
         }, function () {
 
@@ -246,8 +247,8 @@ $(document).ready(function () {
                 success: function(){
 
                     swal({
-                        title: "Deleted!",
-                        text: "Your imaginary file has been deleted.",
+                        title: "Удалено!",
+                        text: "Запись была удалена.",
                         type: "success",
                         closeOnConfirm: true
                     }, function () {

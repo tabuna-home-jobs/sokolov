@@ -55,10 +55,17 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'admin'], 'pr
     Route::resource('element', 'ElementController');
     Route::resource('work', 'WorkController');
 
+
+    Route::resource('modals', 'ModalsController');
+
     Route::resource('statinfo', 'StatInfoController');
 
     Route::resource('benefits', BenefitsController::class);
     Route::resource('seostatic', 'SeoSaticController');
+
+
+
+    Route::resource('subscribe', 'SuscribleController');
 
     Route::get('/wmenuindex', array('as' => 'wmenuindex', 'uses' => 'WmenuController@wmenuindex'));
     Route::post('/addcustommenu', array('as' => 'addcustommenu', 'uses' => 'WmenuController@addcustommenu'));
@@ -83,6 +90,8 @@ Route::group(['namespace' => 'Site'], function () {
     Route::resource('examples', 'ExamplesController');
 
     Route::controller('examplegetone', 'WorksController');
+    Route::controller('calculator', 'CalculatorController');
+
 
     Route::group(['middleware' => ['auth', 'user']], function () {
         Route::resource('home', 'HomeController');

@@ -155,7 +155,43 @@
                             <!-- /.input group -->
                         </div>
 
-                        <div id="GoodsAttr" class="text-center">
+
+
+
+
+
+
+                            <div class="form-group">
+                                <label>Указывать в канкуляторе</label>
+
+                                <div class="radio">
+                                    <label class="i-checks">
+                                        <input type="radio" name="calculator" value="1" @if($Goods->calculator) checked @endif>
+                                        <i></i>
+                                        Да
+                                    </label>
+                                </div>
+
+                                <div class="radio">
+                                    <label class="i-checks">
+                                        <input type="radio" name="calculator" value="0" @if(!$Goods->calculator) checked @endif>
+                                        <i></i>
+                                        Нет
+                                    </label>
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+
+
+
+
+                            <div id="GoodsAttr" class="text-center">
                             <label>Атрибуты</label>
 
                             @if(isset($Goods->attribute))

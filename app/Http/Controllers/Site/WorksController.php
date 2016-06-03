@@ -67,11 +67,8 @@ class WorksController extends Controller
     public function getExampleone($id)
     {
 
-        //return Work::where(['id' => $id])->first()->toJson();
+        return Work::find($id)->toJson();
 
-        return '
-{"id":"6","category_id":"5","name":"Chemistry","before":"<img src=\"..\/..\/..\/dash\/source\/Blog%20Pictures\/Translation%20Samples\/Chemistry%20-%20English.PNG\" border=\"0\" alt=\"Chemistry - English\" width=\"622\" height=\"806\" \/>","after":"<img src=\"..\/..\/..\/dash\/source\/Blog%20Pictures\/Translation%20Samples\/Chemistry%20-%20Russian.PNG\" border=\"0\" alt=\"Chemistry - Russian\" width=\"621\" height=\"805\" \/>","created_at":"2016-03-10 11:48:20","updated_at":"2016-04-21 08:56:26","lang":"en","author":"Falcon Scientific Editing"}
-';
     }
 
     /**

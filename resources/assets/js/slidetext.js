@@ -24,8 +24,8 @@ $(document).ready(function(){
             },
             success: function(json) {
                 var data = JSON.parse(json);
-                $(".rus_text").html(data.before);
-                $(".eng_text .liquid").html(data.after);
+                $(".rus_text").html("<img src='" + data.after + "'>");
+                $(".eng_text .liquid").html("<img src='" + data.before + "'>");
 
 
                 var height_blocks = $("#dragMe").height();

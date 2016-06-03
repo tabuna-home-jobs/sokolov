@@ -153,6 +153,7 @@ return [
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
         Roumen\Sitemap\SitemapServiceProvider::class,
         App\Services\orchid\seo\Providers\SEOServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -212,9 +213,13 @@ return [
         'CurrencyRate' => App\Facades\CurrencyRateFacades::class,
         'SecsToH' => \App\Facades\SecsToH::class,
         'SEO' => App\Services\orchid\seo\Facades\SEOFacades::class,
+
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
     'widgets' => [
+        'modals' => App\Http\Widgets\ModalWidget::class,
+        'calcucator' => App\Http\Widgets\CalculatorWidget::class
     ],
 
 ];

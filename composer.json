@@ -15,7 +15,8 @@
         "kyslik/column-sortable": "~3.0.0",
         "guzzlehttp/guzzle": "6.*",
         "roumen/sitemap": "^2.5",
-        "orchid/seo": "0.0.4"
+        "orchid/seo": "0.0.4",
+        "maatwebsite/excel": "~2.1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

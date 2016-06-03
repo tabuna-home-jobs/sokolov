@@ -87,7 +87,15 @@
                         <li class="{{Active::route(['dashboard.block.*','dashboard.element.*'])}}">
                             <a href="{{URL::route('dashboard.block.index')}}">
                                 <i class="fa fa-cubes icon"></i>
-                                <span class="font-bold">Блоки</span>
+                                <span>Блоки</span>
+                            </a>
+                        </li>
+
+
+                        <li class="{{Active::route(['dashboard.modals.*'])}}">
+                            <a href="{{URL::route('dashboard.modals.index')}}">
+                                <i class="fa fa-windows" aria-hidden="true"></i>
+                                <span>Окна</span>
                             </a>
                         </li>
 
@@ -178,6 +186,15 @@
                                 <span>Готовые работы</span>
                             </a>
                         </li>
+
+
+                        <li class="{{Active::route('dashboard.subscribe.*')}}">
+                            <a href="{{route('dashboard.subscribe.index')}}">
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                <span>База Email</span>
+                            </a>
+                        </li>
+
 
 
                         <li class="line dk"></li>

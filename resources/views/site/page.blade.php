@@ -10,12 +10,12 @@
 
     <div class="container">
 
-        <article class="col-md-8">
+        <article class="col-md-8 blog-container">
 
 
             <h1>{{$Page->name}}</h1>
 
-            <main class="blog-content">
+            <main class="blog-content ">
 
                 {!! $Page->content !!}
 

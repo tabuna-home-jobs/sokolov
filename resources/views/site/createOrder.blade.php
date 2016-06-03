@@ -73,9 +73,9 @@
                                     <select class="form-control select-disable-{{$value->id}}"
                                             name="type[{{$value->id}}][speed]">
                                         @for($i=0; $i < count(unserialize($value->goods->first()->attribute)); $i++ )
-                                            @if(unserialize($value->goods->first()->attribute)[$i] == "Speed")
-                                                <option value="{{unserialize($value->goods->first()->attribute)[$i+1]}}">
-                                                    {{trans('speed.' . unserialize($value->goods->first()->attribute)[$i+1] )}}
+                                            @if($i%2 ==0)
+                                                <option value="{{unserialize($value->goods->first()->attribute)[$i]}}">
+                                                    {{trans('speed.' . unserialize($value->goods->first()->attribute)[$i] )}}
                                                 </option>
                                             @endif
                                         @endfor
@@ -149,17 +149,16 @@
 
 
                     <div class="form-group">
-                        <label class="control-label"> {{trans('createOrder.For what language translation needs')}}</label>
-                        <select name="langOrder_id" required class="form-control">
-                            <option disabled selected>
-                                {{trans('createOrder.For what language translation needs')}}
-                            </option>
-                            @foreach($langTrans as $key => $value)
-                                <option value="{{$value}}">
-                                    {{$key}}
-                                </option>
-                            @endforeach
-                        </select>
+                        <label class="control-label">{{trans('createOrder.For what language translation needs')}}</label>
+
+                        @foreach($langTrans as $key => $value)
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="{{$value}}" name="langOrder_id" required>
+                                {{$key}}
+                            </label>
+                        </div>
+                        @endforeach
                     </div>
 
 
@@ -232,46 +231,80 @@
                 });
 
 
-                var navListItems = $('div.setup-panel div a'),
-                        allWells = $('.setup-content'),
-                        allNextBtn = $('.nextBtn');
 
-                allWells.hide();
 
-                navListItems.click(function (e) {
-                    e.preventDefault();
-                    var $target = $($(this).attr('href')),
-                            $item = $(this);
 
-                    if (!$item.hasClass('disabled')) {
-                        navListItems.removeClass('btn-primary').addClass('btn-default');
-                        $item.addClass('btn-primary');
-                        allWells.hide();
-                        $target.show();
-                        $target.find('input:eq(0)').focus();
-                    }
-                });
 
-                allNextBtn.click(function () {
-                    var curStep = $(this).closest(".setup-content"),
-                            curStepBtn = curStep.attr("id"),
-                            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-                            curInputs = curStep.find("input[type='text'],input[type='url']"),
-                            isValid = true;
 
-                    $(".form-group").removeClass("has-error");
-                    for (var i = 0; i < curInputs.length; i++) {
-                        if (!curInputs[i].validity.valid) {
-                            isValid = false;
-                            $(curInputs[i]).closest(".form-group").addClass("has-error");
+
+
+                $(document).ready(function () {
+                    var showCountClick = 0;
+
+                    var navListItems = $('div.setup-panel div a'),
+                            allWells = $('.setup-content'),
+                            allNextBtn = $('.nextBtn');
+
+                    allWells.hide();
+
+                    navListItems.click(function (e) {
+                        e.preventDefault();
+                        var $target = $($(this).attr('href')),
+                                $item = $(this);
+
+                        if (!$item.attr('disabled')) {
+                            navListItems.removeClass('btn-primary').addClass('btn-default');
+                            $item.addClass('btn-primary');
+                            allWells.hide();
+                            $target.show();
+                            $target.find('input:eq(0)').focus();
                         }
-                    }
+                    });
 
-                    if (isValid)
-                        nextStepWizard.removeAttr('disabled').trigger('click');
+                    allNextBtn.click(function(){
+                        var curStep = $(this).closest(".setup-content"),
+                                curStepBtn = curStep.attr("id"),
+                                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                                curInputs = curStep.find("input[type='text'],input[type='url'],input[name='apport'],select[required='required']"),
+                                isValid = true;
+
+                        $(".form-group").removeClass("has-error");
+
+                        for(var i=0; i<curInputs.length; i++){
+                            if (!curInputs[i].validity.valid){
+                                isValid = false;
+                                $(curInputs[i]).closest(".form-group").addClass("has-error");
+                            }
+
+                            if (curInputs[i].nodeName == 'SELECT' && $(curInputs[i]).val() == '') {
+                                isValid = false;
+                                $(curInputs[i]).closest(".form-group").addClass("has-error");
+                            }
+                        }
+
+                        if (isValid)
+                            nextStepWizard.removeAttr('disabled').trigger('click');
+                    });
+
+                    $('div.setup-panel div a.btn-primary').trigger('click');
                 });
 
-                $('div.setup-panel div a.btn-primary').trigger('click');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             });
 
     </script>

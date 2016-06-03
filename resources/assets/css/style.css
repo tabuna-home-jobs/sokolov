@@ -151,13 +151,12 @@ a:active, a:hover , .btn{
 
 @media screen and (min-width: 768px) {
     .carousel-caption {
-        right: 30%;
-        left: 1px;
+        /*right: 30%;*/
         padding-bottom: 30px;
         top: 20px;
         text-align: inherit;
         text-shadow: none;
-        left: 20%;
+        /*left: 20%;*/
     }
 }
 
@@ -173,7 +172,7 @@ a:active, a:hover , .btn{
 
 .carousel-caption p {
     color: #1c1c1c;
-    font-size: 16px;
+    font-size: 14pt;
     font-weight: 300;
     line-height: 24px;
     padding-bottom: 20px;
@@ -338,7 +337,7 @@ a:active, a:hover , .btn{
 }
 
 .blog-container{
-    padding: 20px 15px;
+    padding: 20px 15px 25px;
 }
 
 .blog h4{
@@ -397,6 +396,12 @@ a:active, a:hover , .btn{
 
 .fa-quote-left, .fa-quote-right {
     color: #ccc;
+}
+
+
+.btn-big{
+    padding: 20px 30px!important;
+    font-size: 14pt!important;
 }
 
 .reviews-text {
@@ -1699,3 +1704,7 @@ a.no-hover:hover, a.no-hover:active{
 /*
  * !Подписка
  */
+
+.reviews-font{
+    font-size: 12pt;
+}

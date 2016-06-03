@@ -14,6 +14,7 @@
                     <img src="{{$element->img}}" alt="{{$element->title}}">
 
                     <div class="carousel-caption">
+                        <div class="col-md-6">
                         <h2>{{$element->title}}</h2>
 
                         <p>
@@ -23,7 +24,28 @@
                         <p>
                             <a href="/auth/login" class="btn btn-warning">{{trans('main.Order')}}</a>
                             <a href="{{$element->link}}" class="btn btn-primary">{{trans('main.Learn More')}}</a>
+                            <a href="/{{App::getLocale()}}/feedback" class="btn btn-warning">Быстрая оценка</a>
                         </p>
+                            </div>
+
+
+                        <div class="col-sm-offset-1 col-md-5" style="
+    background: #fff;
+    border: 2px 2px 2px 2px #FCB93F;
+    border-color: #FCB93F;
+    border-radius: 50px;
+    padding: 20px;
+    border: 4px solid #FCB93F;
+    color: #0596A3;
+">
+
+
+                            @widget('calcucator')
+
+
+
+                        </div>
+
 
                     </div>
                 </div>

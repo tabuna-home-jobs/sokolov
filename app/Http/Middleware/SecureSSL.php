@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Auth;
 use Closure;
+use App;
 
 class SecureSSL
 {
@@ -17,7 +18,7 @@ class SecureSSL
      */
     public function handle($request, Closure $next)
     {
-        if( ! $request->secure()) {
+        if(!$request->secure() && !App::environment('local')) {
             return redirect()->secure($request->path());
         }
         else{

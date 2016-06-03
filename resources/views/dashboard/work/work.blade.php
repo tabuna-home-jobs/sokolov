@@ -24,6 +24,7 @@
                                 <tr role="row">
                                     <th>#</th>
                                     <th>Имя</th>
+                                    <th>Локализация</th>
                                     <th>Последнее редактирование</th>
                                     <th>Управление</th>
                                 </tr>
@@ -34,6 +35,13 @@
                                     <tr>
                                         <td>{{ $work->id }}</td>
                                         <td>{{ $work->name }}</td>
+                                        <td>
+                                            @if($work->lang == "en")
+                                                Английский язык
+                                            @else
+                                                Русский язык
+                                            @endif
+                                        </td>
                                         <td>{{ $work->updated_at }}</td>
                                         <td class="pull-right">
                                             <a href="{{URL::route('dashboard.work.edit',$work->id)}}"

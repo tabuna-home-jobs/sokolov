@@ -16,7 +16,6 @@
         </div>
 
 
-
         <div class="row">
 
              @foreach($Works as $key =>$good)
@@ -31,7 +30,7 @@
 
                         <div>
                             <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false"><i class="fa fa-eye"></i></a>
-                            <a href="#"><i class="fa fa-download"></i></a>
+                            <a href="{{$good->download}}" target="_blank"><i class="fa fa-download"></i></a>
                         </div>
                     </div>
 
@@ -46,35 +45,35 @@
 
             <div class="collapse col-xs-12  in" id="collapse">
                 <div class="wrap-slide-text col-sm-12 hidden-xs">
-                    <div id="mainSlider" class="slider">
-                        <div id="leftCont" class="pagesldr">
-                        </div>
-                        <div class="btnsldr slide_item rus_text" id="dragMe" style="left: 0;">
 
 
-                            <div class="well-lg">
-                                Для использования этой функции просмотра, пожалуйста, нажмите,
-                                удерживайте и горизонтально перетащите оранжевый овал слева
-                                направо или наоборот.
+
+                    <div class="row">
+                        <div class="slider">
+
+                            <div class="slider responsive">
+
+                                <div class="left image">
+
+                                    <img src="http://www.savonpirkka.fi/images/igallery/resized/1001-1100/image-1009-800-600-80.jpg"/>
+
+                                </div>
+
+                                <div class="right image">
+
+                                    <img src="http://www.savonpirkka.fi/images/igallery/resized/1001-1100/image-1012-800-600-80.jpg"/>
+
+                                </div>
+
                             </div>
 
                         </div>
-                        <div id="rightCont" class="pagesldr eng_text" style="width: 53%;">
-                            <div class="liquid">
 
-
-                                <div class="well-lg">
-                                    To use this viewing feature, please press, hold
-                                    and horizontally drag the orange oval from
-                                    left to right or vice versa.
-
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="magic-border">
-                            <i class="fa fa-arrows-h"></i>
-                        </div>
                     </div>
+
+
+
+
                 </div>
             </div>
 
@@ -94,7 +93,7 @@
                              <div>
                                  <time>{{$good->created_at->toDateString()}}</time>
                                  <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false"><i class="fa fa-eye"></i></a>
-                                 <!--<a href="#"><i class="fa fa-download"></i></a> -->
+                                 <a href="{{$good->download}}" target="_blank"><i class="fa fa-download"></i></a>
                              </div>
                                  </div>
 
@@ -130,6 +129,42 @@
 
 
 
+
+    <script type="text/javascript">
+
+        $('.slider').hide();
+
+        //Берём текст перевода
+        $("body").on('click', '.gettext', function(){
+            var data = {};
+            data['id'] = $(this).attr('data-expl_id');
+
+            $('#collapse').on('hidden.bs.collapse', function () {
+                $(".collapse").collapse('show');
+            });
+
+
+            $.ajax({
+                url: "/examplegetone/exampleone/"+data['id'],
+                type: "GET",
+                headers: {
+                    'X-CSRF-TOKEN': $('#token').attr('content')
+                },
+                success: function(json) {
+                    var data = JSON.parse(json);
+                    $(".left").html("<img src='" + data.after + "'>");
+                    $(".right").html("<img src='" + data.before + "'>");
+
+                    $('.slider').show().slider();
+                }
+            });
+
+        });
+
+
+
+
+    </script>
 
 
 
