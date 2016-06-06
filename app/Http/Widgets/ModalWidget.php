@@ -28,10 +28,10 @@ class ModalWidget extends Widget
         $this->lang = App::getLocale();
     }
 
-     /**
-      * @return mixed
-      */
-     public function run()
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+     public function run($data = null)
      {
          if(Session::get('modals', 'show') == "show"){
              $this->modal = Modal::where('lang',$this->lang)->first();

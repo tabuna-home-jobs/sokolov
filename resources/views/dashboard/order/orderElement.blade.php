@@ -77,7 +77,7 @@
                                             <div class="well m-t bg-light lt">
                                                 <div class="row">
                                                     <div class="col-xs-5">
-                                                        <strong>Заказ номер: #{{$SelectOrder->id}}</strong>
+                                                        <strong>Заказ номер: #{{$SelectOrder->id}} / {{$SelectOrder->act}}</strong>
                                                         <h4>{{$SelectUser->first_name}} {{$SelectUser->last_name}}</h4>
 
                                                         <p>

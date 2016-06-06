@@ -40,7 +40,7 @@
 ">
 
 
-                            @widget('calcucator')
+                            @widget('calcucator',$key)
 
 
 

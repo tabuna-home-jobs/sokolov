@@ -6,47 +6,70 @@
 
 @section('content')
 
-
     <div class="container blog-container">
 
 
-        <div class="row">
+        <div class="row v-center">
 
 
             <div class="col-xs-12">
                 <!--Вывод статей-->
                 @foreach($goodsList as $key => $gList)
-                    <article class="col-md-3 col-sm-6 col-xs-12 block-img-catalog-z">
-
-                        <figure>
 
 
-                            <figcaption>
+
+                    <div class="col-sm-6 col-md-3">
+                        <div class="service service-edit">
+
+                            <a href="{{URL::route(App::getLocale().'.catalog.show',$gList->slug)}}">
+                                <img class="img-hover" src="{{$gList->avatar}}"
+                                     data-altimg="{{$gList->icon}}" alt="{{$gList->name}}">
+
+                                <h4>{{$gList->name}}</h4>
+                            </a>
+
+                        </div>
+                    </div>
 
 
-                                <a href="{{URL::route(App::getLocale().'.catalog.show',$gList->slug)}}">
-                                    <!--Выводится иконка прибавляется к ней просто индекс-->
-                                    <img src="/img/catalog/icon{{++$key}}.png" class="img-icon"  alt="{{$gList->name}}">
-
-                                    <div class="img-wrapper">
-                                        <img src="{{$gList->avatar}}" class="img-responsive-sliderback"  alt="{{$gList->name}}">
 
 
-                                        <p class="catalog-img-text">
-                                        {{$gList->name}}
-                                        <p>
-
-                                    </div>
 
 
-                                </a>
-                            </figcaption>
 
-                        </figure>
 
-                    </article>
+                {{-- <article class="col-md-3 col-sm-6 col-xs-12 block-img-catalog-z">
+
+                     <figure>
+
+
+                         <figcaption>
+
+
+                             <a href="{{URL::route(App::getLocale().'.catalog.show',$gList->slug)}}">
+                                 <!--Выводится иконка прибавляется к ней просто индекс-->
+                                 <img src="/img/catalog/icon{{++$key}}.png" class="img-icon"  alt="{{$gList->name}}">
+
+                                 <div class="img-wrapper">
+                                     <img src="{{$gList->avatar}}" class="img-responsive-sliderback"  alt="{{$gList->name}}">
+
+
+                                     <p class="catalog-img-text">
+                                     {{$gList->name}}
+                                     <p>
+
+                                 </div>
+
+
+                             </a>
+                         </figcaption>
+
+                     </figure>
+
+                 </article> --}}
                     @endforeach
                             <!--Вывод статей-->
+
             </div>
         </div>
 
@@ -74,19 +97,19 @@
                         <tr>
                             <td>{{trans('catalog.Economy (7 days)')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    0.07 @else {{ number_format(round( 0.07 * CurrencyRate::getOneRecord(), 2),2)}} @endif</td>
+                                    0.07 @else {{ number_format(round( 0.07 * CurrencyRate::getOneRecord(), 2),2, '.', ' ')}} @endif</td>
                         </tr>
 
 
                         <tr>
                             <td>{{trans('catalog.Standard (4 days)')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    0.08 @else {{  number_format(round( 0.08 * CurrencyRate::getOneRecord(),2),2)}} @endif</td>
+                                    0.08 @else {{  number_format(round( 0.08 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
                         <tr>
                             <td>{{trans('catalog.Express (2 days)')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    0.09 @else {{  number_format(round( 0.09 * CurrencyRate::getOneRecord(),2),2)}} @endif</td>
+                                    0.09 @else {{  number_format(round( 0.09 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
                         </tbody>
                     </table>
@@ -108,19 +131,19 @@
                         <tr>
                             <td>{{trans('catalog.Economy (10 days)')}}</td>
                             <td> @if(App::getLocale() == 'en')
-                                    0.10 @else {{ number_format(round( 0.10 * CurrencyRate::getOneRecord(),23),2)}} @endif</td>
+                                    0.10 @else {{ number_format(round( 0.10 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
 
 
                         <tr>
                             <td>{{trans('catalog.Standard (7 days)')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    0.11 @else {{ number_format(round( 0.11 * CurrencyRate::getOneRecord(),2),2)}} @endif</td>
+                                    0.11 @else {{ number_format(round( 0.11 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
                         <tr>
                             <td>{{trans('catalog.Express (4 days)')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    0.12 @else {{ number_format(round( 0.12 * CurrencyRate::getOneRecord(),2),2)}} @endif</td>
+                                    0.12 @else {{ number_format(round( 0.12 * CurrencyRate::getOneRecord(),2),2, '.', '')}} @endif</td>
                         </tr>
                         </tbody>
                     </table>
@@ -145,7 +168,7 @@
                             <td>0-5000</td>
                             <td>2 {{trans('catalog.day')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    110 @else {{ number_format(round( 110 * CurrencyRate::getOneRecord(),2),2)}} @endif</td>
+                                    110 @else {{ number_format(round( 110 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
 
 
@@ -154,14 +177,14 @@
                             <td>5000-10000</td>
                             <td>4 {{trans('catalog.day')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    190 @else {{ number_format(round( 190 * CurrencyRate::getOneRecord(),2),2)}} @endif</td>
+                                    190 @else {{ number_format(round( 190 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
                         <tr>
 
                             <td>10000-15000</td>
                             <td>4-10 {{trans('catalog.day')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    270 @else {{ number_format(round( 270 * CurrencyRate::getOneRecord(),2),2)}} @endif</td>
+                                    270 @else {{ number_format(round( 270 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
 
 
@@ -194,7 +217,7 @@
                             <td>{{trans('catalog.Formatting tables and graphs (one illustration of an unlimited number of tables and charts in it)')}}</td>
                             <td>{{trans('catalog.By agreement')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    80 @else {{  number_format(round(  80 * CurrencyRate::getOneRecord(),2),2)}} @endif</td>
+                                    80 @else {{  number_format(round(  80 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
 
 

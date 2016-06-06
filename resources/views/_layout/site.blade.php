@@ -106,10 +106,10 @@
                 </div>
 
                 <a href="{{url('/en')}}" class="flag @if(App::getLocale() == 'en') active @endif">
-                    <img src="/img/lang/eng.png" height="20px">
+                    <img src="/img/lang/eng.png" height="20px" width="30px">
                 </a>
                 <a href="{{url('/ru')}}" class="flag @if(App::getLocale() == 'ru') active @endif">
-                    <img src="/img/lang/rus.png" height="20px">
+                    <img src="/img/lang/rus.png" height="20px" width="30px">
                 </a>
             </form>
         </div>

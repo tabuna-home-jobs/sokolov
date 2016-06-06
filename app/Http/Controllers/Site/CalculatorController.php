@@ -9,27 +9,41 @@ use App\Http\Controllers\Controller;
 use App\Models\Goods;
 use CurrencyRate;
 use Cache;
+use App;
 
 class CalculatorController extends Controller
 {
+
+    public $local;
+
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * CalculatorController constructor.
+     */
+    public function __construct()
+    {
+        $this->local = App::getLocale();
+    }
+
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getService($id)
     {
 
-        $value = Cache::remember('users', 1, function() use ($id)
+        $value = Cache::remember('calculator-'.$id.'-'.$this->local, 1, function() use ($id)
         {
             $service = Goods::findORFail($id);
             $attr = unserialize($service->attribute);
 
-
             foreach($attr as $key => $value)
             {
-                if(is_float($value)){
-                    $attr[$key] = number_format(round( $value * CurrencyRate::getOneRecord(),2),2);
+                if(is_float($value) && $this->local =='ru'){
+                    $attr[$key] = round( $value * CurrencyRate::getOneRecord(),2);
+                }
+                elseif(is_float($value)){
+                    $attr[$key] = round($value,2);
                 }
             }
 
@@ -39,69 +53,5 @@ class CalculatorController extends Controller
         return response()->json($value);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

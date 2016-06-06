@@ -6,6 +6,7 @@ use App;
 use App\Http\Controllers\Controller;
 use App\Models\Goods;
 use Illuminate\Http\Request;
+use App\Models\Work;
 
 class CatalogController extends Controller
 {
@@ -68,10 +69,17 @@ class CatalogController extends Controller
             $next = Goods::select('slug')->whereRaw('lang = ? and id != ? and id > ?', [App::getLocale(), $goods->id, $good->id])->orderBy('id', 'Desc')->limit(1)->first();
         }
 
+
+        $Work = Work::select('id')
+            ->where('category_id',$good->category_id)
+            ->where('lang',App::getLocale())
+            ->first();
+
         return view('site.catalogElement', [
             'Goods' => $good,
             'next' => $next,
             'prev' => $prev,
+            'Work' => $Work,
         ]);
     }
 

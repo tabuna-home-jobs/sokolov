@@ -7,7 +7,6 @@ html {
 body {
     color: #1c1c1c;
     font-family: 'Roboto', sans-serif !important;
-    margin-bottom: 350px;
     font-size: 12pt;
 }
 
@@ -115,7 +114,8 @@ a:active, a:hover , .btn{
     background-color: #2f8398;
     color: #ffffff;
 
-    position: absolute;
+    margin-top: 15px;
+    position: relative;
     bottom: 0;
     width: 100%;
     /* Set the fixed height of the footer here */

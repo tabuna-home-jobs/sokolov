@@ -12,11 +12,13 @@ use App\Models\Review;
 use App\Models\Shares;
 use App\Models\Task;
 use App\Models\Blog;
+use App\Models\User;
 use App\Observer\CommentsObserver;
 use App\Observer\OrderObserver;
 use App\Observer\ReviewsObserver;
 use App\Observer\SlugGenerateObserver;
 use App\Observer\TaskObserver;
+use App\Observer\UserObserver;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -62,7 +64,8 @@ class EventServiceProvider extends ServiceProvider
         //Order::observe(new ConvertValueObserver);
         Review::observe(new ReviewsObserver());
         Order::observe(new OrderObserver());
-        Task::observe(new TaskObserver());
+        //Task::observe(new TaskObserver());
         Comments::observe(new CommentsObserver());
+        User::observe(new UserObserver());
     }
 }

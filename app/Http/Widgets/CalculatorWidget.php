@@ -17,9 +17,10 @@ class CalculatorWidget extends Widget {
     }
 
     /**
-     * @return mixed
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-     public function run(){
+     public function run($id = 0){
 
          $services = Goods::select('id','name')
                     ->where('calculator',true)
@@ -27,7 +28,8 @@ class CalculatorWidget extends Widget {
                     ->get();
 
          return view('htmlBlock.calculator',[
-             'services' => $services
+             'services' => $services,
+             'id' => $id,
          ]);
      }
 

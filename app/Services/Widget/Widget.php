@@ -11,24 +11,27 @@ class Widget implements WidgetContractInterface
 
     /**
      * @param $key
-     *
+     * @param null $data
      * @return mixed
      */
-    public function get($key)
+    public function get($key,$data = null)
     {
         $class = config('app.widgets.'.$key);
         $widget = new $class();
 
         if ($widget->cache) {
-            return Cache::remember('widgets-'.$key, $widget->cache, function (Widget $widget) {
-                return $widget->run();
+            return Cache::remember('widgets-'.$key, $widget->cache, function (Widget $widget) use ($data) {
+                return $widget->run($data);
             });
         } else {
-            return $widget->run();
+            return $widget->run($data);
         }
     }
 
-    public function run()
+    /**
+     * @param null $data
+     */
+    public function run($data = null)
     {
     }
 }

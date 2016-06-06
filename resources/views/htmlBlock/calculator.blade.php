@@ -1,11 +1,11 @@
 
-<form class="form-horizontal">
+<form id="calculator-{{$id}}" class="form-horizontal">
 
 
     <div class="form-group">
-        <label for="service" class="col-sm-4 control-label">Service</label>
+        <label for="service-{{$id}}" class="col-sm-4 control-label">Service</label>
         <div class="col-sm-8">
-            <select class="form-control" name="service">
+            <select class="form-control" name="service-{{$id}}">
                 <option value="0"  disabled selected>Выберите услугу</option>
                 @foreach($services as $value)
                     <option value="{{$value->id}}">{{$value->name}}</option>
@@ -16,9 +16,9 @@
 
 
     <div class="form-group">
-        <label for="speed" class="col-sm-4 control-label">Deadline</label>
+        <label for="speed-{{$id}}" class="col-sm-4 control-label">Deadline</label>
         <div class="col-sm-8">
-            <select class="form-control" name="speed" disabled>
+            <select class="form-control" name="speed-{{$id}}" disabled>
                 <option value="">Deadline</option>
             </select>
         </div>
@@ -26,17 +26,17 @@
 
 
     <div class="form-group">
-        <label for="words" class="col-sm-4 control-label">Number of words</label>
+        <label for="words-{{$id}}" class="col-sm-4 control-label">Number of words</label>
         <div class="col-sm-8">
-            <input type="number" name="words"  min="0" class="form-control" disabled  placeholder="0">
+            <input type="number" name="words-{{$id}}"  min="0" class="form-control" disabled  placeholder="0">
         </div>
     </div>
 
 
     <div class="form-group">
-        <label for="price" class="col-sm-4 control-label">Price</label>
+        <label for="price-{{$id}}" class="col-sm-4 control-label">Price</label>
         <div class="col-sm-8">
-            <input type="text" readonly class="form-control" min="0" name="price" placeholder="0.00">
+            <input type="text" readonly class="form-control" min="0" name="price-{{$id}}" placeholder="0.00">
         </div>
     </div>
     <div class="form-group">
@@ -59,12 +59,12 @@
 
     var price = [];
 
-    $('select[name="service"]').change(function () {
+    $('select[name="service-{{$id}}"]').change(function () {
 
         var csrf = $('meta[name="csrf_token"]').attr('content');
-        var serviceId = $('select[name="service"] :selected').val();
+        var serviceId = $('select[name="service-{{$id}}"] :selected').val();
 
-        $("#loader-wrapper").show('slow');
+        $("#loader-wrapper").show();
 
         $.ajax({
             type: "GET",
@@ -83,10 +83,10 @@
                                 + msg[i] + "</option>";
                     }
                 }
-                $('select[name="speed"]').html(option);
-                $('select[name="speed"]').attr('disabled', false);
+                $('select[name="speed-{{$id}}"]').html(option);
+                $('select[name="speed-{{$id}}"]').attr('disabled', false);
 
-                $('input[name="words"]').attr('disabled', false);
+                $('input[name="words-{{$id}}"]').attr('disabled', false);
 
             },
             error: function () {
@@ -94,20 +94,20 @@
             }
         });
 
-        $("#loader-wrapper").hide('slow');
+        $("#loader-wrapper").hide();
 
     });
 
 
-    $('select[name="speed"]').change(function () {
-        $('input[name="words"]').val(0);
-        $('input[name="price"]').val(0);
+    $('select[name="speed-{{$id}}"]').change(function () {
+        $('input[name="words-{{$id}}"]').val(0);
+        $('input[name="price-{{$id}}"]').val(0);
     });
 
 
-    $('input[name="words"]').change(function () {
-        var words = $('input[name="words"]').val();
-        var speed = $('select[name="speed"] :selected').val();
+    $('input[name="words-{{$id}}"]').change(function () {
+        var words = $('input[name="words-{{$id}}"]').val();
+        var speed = $('select[name="speed-{{$id}}"] :selected').val();
 
         if(speed > 0) {
            var price = words * speed
@@ -116,7 +116,7 @@
            var price = 'Расчитывается индивидуально';
         }
 
-        $('input[name="price"]').val(price);
+        $('input[name="price-{{$id}}"]').val(price);
     });
 
 </script>
