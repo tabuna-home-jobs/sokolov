@@ -6,6 +6,7 @@
 
 @section('content')
 
+
     <div class="container blog-container">
 
 
@@ -97,19 +98,19 @@
                         <tr>
                             <td>{{trans('catalog.Economy (7 days)')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    0.07 @else {{ number_format(round( 0.07 * CurrencyRate::getOneRecord(), 2),2, '.', ' ')}} @endif</td>
+                                  {{$goods['4-attr']['Economy']}}  @else {{ number_format(round( $goods['4-attr']['Economy'] * CurrencyRate::getOneRecord(), 2),2, '.', ' ')}} @endif</td>
                         </tr>
 
 
                         <tr>
                             <td>{{trans('catalog.Standard (4 days)')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    0.08 @else {{  number_format(round( 0.08 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
+                                    {{$goods['4-attr']['Standard']}} @else {{  number_format(round( $goods['4-attr']['Standard'] * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
                         <tr>
                             <td>{{trans('catalog.Express (2 days)')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    0.09 @else {{  number_format(round( 0.09 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
+                                    {{$goods['4-attr']['Express']}} @else {{  number_format(round( $goods['4-attr']['Express'] * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
                         </tbody>
                     </table>
@@ -131,19 +132,19 @@
                         <tr>
                             <td>{{trans('catalog.Economy (10 days)')}}</td>
                             <td> @if(App::getLocale() == 'en')
-                                    0.10 @else {{ number_format(round( 0.10 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
+                                    {{$goods['5-attr']['Economy']}}  @else {{ number_format(round( $goods['5-attr']['Economy'] * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
 
 
                         <tr>
                             <td>{{trans('catalog.Standard (7 days)')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    0.11 @else {{ number_format(round( 0.11 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
+                                    {{$goods['5-attr']['Standard']}}   @else {{ number_format(round( $goods['5-attr']['Standard'] * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
                         <tr>
                             <td>{{trans('catalog.Express (4 days)')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    0.12 @else {{ number_format(round( 0.12 * CurrencyRate::getOneRecord(),2),2, '.', '')}} @endif</td>
+                                    {{$goods['5-attr']['Express']}}   @else {{ number_format(round( $goods['5-attr']['Express'] * CurrencyRate::getOneRecord(),2),2, '.', '')}} @endif</td>
                         </tr>
                         </tbody>
                     </table>
@@ -168,7 +169,7 @@
                             <td>0-5000</td>
                             <td>2 {{trans('catalog.day')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    110 @else {{ number_format(round( 110 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
+                                    {{$goods['6-attr']['0-5000']}}  @else {{ number_format(round(  $goods['6-attr']['0-5000'] * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
 
 
@@ -177,14 +178,14 @@
                             <td>5000-10000</td>
                             <td>4 {{trans('catalog.day')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    190 @else {{ number_format(round( 190 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
+                                    {{$goods['6-attr']['5000-10000']}}  @else {{ number_format(round( $goods['6-attr']['5000-10000'] * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
                         <tr>
 
                             <td>10000-15000</td>
                             <td>4-10 {{trans('catalog.day')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    270 @else {{ number_format(round( 270 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
+                                    {{$goods['6-attr']['10000-15000']}}  @else {{ number_format(round(  $goods['6-attr']['10000-15000'] * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
 
 
@@ -217,7 +218,7 @@
                             <td>{{trans('catalog.Formatting tables and graphs (one illustration of an unlimited number of tables and charts in it)')}}</td>
                             <td>{{trans('catalog.By agreement')}}</td>
                             <td>@if(App::getLocale() == 'en')
-                                    80 @else {{  number_format(round(  80 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
+                                    {{$goods['7']->price}} @else {{  number_format(round(  80 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
 
 

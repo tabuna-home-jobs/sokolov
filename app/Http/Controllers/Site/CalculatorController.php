@@ -39,7 +39,7 @@ class CalculatorController extends Controller
 
             foreach($attr as $key => $value)
             {
-                if(is_float($value) && $this->local =='ru'){
+                if((is_float($value) || is_int($value)) && $this->local =='ru'){
                     $attr[$key] = round( $value * CurrencyRate::getOneRecord(),2);
                 }
                 elseif(is_float($value)){

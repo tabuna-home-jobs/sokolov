@@ -27,8 +27,7 @@
 
                     <div class="col-sm-6 col-md-3">
                         <div class="service service-edit">
-
-                            <a href="{{URL::route(App::getLocale().'.catalog.show',$gList->slug)}}">
+                            <a href="{{URL::route(App::getLocale().'.samples.show',$gList->category_id)}}">
                                 <img class="img-hover" src="{{$gList->avatar}}"
                                      data-altimg="{{$gList->icon}}" alt="{{$gList->name}}">
 
@@ -37,11 +36,6 @@
 
                         </div>
                     </div>
-
-
-
-
-
 
 
 

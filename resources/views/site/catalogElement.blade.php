@@ -69,7 +69,13 @@
 
         <p class="text-center">
             <a href="/auth/login" class="btn btn-warning">{{trans('main.Order')}}</a>
+            <a href="/{{App::getLocale() ."/samples/". $Goods->category_id}}" class="btn btn-primary">
+                {{trans('job.title')}}
+            </a>
         </p>
+
+
+
 
     </div>
 

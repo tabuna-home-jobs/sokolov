@@ -26,7 +26,6 @@
                         <p class="text-center"><i class="fa fa-file-text-o"></i></p>
 
                         <p class="title">{{$good->name}}</p>
-                        <span class="aftor">Автор: {{$good->author}}</span>
 
                         <div>
                             <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false"><i class="fa fa-eye"></i></a>

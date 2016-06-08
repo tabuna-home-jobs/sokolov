@@ -165,7 +165,7 @@
 
 
                             <div class="form-group">
-                                <label>Указывать в канкуляторе</label>
+                                <label>Указывать в калькуляторе</label>
 
                                 <div class="radio">
                                     <label class="i-checks">
@@ -204,7 +204,7 @@
                                                         <span class="glyphicon btn-remove glyphicon-minus"></span>
                                                     </div>
                                                     <input type="text" placeholder="Название" value="{{ $attr }}"
-                                                           name="fieldsAttr[]" pattern="^[а-яА-ЯёЁa-zA-Z0-9\s]+$"
+                                                           name="fieldsAttr[]" {{--pattern="^[а-яА-ЯёЁa-zA-Z0-9\s]+$" --}}
                                                            class="form-control">
                                                 </div>
                                                 <!-- /.input group -->
@@ -214,7 +214,7 @@
 
                                                 <div class="form-group col-md-6">
                                                     <input type="text" placeholder="Значение" value="{{ $attr }}"
-                                                           name="fieldsAttr[]" pattern="^[а-яА-ЯёЁa-zA-Z0-9\s]+$"
+                                                           name="fieldsAttr[]"  {{--pattern="^[а-яА-ЯёЁa-zA-Z0-9\s]+$" --}}
                                                            class="form-control">
                                                 </div>
 
