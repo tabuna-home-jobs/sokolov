@@ -32,10 +32,7 @@
 
                     </div>
 
-                    <div class="col-md-1 col-xs-12 vcenter">
-                        <img class="img-responsive img-center" src="{{$Goods->icon}}" alt="{{$Goods->name}}">
-                    </div>
-                    <div class="col-md-8 col-xs-12 vcenter">
+                    <div class="col-md-9 col-xs-12 vcenter">
                         <h1> {{$Goods->name}}</h1>
                     </div>
 

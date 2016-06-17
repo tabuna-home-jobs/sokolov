@@ -113,6 +113,7 @@ class BlogController extends Controller
     public function destroy(Blog $blog)
     {
         $blog->delete();
+
         return response(200);
         //Session::flash('good', 'Вы успешно удалили значения');
         //return redirect()->route('dashboard.blog.index');

@@ -320,7 +320,7 @@ a:active, a:hover , .btn{
 }
 
 .news-list {
-    margin: 40px 0px;
+    margin: 40px 0 0;
 }
 
 .news-list h4{
@@ -351,6 +351,8 @@ a:active, a:hover , .btn{
 
 .news-list .caption {
     padding: 10px 30px;
+    min-height: 230px;
+    overflow: hidden;
 }
 
 .news-list .caption > p {
@@ -1650,12 +1652,12 @@ a.no-hover:hover, a.no-hover:active{
 }
 
 .b-panel-subscribe i.fa{
-    font-size: 2vm;
+    font-size: 1vw;
 }
 
 .b-panel-subscribe span{
     padding: 0 10px;
-    font-size: 1vm;
+    font-size: 0.8vw;
 }
 
 .b-panel-subscribe input[type=email] {
@@ -1669,9 +1671,9 @@ a.no-hover:hover, a.no-hover:active{
     border: 1px solid transparent;
     background: #fff;
     color: #000;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-    font-size: 1vm;
+    /*letter-spacing: .05em;
+    text-transform: uppercase;*/
+    font-size: 0.7vw;
 }
 
 .b-panel-subscribe button {
@@ -1691,12 +1693,12 @@ a.no-hover:hover, a.no-hover:active{
     bottom:30%;
     position: absolute;
     line-height: 0;
-    font-size: 1vm;
+    font-size: 0.7vw;
 }
 
 
 .subscribe-block{
-    max-width: 800px;
+    max-width: 1080px;
     display: block;
     margin: auto;
 }
@@ -1708,3 +1710,49 @@ a.no-hover:hover, a.no-hover:active{
 .reviews-font{
     font-size: 12pt;
 }
+
+#carousel-reviews .item{
+    height: 500px!important;
+    overflow: hidden!important;
+}
+
+
+
+.form-control:focus {
+    border-color: #FCBA3E;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(248, 158, 66);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(253, 187, 62);
+}
+
+.small-small{
+    font-size: 8px;
+}
+
+.calculate-wrapper h3.text-primary{
+    color:#0596A3;
+    margin-top: 0;
+}
+
+.carousel-caption .btn{
+    margin: 5px;
+}
+
+.calculate-wrapper {
+    background: #fff;
+    border-radius: 50px;
+    padding: 20px;
+    border: 4px solid #F79344;
+    color: #0596A3;
+}
+
+
+.table-padder{
+    padding: 0 25px;
+}
+
+/*
+.blog-content img{
+    padding: 30px;
+}
+*/

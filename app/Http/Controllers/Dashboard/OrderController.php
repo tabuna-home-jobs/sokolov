@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Site\OrderElementRequest;
 use App\Models\Comments;
 use App\Models\Files;
+use App\Models\LangOrder;
 use App\Models\Order;
 use DB;
 use Illuminate\Http\Request;
@@ -45,7 +46,7 @@ class OrderController extends Controller
         }
 
         if ((is_null($orderStatus)) || ($orderStatus == 'all')) {
-            $Orders = Order::select('id', 'name', 'created_at')->orderBy('id', 'desc')->paginate(30);
+            $Orders = Order::select('id', 'name', 'created_at', 'act')->orderBy('id', 'desc')->paginate(30);
         } else {
             $Orders = Order::select('id', 'name', 'created_at')
                 ->whereRaw('status = ?', [$orderStatus])
@@ -121,6 +122,9 @@ class OrderController extends Controller
         }
 
         $SelectOrder = Order::findorfail($id);
+
+        $SelectLanguage = LangOrder::where('id', $SelectOrder->LangOrder_id)->first();
+
         $SelectUser = $SelectOrder->getUser()->get()->first();
         $SelectComments = Comments::whereRaw('type = ? and beglouto = ?', ['order', $id])->get();
         $SelectGoods = $SelectOrder->getGoods()->get();
@@ -152,6 +156,7 @@ class OrderController extends Controller
             'SelectRequestFile' => $SelectRequestFile,
             'AllUser' => $AllUser,
             'TaskOrder' => $TaskOrder,
+            'SelectLanguage' => $SelectLanguage,
         ]);
     }
 

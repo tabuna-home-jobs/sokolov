@@ -30,5 +30,6 @@ class Review extends Model
         'publish',
         'country',
         'institute',
+        'order_id'
     ];
 }

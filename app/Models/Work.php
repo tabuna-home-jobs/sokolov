@@ -16,6 +16,6 @@ class Work extends Model
         'after',
         'lang',
         'author',
-        'download'
+        'download',
     ];
 }

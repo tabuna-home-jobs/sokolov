@@ -66,9 +66,7 @@ class WorksController extends Controller
 
     public function getExampleone($id)
     {
-
         return Work::find($id)->toJson();
-
     }
 
     /**

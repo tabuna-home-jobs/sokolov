@@ -130,6 +130,7 @@ class ElementController extends Controller
     {
         $Element = Element::findOrFail($id);
         $Element->delete();
+
         return response(200);
         //Session::flash('good', 'Вы успешно удалили значение');
         //return redirect()->back();

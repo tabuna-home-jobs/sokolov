@@ -55,15 +55,12 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => ['auth', 'admin'], 'pr
     Route::resource('element', 'ElementController');
     Route::resource('work', 'WorkController');
 
-
     Route::resource('modals', 'ModalsController');
 
     Route::resource('statinfo', 'StatInfoController');
 
     Route::resource('benefits', BenefitsController::class);
     Route::resource('seostatic', 'SeoSaticController');
-
-
 
     Route::resource('subscribe', 'SuscribleController');
 
@@ -91,7 +88,6 @@ Route::group(['namespace' => 'Site'], function () {
 
     Route::controller('examplegetone', 'WorksController');
     Route::controller('calculator', 'CalculatorController');
-
 
     Route::group(['middleware' => ['auth', 'user']], function () {
         Route::resource('home', 'HomeController');
@@ -149,7 +145,6 @@ Route::group(['namespace' => 'Site', 'prefix' => 'en', 'middleware' => 'En'], fu
     });
 });
 
-
 Route::group(['middleware' => ['auth'], 'prefix' => 'en', 'namespace' => 'Site'], function () {
     Route::resource('setting', 'SettingController');
 });
@@ -158,7 +153,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'ru', 'namespace' => 'Site']
     Route::resource('setting', 'SettingController');
 });
 
-Route::group(['middleware' => ['auth'],'namespace' => 'Site'], function () {
+Route::group(['middleware' => ['auth'], 'namespace' => 'Site'], function () {
     Route::resource('setting', 'SettingController');
 });
 

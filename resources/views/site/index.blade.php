@@ -35,7 +35,7 @@
 
 
                 <div class="bs-example" data-example-id="thumbnails-with-custom-content">
-                    <div class="row v-center">
+                    <div class="row">
 
 
                         <div class="col-sm-6 col-md-3">
@@ -169,7 +169,7 @@
 
 
     <div class="container-fluid">
-        <div class="row backgound-grey">
+        <div class="row">
             <div class="container container-service">
 
 
@@ -251,79 +251,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-    <div class="container hidden-sm hidden-xs">
-
-
-        <p class="h1-about text-center">
-            <span>{{trans('main.Advantages')}}</span>
-        </p>
-
-        <ol class="text-about row">
-
-
-
-                    <li class="li-icons-1 row"><span>1.</span>
-
-
-                        <div class="padding-small">
-                            {{trans("main.We employ only experienced scientific academic editors who are experts in a particular scientific field. All our editors - experts in English grammar, spelling and punctuation.")}}
-                        </div>
-                    </li>
-
-
-                    <li class="li-icons-2 row">
-                        <span>2.</span>
-
-
-                        <div class="padding-small">
-                            {{trans("main.Our scientific editors have extensive experience in prestigious academic research institutions. Our editors have a significant number of highly cited publications in scientific journals in English.")}}
-                        </div>
-                    </li>
-
-                    <li class="li-icons-3 row">
-                        <span>3.</span>
-
-                        <div class="padding-small-2">
-                            {{trans("main.Our scientific editors wrote, edited and reviewed scientific publications and grants.")}}
-                        </div>
-                    </li>
-
-                    <li class="li-icons-4 row">
-                        <span>4.</span>
-
-                        <div class="padding-small">
-                            {{trans("main.We know that you need to publish your important scientific discoveries in the English-language journal. The language barrier should never be a barrier to the spread of important ideas and discoveries! We are here to help you succeed!")}}
-                        </div>
-                    </li>
-
-                    <li class="li-icons-5 row">
-                        <span>5.</span>
-
-                        <div class="padding-small">
-                            {{trans("main.If your research is not published - they never had. Many manuscripts are accepted for publication because of the poor quality of the English language. Our editors - experts in English. Our editors - scientific experts with many years of research and publications in prestigious scientific journals.")}}
-                        </div>
-                    </li>
-                    @if(App::getLocale() == 'ru')
-
-                    <li class="li-icons-6 row">
-                        <span>6.</span>
-
-                        <div class="padding-small">
-                            {{trans("main.We guarantee that your paper will not be rejected by the scientific journal of the poor quality of the English language. We re-edit your article - free of charge.")}}
-                        </div>
-                    </li>
-
-                        @endif
-
-        </ol>
-    </div>
-
-
 
 
 

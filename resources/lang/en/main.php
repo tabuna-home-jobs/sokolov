@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'Services' => 'Our services',
+    'Services' => 'Our Services',
     'Work' => 'How we work',
     'Advantages' => 'Our editors',
     'Order' => 'Order now',
@@ -74,8 +74,14 @@ return [
     'RESPONSIBLY TEXT' => 'We guarantee that a paper edited by us will not be rejected because of poor English quality. If it is, we will re-edit the manuscript for FREE!',
     'CONVENIENTLY TEXT' => 'We track all changes that we make to your document. It is easy for you to make the final decision on each correction!',
 
-    'Your guarantees' => 'Our guarantees',
+    'Your guarantees' => 'Guarantees',
 
     'text-logo' => 'Editing of scientific papers, translation from Russian to English, formatting and illustration of manuscripts by scientists for scientists',
+
+    'subscription' => 'SUBSCRIBE',
+    'subscription-text' => 'Receive writing and publishing tips!',
+    'subscrption-email' => 'Enter your email to subscribe',
+    'subscription-success' => 'Success',
+    'subscription-success-text' => 'You have successfully subscribed to receive writing and publishing tips!',
 
 ];

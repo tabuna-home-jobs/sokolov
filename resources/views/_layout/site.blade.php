@@ -106,10 +106,10 @@
                 </div>
 
                 <a href="{{url('/en')}}" class="flag @if(App::getLocale() == 'en') active @endif">
-                    <img src="/img/lang/eng.png" height="20px" width="30px">
+                    <img src="/img/lang/eng.png">
                 </a>
                 <a href="{{url('/ru')}}" class="flag @if(App::getLocale() == 'ru') active @endif">
-                    <img src="/img/lang/rus.png" height="20px" width="30px">
+                    <img src="/img/lang/rus.png">
                 </a>
             </form>
         </div>
@@ -259,10 +259,6 @@
                     <p>
                         {{trans('footer.about')}}
                     </p>
-
-
-                    <img src="/img/shield.png" class="img-responsive" alt="Falcon Scientific Editing">
-
                 </div>
                 <div class="col-sm-3  col-xs-12">
                     <h4>{{trans('footer.contacts')}}</h4>
@@ -352,19 +348,20 @@
 
 
 <div class="b-panel-subscribe col-sm-12 hidden-xs">
-    <div class="col-md-8 col-sm-offset-2">
+    <div class="col-md-10 col-sm-offset-1">
+
 
 
         <div class="subscribe-block">
             <div class="col-md-6 v-center">
                 <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
-                <span> Еженедельная рассылка</span>
+                <span>{{trans('main.subscription-text')}}</span>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <form method="post" action="/subscribe" id="subscribe">
-                    <input type="email" name="email" placeholder="Почта" required>
-                    <button type="submit">Подписаться</button>
+                    <input type="email" name="email" placeholder="{{trans('main.subscrption-email')}}" required>
+                    <button type="submit">{{trans('main.subscription')}}</button>
                 </form>
             </div>
         </div>
@@ -418,6 +415,7 @@
 
     $(document).ready(function () {
         $('.carousel-inner div.item:first-child').addClass('active');
+        $('.carousel').carousel('pause');
     });
 
     $("form").submit(function (event) {

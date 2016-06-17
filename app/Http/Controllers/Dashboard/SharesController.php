@@ -114,6 +114,7 @@ class SharesController extends Controller
     public function destroy(Shares $shares)
     {
         $shares->delete();
+
         return response(200);
         //Session::flash('good', 'Вы успешно удалили значения');
         //return redirect()->route('dashboard.shares.index');

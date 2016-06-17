@@ -3,8 +3,6 @@
 namespace App\Listeners;
 
 use App\Events\RegisterUser;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Mail;
 use Config;
 
@@ -12,8 +10,6 @@ class EmailWellcome
 {
     /**
      * Create the event listener.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -23,8 +19,7 @@ class EmailWellcome
     /**
      * Handle the event.
      *
-     * @param  RegisterUser  $event
-     * @return void
+     * @param RegisterUser $event
      */
     public function handle(RegisterUser $event)
     {

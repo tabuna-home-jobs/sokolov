@@ -4,7 +4,6 @@ namespace App\Events;
 
 use App\Events\Event;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class RegisterUser extends Event
 {
@@ -14,8 +13,6 @@ class RegisterUser extends Event
 
     /**
      * Create a new event instance.
-     *
-     * @return void
      */
     public function __construct($user)
     {

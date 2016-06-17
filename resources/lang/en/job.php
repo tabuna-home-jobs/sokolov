@@ -67,7 +67,7 @@ return [
 
     'download' => 'To download the file, please press on the “Download” link.',
 
-    'title' => 'Work Examples',
+    'title' => 'Samples',
 
     'title-editing' => 'Editing',
 

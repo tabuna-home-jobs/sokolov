@@ -30,6 +30,7 @@ class MenuItem extends Model
 
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function getsons($id)
@@ -39,6 +40,7 @@ class MenuItem extends Model
 
     /**
      * @param $id
+     *
      * @return mixed
      */
     public function getall($id)

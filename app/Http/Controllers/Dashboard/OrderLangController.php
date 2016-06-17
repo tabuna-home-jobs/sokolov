@@ -105,6 +105,7 @@ class OrderLangController extends Controller
     {
         $OrderLang = LangOrder::findOrFail($id);
         $OrderLang->delete('cascade');
+
         return response(200);
         //Session::flash('good', 'Вы успешно удалили значение и связанные с ним данные');
         //return redirect()->back();

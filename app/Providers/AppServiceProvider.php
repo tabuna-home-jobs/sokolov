@@ -12,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::directive('widget', function ($key,$data =null) {
+        Blade::directive('widget', function ($key, $data = null) {
             return "<?php echo (new \\App\\Services\\Widget\\Widget)->get{$key}; ?>";
         });
     }

@@ -14,8 +14,8 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="text-center">{{trans('feedback.Write to us')}}
-                            <small>/{{trans('feedback.Quick quote via e-mail')}}</small>
+                        <h2 class="text-center">
+                            {{trans('feedback.Write to us')}} - {{trans('feedback.Quick quote via e-mail')}}
                         </h2>
                     </div>
                 </div>
@@ -47,6 +47,25 @@
                                        data-mask="+ 9-999-999-99-99">
                                 <span class="glyphicon glyphicon-phone-alt form-control-feedback"></span>
                             </div>
+
+
+                            <div class="form-group has-feedback">
+                                    <label for="username" class="control-label">{{trans('feedback.Select service')}}</label>
+                                    <select class="form-control" name="service" required>
+                                        <option disabled selected>{{trans('feedback.Select service')}}</option>
+                                        @foreach($GoodsList as $good)
+                                        <option value="{{$good->name}}">{{$good->name}}</option>
+                                        @endforeach
+                                    </select>
+                            </div>
+
+
+                            <div class="form-group has-feedback">
+                                <label for="username" class="control-label">{{trans('feedback.Number of words')}}</label>
+                                <input type="number" class="form-control" name="count" min="0" required placeholder="{{trans('feedback.Number of words')}}">
+                                <span class="glyphicon glyphicon-font form-control-feedback"></span>
+                            </div>
+
 
                             <div class="form-group">
                                 <input class="form-control" type="hidden" name="_token" value="{{ csrf_token() }}">

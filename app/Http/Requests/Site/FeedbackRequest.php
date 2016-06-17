@@ -29,6 +29,8 @@ class FeedbackRequest extends Request
             'email' => 'email|required',
             'message' => 'required',
             'upload' => 'sometimes',
+            'count' => 'numeric|required',
+            'service' => 'required|string',
         ];
     }
 }

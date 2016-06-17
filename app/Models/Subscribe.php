@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Subscribe
- * @package App\Models
+ * Class Subscribe.
  */
 class Subscribe extends Model
 {
@@ -30,6 +29,4 @@ class Subscribe extends Model
     protected $fillable = [
         'email',
     ];
-
-
 }

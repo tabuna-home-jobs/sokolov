@@ -10,4 +10,15 @@ return [
     'Message text' => 'Message',
     'Send' => 'Send',
     'Contact Us' => 'Contact Us',
+    'Select service' => 'Select service',
+    'Number of words' => 'Number of words',
+
+    'Fill in your information' => 'Fill in your information',
+    'Specify service' => 'Specify service',
+    'Attach file (optional)' => 'Attach file (optional)',
+    'Write your message to us' => 'Write your message to us',
+    'Specify deadline' => 'Specify deadline',
+    'Specify number of words' => 'Specify number of words',
+    'Click Send' => 'Click Send',
+
 ];

@@ -110,7 +110,8 @@ class FileManagerController extends Controller
         $file = Files::findOrFail($id);
         Storage::delete('/order/'.Str::ascii($file->name));
         $file->delete();
-        FilesMeta::where('files_id',$id)->delete();
+        FilesMeta::where('files_id', $id)->delete();
+
         return response(200);
     }
 }

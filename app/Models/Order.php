@@ -60,7 +60,7 @@ class Order extends Model
 
     /**
      * @var array
-     * Мутатор преобразования
+     *            Мутатор преобразования
      */
     protected $casts = [
         'sold' => 'boolean',

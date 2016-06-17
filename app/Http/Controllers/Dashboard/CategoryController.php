@@ -105,6 +105,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete('cascade');
+
         return response(200);
         //Session::flash('good', 'Вы успешно удалили значения');
         //return redirect()->route('dashboard.category.index');

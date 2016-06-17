@@ -8,6 +8,7 @@ class SecsToH extends Facade
 {
     /**
      * @param int $secs
+     *
      * @return string
      */
     public static function get(int $secs)

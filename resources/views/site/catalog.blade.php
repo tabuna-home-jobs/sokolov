@@ -19,7 +19,7 @@
 
 
 
-                    <div class="col-sm-6 col-md-3">
+                    <div class="col-sm-6 col-md-3 col-xs-6">
                         <div class="service service-edit">
 
                             <a href="{{URL::route(App::getLocale().'.catalog.show',$gList->slug)}}">
@@ -80,9 +80,9 @@
 
             <h1>{{trans('catalog.Description of prices and terms of the services provided')}}</h1>
 
-            <main class="blog-content">
+            <main class="blog-content v-center">
 
-
+            <div class="col-md-6 col-xs-12">
                 <h4>{{trans('catalog.Editing of scientific manuscripts')}} :</h4>
 
 
@@ -153,7 +153,6 @@
 
                 <h4>{{trans('catalog.Formatting scientific manuscripts')}} :</h4>
 
-
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -201,41 +200,60 @@
                 </div>
 
 
-                <h4>{{trans('catalog.Illustrating scientific manuscripts')}} :</h4>
+                </div>
 
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th width="33%">{{trans('catalog.Service')}}</th>
-                            <th>{{trans('catalog.Speed')}}</th>
-                            <th>{{trans('catalog.Price in rubles')}}</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-
-                            <td>{{trans('catalog.Formatting tables and graphs (one illustration of an unlimited number of tables and charts in it)')}}</td>
-                            <td>{{trans('catalog.By agreement')}}</td>
-                            <td>@if(App::getLocale() == 'en')
-                                    {{$goods['7']->price}} @else {{  number_format(round(  80 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
-                        </tr>
-
-
-                        <tr>
-
-                            <td>{{trans('catalog.Creating an original illustration')}}</td>
-                            <td>{{trans('catalog.By agreement')}}</td>
-                            <td>{{trans('catalog.By agreement')}}</td>
-                        </tr>
-
-
-                        </tbody>
-                    </table>
+                <div class="col-md-6 hidden-xs">
+                    <div class="calculate-wrapper">
+                        @widget('calcucator',$key)
+                    </div>
                 </div>
 
 
+
             </main>
+
+
+            <div class="table-padder">
+            <h4>{{trans('catalog.Illustrating scientific manuscripts')}} :</h4>
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th width="33%">{{trans('catalog.Service')}}</th>
+                        <th>{{trans('catalog.Speed')}}</th>
+                        <th>{{trans('catalog.Price in rubles')}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+
+                        <td>{{trans('catalog.Formatting tables and graphs (one illustration of an unlimited number of tables and charts in it)')}}</td>
+                        <td>{{trans('catalog.By agreement')}}</td>
+                        <td>@if(App::getLocale() == 'en')
+                                {{$goods['7']->price}} @else {{  number_format(round(  80 * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
+                    </tr>
+
+
+                    <tr>
+
+                        <td>{{trans('catalog.Creating an original illustration')}}</td>
+                        <td>{{trans('catalog.By agreement')}}</td>
+                        <td>{{trans('catalog.By agreement')}}</td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+</div>
+
+
+
+            <div class="row text-center">
+                <a href="#" class="btn btn-warning">{{trans('calc.Outside your budget?')}}</a>
+            </div>
+
 
 
         </div>

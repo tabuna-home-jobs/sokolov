@@ -10,6 +10,7 @@ class htmlBlock extends Facade
 {
     /**
      * @param $BlockId
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
      */
     public static function getGoodSlider($BlockId)
@@ -33,6 +34,7 @@ class htmlBlock extends Facade
 
     /**
      * @param int $BlockId
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
      */
     public static function getMainSlider($BlockId = 4)

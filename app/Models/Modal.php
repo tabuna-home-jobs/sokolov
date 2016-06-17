@@ -18,5 +18,5 @@ class Modal extends Model
      *
      * @var array
      */
-    protected $fillable = [ 'name','body','lang'];
+    protected $fillable = ['name', 'body', 'lang'];
 }

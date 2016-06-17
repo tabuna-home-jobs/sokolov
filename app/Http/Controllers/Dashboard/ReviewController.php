@@ -120,6 +120,7 @@ class ReviewController extends Controller
     {
         $Feedback = Review::find($id);
         $Feedback->delete();
+
         return response(200);
         //      Session::flash('good', 'Вы успешно удалили значения');
 //        return redirect()->route('dashboard.review.index');

@@ -156,6 +156,7 @@ class GoodsController extends Controller
     {
         $Goods = Goods::where('slug', $Goods)->firstOrFail();
         $Goods->delete('cascade');
+
         return response(200);
         //Session::flash('good', 'Вы успешно удалили значения');
         //return redirect()->route('dashboard.goods.index');

@@ -82,6 +82,7 @@ class AuthController extends Controller
         $user->save();
 
         event(new RegisterUser($user));
+
         return $user;
     }
 }

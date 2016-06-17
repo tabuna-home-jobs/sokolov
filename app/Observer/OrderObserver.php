@@ -31,31 +31,30 @@ class OrderObserver
         App::setLocale('en');
     }
 
-
     public function created($model)
     {
-
-        $model->act = hash('crc32b',$model->id);
+        $model->act = hash('crc32b', $model->id);
         $model->save();
 
         $this->user = User::find($model->user_id);
         //Главному редактору, после того, как заказ был сформирован клиентом:
-        SMS::send($this->phone, trans('notification.New order # is waiting for an invoice.', ['id' => $model->id]));
-        Mail::raw(trans('notification.New order # is waiting for an invoice.', ['id' => $model->id]), function ($message) use ($model) {
+        SMS::send($this->phone, trans('notification.New order # is waiting for an invoice.', ['id' => $model->act]));
+        Mail::raw(trans('notification.New order # is waiting for an invoice.', ['id' => $model->act]), function ($message) use ($model) {
             $message->from($this->email);
             $message->to($this->email);
-            $message->subject(trans('notification.New order # .', ['id' => $model->id]));
+            $message->subject(trans('notification.New order # .', ['id' => $model->act]));
         });
 
         //Клиенту, после того как, заказ был сформирован клиентом:
-        SMS::send($this->user->phone, trans('notification.Order # has been received and an invoice will be sent to you soon.', ['id' => $model->id]));
-        Mail::raw(trans('notification.Order # has been received and an invoice will be sent to you soon.', ['id' => $model->id]), function ($message) use ($model) {
+        SMS::send($this->user->phone, trans('notification.Order # has been received and an invoice will be sent to you soon.', ['id' => $model->act]));
+        Mail::raw(trans('notification.Order # has been received and an invoice will be sent to you soon.', ['id' => $model->act]), function ($message) use ($model) {
             $message->from($this->email);
             $message->to($this->user->email);
-            $message->subject(trans('notification.Your order # .', ['id' => $model->id]));
+            $message->subject(trans('notification.Your order # .', ['id' => $model->act]));
         });
 
         App::setLocale(Session::get('lang', 'en'));
+
         return $model;
     }
 
@@ -66,21 +65,21 @@ class OrderObserver
 
         // если он был оплачен
         if ($model->sold == 1 && $order->sold == 0) {
-            SMS::send($this->phone, trans('notification.Order # has been paid and is waiting for an editor.', ['id' => $model->id]));
-            Mail::raw(trans('notification.Order # has been paid and is waiting for an editor.', ['id' => $model->id]), function ($message) use ($model) {
+            SMS::send($this->phone, trans('notification.Order # has been paid and is waiting for an editor.', ['id' => $model->act]));
+            Mail::raw(trans('notification.Order # has been paid and is waiting for an editor.', ['id' => $model->act]), function ($message) use ($model) {
                 $message->from($this->email);
                 $message->to($this->email);
-                $message->subject(trans('notification.Your order # .', ['id' => $model->id]));
+                $message->subject(trans('notification.Your order # .', ['id' => $model->act]));
             });
         }
 
         // Клиенту, после того, как готовый заказ возвращён клиенту главным редактором:
         if ($model->status == 'Завершён' && $order != 'Завершён') {
-            SMS::send($this->user->phone, trans('notification.Order # has been completed and is ready for you to download.', ['id' => $model->id]));
-            Mail::raw(trans('notification.Order # has been completed and is ready for you to download.', ['id' => $model->id]), function ($message) use ($model) {
+            SMS::send($this->user->phone, trans('notification.Order # has been completed and is ready for you to download.', ['id' => $model->act]));
+            Mail::raw(trans('notification.Order # has been completed and is ready for you to download.', ['id' => $model->act]), function ($message) use ($model) {
                 $message->from($this->email);
                 $message->to($this->user->email);
-                $message->subject(trans('notification.Your order # .', ['id' => $model->id]));
+                $message->subject(trans('notification.Your order # .', ['id' => $model->act]));
             });
         }
 

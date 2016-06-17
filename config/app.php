@@ -219,7 +219,7 @@ return [
 
     'widgets' => [
         'modals' => App\Http\Widgets\ModalWidget::class,
-        'calcucator' => App\Http\Widgets\CalculatorWidget::class
+        'calcucator' => App\Http\Widgets\CalculatorWidget::class,
     ],
 
 ];

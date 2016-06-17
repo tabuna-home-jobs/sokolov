@@ -50,30 +50,27 @@ class WorkController extends Controller
     {
         $work = new Work($request->all());
 
-
-        foreach($request->files as $key => $files) {
+        foreach ($request->files as $key => $files) {
             $time = time();
 
-            $v = Validator::make([$key=> $files], [
+            $v = Validator::make([$key => $files], [
                 $key => 'mimes:jpeg,bmp,png',
             ]);
 
-            if(!$v->fails()){
-                Image::make($request->file($key))->save('upload/work/'.$key .'/'.$time.'.'.$request->file($key)->getClientOriginalExtension());
-                $work->$key = '/upload/work/'.$key .'/'.$time.'.'.$request->file($key)->getClientOriginalExtension();
-            }
-            else{
-                $work->$key->move( 'upload/work/'.$key .'/',
+            if (!$v->fails()) {
+                Image::make($request->file($key))->save('upload/work/'.$key.'/'.$time.'.'.$request->file($key)->getClientOriginalExtension());
+                $work->$key = '/upload/work/'.$key.'/'.$time.'.'.$request->file($key)->getClientOriginalExtension();
+            } else {
+                $work->$key->move('upload/work/'.$key.'/',
                     $time.'.'.$request->file($key)->getClientOriginalExtension()
                 );
-                $work->$key = '/upload/work/'.$key .'/'.$time.'.'.$request->file($key)->getClientOriginalExtension();
+                $work->$key = '/upload/work/'.$key.'/'.$time.'.'.$request->file($key)->getClientOriginalExtension();
             }
-
         }
-
 
         $work->save();
         Session::flash('good', 'Вы успешно изменили значения');
+
         return redirect()->route('dashboard.work.index');
     }
 
@@ -120,28 +117,23 @@ class WorkController extends Controller
             $request->all()
         );
 
-        foreach($request->files as $key => $files) {
+        foreach ($request->files as $key => $files) {
             $time = time();
 
-            $v = Validator::make([$key=> $files], [
+            $v = Validator::make([$key => $files], [
                 $key => 'mimes:jpeg,bmp,png',
             ]);
 
-            if(!$v->fails()){
-                Image::make($request->file($key))->save('upload/work/'.$key .'/'.$time.'.'.$request->file($key)->getClientOriginalExtension());
-                $work->$key = '/upload/work/'.$key .'/'.$time.'.'.$request->file($key)->getClientOriginalExtension();
-            }
-            else{
-                $work->$key->move( 'upload/work/'.$key .'/',
+            if (!$v->fails()) {
+                Image::make($request->file($key))->save('upload/work/'.$key.'/'.$time.'.'.$request->file($key)->getClientOriginalExtension());
+                $work->$key = '/upload/work/'.$key.'/'.$time.'.'.$request->file($key)->getClientOriginalExtension();
+            } else {
+                $work->$key->move('upload/work/'.$key.'/',
                     $time.'.'.$request->file($key)->getClientOriginalExtension()
                 );
-                $work->$key = '/upload/work/'.$key .'/'.$time.'.'.$request->file($key)->getClientOriginalExtension();
+                $work->$key = '/upload/work/'.$key.'/'.$time.'.'.$request->file($key)->getClientOriginalExtension();
             }
-
         }
-
-
-
 
         $work->save();
 
@@ -160,6 +152,7 @@ class WorkController extends Controller
     public function destroy(Work $work)
     {
         $work->delete();
+
         return response(200);
         //Session::flash('good', 'Вы успешно удалили значения');
 

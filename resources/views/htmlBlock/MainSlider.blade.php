@@ -29,15 +29,7 @@
                             </div>
 
 
-                        <div class="col-sm-offset-1 col-md-5" style="
-    background: #fff;
-    border: 2px 2px 2px 2px #FCB93F;
-    border-color: #FCB93F;
-    border-radius: 50px;
-    padding: 20px;
-    border: 4px solid #FCB93F;
-    color: #0596A3;
-">
+                        <div class="col-sm-offset-1 col-md-5 calculate-wrapper">
 
 
                             @widget('calcucator',$key)

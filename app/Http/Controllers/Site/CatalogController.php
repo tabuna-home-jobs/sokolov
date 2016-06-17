@@ -25,20 +25,19 @@ class CatalogController extends Controller
         foreach ($category as  $value) {
             $good = $value->goods()->where('lang', App::getLocale())->first();
             $goods[$value->id] = $good;
-            $attributes =[];
+            $attributes = [];
             $attribute = unserialize($good->attribute);
-                foreach($attribute as $key => $attr)
-                {
-                    if($key % 2 ==0){
-                        $attributes[$attribute[$key]] = $attribute[$key+1];
-                    }
+            foreach ($attribute as $key => $attr) {
+                if ($key % 2 == 0) {
+                    $attributes[$attribute[$key]] = $attribute[$key + 1];
                 }
-            $goods[$value->id . '-attr'] = $attributes;
+            }
+            $goods[$value->id.'-attr'] = $attributes;
         }
 
         return view('site.catalog', [
             'goodsList' => $goodsList,
-            'goods' => $goods
+            'goods' => $goods,
         ]);
     }
 
@@ -90,7 +89,6 @@ class CatalogController extends Controller
                 [App::getLocale(), $goods->id, $good->id])->orderBy('id', 'Desc')->limit(1)->first();
         }
 
-
         $Work = Work::select('id')
             ->where('category_id', $good->category_id)
             ->where('lang', App::getLocale())
@@ -120,7 +118,7 @@ class CatalogController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param int $id
+     * @param int     $id
      *
      * @return Response
      */

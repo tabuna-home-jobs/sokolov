@@ -7,6 +7,8 @@ use App\Http\Requests\Site\FeedbackRequest;
 use Config;
 use Mail;
 use Session;
+use App\Models\Goods;
+use App;
 
 class FeedbackController extends Controller
 {
@@ -17,7 +19,11 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        return view('site.feedback');
+        $goodsList = Goods::where('lang', App::getLocale())->orderBy('id', 'asc')->limit(4)->get();
+
+        return view('site.feedback', [
+            'GoodsList' => $goodsList,
+        ]);
     }
 
     /**

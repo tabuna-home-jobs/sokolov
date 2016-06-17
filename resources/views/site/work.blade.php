@@ -1,9 +1,6 @@
 @extends('_layout/site')
 
 
-@section('title',trans('main.Services'))
-
-
 @section('content')
 
 

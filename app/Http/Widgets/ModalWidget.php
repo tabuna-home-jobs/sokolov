@@ -14,7 +14,6 @@ class ModalWidget extends Widget
      */
     public $lang;
 
-
     /**
      *
      */
@@ -28,22 +27,20 @@ class ModalWidget extends Widget
         $this->lang = App::getLocale();
     }
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
+     /**
+      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+      */
      public function run($data = null)
      {
-         if(Session::get('modals', 'show') == "show"){
-             $this->modal = Modal::where('lang',$this->lang)->first();
+         if (Session::get('modals', 'show') == 'show') {
+             $this->modal = Modal::where('lang', $this->lang)->first();
              Session::put('modals', 'hidden');
 
-             if(!is_null($this->modal))
-             {
+             if (!is_null($this->modal)) {
                  return view('htmlBlock.modals', [
-                     'modal' => $this->modal
+                     'modal' => $this->modal,
                  ]);
              }
-
          }
      }
 }

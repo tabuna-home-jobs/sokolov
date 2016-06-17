@@ -40,7 +40,7 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\NotificationEmailNotification',
         ],
 
-        'App\Events\RegisterUser' =>[
+        'App\Events\RegisterUser' => [
           'App\Listeners\EmailWellcome',
         ],
 

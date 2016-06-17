@@ -37,8 +37,8 @@
                             <label>Категория</label>
                             <select class="form-control w-md" ui-jq="chosen" required name="lang">
                                 <option disabled>Выберите язык</option>
-                                <option value="ru" @if($modal->lang == 'ru') selected @endif>Русский</option>
-                                <option value="en" @if($modal->lang == 'en') selected @endif>Английский</option>
+                                <option value="ru">Русский</option>
+                                <option value="en">Английский</option>
                             </select>
                         </div>
 

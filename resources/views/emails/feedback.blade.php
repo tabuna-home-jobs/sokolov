@@ -128,11 +128,22 @@ Licensed under MIT
 
                                     {!! nl2br(e($request['message'])) !!}
 
-                        <p style="text-align: right;font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #98a7b9;">
-                            Контактные данные
-                            <br>Email : {{$request['email']}}
-                            <br>Телефон : {{$request['phone']}}
-                        </p>
+
+
+                                    <p style="float:left;text-align: left;font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #98a7b9;">
+                                        Информация о заказе
+                                        <br>Услуга : {{$request['service']}}
+                                        <br>Количество слов : {{$request['count']}}
+                                    </p>
+
+                                    <p style="float:right;text-align: right;font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #98a7b9;">
+                                        Контактные данные
+                                        <br>Email : {{$request['email']}}
+                                        <br>Телефон : {{$request['phone']}}
+                                    </p>
+
+
+
 
                     </span></font>
                                         </div>

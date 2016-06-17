@@ -50,7 +50,7 @@
                                     @foreach($Orders as $order)
                                         <a href="{{URL::route('dashboard.order.show', $order->id)}}"
                                            class="list-group-item text-center">
-                                            <span class="pull-left"> {{$order->id}}</span>
+                                            <span class="pull-left"> {{$order->act}}</span>
                                             {{$order->name}}
                                             <span class="pull-right">{{$order->created_at}}</span></a>
                                     @endforeach

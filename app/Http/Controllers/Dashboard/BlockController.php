@@ -99,6 +99,7 @@ class BlockController extends Controller
     public function destroy($block)
     {
         $block->delete('cascade');
+
         return response(200);
         //Session::flash('good', 'Вы успешно удалили значения');
         //return redirect()->route('dashboard.block.index');

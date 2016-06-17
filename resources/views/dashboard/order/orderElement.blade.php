@@ -81,11 +81,11 @@
                                                         <h4>{{$SelectUser->first_name}} {{$SelectUser->last_name}}</h4>
 
                                                         <p>
-                                                            <span class="glyphicon glyphicon-earphone"> Телефон: {{$SelectUser->phone}}</span>
+                                                            <span class="glyphicon glyphicon-earphone"></span>  Телефон: {{$SelectUser->phone}}
                                                         </p>
 
                                                         <p>
-                                                            <span class="glyphicon glyphicon-envelope"> Email: {{$SelectUser->email}}</span>
+                                                            <span class="glyphicon glyphicon-envelope"></span>  Email: {{$SelectUser->email}}
                                                         </p>
 
                                                     </div>
@@ -111,6 +111,9 @@
 
 
                                             <div class="line line-dashed b-b line-lg"></div>
+
+
+
                                             <p class="text-left">
                                                 <b>Название работы:</b> <span>{{$SelectOrder->name}}</span>
                                             </p>
@@ -119,6 +122,14 @@
                                             <p class="text-left">
                                                 <b>Научное издание:</b> <span>{{$SelectOrder->izdanie}}</span>
                                             </p>
+
+
+                                            <div class="line line-dashed b-b line-lg"></div>
+
+                                            <p class="text-left">
+                                                <b>Язык перевода:</b> <span>{{$SelectLanguage->name}}</span>
+                                            </p>
+
 
                                             <div class="line line-dashed b-b line-lg"></div>
                                             <p class="text-justify">

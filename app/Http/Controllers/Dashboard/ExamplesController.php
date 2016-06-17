@@ -156,6 +156,7 @@ class ExamplesController extends Controller
     {
         $Examples = Examples::where('slug',  $Examples)->firstOrFail();
         $Examples->delete('cascade');
+
         return response(200);
         //Session::flash('good', 'Вы успешно удалили значения');
         //return redirect()->route('dashboard.examples.index');

@@ -23,9 +23,10 @@
                  @if($key < 4)
                 <div class="col-md-3">
                     <div class="row finish-work">
-                        <p class="text-center"><i class="fa fa-file-text-o"></i></p>
-
-                        <p class="title">{{$good->name}}</p>
+                        <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false">
+                            <p class="text-center"><i class="fa fa-file-text-o"></i></p>
+                            <p class="title">{{$good->name}}</p>
+                        </a>
 
                         <div>
                             <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false"><i class="fa fa-eye"></i></a>
@@ -84,16 +85,15 @@
                      @if($key > 3)
                          <div class="col-md-3">
                              <div class="row finish-work">
-                             <p class="text-center"><i class="fa fa-file-text-o"></i></p>
+                                 <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false">
+                                    <p class="text-center"><i class="fa fa-file-text-o"></i></p>
+                                    <p class="title">{{$good->name}}</p>
+                                 </a>
 
-                             <p class="title">{{$good->name}}</p>
-                             <span class="aftor">Автор: {{$good->author}}</span>
-
-                             <div>
-                                 <time>{{$good->created_at->toDateString()}}</time>
-                                 <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false"><i class="fa fa-eye"></i></a>
-                                 <a href="{{$good->download}}" target="_blank"><i class="fa fa-download"></i></a>
-                             </div>
+                                 <div>
+                                     <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false"><i class="fa fa-eye"></i></a>
+                                     <a href="{{$good->download}}" target="_blank"><i class="fa fa-download"></i></a>
+                                 </div>
                                  </div>
 
 
