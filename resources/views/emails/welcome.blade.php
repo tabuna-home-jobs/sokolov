@@ -106,14 +106,14 @@ Licensed under MIT
                     <tr><td align="center" bgcolor="#fbfcfd">
                             <table width="90%" border="0" cellspacing="0" cellpadding="0">
                                 <tr><td align="center">
-                                        <!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;"> </div>
+                                        <!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;"> </div>
                                         <div style="line-height: 44px;">
                                             <font face="Arial, Helvetica, sans-serif" size="5" color="#57697e" style="font-size: 34px;">
 					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 26px; color: #57697e;">
 						{{trans('email.wellcome')}}
 					</span></font>
                                         </div>
-                                        <!-- padding --><div style="height: 40px; font-size: 10px;">
+                                        <!-- padding --><div style="height: 20px; font-size: 10px;">
                         <span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #57697e;">
 					</span>
                                         </div>
@@ -121,7 +121,7 @@ Licensed under MIT
                                 <tr><td align="justify">
                                         <div style="line-height: 24px;">
                                             <font face="Arial, Helvetica, sans-serif" size="4" color="#57697e" style="font-size: 15px;">
-					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
+					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #57697e;">
 
 
 
@@ -157,7 +157,7 @@ Licensed under MIT
                                                         <!-- padding --><div style="height: 18px; line-height: 18px; font-size: 10px;"> </div>
                                                         <div style="line-height: 21px;">
                                                             <font face="Arial, Helvetica, sans-serif" size="3" color="#98a7b9" style="font-size: 14px;">
-								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #98a7b9;">
+								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #98a7b9;">
 								{{trans('main.RELIABLE TEXT')}}
 								</span></font>
                                                         </div>
@@ -177,7 +177,7 @@ Licensed under MIT
                                                         <!-- padding --><div style="height: 18px; line-height: 18px; font-size: 10px;"> </div>
                                                         <div style="line-height: 21px;">
                                                             <font face="Arial, Helvetica, sans-serif" size="3" color="#98a7b9" style="font-size: 14px;">
-								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #98a7b9;">
+								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #98a7b9;">
 							{{trans('main.CONVENIENTLY TEXT')}}
 								</span></font>
                                                         </div>
@@ -197,7 +197,7 @@ Licensed under MIT
                                                         <!-- padding --><div style="height: 18px; line-height: 18px; font-size: 10px;"> </div>
                                                         <div style="line-height: 21px;">
                                                             <font face="Arial, Helvetica, sans-serif" size="3" color="#98a7b9" style="font-size: 14px;">
-								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #98a7b9;">
+								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #98a7b9;">
 									{{trans('main.RESPONSIBLY TEXT')}}
 								</span></font>
                                                         </div>
@@ -219,7 +219,7 @@ Licensed under MIT
                                             <tr>
                                                 <td align="center" valign="middle" style="font-size: 12px; line-height: 22px;">
                                                     <font face="Tahoma, Arial, Helvetica, sans-serif" size="2" color="#282f37" style="font-size: 12px;">
-                            <span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #5b9bd1;">
+                            <span style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #5b9bd1;">
 		              <a href="https://falconediting.com/en/page/about-our-company" target="_blank" style="color: #5b9bd1; text-decoration: none; padding: 0 15px;">About</a>
 		              <a href="https://falconediting.com/en/catalog" target="_blank" style="color: #5b9bd1; text-decoration: none; padding: 0 15px;">Services</a>
 		              <a href="https://falconediting.com/en/news" target="_blank" style="color: #5b9bd1; text-decoration: none; padding: 0 15px;">News</a>
@@ -239,7 +239,7 @@ Licensed under MIT
 
                     <!--footer -->
                     <tr><td class="iage_footer" align="center" bgcolor="#ffffff">
-                            <!-- padding --><div style="height: 80px; line-height: 80px; font-size: 10px;"> </div>
+                            <!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;"> </div>
 
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr><td align="center">

@@ -12,6 +12,7 @@ return [
     'Select service' => 'Выберите услугу',
     'Number of words' => 'Количество слов',
 
+    'Instructions' => 'Инструкции',
     'Fill in your information' => 'Заполните Ваши данные',
     'Specify service' => 'Укажите услугу',
     'Attach file (optional)' => 'Прикрепить файл (не обязательно)',

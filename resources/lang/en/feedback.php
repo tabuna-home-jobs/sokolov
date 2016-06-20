@@ -13,6 +13,8 @@ return [
     'Select service' => 'Select service',
     'Number of words' => 'Number of words',
 
+
+    'Instructions' => 'Instructions',
     'Fill in your information' => 'Fill in your information',
     'Specify service' => 'Specify service',
     'Attach file (optional)' => 'Attach file (optional)',

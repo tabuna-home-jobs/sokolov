@@ -36,7 +36,7 @@
                         <div class="form-group has-feedback">
                             <label for="username" class="control-label">{{trans('auth.Phone')}}</label>
                             <input type="text" class="form-control" name="phone" value="{{ old('phone') }}"
-                                   placeholder="+74742471542"/>
+                                   placeholder="+ 7-951-305-99-99" data-mask="+ 9-999-999-99-99"/>
                             <span class="glyphicon glyphicon-phone form-control-feedback"></span>
                         </div>
 

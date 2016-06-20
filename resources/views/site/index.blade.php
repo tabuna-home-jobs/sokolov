@@ -35,13 +35,13 @@
 
 
                 <div class="bs-example" data-example-id="thumbnails-with-custom-content">
-                    <div class="row">
+                    <div class="row items-container">
 
 
-                        <div class="col-sm-6 col-md-3">
+                        <div class="item col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/ru/catalog/redaktirovanie-nauchnykh-rabot')}}@else {{url("/en/catalog/editing-of-scientific-papers")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/ru/catalog/redaktirovanie-nauchnykh-rabot')}}@else {{url("/en/catalog/editing")}} @endif">
                                     <img class="img-hover" src="/img/service-1.png"
                                          data-altimg="/img/service-1-hover.png" alt="{{trans('main.Editing')}}">
 
@@ -57,7 +57,7 @@
 
                                 </div>
 
-                                <a href="/{{App::getLocale() ."/samples/4"}}" class="small">
+                                <a href="/{{App::getLocale() ."/samples/4"}}" class="small main-samples">
                                     {{trans('job.title')}}
                                 </a>
 
@@ -67,10 +67,10 @@
                         </div>
 
 
-                        <div class="col-sm-6 col-md-3">
+                        <div class="item col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/ru/catalog/tekhnicheskiy-perevod-rabot-s-russkogo-na-angliyskiy')}}@else {{url("/en/catalog/translation-services-from-russian-to-english")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/ru/catalog/tekhnicheskiy-perevod')}}@else {{url("/en/catalog/translation")}} @endif">
                                     <img class="img-hover" src="/img/service-2.png"
                                          data-altimg="/img/service-2-hover.png"  alt="{{trans('main.Translation')}}">
 
@@ -86,7 +86,7 @@
                                 </div>
 
 
-                                <a href="/{{App::getLocale() ."/samples/5"}}" class="small">
+                                <a href="/{{App::getLocale() ."/samples/5"}}" class="small main-samples">
                                     {{trans('job.title')}}
                                 </a>
 
@@ -95,10 +95,10 @@
                         </div>
 
 
-                        <div class="col-sm-6 col-md-3">
+                        <div class="item col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/ru/catalog/formatirovanie-nauchnykh-rabot-i-rukopisey')}}@else {{url("/en/catalog/formatting-of-scientific-papers-and-manuscripts")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/ru/catalog/formatirovanie')}}@else {{url("/en/catalog/formatting")}} @endif">
                                     <img class="img-hover" src="/img/service-3.png"
                                          data-altimg="/img/service-3-hover.png" alt="{{trans('main.Format')}}">
 
@@ -114,7 +114,7 @@
                                 </div>
 
 
-                                <a href="/{{App::getLocale() ."/samples/6"}}" class="small">
+                                <a href="/{{App::getLocale() ."/samples/6"}}" class="small main-samples">
                                     {{trans('job.title')}}
                                 </a>
 
@@ -122,10 +122,10 @@
                         </div>
 
 
-                        <div class="col-sm-6 col-md-3">
+                        <div class="item col-sm-6 col-md-3">
                             <div class="service service-edit">
 
-                                <a href="@if(App::getLocale() == 'ru') {{url('/ru/catalog/illyustrirovanie-nauchnykh-rukopisey')}}@else {{url("/en/catalog/illustration-services-for-scientific-manuscripts")}} @endif">
+                                <a href="@if(App::getLocale() == 'ru') {{url('/ru/catalog/illyustrirovanie')}}@else {{url("/en/catalog/illustration")}} @endif">
                                     <img class="img-hover" src="/img/service-4.png"
                                          data-altimg="/img/service-4-hover.png"  alt="{{trans('main.illustrating')}}">
 
@@ -145,7 +145,7 @@
                                 </div>
 
 
-                                <a href="/{{App::getLocale() ."/samples/7"}}" class="small">
+                                <a href="/{{App::getLocale() ."/samples/7"}}" class="small main-samples">
                                     {{trans('job.title')}}
                                 </a>
 

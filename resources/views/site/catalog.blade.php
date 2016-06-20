@@ -26,7 +26,7 @@
                                 <img class="img-hover" src="{{$gList->avatar}}"
                                      data-altimg="{{$gList->icon}}" alt="{{$gList->name}}">
 
-                                <h4>{{$gList->name}}</h4>
+                                <h3>{{$gList->name}}</h3>
                             </a>
 
                         </div>

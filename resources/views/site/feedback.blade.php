@@ -50,19 +50,21 @@
 
 
                             <div class="form-group has-feedback">
-                                    <label for="username" class="control-label">{{trans('feedback.Select service')}}</label>
-                                    <select class="form-control" name="service" required>
-                                        <option disabled selected>{{trans('feedback.Select service')}}</option>
-                                        @foreach($GoodsList as $good)
+                                <label for="username" class="control-label">{{trans('feedback.Select service')}}</label>
+                                <select class="form-control" name="service" required>
+                                    <option disabled selected>{{trans('feedback.Select service')}}</option>
+                                    @foreach($GoodsList as $good)
                                         <option value="{{$good->name}}">{{$good->name}}</option>
-                                        @endforeach
-                                    </select>
+                                    @endforeach
+                                </select>
                             </div>
 
 
                             <div class="form-group has-feedback">
-                                <label for="username" class="control-label">{{trans('feedback.Number of words')}}</label>
-                                <input type="number" class="form-control" name="count" min="0" required placeholder="{{trans('feedback.Number of words')}}">
+                                <label for="username"
+                                       class="control-label">{{trans('feedback.Number of words')}}</label>
+                                <input type="number" class="form-control" name="count" min="0" required
+                                       placeholder="{{trans('feedback.Number of words')}}">
                                 <span class="glyphicon glyphicon-font form-control-feedback"></span>
                             </div>
 
@@ -109,23 +111,16 @@
 
                     <div class="col-xs-12 col-md-4">
                         <div class="well well-primary">
-                            <p class="lead">{{trans('auth.Register now for ')}} {{trans('auth.free')}}
+                            <p class="lead">{{trans('feedback.Instructions')}}
                             </p>
                             <ul class="list-unstyled" style="line-height: 2">
-                                <li><span class="fa fa-check text-success"></span> {{trans('auth.Create orders')}}</li>
-                                <li><span class="fa fa-check text-success"></span> {{trans('auth.Pay for services')}}
-                                </li>
-                                <li><span class="fa fa-check text-success"></span> {{trans('auth.Check order status')}}
-                                </li>
-                                <li><span class="fa fa-check text-success"></span> {{trans('auth.Send questions')}}</li>
-                                <li><span class="fa fa-check text-success"></span> {{trans('auth.Leave reviews')}}</li>
+                                <li><span class="fa fa-check text-success"></span> {{trans('feedback.Fill in your information')}}</li>
+                                <li><span class="fa fa-check text-success"></span> {{trans('feedback.Attach file (optional)')}}</li>
+                                <li><span class="fa fa-check text-success"></span> {{trans('feedback.Write your message to us')}}</li>
+                                <li><span class="fa fa-check text-success"></span> {{trans('feedback.Specify service')}}</li>
+                                <li><span class="fa fa-check text-success"></span> {{trans('feedback.Specify number of words')}}</li>
+                                <li><span class="fa fa-check text-success"></span> {{trans('feedback.Click Send')}}</li>
                             </ul>
-                            <p class="text-center"><a href="/auth/register/"
-                                                      class="btn btn-info">{{trans('auth.I want to register')}}</a></p>
-
-                            <p class="text-center"><a target="_blank"
-                                                      href="@if(App::getLocale()=='ru') /page/publichnaya-oferta-ob-okazanii-perevodcheskikh-i-inykh-uslug @else /page/public-offer-on-provision-of-translation-and-other-services @endif">{{trans('auth.Terms of use')}}</a>
-                            </p>
                         </div>
                     </div>
 

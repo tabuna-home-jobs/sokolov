@@ -53,7 +53,7 @@
 
 
 </head>
-<body>
+<body class="test-rows">
 
 
 <div id="loader-wrapper">
@@ -417,6 +417,26 @@
         $('.carousel-inner div.item:first-child').addClass('active');
         $('.carousel').carousel('pause');
     });
+
+
+
+    var byRow = $('body').hasClass('test-rows');
+    $('.items-container').each(function() {
+        $(this).children('.item').matchHeight({
+            byRow: byRow
+        });
+    });
+    /*
+    $('.main-samples').each(function() {
+        $(this).addClass('p-a');
+    });
+*/
+
+
+
+
+
+
 
     $("form").submit(function (event) {
         $("#loader-wrapper").show('slow');

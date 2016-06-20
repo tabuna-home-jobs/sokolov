@@ -1756,3 +1756,19 @@ a.no-hover:hover, a.no-hover:active{
     padding: 30px;
 }
 */
+
+
+.p-a{
+    position: absolute;
+}
+
+
+.main-samples{
+    bottom: -3em;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    display: block;
+}
