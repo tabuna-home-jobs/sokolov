@@ -31,17 +31,20 @@ class ReviewsObserver
 
     public function created($model)
     {
-        $order = Order::select('act')->where('id', $model->order_id)->first();
+        if(!is_null($model->order_id)) {
+            $order = Order::select('act')->where('id', $model->order_id)->first();
 
-        $test = trans('notification.The customer has left a review for order #.', ['id' => $order->act]);
-        // Главному редактору, после того, как клиент оставил отзыв к заказу:
-        SMS::send($this->phone, $test);
-        Mail::raw(trans('notification.The customer has left a review for order #.', ['id' => $order->act]), function ($message) use ($order) {
-            $message->from($this->email, trans('notification.Your order # .', ['id' => $order->act]));
-            $message->to($this->email);
-            $message->subject(trans('notification.Your order # .', ['id' => $order->act]));
-        });
+            $test = trans('notification.The customer has left a review for order #.', ['id' => $order->act]);
+            // Главному редактору, после того, как клиент оставил отзыв к заказу:
+            SMS::send($this->phone, $test);
+            Mail::raw(trans('notification.The customer has left a review for order #.', ['id' => $order->act]),
+                function ($message) use ($order) {
+                    $message->from($this->email, trans('notification.Your order # .', ['id' => $order->act]));
+                    $message->to($this->email);
+                    $message->subject(trans('notification.Your order # .', ['id' => $order->act]));
+                });
 
-        App::setLocale(Session::get('lang', 'en'));
+            App::setLocale(Session::get('lang', 'en'));
+        }
     }
 }
