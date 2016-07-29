@@ -251,7 +251,7 @@
 
 
             <div class="row text-center">
-                <a href="#" class="btn btn-warning">{{trans('calc.Outside your budget?')}}</a>
+                <a href="/{{App::getLocale()}}/feedback" class="btn btn-warning btn-big">{{trans('calc.Outside your budget?')}}</a>
             </div>
 
 

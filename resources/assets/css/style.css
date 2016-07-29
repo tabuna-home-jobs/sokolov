@@ -1771,4 +1771,12 @@ a.no-hover:hover, a.no-hover:active{
     margin-right: auto;
     position: absolute;
     display: block;
+    color: #fff!important;
+    max-width: 130px;
 }
+
+
+.main-samples:hover, .main-samples:after, .main-samples:active{
+    color: #fff!important;
+}
+

@@ -57,7 +57,7 @@
 
                                 </div>
 
-                                <a href="/{{App::getLocale() ."/samples/4"}}" class="small main-samples">
+                                <a href="/{{App::getLocale() ."/samples/4"}}" class="small main-samples  btn btn-warning">
                                     {{trans('job.title')}}
                                 </a>
 
@@ -86,7 +86,7 @@
                                 </div>
 
 
-                                <a href="/{{App::getLocale() ."/samples/5"}}" class="small main-samples">
+                                <a href="/{{App::getLocale() ."/samples/5"}}" class="small main-samples  btn btn-warning">
                                     {{trans('job.title')}}
                                 </a>
 
@@ -114,7 +114,7 @@
                                 </div>
 
 
-                                <a href="/{{App::getLocale() ."/samples/6"}}" class="small main-samples">
+                                <a href="/{{App::getLocale() ."/samples/6"}}" class="small main-samples  btn btn-warning">
                                     {{trans('job.title')}}
                                 </a>
 
@@ -145,7 +145,7 @@
                                 </div>
 
 
-                                <a href="/{{App::getLocale() ."/samples/7"}}" class="small main-samples">
+                                <a href="/{{App::getLocale() ."/samples/7"}}" class="small main-samples  btn btn-warning">
                                     {{trans('job.title')}}
                                 </a>
 
@@ -389,7 +389,7 @@
                 <div class="text-center">
 
                     <h2 class="h1-slab">{{trans('main.Blog')}}</h2>
-                    <a href="{{URL::route(App::getLocale().'.blog.index')}}" class="a-mack">Все записи блога</a>
+                    <a href="{{URL::route(App::getLocale().'.blog.index')}}" class="a-mack">{{trans('content.All resources')}}</a>
 
                 </div>
 

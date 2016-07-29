@@ -28,7 +28,7 @@
 
                     <div class="col-md-1 vcenter">
                         <a href="{{route(App::getLocale().'.catalog.show',$next->slug)}}"><span
-                                    class="last-next fa fa-chevron-left hidden-sm hidden-xs"></span></a>
+                                    class="last-next fa fa-arrow-left hidden-sm hidden-xs"></span></a>
 
                     </div>
 
@@ -38,7 +38,7 @@
 
                     <div class="col-md-1 vcenter">
                         <a href="{{route(App::getLocale().'.catalog.show',$prev->slug)}}"><span
-                                    class="last-next fa fa-chevron-right hidden-sm hidden-xs"></span></a>
+                                    class="last-next fa fa fa-arrow-right hidden-sm hidden-xs"></span></a>
 
                     </div>
 
@@ -52,6 +52,20 @@
             <main class="blog-content">
                 {!!$Goods->text!!}
             </main>
+
+
+
+
+
+            <div class="col-md-4 col-md-offset-4">
+            <div class="calculate-wrapper">
+                @widget('calcucator')
+            </div>
+                </div>
+
+
+
+
 
 
         </div>

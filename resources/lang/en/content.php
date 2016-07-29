@@ -7,4 +7,6 @@ return [
     'Last news' => 'Latest News',
     'Resources' => 'Resources',
     'News' => 'News',
+
+    'All resources' => 'All resources',
 ];
