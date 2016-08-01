@@ -1781,3 +1781,13 @@ a.no-hover:hover, a.no-hover:active{
     text-decoration: initial!important;
 }
 
+
+@media screen and (min-device-width: 600px) {
+    .xs-100{
+        width: 100%;
+    }
+}
+
+.nav>li, .nav>li>a{
+    display: flex;
+}

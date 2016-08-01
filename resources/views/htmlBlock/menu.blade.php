@@ -35,7 +35,7 @@
                     @endif
 
             >{{$li->label}}</a>
-            <a class="pull-left dropdown-toggle" data-toggle="dropdown"
+            <a class="pull-left xs-100  dropdown-toggle" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false">
                 <span class="caret"></span>
             </a>
