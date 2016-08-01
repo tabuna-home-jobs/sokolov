@@ -1776,7 +1776,8 @@ a.no-hover:hover, a.no-hover:active{
 }
 
 
-.main-samples:hover, .main-samples:after, .main-samples:active{
+.service .main-samples:hover, .service .main-samples:after, .service .main-samples:active{
     color: #fff!important;
+    text-decoration: initial!important;
 }
 
