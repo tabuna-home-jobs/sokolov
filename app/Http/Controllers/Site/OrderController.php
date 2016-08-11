@@ -47,9 +47,7 @@ class OrderController extends Controller
             //$type = Category::lists('id', 'eng_name');
             $langTrans = LangOrder::lists('id', 'eng_name');
         }
-
         $type = Category::with('goods')->get();
-
         return view('site.createOrder', [
             'type' => $type,
             'langTrans' => $langTrans,

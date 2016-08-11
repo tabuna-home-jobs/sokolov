@@ -67,13 +67,13 @@
                                 </div>
                             </div>
 
-
-                            @if(!empty(count(unserialize($value->goods->first()->attribute))))
+                            @if(count(unserialize($value->goods->first()->attribute)) > 0 && $value->goods->first()->calculator)
                                 <div class="col-xs-4 pull-right">
                                     <select class="form-control select-disable-{{$value->id}}"
                                             name="type[{{$value->id}}][speed]">
+
                                         @for($i=0; $i < count(unserialize($value->goods->first()->attribute)); $i++ )
-                                            @if($i%2 ==0)
+                                            @if($i%2 ==0 &&  isset(unserialize($value->goods->first()->attribute)[$i]))
                                                 <option value="{{unserialize($value->goods->first()->attribute)[$i]}}">
                                                     {{trans('speed.' . unserialize($value->goods->first()->attribute)[$i] )}}
                                                 </option>
