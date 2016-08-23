@@ -87,11 +87,13 @@ class OrderController extends Controller
                     Storage::makeDirectory('/app/order/'.date('Y-m-d'));
                 }
 
-                $file->move(storage_path().'/app/order/'.date('Y-m-d'), Str::ascii(time().'-'.$file->getClientOriginalName()));
+                $time = time();
+
+                $file->move(storage_path().'/app/order/'.date('Y-m-d'), Str::ascii($time.'-'.$file->getClientOriginalName()));
                 $DBfile = new Files([
                     'user_id' => Auth::user()->id,
                     'original' => $file->getClientOriginalName(),
-                    'name' => date('Y-m-d').'/'.Str::ascii(time().'-'.$file->getClientOriginalName()),
+                    'name' => date('Y-m-d').'/'.Str::ascii($time.'-'.$file->getClientOriginalName()),
                     'type' => 'order',
                     'beglouto' => $newOrder->id,
                     'finish' => false,
