@@ -98,13 +98,13 @@ return [
     'You' => 'Вы',
     'We' => 'Мы',
 
-    'Editing' => 'Редактирование',
+    'Editing' => 'Редактирование на английском',
     'Correcting written
                              English scientific manuscripts
                              and elimination of grammar and
                              spelling mistakes' => 'Подчеркните уникальность вашей работы, доверяя корректировку английского языка профессиональными редакторам с ученой степенью кандидата наук и выше',
 
-    'Translation' => 'Перевод',
+    'Translation' => 'Технический перевод',
     'We provide technical
                              translation from Russian into
                              English' => 'Грамотный и оперативный технический перевод рукописей и других документов с русского на английский',
