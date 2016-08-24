@@ -32,11 +32,18 @@ class CalculatorController extends Controller
             $attr = unserialize($service->attribute);
 
             foreach ($attr as $key => $value) {
+                $floatValue = floatval($value);
+
                 if ((is_float($value) || is_int($value)) && $this->local == 'ru') {
                     $attr[$key] = round($value * CurrencyRate::getOneRecord(), 2);
                 } elseif (is_float($value)) {
                     $attr[$key] = round($value, 2);
                 }
+                elseif (floatval($value) == floatval(0))
+                {
+                    $attr[$key] = trans('speed.'.$value);
+                }
+
             }
 
             return $attr;

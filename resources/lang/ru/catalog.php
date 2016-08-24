@@ -23,4 +23,10 @@ return [
     'Formatting tables and graphs (one illustration of an unlimited number of tables and charts in it)' => 'Форматирование таблиц и графиков (одна иллюстрация с неограниченным количеством таблиц и графиков в ней)',
     'Creating an original illustration' => 'Создание оригинальной иллюстрации',
     '* the rate of USD' => '*курс USD',
+
+    'Economy' => 'Эконом',
+    'Standard' => 'Стандарт',
+    'Express' => 'Срочный',
+    'Custom' => 'Индивидуальный',
+
 ];

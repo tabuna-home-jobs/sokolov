@@ -22,4 +22,11 @@ return [
     'Formatting tables and graphs (one illustration of an unlimited number of tables and charts in it)' => 'Formatting of tables and graphs (one figure with an unlimited number of tables and graphs in it)',
     'Creating an original illustration' => 'Creating an original illustration',
     '* the rate of USD' => '',
+
+
+    'Economy' => 'Economy',
+    'Standard' => 'Standard',
+    'Express' => 'Express',
+    'Custom' => 'Custom',
+
 ];

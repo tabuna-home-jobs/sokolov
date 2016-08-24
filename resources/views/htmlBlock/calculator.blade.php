@@ -34,7 +34,9 @@
     <div class="form-group">
         <label for="words-{{$id or  '0'}}" class="col-sm-6 control-label">
             <span class="pull-left"> {{trans('calc.Number of words')}}</span><br>
+            <!--
             <small class="pull-left small"> {{trans('calc.exclude references and numbers in tables')}}</small>
+            -->
 
         </label>
 
@@ -62,11 +64,14 @@
             </div>
         </div>
 
+
+        {{--
         <div class="form-group">
             <div class="col-sm-offset-4 col-sm-8">
                 <button type="submit" class="btn btn-warning">Click here</button>
             </div>
         </div>
+        --}}
     </div>
 
 </form>
