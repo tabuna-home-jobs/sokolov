@@ -136,7 +136,7 @@
     });
 
 
-    $('input[name="words-{{$id or  '0'}}"]').change(function () {
+    $('input[name="words-{{$id or  '0'}}"]').keyup(function () {
         var words = $('input[name="words-{{$id or  '0'}}"]').val();
         var speed = $('select[name="speed-{{$id or  '0'}}"] :selected').val();
 
@@ -159,6 +159,10 @@
 
     });
 
+
+    $('#calculator-{{$id or  '0'}}').onsubmit(function(){
+        return false;
+    });
 
 
 
