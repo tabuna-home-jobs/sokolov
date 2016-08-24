@@ -10,7 +10,7 @@ return [
     'Express (2 days)' => 'Экспресс (2 дня)',
     'Technical translation of scientific manuscripts (including editing)' => 'Технический перевод научных рукописей (включает редактирование)',
     'Economy (10 days)' => 'Эконом (10 дней)',
-    'Standard (7 days)' => 'Стандарт (7 дня)',
+    'Standard (7 days)' => 'Стандарт (7 дней)',
     'Express (4 days)' => 'Экспресс (4 дня)',
     'Formatting scientific manuscripts' => 'Форматирование научных рукописей',
     'Word Count' => 'Количество слов',

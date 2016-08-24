@@ -166,7 +166,7 @@
                         <tr>
 
                             <td>0-5000</td>
-                            <td>2 {{trans('catalog.day')}}</td>
+                            <td>2 {{trans('catalog.days')}}</td>
                             <td>@if(App::getLocale() == 'en')
                                     {{$goods['6-attr']['0-5000']}}  @else {{ number_format(round(  $goods['6-attr']['0-5000'] * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
@@ -175,7 +175,7 @@
                         <tr>
 
                             <td>5000-10000</td>
-                            <td>4 {{trans('catalog.day')}}</td>
+                            <td>4 {{trans('catalog.days')}}</td>
                             <td>@if(App::getLocale() == 'en')
                                     {{$goods['6-attr']['5000-10000']}}  @else {{ number_format(round( $goods['6-attr']['5000-10000'] * CurrencyRate::getOneRecord(),2),2, '.', ' ')}} @endif</td>
                         </tr>
