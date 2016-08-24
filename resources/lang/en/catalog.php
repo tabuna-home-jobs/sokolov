@@ -15,6 +15,7 @@ return [
     'Formatting scientific manuscripts' => 'Formatting',
     'Word Count' => 'Word Count',
     'day' => 'days',
+    'days' => 'days',
     'By agreement' => 'Request a quote',
     'Illustrating scientific manuscripts' => 'Illustration',
     'Service' => 'Service',

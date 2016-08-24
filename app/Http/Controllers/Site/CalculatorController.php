@@ -41,7 +41,7 @@ class CalculatorController extends Controller
                 }
                 elseif (floatval($value) == floatval(0))
                 {
-                    $attr[$key] = trans('speed.'.$value);
+                    $attr[$key] = trans('speed.'.$service->category_id.$value);
                 }
 
             }

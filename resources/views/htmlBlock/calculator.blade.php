@@ -3,11 +3,11 @@
     <h3 class="text-center text-primary">{{trans('calc.Quick quote')}}</h3>
 
     <div class="form-group">
-        <label for="service-{{$id or  '0'}}" class="col-sm-6 control-label text-left">
+        <label for="service-{{$id or  '0'}}" class="col-sm-5 control-label text-left">
             <span class="pull-left">{{trans('calc.Service')}}</span>
         </label>
 
-        <div class="col-sm-6">
+        <div class="col-sm-7">
             <select class="form-control" name="service-{{$id or  '0'}}">
                 <option value="0" disabled selected>{{trans('calc.Select service')}}</option>
                 @foreach($services as $value)
@@ -19,11 +19,11 @@
 
 
     <div class="form-group">
-        <label for="speed-{{$id or  '0'}}" class="col-sm-6 control-label">
+        <label for="speed-{{$id or  '0'}}" class="col-sm-5 control-label">
             <span class="pull-left">{{trans('calc.Speed')}}</span>
         </label>
 
-        <div class="col-sm-6">
+        <div class="col-sm-7">
             <select class="form-control" name="speed-{{$id or  '0'}}" disabled>
                 <option value="">{{trans('calc.Speed')}}</option>
             </select>
@@ -32,7 +32,7 @@
 
 
     <div class="form-group">
-        <label for="words-{{$id or  '0'}}" class="col-sm-6 control-label">
+        <label for="words-{{$id or  '0'}}" class="col-sm-5 control-label">
             <span class="pull-left"> {{trans('calc.Number of words')}}</span><br>
             {{--
             <small class="pull-left small"> {{trans('calc.exclude references and numbers in tables')}}</small>
@@ -40,24 +40,24 @@
 
         </label>
 
-        <div class="col-sm-6">
+        <div class="col-sm-7">
             <input type="number" name="words-{{$id or  '0'}}" min="0" class="form-control" disabled placeholder="0">
         </div>
     </div>
 
 
     <div class="form-group">
-        <label for="price-{{$id or  '0'}}" class="col-sm-6 control-label">
+        <label for="price-{{$id or  '0'}}" class="col-sm-5 control-label">
             <span class="pull-left">{{trans('calc.Estimate')}}</span>
         </label>
 
-        <div class="col-sm-6">
+        <div class="col-sm-7">
             <input type="text" readonly class="form-control" min="0" name="price-{{$id or  '0'}}" placeholder="0.00">
         </div>
     </div>
     <div class="calc-button-{{$id or  '0'}}" style="display:none;">
         <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-8 text-center">
+            <div class="text-center">
                 <a class="btn btn-primary" href="/{{App::getLocale()}}/feedback">
                     <strong>{{trans('calc.Outside your budget?')}}</strong>
                 </a>

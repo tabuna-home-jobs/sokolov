@@ -14,7 +14,7 @@
                     <img src="{{$element->img}}" alt="{{$element->title}}">
 
                     <div class="carousel-caption">
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                         <h2>{{$element->title}}</h2>
 
                         <p>
@@ -29,7 +29,7 @@
                             </div>
 
 
-                        <div class="col-sm-offset-1 col-md-4 calculate-wrapper">
+                        <div class=" col-md-6 calculate-wrapper">
 
 
                             @widget('calcucator',$key)

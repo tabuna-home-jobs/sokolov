@@ -58,7 +58,7 @@ a:active, a:hover , .btn{
 .carousel-inner .item img {
     margin: auto;
     padding: 0px;
-    height: 520px;
+    height: 570px;
 }
 
 .carousel-control.left, .carousel-control.right {
@@ -151,12 +151,12 @@ a:active, a:hover , .btn{
 
 @media screen and (min-width: 768px) {
     .carousel-caption {
-        /*right: 30%;*/
+        right: 15%;
         padding-bottom: 30px;
         top: 20px;
         text-align: inherit;
         text-shadow: none;
-        /*left: 20%;*/
+        left: 15%;
     }
 }
 
