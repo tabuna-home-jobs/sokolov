@@ -176,8 +176,8 @@
                 },
                 success: function (json) {
                     var data = JSON.parse(json);
-                    $(".left").html("<img src='" + data.after + "'>");
-                    $(".right").html("<img src='" + data.before + "'>");
+                    $(".left").html("<img src='" + data.before + "'>");
+                    $(".right").html("<img src='" + data.after + "'>");
 
                     $('.slider').show().slider();
                 }
