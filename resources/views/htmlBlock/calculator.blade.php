@@ -135,7 +135,6 @@
         $("#loader-wrapper").hide();
     });
 
-
     $('input[name="words-{{$id or  '0'}}"]').keyup(function () {
         var words = $('input[name="words-{{$id or  '0'}}"]').val();
         var speed = $('select[name="speed-{{$id or  '0'}}"] :selected').val();
@@ -157,6 +156,11 @@
 
         $(".calc-button-{{$id or  '0'}}").show('slow');
 
+    });
+
+
+    $('input[name="words-{{$id or  '0'}}"]').change(function(){
+        $(this).keyup();
     });
 
 

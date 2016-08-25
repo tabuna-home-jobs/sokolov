@@ -10,42 +10,74 @@
     <div class="container blog-container">
 
 
-
+        {{--
         <div class="page-header text-center">
-            <h2 class="text-center">{{trans('job.title')}}</h2>
+            <h2 class="text-center">{{trans('job.title')}} </h2>
         </div>
+        --}}
+        {{--
+        dd($Works->perPage())
+        --}}
+
+        <header>
+
+
+            <div class="text-center row">
+
+                <div class="col-md-1 vcenter">
+                    <a @if($Works->currentPage()!=1) href="{{$Works->previousPageUrl()}}" @else class="disable_arr" @endif><span
+                                class="last-next fa fa-arrow-left hidden-sm hidden-xs"></span></a>
+
+                </div>
+
+                <div class="col-md-9 col-xs-12 vcenter">
+                    <h1> {{trans('job.title')}}</h1>
+                </div>
+
+                <div class="col-md-1 vcenter">
+                    <a @if($Works->hasMorePages()) href="{{$Works->nextPageUrl()}}" @else class="disable_arr" @endif><span
+                                class="last-next fa fa fa-arrow-right hidden-sm hidden-xs"></span></a>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
 
 
         <div class="row">
 
-             @foreach($Works as $key =>$good)
+            @foreach($Works as $key =>$good)
 
-                 @if($key < 4)
-                <div class="col-md-3">
-                    <div class="row finish-work">
-                        <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false">
-                            <p class="text-center"><i class="fa fa-file-text-o"></i></p>
-                            <p class="title">{{$good->name}}</p>
-                        </a>
+                @if($key < 4)
+                    <div class="col-md-3">
+                        <div class="row finish-work">
+                            <a class="gettext" data-expl_id="{{$good->id}}" data-toggle="collapse" href="#collapse"
+                               aria-expanded="false">
+                                <p class="text-center"><i class="fa fa-file-text-o"></i></p>
+                                <p class="title">{{$good->name}}</p>
+                            </a>
 
-                        <div>
-                            <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false"><i class="fa fa-eye"></i></a>
-                            <a href="{{$good->download}}" target="_blank"><i class="fa fa-download"></i></a>
+                            <div>
+                                <a class="gettext" data-expl_id="{{$good->id}}" data-toggle="collapse" href="#collapse"
+                                   aria-expanded="false"><i class="fa fa-eye"></i></a>
+                                <a href="{{$good->download}}" target="_blank"><i class="fa fa-download"></i></a>
+                            </div>
                         </div>
+
                     </div>
 
-                </div>
-
-                @if(($key+1) % 4 == 0)
-                    <div class="clearfix"></div>
-                @endif
+                    @if(($key+1) % 4 == 0)
+                        <div class="clearfix"></div>
+                    @endif
 
                 @endif
             @endforeach
 
             <div class="collapse col-xs-12  in" id="collapse">
                 <div class="wrap-slide-text col-sm-12 hidden-xs">
-
 
 
                     <div class="row">
@@ -72,56 +104,49 @@
                     </div>
 
 
-
-
                 </div>
             </div>
 
 
+            @foreach($Works as $key =>$good)
+
+                @if($key > 3)
+                    <div class="col-md-3">
+                        <div class="row finish-work">
+                            <a class="gettext" data-expl_id="{{$good->id}}" data-toggle="collapse" href="#collapse"
+                               aria-expanded="false">
+                                <p class="text-center"><i class="fa fa-file-text-o"></i></p>
+                                <p class="title">{{$good->name}}</p>
+                            </a>
+
+                            <div>
+                                <a class="gettext" data-expl_id="{{$good->id}}" data-toggle="collapse" href="#collapse"
+                                   aria-expanded="false"><i class="fa fa-eye"></i></a>
+                                <a href="{{$good->download}}" target="_blank"><i class="fa fa-download"></i></a>
+                            </div>
+                        </div>
 
 
-                 @foreach($Works as $key =>$good)
+                    </div>
 
-                     @if($key > 3)
-                         <div class="col-md-3">
-                             <div class="row finish-work">
-                                 <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false">
-                                    <p class="text-center"><i class="fa fa-file-text-o"></i></p>
-                                    <p class="title">{{$good->name}}</p>
-                                 </a>
+                    @if(($key+1) % 4 == 0)
+                        <div class="clearfix"></div>
+                    @endif
 
-                                 <div>
-                                     <a class="gettext" data-expl_id="{{$good->id}}"  data-toggle="collapse" href="#collapse" aria-expanded="false"><i class="fa fa-eye"></i></a>
-                                     <a href="{{$good->download}}" target="_blank"><i class="fa fa-download"></i></a>
-                                 </div>
-                                 </div>
-
-
-                         </div>
-
-                         @if(($key+1) % 4 == 0)
-                             <div class="clearfix"></div>
-                         @endif
-
-                     @endif
-                 @endforeach
-
-
-
-
+                @endif
+            @endforeach
 
 
         </div>
 
-
+        {{--
         <div class="row">
 
             <div class="text-center">
                 {!! $Works->render() !!}
             </div>
-            </div>
-
-
+        </div>
+        --}}
 
     </div>
 
@@ -134,7 +159,7 @@
         $('.slider').hide();
 
         //Берём текст перевода
-        $("body").on('click', '.gettext', function(){
+        $("body").on('click', '.gettext', function () {
             var data = {};
             data['id'] = $(this).attr('data-expl_id');
 
@@ -144,12 +169,12 @@
 
 
             $.ajax({
-                url: "/examplegetone/exampleone/"+data['id'],
+                url: "/examplegetone/exampleone/" + data['id'],
                 type: "GET",
                 headers: {
                     'X-CSRF-TOKEN': $('#token').attr('content')
                 },
-                success: function(json) {
+                success: function (json) {
                     var data = JSON.parse(json);
                     $(".left").html("<img src='" + data.after + "'>");
                     $(".right").html("<img src='" + data.before + "'>");
@@ -159,8 +184,6 @@
             });
 
         });
-
-
 
 
     </script>
