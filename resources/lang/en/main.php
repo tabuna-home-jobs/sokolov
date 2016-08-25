@@ -39,7 +39,7 @@ return [
                              and elimination of grammar and
                              spelling mistakes' => 'Highlight the uniqueness of your work with editing performed by English experts with advanced Ph.D. degrees',
 
-    'Translation' => 'Translating',
+    'Translation' => 'Translation',
     'We provide technical
                              translation from Russian into
                              English' => 'Competent and prompt technical translations of scientific manuscripts and other documents from Russian to English',

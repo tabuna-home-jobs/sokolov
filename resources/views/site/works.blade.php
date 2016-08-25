@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="col-md-9 col-xs-12 vcenter">
-                    <h1> {{trans('job.title')}}</h1>
+                    <h1> {{trans('works.'.$category_id)}}</h1>
                 </div>
 
                 <div class="col-md-1 vcenter">

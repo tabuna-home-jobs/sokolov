@@ -61,6 +61,7 @@ class WorksController extends Controller
 
         return view('site.works', [
             'Works' => $Works,
+            'category_id' => $id,
         ]);
     }
 
