@@ -348,17 +348,17 @@
 
 
 <div class="b-panel-subscribe col-sm-12 hidden-xs">
-    <div class="col-md-10 col-sm-offset-1">
+    <div class="col-sm-10 col-sm-offset-1">
 
 
 
         <div class="subscribe-block">
-            <div class="col-md-6 v-center">
+            <div class="col-sm-6 v-center">
                 <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
                 <span>{{trans('main.subscription-text')}}</span>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 <form method="post" action="/subscribe" id="subscribe">
                     <input type="email" name="email" placeholder="{{trans('main.subscrption-email')}}" required>
                     <button type="submit">{{trans('main.subscription')}}</button>

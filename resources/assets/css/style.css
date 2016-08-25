@@ -370,6 +370,8 @@ a:active, a:hover , .btn{
 
 .service {
     text-align: center;
+    /*margin-bottom: 5em;
+    position: relative;*/
 }
 
 .service a {
@@ -382,7 +384,10 @@ a:active, a:hover , .btn{
     text-decoration: underline;
 }
 
-
+.container-service .item{
+    margin-bottom: 5em;
+    position: relative;
+}
 .container-service{
     padding-bottom: 60px;
 }
@@ -1790,4 +1795,10 @@ a.no-hover:hover, a.no-hover:active{
 
 .nav>li, .nav>li>a{
     display: flex;
+}
+.caret{
+    margin-top: 3px;
+    border-top: 6px dashed;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
 }
