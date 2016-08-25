@@ -290,7 +290,8 @@
                                             <div class="container">
                                                 <div class="col-md-6 col-md-offset-3 text-center">
                                                     <div class="text-center">
-                                                        @if(!is_null($reviews->avatar))
+
+                                                        @if(!empty($reviews->avatar))
                                                         <img src="{{$reviews->avatar}}" class="img-circle" alt="{{$reviews->name}}">
                                                         @endif
                                                         <h3>{{$reviews->name}}</h3>

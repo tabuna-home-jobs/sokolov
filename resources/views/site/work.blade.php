@@ -7,7 +7,6 @@
     <div class="container blog-container">
 
 
-
         <div class="page-header text-center">
             <h2 class="text-center">{{trans('job.title')}}</h2>
         </div>
