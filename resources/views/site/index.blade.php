@@ -198,7 +198,6 @@
                                     <p>{{trans('main.RELIABLE TEXT')}}</p>
                                 </div>
                             </div>
-                            <div class="clearfix"></div>
                         </div>
 
 
