@@ -25,7 +25,7 @@
             <div class="text-center row">
 
                 <div class="col-md-1 vcenter">
-                    <a @if($Works->currentPage()!=1) href="{{$Works->previousPageUrl()}}" @else class="disable_arr" @endif><span
+                    <a href="{{route(App::getLocale().'.samples.show',$next->id)}}"><span
                                 class="last-next fa fa-arrow-left hidden-sm hidden-xs"></span></a>
 
                 </div>
@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="col-md-1 vcenter">
-                    <a @if($Works->hasMorePages()) href="{{$Works->nextPageUrl()}}" @else class="disable_arr" @endif><span
+                    <a href="{{route(App::getLocale().'.samples.show',$prev->id)}}"><span
                                 class="last-next fa fa fa-arrow-right hidden-sm hidden-xs"></span></a>
 
                 </div>
@@ -139,14 +139,14 @@
 
         </div>
 
-        {{--
+
         <div class="row">
 
             <div class="text-center">
                 {!! $Works->render() !!}
             </div>
         </div>
-        --}}
+
 
     </div>
 

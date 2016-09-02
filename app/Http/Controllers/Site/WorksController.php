@@ -7,6 +7,7 @@ use App;
 use App\Models\Goods;
 use App\Http\Controllers\Controller;
 use App\Models\Work;
+use App\Models\Category;
 
 class WorksController extends Controller
 {
@@ -55,6 +56,25 @@ class WorksController extends Controller
      */
     public function show($id)
     {
+
+        $prev = Category::select('id')->whereRaw('id != ? and id > ?',
+            [$id, $id])->orderBy('id', 'ASC')->first();
+
+        if (is_null($prev)) {
+            $prev = Category::select('id')->whereRaw('id != ? and id < ?',
+                [$id, $id])->orderBy('id', 'ASC')->limit(1)->first();
+        }
+
+        $next = Category::select('id')->whereRaw('id != ? and id < ?',
+            [$id, $id])->orderBy('id', 'Desc')->first();
+        if (is_null($next)) {
+            $next = Category::select('id')->whereRaw('id != ? and id > ?',
+                [$id, $id])->orderBy('id', 'Desc')->limit(1)->first();
+        }
+
+
+
+
         $Works = Work::where('category_id', $id)
             ->where('lang', App::getLocale())
             ->simplePaginate(8);
@@ -62,6 +82,8 @@ class WorksController extends Controller
         return view('site.works', [
             'Works' => $Works,
             'category_id' => $id,
+            'next' => $next,
+            'prev' => $prev,
         ]);
     }
 

@@ -66,6 +66,9 @@ class ExamplesController extends Controller
     public function show(Goods $goods)
     {
         $good = Goods::whereRaw('lang = ? and id = ?', [App::getLocale(), $goods->id])->firstOrFail();
+
+
+
         $exampleslist = Examples::whereRaw('lang = ? and category_id = ?', [App::getLocale(), $goods->id])->orderBy('id', 'asc')->limit(8)->get();
 
         return view('site.catalogElement', [
