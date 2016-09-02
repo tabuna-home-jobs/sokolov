@@ -77,7 +77,7 @@ class WorksController extends Controller
 
         $Works = Work::where('category_id', $id)
             ->where('lang', App::getLocale())
-            ->simplePaginate(8);
+            ->paginate(8);
 
         return view('site.works', [
             'Works' => $Works,
